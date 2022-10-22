@@ -1,0 +1,115 @@
+﻿@model MudasirRehmanAlp.Models.GoodReceivedReturn
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+</head>
+<body onload="window.print();">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Goods Return Note
+            <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Organization Name: </label>
+                    @{
+                        if (Model.OrganizationID != null)
+                        {
+                            <span>
+                                @Model.OrganizationDefinition.OrganizationUnitName
+                            </span>
+                        }
+                    }
+                </div>
+                <div class="col-sm-3">
+                    <label>Branch Name: </label>
+                    @{
+                        if (Model.BranchId != null)
+                        {
+                            <span>
+                                @Model.BranchDefinition.Name
+                            </span>
+                        }
+                    }
+                </div>
+                <div class="col-sm-3">
+                    <label>GRTN Date: </label>
+                    <span>
+                        @{
+
+                            @Model.Date
+
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>GRN No: </label>
+                    <span>
+                        @{
+                            if (Model.GoodsReceivedID != null)
+                            {
+                                @Model.GoodReceived.GRNNO
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>Main Reason: </label>
+                    <span>
+                        @{
+
+                            @Model.MainReason
+
+                        }
+                    </span>
+                </div>
+
+            </div>
+         
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Stock QTY</th>
+                        <th>GRN QTY</th>
+                        <th>Return QTY</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.GoodsReturnDetailsList as List<MudasirRehmanAlp.Models.GoodReceivedReturnDetail>)
+                        {
+
+
+                            <tr>
+                                <td title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                <td title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                <td title="@item.ReceiveQuantity">@item.ReceiveQuantity</td>
+                                <td title="@item.ReturnQuantity">@item.ReturnQuantity</td>
+                                <td title="@item.Reason">@item.Reason</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
+
+

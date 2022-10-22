@@ -1,0 +1,142 @@
+﻿@model MudasirRehmanAlp.Models.AdjustmentNote
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+</head>
+<body onload="window.print();">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Adjustment Note
+            <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Organization: </label>
+                    @{
+                        if (Model.OrganizationID != null)
+                        {
+                            <span>
+                                @Model.OrganizationDefinition.OrganizationUnitName
+                            </span>
+                        }
+                    }
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Branch Name: </label>
+                    <span>
+                        @{ if (Model.BranchId != null)
+                            {
+                                @Model.BranchDefinition.Name
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>  Adjustment Note No : </label>
+                    <span>
+                        @{
+
+                            @Model.AdjustmentNoteNO
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>Description : </label>
+                    <span>
+                        @{
+
+                            @Model.Description
+                        }
+                    </span>
+                </div>
+
+
+                <div class="col-sm-3">
+                    <label>Date: </label>
+                    <span>
+                        @{
+                            @Model.Date
+                        }
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Unit Rate</th>
+                        <th>Total</th>
+                        <th>Dis %</th>
+                        <th>Dis UR</th>
+                        <th>TAD</th>
+                        <th>Dis Amt</th>
+                        <th>Sale Tax</th>
+                        <th>Sale Tax Amt</th>
+                        <th>Total Tax Inclusive</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in ViewBag.ListAdjustmentNoteDetails as List<MudasirRehmanAlp.Models.AdjustmentNoteDetail>)
+                        {
+
+                            <tr>
+                                <td>@item.ProductDefinition.ProductName</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.UnitRate</td>
+                                <td>@item.TotalWithOutSaleTax</td>
+                                <td>@item.DiscountPercentage %</td>
+                                <td>@item.DiscountedUnitRate</td>
+                                <td>@item.TotalAfterDiscount</td>
+                                <td>@item.DiscountAmount</td>
+                                <td>@item.SaleTaxPercentage %</td>
+                                <td>@item.SaleTaxAmount</td>
+                                <td>@item.TotalTaxInclusive</td>
+
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-8 col-sm-4 pv">
+                <div class="clearfix">
+                    <p class="pull-left">Subtotal WST</p>
+                    <p class="pull-right mr">$ @Model.SubTotalWithSaleTax</p>
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left">Subtotal WOST</p>
+                    <p class="pull-right mr">$ @Model.SubTotalWithOutSaleTax</p>
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left">Freight Charges </p>
+                    <p class="pull-right mr">$ @Model.FreightCharges</p>
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left h3">Net TOTAL</p>
+                    <p class="pull-right mr h3">$ @Model.NetTotal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

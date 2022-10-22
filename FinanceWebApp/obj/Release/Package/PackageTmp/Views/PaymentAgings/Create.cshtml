@@ -1,0 +1,84 @@
+﻿@model MudasirRehmanAlp.Models.PaymentAging
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/Select2/css")
+
+<div class="panel panel-default">
+    <div class="panel-heading">PaymentAgings</div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Code</label>
+                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control form-control-rounded", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.OrganizationUnitName )" id="hiddenOrganizationName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationId, new { @id = "hiddenOrganizationID" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.BranchName )" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Name</label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+        showMessage(message, Validation)
+          //---------- Permission Code
+              var rName = 'PaymentAgings';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------
+    });
+
+    </script>
+}

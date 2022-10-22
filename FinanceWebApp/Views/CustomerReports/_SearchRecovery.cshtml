@@ -1,0 +1,45 @@
+﻿@model IList<MudasirRehmanAlp.Models.VouchersHead>
+@using MudasirRehmanAlp.ModelsView;
+@using MudasirRehmanAlp.AppDAL;
+@{
+
+    var counter = 0;
+    
+}
+<table class="table table-hover" data-page-length='50'>
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+               
+                counter = counter + 1;
+
+                <tr>
+                    <td>@counter</td>
+                    <td>@item.VoucherDate</td>
+                    <td>
+                        @{
+                            if (item.PaymentType == CommonEnums.PaymentType.SaleOrder && item.SaleId != null)
+                            {
+                                @item.SaleOrder.Account.AccountNo
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            if (item.PaymentType == CommonEnums.PaymentType.SaleOrder && item.SaleId != null)
+                            {
+                                @item.SaleOrder.CustomerStatement.Name
+                            }
+                        }
+                    </td>
+                    <td>@item.VoucherCode</td>
+                    <td>@item.TotalAmount</td>
+                  
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

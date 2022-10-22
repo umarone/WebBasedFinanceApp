@@ -1,0 +1,315 @@
+﻿@model MudasirRehmanAlp.Models.SaleOrder
+
+@{
+    Layout = null;
+    DateTime TodayDate = DateTime.Now;
+    int itemCount = 0;
+    int GtCounter = 0;
+}
+<div style="text-align: center;">
+    <duv><b>CUSTOMER SALE ORDER</b></duv>
+    <br />
+    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Customer Name: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.Name </span> ______________________________________________ S/O, W/O:<span style="position:absolute;margin-left:30px">@Model.CustomerStatement.GuardianName </span> __________________________________________    </span></span><span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt">
+                        <br />
+                        <span style="line-height:150%">CNIC No:<span style="position:absolute;margin-left:30px">@Model.CustomerStatement.CNICNo </span>    ____________________________________________ Mobile Number: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.MobileNo </span>________________________________</span>
+                    </span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Permanent Address:<span style="position:absolute;margin-left:30px">@Model.CustomerStatement.PermanentAddress </span> __________________________________________________________________________________</span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Owner / Rented:<span style="position:absolute;margin-left:30px">@Model.CustomerStatement.PermanentOwnership </span> ___________________________  years <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.PermanentNoOfYear </span>______________________________________________________ </span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Department: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.DepartmentName </span>___________________________________ Designation <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.DesignationName </span>___________________________________</span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Business Address:<span style="position:absolute;margin-left:30px">@Model.CustomerStatement.BusinessAddress </span> ____________________________________________________________________________________</span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Age: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.Age </span>_________ Date of Appointment:<span style="position:absolute;margin-left:30px">@Model.CustomerStatement.AppointmentDate </span> _________________________ Date of Retirement: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.RetirementDate </span>_____________________________</span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Bank Name: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.BankName </span>____________________________________________ Account Number: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.AccountNo </span>______________________________</span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Branch Name: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.BranchName </span>___________________________________________Gross Salary: <span style="position:absolute;margin-left:30px">@Model.CustomerStatement.GrossSalary </span>_________________________________</span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <div style="text-align: center;"><u><b>Detail of Products Price and Instalments</b></u></div>
+
+    <br />
+    <table class="MsoTableTheme" style="border-collapse:collapse; border:solid windowtext 1.0pt;display: inline-table;">
+        <tbody>
+            <tr style="height:26.95pt">
+                <td style="border:solid windowtext 1.0pt; width:26.5pt; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="35">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Sr. No.</span></span>
+                        </span>
+                    </span>
+                </td>
+                <td style="border:solid windowtext 1.0pt; width:190.45pt; border-left:none; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="254">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Product</span></span>
+                        </span>
+                    </span>
+                </td>
+                <td style="border:solid windowtext 1.0pt; width:34.65pt; border-left:none; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="46">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Qty.</span></span>
+                        </span>
+                    </span>
+                </td>
+                <td style="border:solid windowtext 1.0pt; width:50.85pt; border-left:none; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="68">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Total Price</span></span>
+                        </span>
+                    </span><br />
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">(RS)</span></span>
+                        </span>
+                    </span>
+                </td>
+                <td style="border:solid windowtext 1.0pt; width:50.65pt; border-left:none; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="73">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Processing Fee</span></span>
+                        </span>
+                    </span>
+                </td>
+                <td style="border:solid windowtext 1.0pt; width:62.45pt; border-left:none; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="83">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Plan of Instalments</span></span>
+                        </span>
+                    </span>
+                </td>
+                <td style="border:solid windowtext 1.0pt; width:54.3pt; border-left:none; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="72">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Down Payment</span></span>
+                        </span>
+                    </span>
+                </td>
+                <td style="border:solid windowtext 1.0pt; width:54.3pt; border-left:none; padding:0in 5.4pt 0in 5.4pt; height:26.95pt" width="73">
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Instalments </span></span>
+                        </span>
+                    </span><br />
+                    <span style="font-size:12pt">
+                        <span style="font-family:Arial,sans-serif">
+                            <span style="color:black"><span lang="EN-GB" style="font-size:8.0pt">Per Month. (RS)</span></span>
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            @{
+                foreach (var item in ViewBag.ListSaleOrderDetails as List<MudasirRehmanAlp.Models.SaleOrderDetail>)
+                {
+                    itemCount = itemCount + 1;
+
+                    <tr style="height:20.65pt">
+                        <td style="border:solid windowtext 1.0pt; width:26.5pt; border-top:none; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="35"> @itemCount</td>
+                        <td style="border-bottom:solid windowtext 1.0pt; width:190.45pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="254"> @item.ProductDefinition.ProductName</td>
+                        <td style="border-bottom:solid windowtext 1.0pt; width:34.65pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="46">@item.Quantity </td>
+                        <td style="border-bottom:solid windowtext 1.0pt; width:50.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="68"> @item.UnitRate</td>
+                        <td style="border-bottom:solid windowtext 1.0pt; width:50.65pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="73">@item.ProcessingFee </td>
+                        <td style="border-bottom:solid windowtext 1.0pt; width:62.45pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="83">@item.NoOfMonths </td>
+                        <td style="border-bottom:solid windowtext 1.0pt; width:54.3pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="72">@item.DownPayment </td>
+                        <td style="border-bottom:solid windowtext 1.0pt; width:54.3pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0in 5.4pt 0in 5.4pt; height:20.65pt" width="73"> @item.InstallmentPerMonth</td>
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+    <br />
+    <span style="font-size:12pt">
+        <span style="font-family:Arial,sans-serif">
+            <span style="color:black"><span lang="EN-GB" style="font-size:10.0pt">I want to purchase the above-mentioned products from <b>@Model.OrganizationDefinition.OrganizationUnitName (@Model.BranchDefinition.Name)</b> on instalments and issuing the post-dated cheques of instalments.</span></span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="font-family:Arial,sans-serif">
+            <span style="color:black"><span lang="EN-GB" style="font-size:10.0pt">Dated: ___________________ Applicant Signature: ____________________ Applicant Thumb Impression: _________</span></span>
+        </span>
+    </span><br />
+    <br />
+
+    <duv><b>Guarantor Details </b></duv>
+    <br />
+    <br clear="ALL" />
+    @{
+        foreach (var item in ViewBag.GuarantorDefinitionsList as List<MudasirRehmanAlp.Models.GuarantorDefinition>)
+        {
+            GtCounter = GtCounter + 1;
+            <span style="font-size:12pt">
+                <span style="font-family:Arial,sans-serif">
+                    <span style="color:black">
+                        <b>
+                            <i><span lang="EN-GB" style="font-size:10.0pt">Guarantor @GtCounter: </span></i>
+                        </b>
+                    </span>
+                </span>
+            </span><br />
+            <br />
+            <span style="font-size:12pt">
+                <span style="font-family:Arial,sans-serif">
+                    <span style="color:black"><span lang="EN-GB" style="font-size:9.0pt">We do here by affirm that the applicant will regularly pay his instalment amount and we shall be responsible to settle the balance in case of default. </span></span>
+                </span>
+            </span><br />
+            <span style="font-size:12pt">
+                <span style="line-height:150%">
+                    <span style="font-family:Arial,sans-serif">
+                        <span style="color:black">
+                            <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Name:<span style="position:absolute;margin-left:30px">@item.FirstName </span> ________________________________________________ S/O, W/O: <span style="position:absolute;margin-left:30px">@item.GuardianName </span>____________________________________    </span></span>
+                        </span>
+                    </span>
+                </span>
+            </span><br />
+            <span style="font-size:12pt">
+                <span style="line-height:150%">
+                    <span style="font-family:Arial,sans-serif">
+                        <span style="color:black">
+                            <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">CNIC No:<span style="position:absolute;margin-left:30px">@item.CNICNo </span>    ____________________________________________ Mobile Number:<span style="position:absolute;margin-left:30px">@item.MobileNo </span> ________________________________</span></span>
+                        </span>
+                    </span>
+                </span>
+            </span><br />
+            <span style="font-size:12pt">
+                <span style="line-height:150%">
+                    <span style="font-family:Arial,sans-serif">
+                        <span style="color:black">
+                            <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Permanent Address: <span style="position:absolute;margin-left:30px">@item.PermanentAddress </span>__________________________________________________________________________________</span></span>
+                        </span>
+                    </span>
+                </span>
+            </span><br />
+            <span style="font-size:12pt">
+                <span style="line-height:150%">
+                    <span style="font-family:Arial,sans-serif">
+                        <span style="color:black">
+                            <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Owner / Rented: <span style="position:absolute;margin-left:30px">@item.PermanentOwnership </span>______________________________________________________years:<span style="position:absolute;margin-left:30px">@item.PermanentNoOfYear </span>___________________________  </span></span>
+                        </span>
+                    </span>
+                </span>
+            </span><br />
+            <span style="font-size:12pt">
+                <span style="line-height:150%">
+                    <span style="font-family:Arial,sans-serif">
+                        <span style="color:black">
+                            <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Institute / Organisation: <span style="position:absolute;margin-left:30px">@item.OfficeName </span>___________________________________ Designation <span style="position:absolute;margin-left:30px">@item.DesignationName </span>___________________________________</span></span>
+                        </span>
+                    </span>
+                </span>
+            </span><br />
+            <span style="font-size:12pt">
+                <span style="line-height:150%">
+                    <span style="font-family:Arial,sans-serif">
+                        <span style="color:black">
+                            <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Address: <span style="position:absolute;margin-left:30px">@item.PermanentAddress </span>____________________________________________________________________________________________</span></span>
+                        </span>
+                    </span>
+                </span>
+            </span><br />
+            <span style="font-size:12pt">
+                <span style="line-height:150%">
+                    <span style="font-family:Arial,sans-serif">
+                        <span style="color:black">
+                            <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Gross Salary / Income: <span style="position:absolute;margin-left:30px">@item.GrossSalary </span>___________________________________ Signature and Thumb ____________________________</span></span>
+                        </span>
+                    </span>
+                </span>
+            </span><br />
+        }
+    }
+
+    <br />
+    <span style="font-size:12pt">
+        <span style="font-family:Arial,sans-serif">
+            <span style="color:black">
+                <b>
+                    <i>
+                        <u><span lang="EN-GB" style="font-size:10.0pt">For office use only: s</span></u>
+                    </i>
+                </b>
+            </span>
+        </span>
+    </span><br />
+    <br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Credit Incharge Name: ___________________________________ Signature:  ____________________________________   </span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+    <span style="font-size:12pt">
+        <span style="line-height:150%">
+            <span style="font-family:Arial,sans-serif">
+                <span style="color:black">
+                    <span lang="EN-GB" style="font-size:9.0pt"><span style="line-height:150%">Approval Date: _________________________________________ </span></span>
+                </span>
+            </span>
+        </span>
+    </span><br />
+</div>
+
+

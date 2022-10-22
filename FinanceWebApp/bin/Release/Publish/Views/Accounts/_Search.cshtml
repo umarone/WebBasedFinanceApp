@@ -1,0 +1,111 @@
+﻿@model IList<MudasirRehmanAlp.Models.Account>
+
+@{
+    var counter = 0;
+
+}
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AccountName)
+                    </td>
+                    <td>
+                        @{
+                            if (item.OrganizationID != null)
+                            {
+                                @item.OrganizationDefinition.OrganizationUnitName
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.AccountDefaultType != null)
+                            {
+                                if (item.AccountDefaultType == MudasirRehmanAlp.ModelsView.CommonEnums.AccountDefaultType.Sales)
+                                {
+                                    <span class="label label-success">Sales</span>
+                                }
+                                else if (item.AccountDefaultType == MudasirRehmanAlp.ModelsView.CommonEnums.AccountDefaultType.Purchases)
+                                {
+                                    <span class="label label-success">Purchases</span>
+                                }
+                                else
+                                {
+                                    <span class="label label-danger">Not Set</span>
+                                }
+
+                            }
+                            else
+                            {
+                                <span class="label label-danger">Not Set</span>
+                            }
+
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.IsActive == true)
+                            {
+                                <span class="label label-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="label label-danger">In-Active</span>
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.IsSystemAccount == true)
+                            {
+                                <span class="label label-success">System Account</span>
+                            }
+                            else
+                            {
+                                <span class="label label-danger">Not System Account</span>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info btn-flat">Action</button>
+                            <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Action("Edit",new { id = item.AccountId })" class="clsBtnAppUpdate" title="Edit">Edit</a></li>
+                                <li><a href="@Url.Action("Details",new { id = item.AccountId })" class="clsBtnAppPrint" title="Details">Details</a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#" onclick="DeleteRecordSWL('/Accounts/Delete?id='+@item.AccountId)" class="clsBtnAppDelete" title="Delete">Delete</a>
+                                </li>
+                                @{
+                                    if (item.AccountDefaultType == null)
+                                    {
+                                        <li class="divider"></li>
+                                        <li><a href="@Url.Action("SaleAccountDefault",new { id = item.AccountId })" class="clsBtnAppApproval" title="Make as Sale Default">Make as Sale Default</a></li>
+
+                                        <li><a href="@Url.Action("PurchaseAccountDefault",new { id = item.AccountId })" class="clsBtnAppApproval" title="Make as Purchase Default">Make as Purchase Default</a></li>
+                                    }
+
+                                }
+                            </ul>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

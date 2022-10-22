@@ -1,0 +1,318 @@
+﻿@model MudasirRehmanAlp.Models.DistributorDefinition
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="panel panel-default">
+    <div class="panel-heading">Distributor Definitions</div>
+
+    @using (Html.BeginForm("Create", "DistributorDefinitions", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-1">
+                    <div class="form-group">
+                        <label>Code</label>
+                        @Html.EditorFor(model => model.DistributorCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.DistributorCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+                        <div class="input-group">
+                            <input type="text" value="@(ViewBag.OrganizationUnitName ?? String.Empty)" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.BranchName )" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Account Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtChartOfAccountSelect" class="select2Cls form-control ChartOfAccountSelect">
+                                <option selected="selected">Select</option>
+
+                            </select>
+                            @Html.HiddenFor(model => model.AccountID, new { @id = "hiddenAccountID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Distributor Name</label>
+                        @Html.EditorFor(model => model.DistributorName, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.DistributorName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Mobile No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input type="text" name="MobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Phone No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input type="text" name="PhoneNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Fax No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input type="text" name="FaxNo" data-masked="" data-inputmask="'mask': '(999) 999-9999'" placeholder="Fax no" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>NTN No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                            @Html.EditorFor(model => model.NTN, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.NTN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>GST No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                            @Html.EditorFor(model => model.GSTNo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.GSTNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Website</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
+                            @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Contact Person</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user-plus"></i></span>
+                            @Html.EditorFor(model => model.ContactPerson, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Contact Person Mobile No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input type="text" name="ContactPersonMobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Contact person mobile no" class="form-control" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>City Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtCityNameSelect" class="select2Cls form-control CitySelect">
+                                <option selected="selected">Select</option>
+
+                            </select>
+                            @Html.HiddenFor(model => model.CityId, new { @id = "hiddenCityID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Area Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtAreaNameSelect" class="select2Cls form-control AreaSelect">
+                                <option selected="selected">Select Area</option>
+                            </select>
+                            @Html.HiddenFor(model => model.AreaId, new { @id = "hiddenAreaID" })
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-home"></i></span>
+                            @Html.EditorFor(model => model.DistributorAddrss, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.DistributorAddrss, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Distributor Remarks</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-notebook"></i></span>
+                            @Html.EditorFor(model => model.DistributorRemarks, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.DistributorRemarks, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Distributor Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="fileDistributorImage" id="fileDistributorImage" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+
+    <script>
+        $(document).ready(function () {
+
+            var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+            LoadAllCity('');
+            LoadChartOfAccounts('');
+          //---------- Permission Code
+              var rName = 'DistributorDefinitions';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------	
+            $(".ChartOfAccountSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAccountID").val(ID);
+                AccountCheckInDistributor(ID);
+                var nameArr = Name.split('-');
+                $("#txtSupplierName").val(nameArr[1]);
+
+            });
+
+            $(".CitySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCityID").val(ID);
+                LoadArea(ID);
+            });
+            $(".AreaSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAreaID").val(ID);
+
+            });
+        });//end of Ready Funtion
+
+        function LoadArea(Id) {
+            $('#txtAreaNameSelect option').remove();
+            $('#txtAreaNameSelect').append('<option value="0">Select Area</option>');
+            var url = "/Json/LoadArea";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    for (i = 0; i < Data.length; i++) {
+                        $('#txtAreaNameSelect').append('<option value="' + Data[i].value + '">' + Data[i].label + '</option>');
+                    }
+
+                });
+        }
+         function AccountCheckInDistributor(Id) {
+
+            var url = "/DistributorDefinitions/AccountCheckInDistributor";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    if (Data =="Yes") {
+                    var message = 'This account is already being used ';
+                    var Validation = 'False';
+                    showMessage(message, Validation)
+                    }
+
+                });
+        }
+    </script>
+}
+

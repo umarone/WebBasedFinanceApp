@@ -1,0 +1,72 @@
+﻿@model IList<MudasirRehmanAlp.Models.SaleOrder>
+
+@{
+    var counter = 0;
+
+}
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleOrderNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleOrderDate)
+                    </td>
+                    <td>
+                        @{
+                            if (item.AccountID != null)
+                            {
+                                @item.Account.AccountNo
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.CustomerStatementID != null)
+                            {
+                                @item.CustomerStatement.Name
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.CustomerStatementID != null)
+                            {
+                                @item.CustomerStatement.MobileNo
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.EmployeeId != null)
+                            {
+                                @item.EmployeePersonalDetails.FirstName @item.EmployeePersonalDetails.LastName
+                            }
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info btn-flat">Action</button>
+                            <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Action("Edit",new { id = item.SaleOrdeID })" class="clsBtnAppUpdate" title="Edit">Go to Payment</a></li>
+
+                            </ul>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

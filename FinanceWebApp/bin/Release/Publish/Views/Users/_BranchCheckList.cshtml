@@ -1,0 +1,37 @@
+﻿@model IList<MudasirRehmanAlp.Models.StoredPocedureModel.ProcGetBranchCheckListByEmployeeId>
+@{
+    var counter = 0;
+}
+<div class="row col-md-12 form-group">
+    @{
+        foreach (var item in Model)
+        {
+            counter = counter + 1;
+            <div class="col-md-2">
+                <input type="hidden" value="@item.Id" id="HiddenBranchId_@counter" />
+                @if (item.IsSelected == true)
+                {
+                    <div class="checkbox c-checkbox mt-4">
+                        <label>
+                            <input type="checkbox" class="custom-control-input" id="chkBoxIsSelected_@counter" checked="checked"/>
+                            <span class="fa fa-check"></span>
+                            @item.Name
+                        </label>
+                    </div>
+                }
+                else
+                {
+                    <div class="checkbox c-checkbox mt-4">
+                        <label>
+                            <input type="checkbox" class="custom-control-input" id="chkBoxIsSelected_@counter" />
+                            <span class="fa fa-check"></span>
+                            @item.Name
+                        </label>
+                    </div>
+                }
+
+            </div>
+        }
+    }
+</div>
+<input type="hidden" value="@counter" id="currentRowID" />

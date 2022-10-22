@@ -1,0 +1,59 @@
+﻿@model MudasirRehmanAlp.Models.PaymentMaster
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PaymentMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BranchDefinition.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranchDefinition.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationDefinition.OrganizationUnitName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationDefinition.OrganizationUnitName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleOrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleOrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BalanceAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BalanceAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,473 @@
+﻿@model MudasirRehmanAlp.Models.OrganizationDefinition
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Organization Definitions</div>
+
+    @using (Html.BeginForm("Edit", "OrganizationDefinitions", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-1">
+                    <div class="form-group">
+                        <label>Code</label>
+                        @Html.EditorFor(model => model.OrganizationUnitCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.OrganizationUnitCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Organization Pin code</label>
+                        @Html.EditorFor(model => model.OrganizationPincode, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.OrganizationPincode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+                        @Html.EditorFor(model => model.OrganizationUnitName, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.OrganizationUnitCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Mobile No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            @{
+                                if (Model.MobileNo != null)
+                                {
+                                    <input type="text" name="MobileNo" value="@Model.MobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control" />
+                                }
+                                else
+                                {
+                                    <input type="text" name="MobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control" />
+                                }
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Contact No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            @{
+                                if (Model.ContactNo != null)
+                                {
+                                    <input type="text" name="ContactNo" value="@Model.ContactNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Contact no" class="form-control" />
+                                }
+                                else
+                                {
+                                    <input type="text" name="ContactNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Contact no" class="form-control" />
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Fax No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            @{
+                                if (Model.FaxNo != null)
+                                {
+                                    <input type="text" name="FaxNo" value="@Model.FaxNo" data-masked="" data-inputmask="'mask': '(999) 999-9999'" placeholder="Fax no" class="form-control" />
+                                }
+                                else
+                                {
+                                    <input type="text" name="FaxNo" data-masked="" data-inputmask="'mask': '(999) 999-9999'" placeholder="Fax no" class="form-control" />
+                                }
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>NTN No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                            @Html.EditorFor(model => model.NTN, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.NTN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>GST No</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                            @Html.EditorFor(model => model.GSTNo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.GSTNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Organization Website</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
+
+                            @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Organization Title</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-info"></i></span>
+                            @Html.EditorFor(model => model.OrganizationTitle, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.OrganizationTitle, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Address 1</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-home"></i></span>
+                            @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Address 2</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-home"></i></span>
+                            @Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                            @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Country Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtCountryNameSelect" class="select2Cls form-control CountrySelect">
+
+                                @{
+                                    if (Model.CountryId != null)
+                                    {
+                                        <option value="@Model.CountryId">@Model.CountryDefinition.CountryName</option>
+                                    }
+                                    else
+                                    {
+                                        <option selected="selected">Select Country</option>
+                                    }
+                                    foreach (var item in ViewBag.CountryList as List<MudasirRehmanAlp.Models.CountryDefinition>)
+                                    {
+                                        if (Model.CountryId != null)
+                                        {
+                                            if (item.Id != Model.CountryId)
+                                            {
+                                                <option value="@item.Id">@item.CountryName</option>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.Id">@item.CountryName</option>
+                                        }
+
+                                    }
+                                }
+                            </select>
+
+
+                            @Html.HiddenFor(model => model.CountryId, new { @id = "hiddenCountryID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Province Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtProvinceNameSelect" class="select2Cls form-control ProvinceSelect">
+                                @{
+                                    if (Model.ProvinceId != null)
+                                    {
+                                        <option value="@Model.ProvinceId">@Model.ProvinceDefinition.ProvinceName</option>
+                                    }
+                                    else
+                                    {
+                                        <option selected="selected">Select Province</option>
+                                    }
+                                }
+
+                            </select>
+                            @Html.HiddenFor(model => model.ProvinceId, new { @id = "hiddenProvinceID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Region Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtRegionNameSelect" class="select2Cls form-control RegionSelect">
+                                @{
+                                    if (Model.RegionId != null)
+                                    {
+                                        <option value="@Model.RegionId">@Model.RegionDefinition.RegionName</option>
+                                    }
+                                    else
+                                    {
+                                        <option selected="selected">Select Region</option>
+                                    }
+                                }
+
+                            </select>
+                            @Html.HiddenFor(model => model.RegionId, new { @id = "hiddenRegionID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>City Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtCityNameSelect" class="select2Cls form-control CitySelect">
+                                @{
+                                    if (Model.CityId != null)
+                                    {
+                                        <option value="@Model.CityId">@Model.CityDefinition.CityName</option>
+                                    }
+                                    else
+                                    {
+                                        <option selected="selected">Select City</option>
+                                    }
+                                }
+
+                            </select>
+                            @Html.HiddenFor(model => model.CityId, new { @id = "hiddenCityID" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Area Name</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                            <select id="txtAreaNameSelect" class="select2Cls form-control AreaSelect">
+                                @{
+                                    if (Model.AreaId != null)
+                                    {
+                                        <option value="@Model.AreaId">@Model.AreaDefinition.AreaName</option>
+                                    }
+                                    else
+                                    {
+                                        <option selected="selected">Select Area</option>
+                                    }
+                                }
+
+                            </select>
+                            @Html.HiddenFor(model => model.AreaId, new { @id = "hiddenAreaID" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label">Logo </label><span class=""> Dimensions (85 x 34) To ( 213 X 40) PNG Transparent</span>
+                        <input type="file" name="fileOrganizationLogo" id="fileOrganizationLogo" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label">Logo-Single </label><span class=""> Dimensions (42 x 44) To ( 50 X 50) PNG Transparent</span>
+                        <input type="file" name="fileOrganizationLogoSingle" id="fileOrganizationLogoSingle" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <!-- START widget-->
+                    <div class="panel widget" style="background-color:gray">
+                        @if (Model.OrganizationLogo != null)
+                        {
+                            var base64 = Convert.ToBase64String(Model.OrganizationLogo);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img src='@imgSrc' alt="Image" class="img-responsive" />
+                        }
+                    </div>
+                    <!-- END widget-->
+                </div>
+                <div class="col-lg-2">
+                    <!-- START widget-->
+                    <div class="panel widget" style="background-color:gray">
+                        @if (Model.OrganizationLogoSingle != null)
+                        {
+                            var base64 = Convert.ToBase64String(Model.OrganizationLogoSingle);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img src='@imgSrc' alt="Image" class="img-responsive" />
+                        }
+                    </div>
+                    <!-- END widget-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+                    <div class="form-control" style="border:none">
+                        @Html.RadioButton("IsActive", "true", new { @checked = "checked" }) Yes &nbsp; &nbsp; &nbsp;
+                        @Html.RadioButton("IsActive", "false") No
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-success" title="Update" id="btnSubmit"> Update &nbsp;<em class="fa fa-edit"></em></button>
+                <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+    }
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    <script>
+        $(document).ready(function () {
+             var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+        showMessage(message, Validation)
+         //---------- Permission Code
+              var rName = 'OrganizationDefinitions';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------
+            $(".CountrySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCountryID").val(ID);
+                LoadProvince(ID);
+            });
+            $(".ProvinceSelect").change(function () {
+                debugger
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenProvinceID").val(ID);
+                LoadRegion(ID);
+            });
+            $(".RegionSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenRegionID").val(ID);
+                LoadCity(ID);
+            });
+            $(".CitySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCityID").val(ID);
+                LoadArea(ID);
+            });
+            $(".AreaSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAreaID").val(ID);
+
+            });
+        });//end of Ready Funtion
+        function LoadProvince(Id) {
+            $('#txtProvinceNameSelect option').remove();
+            $('#txtProvinceNameSelect').append('<option value="0">Select Province</option>');
+            var url = "/OrganizationDefinitions/LoadProvince";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    for (i = 0; i < Data.length; i++) {
+                        $('#txtProvinceNameSelect').append('<option value="' + Data[i].value + '">' + Data[i].label + '</option>');
+                    }
+
+                });
+        }
+        function LoadRegion(Id) {
+            $('#txtRegionNameSelect option').remove();
+            $('#txtRegionNameSelect').append('<option value="0">Select Region</option>');
+            var url = "/OrganizationDefinitions/LoadRegion";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    for (i = 0; i < Data.length; i++) {
+                        $('#txtRegionNameSelect').append('<option value="' + Data[i].value + '">' + Data[i].label + '</option>');
+                    }
+
+                });
+        }
+        function LoadCity(Id) {
+            $('#txtCityNameSelect option').remove();
+            $('#txtCityNameSelect').append('<option value="0">Select City</option>');
+            var url = "/OrganizationDefinitions/LoadCity";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    for (i = 0; i < Data.length; i++) {
+                        $('#txtCityNameSelect').append('<option value="' + Data[i].value + '">' + Data[i].label + '</option>');
+                    }
+
+                });
+        }
+        function LoadArea(Id) {
+            $('#txtAreaNameSelect option').remove();
+            $('#txtAreaNameSelect').append('<option value="0">Select Area</option>');
+            var url = "/OrganizationDefinitions/LoadArea";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    for (i = 0; i < Data.length; i++) {
+                        $('#txtAreaNameSelect').append('<option value="' + Data[i].value + '">' + Data[i].label + '</option>');
+                    }
+
+                });
+        }
+    </script>
+}
+

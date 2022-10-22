@@ -1,0 +1,76 @@
+﻿@model MudasirRehmanAlp.Models.Notification
+
+@{
+
+    DateTime TodayDate = DateTime.Now;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+
+
+
+</head>
+<body onload="window.print();">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Notification
+            <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+        </div>
+        <div class="panel-body">
+            <div class="row ">
+                <div class="col-sm-4 ">
+                    <label>Type: </label>
+                    <span>@{ @Model.Type.ToString()} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Priority: </label>
+                    <span> @{ @Model.Priority.ToString()}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Title: </label>
+                    <span>@{ @Model.Title} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Description: </label>
+                    <span> @{ @Model.Description}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Organization Name: </label>
+                    <span>
+                        @{ if (Model.OrganizationId != null)
+                            {
+                                @Model.OrganizationDefinition.OrganizationUnitName
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Branch Name: </label>
+                    <span>
+                        @{ if (Model.BranchId != null)
+                            {
+                                @Model.BranchDefinition.Name
+                            }
+                        }
+                    </span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    @Scripts.Render("~/AdminLTE/plugins/jquery/js")
+    @Scripts.Render("~/Scripts/Examples/Invoice")
+
+</body>
+</html>
+
+
+
+

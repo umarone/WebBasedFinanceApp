@@ -1,0 +1,397 @@
+﻿@model MudasirRehmanAlp.Models.StoreTransferNote
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Store Transfer Notes</div>
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <input type="hidden" value="0" id="currentRowID" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">STN No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.Code</strong>
+                            @Html.HiddenFor(model => model.Code, new { @id = "txtCode" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Description:</div>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">From Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.BranchName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.FromBranchId, new { @id = "hiddenFromBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">To Branch Name:</div>
+                        <div class="col-sm-8">
+                            <select id="txtToBranchNameSelect" class="select2Cls form-control ToBranchSelect">
+                            </select>
+                            @Html.HiddenFor(model => model.ToBranchId, new { @id = "hiddenToBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">STN Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                <input type="text" name="STNDate" class="form-control date" id="txtSTNDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Product Details</div>
+
+    <div class="panel-body">
+        <div class="row mb">
+            <div class="col-sm-4">
+                <label>Product Name</label>
+                <input type="text" id="txtProductNameForStn" class="form-control form-control-rounded ProductNameForStn" placeholder="Select Product" />
+
+                <input type="hidden" id="hiddenStockID" />
+                <input type="hidden" id="hiddenProductIDForStn" />
+
+                <input type="hidden" id="hiddencurrentRowId" />
+            </div>
+            <div class="col-md-2">
+                <label title="Stock Quantity">Stock QTY</label>
+                <input type="text" id="txtStockQTY" class="form-control form-control-rounded" readonly="readonly" title="Stock Quantity" />
+            </div>
+            <div class="col-md-2">
+                <label title="Transfer Quantity">Transfer QTY</label>
+                <input type="text" id="txtTransferQTY" class="form-control form-control-rounded" title="Transfer Quantity" onkeyup="CalculateOfQuantity();" />
+            </div>
+            <div class="col-md-2">
+                <label title="Balance Quantity">Balance QTY</label>
+                <input type="text" id="txtBalanceQTY" class="form-control form-control-rounded" readonly="readonly" title="Balance Quantity" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-labeled btn-info" id="btnAddMore" onclick="AddMoreProducts();">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span> Add More
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Store Transfer Notes Details
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Stock QTY</th>
+                        <th>Transfer QTY</th>
+                        <th>Balance QTY</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="panel">
+
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+    @Styles.Render("~/bundles/toastrCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/toastrJs")
+    @Scripts.Render("~/bundles/ModalJs")
+
+    <script>
+        $(document).ready(function () {
+
+             var message = '@(TempData["ErrorMessage"])';
+             var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+
+            LoadBranchesRightsSTN("");
+            LoadProductFromStockofGoods();
+
+              //---------- Permission Code
+              var rName = 'StoreTransferNotes';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------
+
+            $(".ProductNameForStn").focusout(function () {
+                debugger
+                var Name = $("#txtProductNameForStn").val();
+                var ID = $("#hiddenStockID").val();
+                loadStockQuantity(ID);
+
+            });
+            $(".ToBranchSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenToBranchId").val(ID);
+            });
+
+
+            $("#tblBody").on('click', '.clsbtnEdit', function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                $("#hiddencurrentRowId").val(trID);
+
+                var ProductId = $("#tdhiddenProductId_" + trID).val();
+                var ProductName = $("#tdProductName_" + trID).html();
+                var StockId = $("#tdhiddenStockId_" + trID).val();
+                var STNQTY = $("#tdhiddenSTNQTY_" + trID).val();
+                var StockQTY = $("#tdStockQTY_" + trID).html();
+                var BalanceQTY = $("#tdBalanceQTY_" + trID).html();
+
+
+                ProductId = isNaN(parseFloat(ProductId)) ? 0 : parseFloat(ProductId);
+                $("#txtProductNameSelect").val(ProductId).trigger('change');
+
+                $("#hiddenProductIDForStn").val(ProductId);
+                $("#txtProductNameForStn").val(ProductName);
+
+                $("#hiddenStockID").val(StockId);
+                $("#txtStockQTY").val(StockQTY);
+
+                $("#txtTransferQTY").val(STNQTY);
+                $("#txtBalanceQTY").val(BalanceQTY);
+
+                $(this).closest('tr').remove();
+
+            });
+            $("#tblBody").on('click', '.clsbtnDelete', function () {
+                var trID = $(this).closest('tr').attr('id');
+                var row = $("#currentRowID").val();
+                row = row - 1;
+                $("#currentRowID").val(row);
+                $(this).closest('tr').remove();
+
+            });
+
+            //btn Save Purchase Order
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+
+                var STNMaltipleChildItem = new Array();
+                var STNMasterItem = {};
+                var STNChildItem = {};
+                var formData = new FormData();
+                STNMasterItem = {
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    Code: $("#txtCode").val(),
+                    STNDate: $("#txtSTNDate").val(),
+                    Description: $("#txtDescription").val(),
+                    FromBranchId: $("#hiddenFromBranchId").val(),
+                    ToBranchId: $("#hiddenToBranchId").val(),                   
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+                        STNChildItem = {
+                            ProductId: $("#tdhiddenProductId_" + i).val(),
+                            StockId: $("#tdhiddenStockId_" + i).val(),
+                            Quantity: $("#tdhiddenSTNQTY_" + i).val(),                       
+                    }
+                    STNMaltipleChildItem.push(STNChildItem);
+                }
+
+                var master = JSON.stringify(STNMasterItem);
+                var child = JSON.stringify(STNMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (STNMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/StoreTransferNotes/Create",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                            if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                            else {
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+
+                        },
+                        error: function (error) {
+                            fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+
+                     fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+
+
+        function loadStockQuantity(Id) {
+            var url = "/StoreTransferNotes/loadStockQuantity";
+            $.get(url, { Id: Id, },
+                function (Data) {
+                    $("#hiddenProductIDForStn").val(Data.ProductID);
+                    $("#txtStockQTY").val(Data.Quantity);
+                    CalculateOfQuantity();
+                });
+        }
+        function CalculateOfQuantity() {
+            var stockQTY = $("#txtStockQTY").val();
+            var stnQTY = $("#txtTransferQTY").val();
+
+
+            stockQTY = isNaN(parseFloat(stockQTY)) ? 0 : parseFloat(stockQTY);
+            stnQTY = isNaN(parseFloat(stnQTY)) ? 0 : parseFloat(stnQTY);
+
+            if (stnQTY <= stockQTY) {
+
+                var balQty = stockQTY - stnQTY;
+                balQty = isNaN(parseFloat(balQty)) ? 0 : parseFloat(balQty);
+                $("#txtBalanceQTY").val(balQty);
+            }
+            else {
+                toastr.warning("Store Transfer quantity is not greater then Stock Quantity. ", "Warning");
+                $("#txtBalanceQTY").val('0');
+            }
+        }
+        function AddMoreProducts() {
+            debugger
+            var row = $("#currentRowID").val();
+
+
+            var productName = $("#txtProductNameForStn").val();
+            var productId = $("#hiddenProductIDForStn").val();
+            var stockId = $("#hiddenStockID").val();
+            var stockQTY = $("#txtStockQTY").val();
+            var stnQTY = $("#txtTransferQTY").val();
+            var balanceQTY = $("#txtBalanceQTY").val();
+
+            var currentRowId = $("#hiddencurrentRowId").val();
+            if (currentRowId != undefined && currentRowId != "") {
+                row = currentRowId;
+                $("#hiddencurrentRowId").val('');
+            }
+            else {
+                row = isNaN(parseInt(row)) ? 0 : parseInt(row)
+                row = row + 1;
+                $("#currentRowID").val(row);
+            }
+            //row
+            var htmltr = "<tr id='" + row + "'>"
+
+            var htmltdProduct = "<td id='tdProductName_" + row + "'>";
+            htmltdProduct += "" + productName + "";
+            htmltdProduct += "</td>";
+            htmltr += htmltdProduct;
+
+            var htmltdStockQTY = "<td id='tdStockQTY_" + row + "'>";
+            htmltdStockQTY += "" + stockQTY + "";
+            htmltdStockQTY += "</td>";
+            htmltr += htmltdStockQTY;
+
+            var htmltdSTNQTY = "<td id='tdSTNQTY_" + row + "'>";
+            htmltdSTNQTY += "" + stnQTY + "";
+            htmltdSTNQTY += "</td>";
+            htmltr += htmltdSTNQTY;
+
+            var htmltdBalanceQTY = "<td id='tdBalanceQTY_" + row + "'>";
+            htmltdBalanceQTY += "" + balanceQTY + "";
+            htmltdBalanceQTY += "</td>";
+            htmltr += htmltdBalanceQTY;
+
+            var htmltdAction = "<td>";
+            htmltdAction += "<span title='Edit' class='btn btn-primary btn-sm clsbtnEdit'><emc class='fa fa-edit'></emc> </span>";
+            htmltdAction += " <span title='Delete' class='btn btn-danger btn-sm clsbtnDelete'><emc class='fa fa-remove'></emc></span>";
+            htmltdAction += "<input type='hidden' id='tdhiddenProductId_" + row + "' value='" + productId + "'>";
+            htmltdAction += "<input type='hidden' id='tdhiddenStockId_" + row + "' value='" + stockId + "'>";
+            htmltdAction += "<input type='hidden' id='tdhiddenSTNQTY_" + row + "' value='" + stnQTY + "'>";
+
+            htmltdAction += "</td>";
+            htmltr += htmltdAction;
+
+
+            htmltr +="</tr>"
+            $("#tblBody").append(htmltr);
+
+            $("#txtProductNameSelect").val('').trigger('change');
+            $("#txtProductNameForStn").val('');
+            $("#hiddenProductIDForStn").val('');
+            $("#hiddenStockID").val('');
+            $("#txtStockQTY").val('');
+            $("#txtTransferQTY").val('');
+            $("#txtBalanceQTY").val('');
+        }
+
+    </script>
+}

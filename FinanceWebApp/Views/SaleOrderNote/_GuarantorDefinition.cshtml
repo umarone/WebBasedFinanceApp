@@ -1,0 +1,129 @@
+﻿@model MudasirRehmanAlp.Models.GuarantorDefinition
+
+@{
+    var GtCounter = 1;
+}
+<input type="hidden" id="hiddenGTCounter" value="@GtCounter" />
+<input type="hidden" id="hiddenSettingNoOfGuarantor" value="@(ViewBag.GuarantorMaxNeed)" />
+<input type="hidden" id="hiddencounter" value="@GtCounter" />
+<div class="panel panel-default clspanel" id="panelId_@GtCounter">
+    <div class="panel-heading">
+        Guarantor Details
+        <input type="hidden" id="hiddenDivStatus_@GtCounter" value="show" />
+        <div class="pull-right">
+            <!-- Success button with label -->
+            <button type="button" class="btn btn-labeled btn-info" id="btnAddMore" onclick="AppendGuarantorHtml();">
+                <span class="btn-label">
+                    <i class="fa fa-plus"></i>
+                </span>Add More
+            </button>
+        </div>
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Title</label>
+                    <select id="txtTitleNameSelect" class="select2Cls form-control TitleSelect" onchange="onChangeSelect(this,@GtCounter);">
+                        <option selected="selected">Select Title</option>
+                        <option value="Mr">Mr </option>
+                        <option value="Miss">Miss</option>
+                    </select>
+                    <input type="hidden" id="hiddenTitle_@GtCounter" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>First Name </label>
+                    <input type="text" id="txtFirstName_@GtCounter" class="form-control form-control-rounded" />
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Last Name </label>
+                    <input type="text" id="txtLastName_@GtCounter" class="form-control form-control-rounded" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Father / Husband Name </label>
+                    <input type="text" id="txtFatherHusbandName_@GtCounter" class="form-control form-control-rounded" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="MobileNo" id="txtMobileNo_@GtCounter" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Mobile no" class="form-control form-control-rounded clsMask" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Phone No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="PhoneNo" id="txtPhoneNo_@GtCounter" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control form-control-rounded " />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>CNIC No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                        <input type="text" name="CNIC" id="txtCNICNo_@GtCounter" data-masked="" data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No" class="form-control form-control-rounded" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input type="text" name="Email" id="txtEmail_@GtCounter" placeholder="Email" class="form-control form-control-rounded " />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Office Phone No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="PhoneNo" id="txtOfficePhoneNo_@GtCounter" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Office Phone no" class="form-control form-control-rounded " />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea id="txtAddress_@GtCounter" class="form-control form-control-rounded"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Office Address</label>
+                    <textarea id="txtOfficeAddress_@GtCounter" class="form-control form-control-rounded"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="DivhtmlPanelForAppend">
+
+</div>
+<input type="hidden" id="hiddenGTCounter" value="@GtCounter" />
+<input type="hidden" id="hiddenSettingNoOfGuarantor" value="@(ViewBag.GuarantorMaxNeed)" />
+<input type="hidden" id="hiddencounter" value="@GtCounter" />

@@ -1,0 +1,49 @@
+﻿@model List<MudasirRehmanAlp.Models.GoodReceivedReturnDetail>
+@{
+    var counter = 0;
+    
+}
+
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+             
+                <tr id="@counter">
+                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">
+                        @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                        @{
+                            if (item.ProductDefinition.ProductModel != null)
+                            {
+                                @item.ProductDefinition.ProductModel.Name
+                            }
+                            if (item.ProductDefinition.Colour != null)
+                            {
+                                @item.ProductDefinition.Colour.Name
+                            }
+                            if (item.ProductDefinition.SizeDefinition != null)
+                            {
+                                @item.ProductDefinition.SizeDefinition.Name;
+                            }
+                        }
+                    </td>
+                    <td id="tdReturnQuantity_@counter" title="@item.ReturnQuantity">@item.ReturnQuantity</td>
+                    <td id="tdUnitPrice_@counter" title="@item.UnitPrice">@item.UnitPrice</td>
+                    <td id="tdTotalPrice_@counter" title="@item.TotalPrice">@item.TotalPrice</td>
+                    <td hidden>
+                        <input type="hidden" id="tdhiddenGoodsReceivedReturnDetailID_@counter" value="@item.GoodsReceivedReturnDetailID" />
+                        <input type="hidden" id="tdhiddenPurchaseOrderDetailID_@counter" value="@item.GoodReceivedDetail.PurchaseOrderDetailID" />
+                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                        <input type="hidden" id="tdhiddenReturnQuantity_@counter" value="@item.ReturnQuantity" />
+                        <input type="hidden" id="tdhiddenUnitPrice_@counter" value="@item.UnitPrice" />
+                        <input type="hidden" id="tdhiddenTotalPrice_@counter" value="@item.TotalPrice" />
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

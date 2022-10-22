@@ -1,0 +1,179 @@
+﻿@model MudasirRehmanAlp.Models.PurchaseOrderReturn
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+</head>
+<body onload="window.print();">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Purchase Returns
+            <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Organization Name: </label>
+                    @{
+                        if (Model.OrganizationID != null)
+                        {
+                            <span>
+                                @Model.OrganizationDefinition.OrganizationUnitName
+                            </span>
+                        }
+                    }
+                </div>
+                <div class="col-sm-3">
+                    <label>Branch Name: </label>
+                    @{
+                        if (Model.BranchId != null)
+                        {
+                            <span>
+                                @Model.BranchDefinition.Name
+                            </span>
+                        }
+                    }
+                </div>
+                <div class="col-sm-3">
+                    <label>Supplier Name: </label>
+                    <span>
+
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+
+                                @Model.PurchaseOrder.SupplierDefinition.SupplierName
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>Payment Terms: </label>
+                    <span>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+
+                                @Model.PurchaseOrder.PaymentTerms
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>Puchase Order Type: </label>
+                    <span>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+
+                                @Model.PurchaseOrder.PuchaseOrderType
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>Transaction Type: </label>
+                    <span>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+
+                                @Model.PurchaseOrder.TransactionType
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>Description : </label>
+                    <span>
+                        @{
+
+                            @Model.Description
+
+
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>PO NO : </label>
+                    <span>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+
+                                @Model.PurchaseOrder.PurchaseOrderNO
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>PO Date : </label>
+                    <span>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+
+                                @Model.PurchaseOrder.PurchaseOrderDate
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-3">
+                    <label>PO Retrun Date: </label>
+                    <span>
+                        @{
+                            @Model.Date
+                        }
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in ViewBag.PurchaseReturnListDetails as List<MudasirRehmanAlp.Models.PurchaseOrderReturnDetail>)
+                        {
+
+                            <tr>
+                                <td title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                <td title="@item.GoodReceivedReturnDetail.ReturnQuantity">@item.GoodReceivedReturnDetail.ReturnQuantity</td>
+                                <td title="@item.UnitPrice">@item.UnitPrice</td>
+                                <td title="@item.TotalPrice">@item.TotalPrice</td>
+                            </tr>
+                        }
+                    }
+            </table>
+
+        </div>
+
+    </div>
+</body>
+</html>
+
+

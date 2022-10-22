@@ -1,0 +1,64 @@
+﻿@model IList<MudasirRehmanAlp.Models.CustomerStatement>
+
+@{
+    var counter = 0;
+
+}
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @{
+                            if (item.OrganizationID != null)
+                            {
+                                @item.OrganizationDefinition.OrganizationUnitName
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.IsActive == true)
+                            {
+                                <span class="label label-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="label label-danger">In-Active</span>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info btn-flat">Action</button>
+                            <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Action("Edit",new { id = item.Id })" class="clsBtnAppUpdate" title="Edit">Edit</a></li>
+                                <li><a href="@Url.Action("Details",new { id = item.Id })" class="clsBtnAppPrint" title="Details">Details</a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#" onclick="DeleteRecordSWL('/CustomerStatements/Delete?id='+@item.Id)" class="clsBtnAppDelete" title="Delete">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

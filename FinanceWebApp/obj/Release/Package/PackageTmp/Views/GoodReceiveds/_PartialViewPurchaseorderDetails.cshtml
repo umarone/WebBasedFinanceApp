@@ -1,0 +1,70 @@
+﻿@model List<MudasirRehmanAlp.Models.PurchaseOrderDetail>
+@{
+    var counter = 0;
+    MudasirRehmanAlp.AppDAL.StockDAL stockDAL = new MudasirRehmanAlp.AppDAL.StockDAL();
+    //long? sumOfQty = 0;
+}
+
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+
+
+                //long? sumqty = @item.BalanceQuantity;
+                //sumOfQty = sumOfQty + sumqty;
+                //sumqty = 0;
+                counter = counter + 1;
+                string StockCode = stockDAL.AutoGenerateStockCode(Convert.ToInt64(@item.ProductID),Convert.ToInt64(item.PurchaseOrder.BranchId));
+                long StockQty = stockDAL.GetStockQuantity(StockCode);
+
+                <tr id="@counter">
+                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">
+
+                        @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                        @{
+                            if (item.ProductDefinition.ProductModel != null)
+                            {
+                                @item.ProductDefinition.ProductModel.Name
+                            }
+                            if (item.ProductDefinition.Colour != null)
+                            {
+                                @item.ProductDefinition.Colour.Name
+                            }
+                            if (item.ProductDefinition.SizeDefinition != null)
+                            {
+                                @item.ProductDefinition.SizeDefinition.Name;
+                            }
+                        }
+
+                    </td>
+                    <td id="tdStockQty_@counter" title="@StockQty">@StockQty</td>
+                    <td id="tdQty_@counter" title="@item.BalanceQuantity">@item.BalanceQuantity</td>
+                    <td>
+                        <input type="text" id="tdtxtReceivedQty_@counter" class="form-control form-control-rounded clsReceivedQty" />
+                        <input type="hidden" id="tdhiddenPurchaseOrderDetailsID_@counter" value="@item.PurchaseOrderDetailID" />
+                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                        <input type="hidden" id="tdhiddenQuantity_@counter" value="@item.BalanceQuantity" />
+                        <input type="hidden" id="tdhiddenUnitRate_@counter" value="@item.UnitRate" />
+
+                    </td>
+                    <td>
+                        <input type="text" id="tdtxtBallanceQty_@counter" class="form-control form-control-rounded" readonly="readonly" />
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+    @*<tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>@sumOfQty</td>
+        </tr>
+    </tfoot>*@
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />
+
+

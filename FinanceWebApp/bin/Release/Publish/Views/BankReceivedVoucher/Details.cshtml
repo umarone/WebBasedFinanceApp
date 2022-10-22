@@ -1,0 +1,181 @@
+﻿@model MudasirRehmanAlp.Models.VouchersHead
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+
+<div class="alert alert-warning">
+    <em class="fa fa-exclamation-circle fa-lg fa-fw"></em> This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Bank Received Voucher
+        <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+    </div>
+    <div class="panel-body">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                <label>Code: </label>
+                <span>@{ @Model.VoucherCode} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Organization Name: </label>
+                <span>
+                    @{ if (Model.OrganizationID != null)
+                        {
+                            @Model.OrganizationDefinition.OrganizationUnitName
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Payment Type: </label>
+                <span>
+                    @{ @Model.PaymentType}
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Voucher Date: </label>
+                <span> @{ @Model.VoucherDate}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Posted: </label>
+                <span>
+                    <div class="checkbox c-checkbox needsclick">
+                        <label class="needsclick">
+                            @{
+                                if (Model.Posted != null)
+                                {
+                                    if (Model.Posted == true)
+                                    {
+                                        <input type="checkbox" checked="checked" id="checkboxPosted" class="needsclick" disabled />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" id="checkboxPosted" class="needsclick" disabled />
+                                    }
+                                }
+                                else
+                                {
+                                    <input type="checkbox" id="checkboxPosted" class="needsclick" disabled />
+                                }
+                            }
+
+                            <span class="fa fa-check"></span>Posted
+                        </label>
+                    </div>
+                </span>
+            </div>
+            @{
+                if (Model.PaymentType == MudasirRehmanAlp.ModelsView.CommonEnums.PaymentType.SaleOrder)
+                {
+
+                    <div class="col-sm-4 ">
+                                    <label>Sale Order No: </label>
+                        <span>
+                            @Model.SaleOrder.SaleOrderNo
+                        </span>
+                    </div>
+                }
+            }
+
+            <div class="col-sm-4 ">
+                <label>Sheet No: </label>
+                <span> @{ @Model.SheetNo}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Book Years No:</label>
+                <span>@{ @Model.FinancialBookYear.YearCode} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Terminal No: </label>
+                <span>@{ @Model.TerminalNo} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Cheque No: </label>
+                <span> @{ @Model.ChequeNo}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Total Amount: </label>
+                <span> @{ @Model.TotalAmount}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Description: </label>
+                <span> @{ @Model.Description}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Status</label>
+
+                <div class="form-group">
+                    <label class="radio-inline c-radio">
+                        @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                    </label>
+                    <label class="radio-inline c-radio">
+                        @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Account No</th>
+                        <th>ClosingBalance</th>
+                        <th>Narration</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in ViewBag.ListVouchersDetailsDetails as List<MudasirRehmanAlp.Models.VouchersDetail>)
+                        {
+
+                            <tr>
+                                <td>@item.Account.AccountNo - @item.Account.AccountName</td>
+                                <td>@item.ClosingBalance</td>
+                                <td>@item.Narration</td>
+                                <td>@item.Debit</td>
+                                <td>@item.Credit </td>
+
+
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row no-print">
+            <div class="col-xs-12">
+                <a href="@Url.Action("Print", "BankPaymentVoucher",new {id=Model.VoucherID })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+                <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                    <i class="fa fa-download"></i> Generate PDF
+                </button>
+                <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/Common")
+    <script>
+        $(document).ready(function () {
+
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+        showMessage(message, Validation)
+
+    });
+
+    </script>
+}

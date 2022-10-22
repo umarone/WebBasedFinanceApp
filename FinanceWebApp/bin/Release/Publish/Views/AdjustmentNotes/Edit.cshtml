@@ -1,0 +1,660 @@
+﻿@model MudasirRehmanAlp.Models.AdjustmentNote
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var counter = 0;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Adjustment Note</div>
+    @using (Html.BeginForm())
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model=>model.AdjustmentNoteId,new { @id="hiddenAdjustmentNoteId" })
+            <div class="row m-b-2">
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Organization Name</label>
+                    </div>
+                    <div class="col-sm-9">
+                        @{
+                            if (Model.OrganizationID != null)
+                            {
+                                <input type="text" value="@(Model.OrganizationDefinition.OrganizationUnitName)" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                            }
+                        }
+
+                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Branch Name</label>
+                    </div>
+                    <div class="col-sm-9">
+                        @{
+                            if (Model.BranchId != null)
+                            {
+                                <input type="text" value="@(Model.BranchDefinition.Name)" class="form-control form-control-rounded" id="hiddenBranchName" readonly="readonly" />
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control form-control-rounded" id="hiddenBranchName" readonly="readonly" />
+                            }
+                        }
+
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Adjustment Note NO</label>
+                    </div>
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.AdjustmentNoteNO, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAdjustmentNoteNO", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.AdjustmentNoteNO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class=" col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Date</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="input-group date datetimepicker">
+                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control date ", @id = "txtDate" } })
+                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Description</label>
+                    </div>
+                    <div class="col-sm-9">
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">   Product Details</div>
+
+    <div class="panel-body">
+        <div class="row mb">
+            <div class="col-sm-4">
+                <label>Product</label>
+                <input type="text" id="txtProductName" class="form-control form-control-rounded" placeholder="Select Product" />
+                <input type="hidden" id="hiddenProductID" />
+                <input type="hidden" id="hiddenAdjustmentNoteDetailId" />
+
+            </div>
+        </div>
+        <div class="row mb">
+            <div class="col-md-2">
+                <label title="Quantity">QTY</label>
+                <input type="text" id="txtQTY" class="form-control form-control-rounded clsCalCulation" title="Quantity" />
+            </div>
+            <div class="col-md-2">
+                <label title="Unit Rate">Unit Rate</label>
+                <input type="text" id="txtUnitRate" class="form-control form-control-rounded clsCalCulation" title="Unit Rate" />
+            </div>
+            <div class="col-md-2">
+                <label title="Total With Sale Tax">Total</label>
+                <input type="text" id="txtTotalWOST" class="form-control form-control-rounded" readonly="readonly" title="Total With Sale Tax" />
+            </div>
+
+            <div class="col-md-1">
+                <label title="Discounted Percentage">Dis %</label>
+                <input type="text" id="txtDiscountPercentage" class="form-control form-control-rounded clsCalCulation" title="Discounted Percentage" />
+            </div>
+            <div class="col-md-1">
+                <label title="Discounted UnitRate">Dis UR</label>
+                <input type="text" id="txtDiscountUnitRate" class="form-control form-control-rounded" readonly="readonly" title="Discounted UnitRate" />
+            </div>
+            <div class="col-md-1">
+                <label title="Discounted Amount">Dis Amount</label>
+                <input type="text" id="txtTotalAfterDiscount" class="form-control form-control-rounded" readonly="readonly" title="Discounted Amount" />
+                <input type="hidden" id="hiddenDiscountedAmount" />
+            </div>
+            <div class="col-md-1">
+                <label title="Sale Tax Percentage">Sale Tax</label>
+                <input type="text" id="txtSaleTaxPercentage" class="form-control form-control-rounded clsCalCulation" title="Sale Tax Percentage" />
+                <input type="hidden" id="hiddenSaleTaxAmount" />
+            </div>
+
+            <div class="col-md-2">
+                <label title="Total Tax Inclusive">Total Tax-Inclusive</label>
+                <input type="text" id="txtTotalTaxInclusive" class="form-control form-control-rounded" readonly="readonly" title="Total Tax Inclusive" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-oval btn-info" id="btnAddProduct">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Adjustment Note Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Unit Rate</th>
+                        <th>Total</th>
+                        <th>Dis %</th>
+                        <th>Dis UR</th>
+                        <th>TAD</th>
+                        <th>Dis Amt</th>
+                        <th>Sale Tax</th>
+                        <th>Sale Tax Amt</th>
+                        <th>T Tax Inclusive</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.ListAdjustmentNoteDetails as List<MudasirRehmanAlp.Models.AdjustmentNoteDetail>)
+                        {
+                            counter = counter + 1;
+                            <tr id="@counter">
+                                <td id="tdProductName_@counter">@item.ProductDefinition.ProductName</td>
+                                <td id="tdQty_@counter">@item.Quantity</td>
+                                <td id="tdUnitRate_@counter">@item.UnitRate</td>
+                                <td id="tdTotalWOST_@counter">@item.TotalWithOutSaleTax</td>
+                                <td id="tdDiscountPercentage_@counter">@item.DiscountPercentage</td>
+                                <td id="tdDiscountUnitRate_@counter">@item.DiscountedUnitRate</td>
+                                <td id="tdTotalAfterDiscount_@counter">@item.TotalAfterDiscount</td>
+                                <td id="tdDiscountedAmount_@counter">@item.DiscountAmount</td>
+                                <td id="tdSaleTaxPercentage_@counter">@item.SaleTaxPercentage</td>
+                                <td id="tdSaleTaxAmount_@counter">@item.SaleTaxAmount</td>
+                                <td id="tdTotalTaxInclusive_@counter">@item.TotalTaxInclusive</td>
+                                <td>
+                                    <input type="hidden" id="tdhiddenAdjustmentNoteDetailId_@counter" value="@item.AdjustmentNoteDetailId">
+                                    <input type="hidden" id="tdhiddenProductId_@counter" value="@item.ProductID">
+                                    <input type="hidden" id="tdhiddenRowStatus_@counter" value="1">
+                                    <span title="Edit" class="btn btn-primary btn-sm clsbtnEdit"><emc class="fa fa-edit"></emc> </span>
+                                    <span title="Delete" class="btn btn-danger btn-sm clsbtnDelete"><emc class="fa fa-remove"></emc></span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Unit Rate</th>
+                        <th>Total</th>
+                        <th>Dis %</th>
+                        <th>Dis UR</th>
+                        <th>TAD</th>
+                        <th>Dis Amt</th>
+                        <th>Sale Tax</th>
+                        <th>Sale Tax Amt</th>
+                        <th>T Tax Inclusive</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@counter" id="currentRowID" />
+<div class="panel m-b-xs p-a-0">
+    <div class="panel-body p-t-0 p-b-0">
+        <div class="row m-b-xs p-b-0">
+            <div class="col-md-12">
+
+            </div>
+            <div class="col-md-8 p-b-sm">
+
+            </div>
+            <div class="col-md-4 p-r-0 p-l-0">
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Sub Total WST
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.SubTotalWithSaleTax, new { htmlAttributes = new { @tabindex = "31", @style = "background-color:white", @class = "form-control AllowNumericWithDecimal", @readonly = "readonly", @id = "txtSubTotalWithSaleTax", @placeholder = "Sub Total" } })
+                    @Html.ValidationMessageFor(model => model.SubTotalWithSaleTax, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Sub Total WOST
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.SubTotalWithOutSaleTax, new { htmlAttributes = new { @tabindex = "31", @style = "background-color:white", @class = "form-control AllowNumericWithDecimal", @readonly = "readonly", @id = "txtSubTotalWithOutSaleTax", @placeholder = "Sub Total" } })
+                    @Html.ValidationMessageFor(model => model.SubTotalWithOutSaleTax, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Freight Charges
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.FreightCharges, new { htmlAttributes = new { @tabindex = "32", @class = "form-control AllowNumericWithDecimal ClsFreightCharges", @placeholder = "Please Enter Freight Charges", @id = "txtFreightCharges", } })
+                    @Html.ValidationMessageFor(model => model.FreightCharges, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Net Total
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.NetTotal, new { htmlAttributes = new { @tabindex = "33", @class = "form-control", @id = "txtNetTotal", @readonly = "readonly", @style = "background-color:white", @placeholder = "Net Total" } })
+                    @Html.ValidationMessageFor(model => model.NetTotal, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-12 m-b-xs">
+                    @Html.EditorFor(model => model.AmountInWord, new { htmlAttributes = new { @tabindex = "34", @class = "form-control AmountInWord", @id = "txtAmountInWord", @readonly = "readonly", @placeholder = "Amount in word" } })
+                    @Html.ValidationMessageFor(model => model.AmountInWord, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel">
+
+    <div class="panel-footer">
+
+       <button type="submit" class="btn btn-success" title="Update" id="btnSubmit"> Update &nbsp;<em class="fa fa-edit"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+ 
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+<script>
+        $(document).ready(function () {
+
+               var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+            ProductLoad();
+             //---------- Permission Code
+              var rName = 'AdjustmentNotes';
+              var id = '@Model.AdjustmentNoteId';
+              PagePermission(rName, id);
+            //---------------
+
+            $("#btnAddProduct").click(function () {
+                debugger
+                var row = $("#currentRowID").val();
+
+                var AdjustmentNoteDetailId = $("#hiddenAdjustmentNoteDetailId").val();
+                var ProductId = $("#hiddenProductID").val();
+                var ProductName = $("#txtProductName").val();
+                var Qty = $("#txtQTY").val();
+                var UnitRate = $("#txtUnitRate").val();
+                var TotalWOST = $("#txtTotalWOST").val();
+                var DiscountPercentage = $("#txtDiscountPercentage").val();
+                var DiscountUnitRate = $("#txtDiscountUnitRate").val();
+                var TotalAfterDiscount = $("#txtTotalAfterDiscount").val();
+                var DiscountedAmount = $("#hiddenDiscountedAmount").val();
+                var SaleTaxPercentage = $("#txtSaleTaxPercentage").val();
+                var SaleTaxAmount = $("#hiddenSaleTaxAmount").val();
+                var TotalTaxInclusive = $("#txtTotalTaxInclusive").val();
+
+                row = isNaN(parseInt(row)) ? 0 : parseInt(row)
+                row = row + 1;
+                $("#tblBody").append("<tr id='" + row + "'><td id='tdProductName_" + row + "'>" + ProductName + "</td><td id='tdQty_" + row + "'>" + Qty + "</td><td id='tdUnitRate_" + row + "'>" + UnitRate + "</td><td id='tdTotalWOST_" + row + "'>" + TotalWOST + "</td><td id='tdDiscountPercentage_" + row + "'>" + DiscountPercentage + "</td><td id='tdDiscountUnitRate_" + row + "'>" + DiscountUnitRate + "</td><td id='tdTotalAfterDiscount_" + row + "'>" + TotalAfterDiscount + "</td><td id='tdDiscountedAmount_" + row + "'>" + DiscountedAmount + "</td><td id='tdSaleTaxPercentage_" + row + "'>" + SaleTaxPercentage + "</td><td id='tdSaleTaxAmount_" + row + "'>" + SaleTaxAmount + "</td><td id='tdTotalTaxInclusive_" + row + "'>" + TotalTaxInclusive + "</td><td><input type='hidden' id='tdhiddenAdjustmentNoteDetailId_" + row + "' value='" + AdjustmentNoteDetailId + "'><input type='hidden' id='tdhiddenProductId_" + row + "' value='" + ProductId + "'><input type='hidden' id='tdhiddenRowStatus_" + row + "' value='1'>    <span title='Edit' class='btn btn-primary btn-sm clsbtnEdit'><emc class='fa fa-edit'></emc> </span>  <span title='Delete' class='btn btn-danger btn-sm clsbtnDelete'><emc class='fa fa-remove'></emc></span></td></tr>");
+                $("#currentRowID").val(row);
+
+                $("#hiddenProductID").val('');
+                $("#txtProductName").val('');
+                $("#txtQTY").val('0');
+                $("#txtUnitRate").val('0.0');
+                $("#txtTotalWOST").val('0.0');
+                $("#txtDiscountPercentage").val('0.0');
+                $("#txtDiscountUnitRate").val('0.0');
+                $("#txtTotalAfterDiscount").val('0.0');
+                $("#hiddenDiscountedAmount").val('0.0');
+                $("#txtSaleTaxPercentage").val('0.0');
+                $("#hiddenSaleTaxAmount").val('0.0');
+                $("#txtTotalTaxInclusive").val('0.0');
+                var hiddenCompID = $("#hiddenOrganizationID").val();
+                CalculateNetTotal();
+
+            });
+            $("#tblBody").on('click', '.clsbtnEdit', function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+
+                var AdjustmentNoteDetailId = $("#tdhiddenAdjustmentNoteDetailId_" + trID).val();
+                var ProductId = $("#tdhiddenProductId_" + trID).val();
+                var ProductName = $("#tdProductName_" + trID).html();
+                var Qty = $("#tdQty_" + trID).html();
+                var UnitRate = $("#tdUnitRate_" + trID).html();
+                var TotalWOST = $("#tdTotalWOST_" + trID).html();
+                var DiscountPercentage = $("#tdDiscountPercentage_" + trID).html();
+                var DiscountUnitRate = $("#tdDiscountUnitRate_" + trID).html();
+                var TotalAfterDiscount = $("#tdTotalAfterDiscount_" + trID).html();
+                var DiscountedAmount = $("#tdDiscountedAmount_" + trID).html();
+                var SaleTaxPercentage = $("#tdSaleTaxPercentage_" + trID).html();
+                var SaleTaxAmount = $("#tdSaleTaxAmount_" + trID).html();
+                var TotalTaxInclusive = $("#tdTotalTaxInclusive_" + trID).html();
+
+
+                  $("#hiddenAdjustmentNoteDetailId").val(AdjustmentNoteDetailId);
+                $("#hiddenProductID").val(ProductId);
+                $("#txtProductName").val(ProductName);
+                $("#txtQTY").val(Qty);
+                $("#txtUnitRate").val(UnitRate);
+                $("#txtTotalWOST").val(TotalWOST);
+                $("#txtDiscountPercentage").val(DiscountPercentage);
+                $("#txtDiscountUnitRate").val(DiscountUnitRate);
+                $("#txtTotalAfterDiscount").val(TotalAfterDiscount);
+                $("#hiddenDiscountedAmount").val(DiscountedAmount);
+                $("#txtSaleTaxPercentage").val(SaleTaxPercentage);
+                $("#hiddenSaleTaxAmount").val(SaleTaxAmount);
+                $("#txtTotalTaxInclusive").val(TotalTaxInclusive);
+
+
+                var row = $("#currentRowID").val();
+                row = row - 1;
+                $("#currentRowID").val(row);
+                $(this).closest('tr').remove();
+
+            });
+            $("#tblBody").on('click', '.clsbtnDelete', function () {
+
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                var AdjustmentNoteDetailId = $("#tdhiddenAdjustmentNoteDetailId_"+trID).val();
+                if (AdjustmentNoteDetailId != "" && AdjustmentNoteDetailId != undefined)
+                {
+                      var row = $("#currentRowID").val();
+                      row = row - 1;
+                      $("#currentRowID").val(row);
+                var Result = confirm('Are you sure you want to delete this item?');
+                if (Result == true) {
+                    var resourceUrl = "/AdjustmentNotes/DeleteAdjustmentNotesDetailSingle";
+                    $.ajax({
+                        type: "POST",
+                        url: resourceUrl,
+                        data: JSON.stringify({ ID: AdjustmentNoteDetailId }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        cache: false,
+                        async: false,
+                        success: function (url) {
+                            Validation = "True";
+                            //window.location.href = url;
+                            location.reload();
+
+                        },
+                        error: function () {
+                        }
+                    });
+                }
+
+
+
+            }
+            else {
+                 var row = $("#currentRowID").val();
+                row = row - 1;
+                $("#currentRowID").val(row);
+                $(this).closest('tr').remove();
+            }
+
+
+
+            });
+            $(".clsCalCulation").keyup(function () {
+                debugger
+                var Qty = $("#txtQTY").val();
+                var URWST = $("#txtUnitRate").val();
+                var URWOST = $("#txtURWOST").val();
+                CalOnFocuOut(Qty, URWST, URWOST);
+                CalculateDiscount();
+                CalculateSaleTax();
+            });
+            $(".ClsFreightCharges").keyup(function () {
+                  CalculateNetTotal();
+            });
+            //btn Save Purchase Order
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+
+                var ADMaltipleChildItem = new Array();
+                var ADMasterItem = {};
+                var ADChildItem = {};
+                var formData = new FormData();
+                 var ADDetailsID = "0";
+                ADMasterItem = {
+                    AdjustmentNoteId: $("#hiddenAdjustmentNoteId").val(),
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    AdjustmentNoteNO: $("#txtAdjustmentNoteNO").val(),
+                    Date: $("#txtDate").val(),
+                    SubTotalWithOutSaleTax: $("#txtSubTotalWithOutSaleTax").val(),
+                    SubTotalWithSaleTax: $("#txtSubTotalWithSaleTax").val(),
+                    FreightCharges: $("#txtFreightCharges").val(),
+                    NetTotal: $("#txtNetTotal").val(),
+                    AmountInWord: $("#txtAmountInWord").val(),
+                    Description: $("#txtDescription").val(),
+
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+                    var RowStatus = $("#tdhiddenRowStatus_" + i).val();
+
+                    if (RowStatus == "1") {
+                         var Id = $("#tdhiddenAdjustmentNoteDetailId_" + i).val();
+                        if (Id != "" && Id != undefined) {
+                            ADDetailsID = Id;
+                        }
+                        else {
+                            ADDetailsID = "0";
+                        }
+                        ADChildItem = {
+                        AdjustmentNoteDetailId:ADDetailsID,
+                        ProductID: $("#tdhiddenProductId_" + i).val(),
+                        Quantity: $("#tdQty_" + i).html(),
+                        UnitRate: $("#tdUnitRate_" + i).html(),
+                        TotalWithOutSaleTax: $("#tdTotalWOST_" + i).html(),
+                        DiscountPercentage: $("#tdDiscountPercentage_" + i).html(),
+                        DiscountAmount: $("#tdDiscountedAmount_" + i).html(),
+                        DiscountedUnitRate: $("#tdDiscountUnitRate_" + i).html(),
+                        TotalAfterDiscount: $("#tdTotalAfterDiscount_" + i).html(),
+                        SaleTaxPercentage: $("#tdSaleTaxPercentage_" + i).html(),
+                        SaleTaxAmount: $("#tdSaleTaxAmount_" + i).html(),
+                        TotalTaxInclusive: $("#tdTotalTaxInclusive_" + i).html(),
+                    }
+                    ADMaltipleChildItem.push(ADChildItem);
+                    }
+
+                }
+
+                var master = JSON.stringify(ADMasterItem);
+                var child = JSON.stringify(ADMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (ADMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/AdjustmentNotes/Edit",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                          if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                            else {
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                           fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+
+        function CalculateDiscount() {
+            debugger
+            var Discount = $("#txtDiscountPercentage").val();
+            var Total = $("#txtTotalWOST").val();
+            var UnitRate = $("#txtUnitRate").val();
+            var Quantity = $("#txtQTY").val();
+            var DisUnitTemp = 0;
+            Discount = isNaN(parseFloat(Discount)) ? 0 : parseFloat(Discount)
+            Total = isNaN(parseFloat(Total)) ? 0 : parseFloat(Total)
+            UnitRate = isNaN(parseFloat(UnitRate)) ? 0 : parseFloat(UnitRate)
+            Quantity = isNaN(parseFloat(Quantity)) ? 0 : parseFloat(Quantity)
+
+            Discount = parseFloat(Discount);
+            var DiscountAmount = (Total * Discount) / 100;
+            var TotalAfterDiscount = Total - DiscountAmount;
+
+            DisUnitTemp = TotalAfterDiscount / Quantity;
+            DisUnitTemp = isNaN(parseFloat(DisUnitTemp)) ? 0 : parseFloat(DisUnitTemp)
+
+            $("#hiddenDiscountedAmount").val(DiscountAmount.toFixed(2));
+            $("#txtTotalAfterDiscount").val(TotalAfterDiscount.toFixed(2));
+            $("#txtDiscountUnitRate").val(DisUnitTemp.toFixed(2));
+
+            //CalculateTotal(RowID);
+        }
+        function CalOnFocuOut(Qty, URWST, URWOST) {
+            debugger
+            var Total = 0;
+            var GrandTotal = 0;
+            var TotalWST = 0;
+            var TotalWOST = 0;
+            Qty = isNaN(parseInt(Qty)) ? 0 : parseInt(Qty)
+            URWST = isNaN(parseInt(URWST)) ? 0 : parseInt(URWST)
+            TotalWST = Qty * URWST;
+            URWOST = isNaN(parseInt(URWOST)) ? 0 : parseInt(URWOST)
+            TotalWOST = Qty * URWOST;
+            Total = TotalWST;
+            $("#txtTotalWOST").val(TotalWST.toFixed(2));
+            $("#txtTotalTaxInclusive").val(Total.toFixed(2));
+        }
+        function CalculateSaleTax() {
+            debugger
+            var SaleTax = $("#txtSaleTaxPercentage").val();
+            var TotalAfterDiscount = $("#txtTotalAfterDiscount").val();
+            SaleTax = isNaN(parseFloat(SaleTax)) ? 0 : parseFloat(SaleTax)
+            TotalAfterDicount = isNaN(parseFloat(TotalAfterDiscount)) ? 0 : parseFloat(TotalAfterDiscount)
+
+            var SaleTaxAmount = (TotalAfterDiscount * SaleTax) / 100;
+            $("#hiddenSaleTaxAmount").val(SaleTaxAmount.toFixed(2));
+            CalculateTotal();
+        }
+        function CalculateTotal() {
+            debugger
+            var SaleTaxAmount = $("#hiddenSaleTaxAmount").val();
+            var DiscountAmount = $("#hiddenDiscountedAmount").val();
+            var Total = $("#txtTotalWOST").val();
+            SaleTaxAmount = isNaN(parseFloat(SaleTaxAmount)) ? 0 : parseFloat(SaleTaxAmount)
+            DiscountAmount = isNaN(parseFloat(DiscountAmount)) ? 0 : parseFloat(DiscountAmount)
+            Total = isNaN(parseFloat(Total)) ? 0 : parseFloat(Total)
+
+            SaleTaxAmount = parseFloat(SaleTaxAmount);
+            DiscountAmount = parseFloat(DiscountAmount);
+            Total = parseFloat(Total);
+            var SubNetTotal = Total - DiscountAmount + SaleTaxAmount;
+            $("#txtTotalTaxInclusive").val(SubNetTotal.toFixed(2));
+
+            CalculateNetTotal();
+
+        }
+        function CalculateNetTotal() {
+        debugger
+        var RowCount = $("#currentRowID").val();
+        var SubWithSaleTaxTotal = 0;
+        var SubWithOutSaleTaxTotal = 0;
+        var NetTotal = 0;
+        var TotalofNetTotal = 0;
+
+
+        for (i = 1; i <= RowCount; i++) {
+          var RowStatus = $("#tdhiddenRowStatus_" + i).val();
+
+            if (RowStatus =="1")
+            {
+             var ItemNetTotalWST = $("#tdTotalTaxInclusive_" + i).html();
+              var ItemTotalWOST = $("#tdTotalWOST_" + i).html();
+            ItemNetTotalWST = isNaN(parseFloat(ItemNetTotalWST)) ? 0 : parseFloat(ItemNetTotalWST);
+            ItemTotalWOST = isNaN(parseFloat(ItemTotalWOST)) ? 0 : parseFloat(ItemTotalWOST);
+
+            SubWithOutSaleTaxTotal += ItemTotalWOST;
+            SubWithSaleTaxTotal += ItemNetTotalWST;
+            NetTotal = SubWithSaleTaxTotal;
+
+            }
+        }
+        TotalofNetTotal = NetTotal;
+        var FreightCharges = $("#txtFreightCharges").val();
+        FreightCharges = isNaN(parseFloat(FreightCharges)) ? 0 : parseFloat(FreightCharges);
+        TotalofNetTotal += FreightCharges;
+
+
+
+        $("#txtSubTotalWithSaleTax").val(SubWithSaleTaxTotal.toFixed(2));
+        $("#txtSubTotalWithOutSaleTax").val(SubWithOutSaleTaxTotal.toFixed(2));
+        $("#txtFreightCharges").val(FreightCharges.toFixed(0));
+        $("#txtNetTotal").val(TotalofNetTotal.toFixed(2));
+        $("#txtAmountInWord").val(null);
+        var url = "/Json/AmountInWord";
+        var amount = $("#txtNetTotal").val();
+        $.get(url, { label: amount, },
+            function (Data) {
+                $("#txtAmountInWord").val(Data);
+            });
+    }
+
+</script>
+}

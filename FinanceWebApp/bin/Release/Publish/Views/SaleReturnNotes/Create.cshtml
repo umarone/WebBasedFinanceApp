@@ -1,0 +1,388 @@
+﻿@model MudasirRehmanAlp.Models.SaleReturnNote
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/Select2/css")
+
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Return Note</div>
+    @using (Html.BeginForm())
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row">
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Return No</label>
+                    </div>
+                    <div class="col-sm-9">
+                        @Html.EditorFor(model => model.SaleReturnCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtSaleReturnCode", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.SaleReturnCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Organization</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.OrganizationUnitName )" id="hiddenOrganizationName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+
+                        <label class="m-b-0 small font-weight-bold">Sale Invoice</label>
+                    </div>
+                    <div class="col-sm-9">
+
+                        <select id="txtSaleInvoiceSelect" class="select2Cls form-control SaleInvoiceSelect">
+                            <option value="">Select sale invoice no</option>
+                            @{
+                                foreach (var item in ViewBag.SaleInvoiceList as List<MudasirRehmanAlp.ModelsView.SaleInvoicesViewModel>)
+                                {
+                                    <option value="@item.SaleInvoiceID">@item.SaleInvoiceNo</option>
+                                }
+                            }
+                        </select>
+                        @Html.HiddenFor(model => model.SaleInvoicID, new { @id = "hiddenSaleInvoicID" })
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Sale Invoice Date</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-rounded" readonly="readonly" id="hiddenSaleInvoiceDate" />
+                    </div>
+                </div>
+                <div class=" col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Distributor Name</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-rounded" readonly="readonly" id="hiddenDistributorName" />
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Account No</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-rounded" id="hiddenAccountNo" readonly="readonly" />
+                        <input type="hidden" id="hiddenAccountID" />
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Transaction Type</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" id="txtTransactionType" class="form-control form-control-rounded" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Sale Return Date</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="input-group date datetimepicker">
+                            @Html.EditorFor(model => model.SaleReturnDate, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtSaleReturnDate" } })
+                            @Html.ValidationMessageFor(model => model.SaleReturnDate, "", new { @class = "text-danger" })
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb">
+                    <div class="col-sm-3">
+                        <label class="m-b-0 small font-weight-bold">Main Reason</label>
+                    </div>
+                    <div class="col-sm-9">
+                        @Html.TextAreaFor(model => model.MainReason, new { @class = "form-control", @id = "txtMainReason" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    }
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Return Note Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Unit Rate</th>
+                        <th>Total</th>
+                        @*<th>Dis %</th>
+                            <th>Dis UR</th>
+                            <th>TAD</th>
+                            <th>Dis Amt</th>
+                            <th>Sale Tax</th>
+                            <th>Sale Tax Amt</th>
+                            <th>T Tax Inclusive</th>*@
+                        <th>Return QTY</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="panel m-b-xs p-a-0">
+    <div class="panel-body p-t-0 p-b-0">
+        <div class="row m-b-xs p-b-0">
+            <div class="col-xs-12">
+                <label class="m-b-0 font-weight-bold" style="text-decoration:underline">General Terms & Condition</label>
+            </div>
+            <div class="col-sm-8 p-b-sm">
+                <textarea name="TermAndCondition" class="form-control" placeholder="Please Enter Terms and Condition" style="resize:none; font-size:10px; line-height:2;" rows="5" id="txtTermAndCondition">@ViewBag.TermsAndCondition</textarea>
+            </div>
+            <div class="col-sm-4 p-r-0 p-l-0">
+                <div class="col-xs-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Sub Total WST
+                    </label>
+                </div>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="txtSubTotalWithSaleTax" readonly="readonly" />
+                    @*@Html.EditorFor(model => model.SubTotalWithSaleTax, new { htmlAttributes = new { @tabindex = "31", @style = "background-color:white", @class = "form-control AllowNumericWithDecimal", @readonly = "readonly", @id = "txtSubTotalWithSaleTax", @placeholder = "Sub Total" } })
+                        @Html.ValidationMessageFor(model => model.SubTotalWithSaleTax, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="col-xs-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Sub Total WOST
+                    </label>
+                </div>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" readonly="readonly" id="txtSubTotalWithOutSaleTax" />
+                    @*@Html.EditorFor(model => model.SubTotalWithOutSaleTax, new { htmlAttributes = new { @tabindex = "31", @style = "background-color:white", @class = "form-control AllowNumericWithDecimal", @readonly = "readonly", @id = "txtSubTotalWithOutSaleTax", @placeholder = "Sub Total" } })
+                        @Html.ValidationMessageFor(model => model.SubTotalWithOutSaleTax, "", new { @class = "text-danger" })*@
+                </div>
+
+                <div class="col-xs-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Freight Charges
+                    </label>
+                </div>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" readonly="readonly" id="txtFreightCharges" />
+                    @*@Html.EditorFor(model => model.FreightCharges, new { htmlAttributes = new { @tabindex = "32", @class = "form-control AllowNumericWithDecimal ClsFreightCharges", @placeholder = "Please Enter Freight Charges", @id = "txtFreightCharges", } })
+                        @Html.ValidationMessageFor(model => model.FreightCharges, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="col-xs-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Net Total
+                    </label>
+                </div>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" readonly="readonly" id="txtNetTotal" />
+                    @*@Html.EditorFor(model => model.NetTotal, new { htmlAttributes = new { @tabindex = "33", @class = "form-control", @id = "txtNetTotal", @readonly = "readonly", @style = "background-color:white", @placeholder = "Net Total" } })
+                        @Html.ValidationMessageFor(model => model.NetTotal, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="col-xs-12 m-b-xs">
+                    <input type="text" class="form-control" readonly="readonly" id="txtAmountInWord" />
+                    @*@Html.EditorFor(model => model.AmountInWord, new { htmlAttributes = new { @tabindex = "34", @class = "form-control AmountInWord", @id = "txtAmountInWord", @readonly = "readonly", @placeholder = "Amount in word" } })
+                        @Html.ValidationMessageFor(model => model.AmountInWord, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel">
+
+    <div class="panel-footer">
+
+          <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+    
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+        $(document).ready(function () {
+           var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+              //---------- Permission Code
+              var rName = 'SaleReturnNotes';
+              var id = '@Model.SaleReturnId';
+              PagePermission(rName, id);
+            //---------------
+             $(".SaleInvoiceSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenSaleInvoicID").val(ID);
+                loadSaleInvoiceDetails(ID);
+
+             });
+             $(document).on('focusout', "input.clsReturnQty", function () {
+                debugger
+                var RowID = $(this).closest('tr').attr('id');
+                var ReturnQty = $("#tdRetrunQty_" + RowID).val();
+                var ReceiveQuantity = $("#tdQuantity_" + RowID).val();
+                ReturnQty = isNaN(parseInt(ReturnQty)) ? 0 : parseInt(ReturnQty)
+                ReceiveQuantity = isNaN(parseInt(ReceiveQuantity)) ? 0 : parseInt(ReceiveQuantity)
+                if (ReturnQty > ReceiveQuantity) {
+
+                    var message = 'Return Quntity is not greater of SI Quntity';
+                    var Validation = 'False';
+                    showMessage(message, Validation);
+                }
+            });
+            //btn Save Goods Received Note
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+                var SIParentItem = new Array();
+                var SIMaltipleChildItem = new Array();
+
+                var SIMasterItem = {};
+                var SIChildItem = {};
+             var formData = new FormData();
+                SIMasterItem = {
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    SaleInvoicID: $("#hiddenSaleInvoicID").val(),
+                    AccoutID: $("#hiddenAccountID").val(),
+                    SaleReturnCode: $("#txtSaleReturnCode").val(),
+                    SaleReturnDate: $("#txtSaleReturnDate").val(),
+                    MainReason: $("#txtMainReason").val(),
+
+                }
+
+                SIParentItem.push(SIMasterItem);
+
+                 for (var i = 1; i <= ItemCount; i++) {
+
+                     SIChildItem = {
+                         StockID: $("#tdStockID_" + i).val(),
+                         SaleInvoiceDetailsId: $("#tdSaleInvoiceDetailID_" + i).val(),
+                         ProductID: $("#tdProductID_" + i).val(),
+                         ReturnQunatity: $("#tdRetrunQty_" + i).val(),
+                         Quantity: $("#tdQuantity_" + i).val(),
+                         Reason: $("#tdtxtReason_" + i).val(),
+
+                    }
+                    SIMaltipleChildItem.push(SIChildItem);
+
+
+                }
+                var master = JSON.stringify(SIParentItem);
+                var child = JSON.stringify(SIMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+
+
+                if (SIParentItem.length > 0 && SIMaltipleChildItem.length > 0 ) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/SaleReturnNotes/Create",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (url) {
+                            window.location.href = "@Url.Action("Index")";
+                        },
+                        error: function () {
+                             fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong", "Server Error");
+                        }
+                    });
+
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+          function loadSaleInvoiceDetails(Id) {
+        var url = "/SaleReturnNotes/LoadSaleInvoiceDetails";
+        var url2 = "/SaleReturnNotes/LoadDetailsOfSaleInvoiceDetails";
+        $.get(url, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#txtTransactionType").val(Data.TransactionType);
+
+                    $("#hiddenDistributorName").val(Data.DistributorName);
+                    $("#hiddenAccountNo").val(Data.AccountNo);
+                    $("#hiddenAccountID").val(Data.AccountID);
+                    $("#hiddenSaleInvoiceDate").val(new Date(parseInt(Data.SaleInvoiceDate.substr(6))).toLocaleDateString());
+
+                    $("#txtSubTotalWithOutSaleTax").val(Data.SubTotalWithOutSaleTax);
+                    $("#txtSubTotalWithSaleTax").val(Data.SubTotalWithSaleTax);
+                    $("#txtFreightCharges").val(Data.FreightCharges);
+                    $("#txtNetTotal").val(Data.NetTotal);
+                     $("#txtAmountInWord").val(Data.AmountInWord);
+                    $("#txtTermAndCondition").val(Data.TermAndCondition);
+
+                }
+                else {
+                    $("#txtTransactionType").val('');
+                     $("#hiddenDistributorName").val('');
+                    $("#hiddenAccountNo").val('');
+                    $("#hiddenAccountID").val('');
+                    $("#hiddenSaleInvoiceDate").val('');
+                     $("#txtSubTotalWithOutSaleTax").val('');
+                    $("#txtSubTotalWithSaleTax").val('');
+                    $("#txtFreightCharges").val('');
+                    $("#txtNetTotal").val('');
+                     $("#txtAmountInWord").val('');
+                    $("#txtTermAndCondition").val('');
+                }
+
+
+            });
+           $.get(url2, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#tblBody").html(Data);
+
+                }
+                else {
+                    $("#tblBody").html('');
+
+                }
+
+
+            });
+        }
+    </script>
+}

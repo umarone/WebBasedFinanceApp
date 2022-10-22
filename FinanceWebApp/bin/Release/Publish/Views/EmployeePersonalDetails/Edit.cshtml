@@ -1,0 +1,1318 @@
+﻿@model MudasirRehmanAlp.Models.EmployeePersonalDetails
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+
+<!-- START panel-->
+<div class="panel panel-default">
+    <div class="panel-heading">Employees</div>
+    <div class="panel-body">
+        <div role="tabpanel">
+            <!-- Nav tabs-->
+            <ul role="tablist" class="nav nav-tabs clsnav">
+                <li role="presentation" class="active">
+                    <a href="#personalDetails" aria-controls="home" role="tab" data-toggle="tab">Personal Details</a>
+                </li>
+                <li role="presentation">
+                    <a href="#officialDetails" aria-controls="profile" role="tab" data-toggle="tab">Official Details</a>
+                </li>
+                <li role="presentation">
+                    <a href="#educationsDetails" aria-controls="messages" role="tab" data-toggle="tab">Educations Details</a>
+                </li>
+                <li role="presentation">
+                    <a href="#experienceDetails" aria-controls="messages" role="tab" data-toggle="tab">Experience Details</a>
+                </li>
+                <li role="presentation">
+                    <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a>
+                </li>
+            </ul>
+            <!-- Tab panes-->
+            <div class="tab-content">
+                <div id="personalDetails" role="tabpanel" class="tab-pane active">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="hiddenEmployeeIdForAllTabs" value="@Model.EmployeeId" />
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <div class="form-group">
+                                        <label>Code</label>
+                                        @Html.EditorFor(model => model.EmployeeCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtEmployeeCode", @readonly = "readonly" } })
+                                        @Html.ValidationMessageFor(model => model.EmployeeCode, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Organization Name</label>
+                                        <input type="text" class="form-control form-control-rounded" value="@(Model.OrganizationDefinition.OrganizationUnitName )" id="hiddenOrganizationName" readonly="readonly" />
+                                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Branch Name</label>
+
+                                        @{
+                                            if (Model.BranchId != null)
+                                            {
+                                                <input type="text" class="form-control form-control-rounded" value="@(Model.BranchDefinition.Name )" id="hiddenBranchName" readonly="readonly" />
+
+                                            }
+                                            else
+                                            {
+                                                <input type="text" class="form-control form-control-rounded" id="hiddenBranchName" readonly="readonly" />
+                                            }
+                                        }
+                                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <select id="txtTitleNameSelect" class="select2Cls form-control TitleSelect">
+                                            @{
+                                                if (!String.IsNullOrEmpty(Model.Title))
+                                                {
+
+                                                    <option value="@Model.Title">@Model.Title</option>
+                                                    if (Model.Title == "Mr")
+                                                    {
+                                                        <option>Select Title</option>
+                                                        <option value="Miss">Miss</option>
+                                                    }
+                                                    else if (Model.Title == "Miss")
+                                                    {
+                                                        <option>Select Title</option>
+                                                        <option value="Mr">Mr </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option selected="selected">Select Title</option>
+                                                        <option value="Mr">Mr </option>
+                                                        <option value="Miss">Miss</option>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <option selected="selected">Select Title</option>
+                                                    <option value="Mr">Mr </option>
+                                                    <option value="Miss">Miss</option>
+                                                }
+                                            }
+                                        </select>
+                                        @Html.HiddenFor(model => model.Title, new { @id = "hiddenTitle" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>First Name </label>
+                                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtFirstName" } })
+                                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Last Name </label>
+                                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtLastName" } })
+                                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Father Name </label>
+                                        @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtFatherName" } })
+                                        @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Date of Birth </label>
+                                    <div class="input-group date datetimepicker">
+                                        @Html.EditorFor(model => model.DateofBirth, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtDateofBirth" } })
+                                        @Html.ValidationMessageFor(model => model.DateofBirth, "", new { @class = "text-danger" })
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>CNIC No</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                                            @{
+                                                if (!String.IsNullOrEmpty(Model.CNICNo))
+                                                {
+                                                    <input type="text" name="CNICNo" id="txtCNICNo" value="@Model.CNICNo    " data-masked="" data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No" class="form-control form-control-rounded" />
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" name="CNICNo" id="txtCNICNo" data-masked="" data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No" class="form-control form-control-rounded" />
+                                                }
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <select id="txtGenderNameSelect" class="select2Cls form-control GenderSelect">
+
+                                            @{
+                                                if (!String.IsNullOrEmpty(Model.Gender))
+                                                {
+
+                                                    <option value="@Model.Gender">@Model.Gender</option>
+                                                    if (Model.Gender == "Female")
+                                                    {
+                                                        <option>Select Gender</option>
+                                                        <option value="Male">Male </option>
+                                                    }
+                                                    else if (Model.Gender == "Male")
+                                                    {
+                                                        <option>Select Gender</option>
+                                                        <option value="Female">Female</option>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <option>Select Gender</option>
+                                                    <option value="Male">Male </option>
+                                                    <option value="Female">Female</option>
+                                                }
+                                            }
+                                        </select>
+                                        @Html.HiddenFor(model => model.Gender, new { @id = "hiddenGender" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label>Marital Status</label>
+                                        <select id="txtMaritalStatusNameSelect" class="select2Cls form-control MaritalStatusSelect">
+
+                                            @{
+                                                if (!String.IsNullOrEmpty(Model.MaritalStatus))
+                                                {
+
+                                                    <option value="@Model.Gender">@Model.MaritalStatus</option>
+                                                    if (Model.MaritalStatus == "Single")
+                                                    {
+                                                        <option>Select Marital Status</option>
+                                                        <option value="Married">Married </option>
+                                                    }
+                                                    else if (Model.MaritalStatus == "Married")
+                                                    {
+                                                        <option>Select Marital Status</option>
+                                                        <option value="Single">Single</option>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <option selected="selected">Select Marital Status</option>
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married </option>
+                                                }
+                                            }
+                                        </select>
+                                        @Html.HiddenFor(model => model.MaritalStatus, new { @id = "hiddenMaritalStatus" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Mobile No</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            @{
+                                                if (!String.IsNullOrEmpty(Model.MobileNo))
+                                                {
+                                                    <input type="text" name="MobileNo" value="@Model.MobileNo" id="txtMobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Mobile no" class="form-control form-control-rounded" />
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" name="MobileNo" id="txtMobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Mobile no" class="form-control form-control-rounded" />
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Phone No</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                            @{
+                                                if (!String.IsNullOrEmpty(Model.PhoneNo))
+                                                {
+                                                    <input type="text" name="PhoneNo" value="@Model.PhoneNo" id="txtPhoneNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control form-control-rounded " />
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" name="PhoneNo" id="txtPhoneNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control form-control-rounded " />
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            @{
+                                                if (!String.IsNullOrEmpty(Model.Email))
+                                                {
+                                                    <input type="text" name="Email" value="@Model.Email" id="txtEmail" placeholder="Email" class="form-control form-control-rounded " />
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" name="Email" id="txtEmail" placeholder="Email" class="form-control form-control-rounded " />
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label>City Name</label>
+                                        <select id="txtCityNameSelect" class="select2Cls form-control CitySelect">
+                                            @{
+                                                if (Model.CityID != null)
+                                                {
+                                                    <option value="@Model.CityID">@Model.CityDefinition.CityName</option>
+                                                }
+                                            }
+                                        </select>
+                                        @Html.HiddenFor(model => model.CityID, new { @id = "hiddenCityID" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Permanent Address</label>
+                                        @Html.TextAreaFor(model => model.PermanentAddress, new { @class = "form-control", @id = "txtPermanentAddress" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Temporary Address</label>
+                                        @Html.TextAreaFor(model => model.TemporaryAddress, new { @class = "form-control", @id = "txtTemporaryAddress" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb">
+                                <div class="col-sm-2">
+                                    <label>Is User Created</label>
+                                    <div class="form-group">
+                                        <label class="radio-inline c-radio">
+                                            @Html.RadioButton("IsUser", "true", new { @checked = "checked", @class = "clsRDOIsUser", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                                        </label>
+                                        <label class="radio-inline c-radio">
+                                            @Html.RadioButton("IsUser", "false", new { @type = "radio", @class = "clsRDOIsUser" }) <span class="fa fa-remove"></span> No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label>Status</label>
+
+                                    <div class="form-group">
+                                        <label class="radio-inline c-radio">
+                                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @class = "clsRDOIsActive", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                                        </label>
+                                        <label class="radio-inline c-radio">
+                                            @Html.RadioButton("IsActive", "false", new { @type = "radio", @class = "clsRDOIsActive" }) <span class="fa fa-remove"></span> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">CNIC Front</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" onchange="encodeImagetoBase64(this,'imgCNICFront')" name="fileCNICFront" id="fileCNICFront" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">CNIC Back</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" onchange="encodeImagetoBase64(this,'imgCNICBack')" name="fileCNICBack" id="fileCNICBack" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Employee Picture</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" onchange="encodeImagetoBase64(this,'imgEmployeePicture')" name="fileEmployeePicture" id="fileEmployeePicture" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    @if (Model.CNICFront != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(Model.CNICFront);
+                                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                        <img src='@imgSrc' id="imgCNICFront" style="width:100%;height:230px" class="img-thumbnail img-responsive" />
+                                    }
+
+                                </div>
+                                <div class="col-sm-4">
+                                    @if (Model.CNICBack != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(Model.CNICBack);
+                                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                        <img src='@imgSrc' id="imgCNICBack" style="width:100%;height:230px" class="img-thumbnail img-responsive" />
+                                    }
+                                </div>
+                                <div class="col-sm-4">
+                                    @if (Model.EmployeePicture != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(Model.EmployeePicture);
+                                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                        <img src='@imgSrc' id="imgEmployeePicture" style="width:100%;height:230px" class="img-thumbnail img-responsive" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div id="officialDetails" role="tabpanel" class="tab-pane">
+                    <div class="panel-body">
+                        @{
+                            if (ViewBag.EmployeeOfficiallDetailsObj != null)
+                            {
+                                @Html.Partial("_OfficiallDetails", ViewBag.EmployeeOfficiallDetailsObj as MudasirRehmanAlp.Models.EmployeeOfficialDetails)
+                            }
+                            else
+                            {
+                                @Html.Partial("_OfficiallDetails",new MudasirRehmanAlp.Models.EmployeeOfficialDetails())
+                            }
+                        }
+
+                    </div>
+
+                </div>
+                <div id="educationsDetails" role="tabpanel" class="tab-pane">
+                    @Html.Partial("_EducationsDetails", new MudasirRehmanAlp.Models.EmployeeEducationDetails())
+                </div>
+                <div id="experienceDetails" role="tabpanel" class="tab-pane">
+                    @Html.Partial("_ExperienceDetails", new MudasirRehmanAlp.Models.EmployeeExperienceDetails())
+                </div>
+                <div id="settings" role="tabpanel" class="tab-pane">
+                    <h1>Pending</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END panel-->
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" onclick="submitSaveAndUpdate();" class="btn btn-success" title="Save" @*id="btnSubmit"*@>Update &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+@section Styles {
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/datetimePickerCss")
+    <style>
+        body .select2-container {
+            width: 100% !important;
+        }
+    </style>
+}
+@section Scripts {
+
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/demoPanels")
+    <script>
+        var rowIdExpPublicEdit = 0;
+        var rowIdEduPublicEdit = 0;
+        $(document).ready(function () {
+
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+            //---------- Permission Code
+              var rName = 'EmployeePersonalDetails';
+              var id = '@Model.EmployeeId';
+              PagePermission(rName, id);
+            //---------------
+            LoadAllCity($("#hiddenCityID").val());
+            LoadAllCityForExp("");
+            LoadDepartmentDefinitionsCode($("#hiddenDepartmentId").val());
+            LoadDesignationDefinitionsCode($("#hiddenDesignationId").val());
+            LoadEducationInstitutesCode("");
+            LoadEducationDegreesCode("");
+            //LoadEmployeeCode();
+            //-----------------
+              $(".OrganizationSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenOrganizationID").val(ID);
+              });
+            $(".CitySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCityID").val(ID);
+            });
+             $(".TitleSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenTitle").val(ID);
+            });
+              $(".GenderSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenGender").val(ID);
+              });
+              $(".MaritalStatusSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenMaritalStatus").val(ID);
+              });
+            //--------- For Offical details
+            $(".DepartmentSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenDepartmentId").val(ID);
+            });
+             $(".DesignationSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenDesignationId").val(ID);
+             });
+            //--------- For Educations details
+            $(".InstituteSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenInstituteId").val(ID);
+                $("#hiddenInstituteName").val(Name);
+            });
+             $(".DegreeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                 $("#hiddenDegreeId").val(ID);
+                 $("#hiddenDegreeName").val(Name);
+
+             });
+            //--------- For Experience details
+            $(".ExpCitySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenExpCityID").val(ID);
+                $("#hiddenExpCityName").val(Name);
+            });
+
+         //------------- Tbl Education Code For Html---
+            $("#tblBodyEducation").on('click', '.clsbtnEdit', function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                var EducationlId = $("#tdhiddenEducationId_" + trID).val();
+                var InstituteId = $("#tdhiddenInstituteId_" + trID).val();
+                var InstituteName = $("#tdInstituteName_" + trID).html();
+                var DegreeId = $("#tdhiddenDegreeId_" + trID).val();
+                var DegreeName = $("#tdDegreeName_" + trID).html();
+
+                var GPAMarks = $("#tdhiddenGPAMarks_" + trID).val();
+                var StartDate = $("#tdhiddenStartDate_" + trID).val();
+                var EndDate = $("#tdhiddenEndDate_" + trID).val();
+                var IsCurrent = $("#tdhiddenIsCurrent_" + trID).val();
+                 var Notes = $("#tdhiddenNotes_" + trID).val();
+
+                if (IsCurrent == "1") {
+                    IsCurrent = true;
+                }
+                else if (IsCurrent == "0") {
+                    IsCurrent = false;
+                }
+
+                $("#txtInstituteNameSelect").val(InstituteId).trigger('change');
+                $("#txtDegreeNameSelect").val(DegreeId).trigger('change');
+                  $("#hiddenInstituteName").val(InstituteName);
+                  $("#hiddenInstituteId").val(InstituteId);
+                  $("#hiddenDegreeName").val(DegreeName);
+                  $("#hiddenDegreeId").val(DegreeId);
+                  $("#txtGPAMarks").val(GPAMarks);
+                  $("#txtEduStartDate").val(StartDate);
+                  $("#txtEduEndDate").val(EndDate);
+                  $("#checkboxIsCurrent"). prop("checked", IsCurrent);
+                $("#txtNotes").val(Notes);
+                if (EducationlId != undefined && EducationlId != "") {
+                    $("#hiddenEducationlId").val(EducationlId);
+                    rowIdEduPublicEdit = trID;
+                }
+                else {
+                  var row = $(".clsCurrentEducationRowID").val();
+                row = row - 1;
+                $(".clsCurrentEducationRowID").val(row);
+                }
+
+                $(this).closest('tr').remove();
+
+            });
+            $("#tblBodyEducation").on('click', '.clsbtnDelete', function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                var EducationId = $("#tdhiddenEducationId_" + trID).val();
+                if (EducationId != undefined && EducationId != "" && EducationId != "0") {
+                     var Url = "/EmployeePersonalDetails/DeleteEducationDetailSingle";
+                    swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                    },
+                    function () {
+                         $.ajax({
+                        type: "POST",
+                        url: Url,
+                        data: JSON.stringify({ ID: EducationId }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        cache: false,
+                        async: false,
+                             success: function (successData) {
+                                 getEducationDetails();
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+
+                        },
+                        error: function () {
+                        }
+                    });
+
+                    });
+
+                }
+                else {
+                    var row = $(".clsCurrentEducationRowID").val();
+                row = row - 1;
+                $(".clsCurrentEducationRowID").val(row);
+                $(this).closest('tr').remove();
+                }
+
+
+            });
+              //------------- Tbl Experience Code For Html---
+            $("#tblBodyExperience").on('click', '.clsbtnEdit', function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                var ExperienceId = $("#tdhiddenExperienceId_" + trID).val();
+                var CityId = $("#tdhiddenExpCityId_" + trID).val();
+                var CityName = $("#tdExpCityName_" + trID).html();
+                var JobTitle = $("#tdhiddenExpJobTitle_" + trID).val();
+                var CompanyName = $("#tdhiddenExpCompanyName_" + trID).val();
+                var StartDate = $("#tdhiddenExpStartDate_" + trID).val();
+                var EndDate = $("#tdhiddenExpEndDate_" + trID).val();
+                var IsCurrent = $("#tdhiddenExpIsCurrent_" + trID).val();
+                 var Notes = $("#tdhiddenExpNotes_" + trID).val();
+
+                if (IsCurrent == "1") {
+                    IsCurrent = true;
+                }
+                else if (IsCurrent == "0") {
+                    IsCurrent = false;
+                }
+
+                $("#txtExpCityNameSelect").val(CityId).trigger('change');
+
+                  $("#hiddenExpCityName").val(CityName);
+                  $("#hiddenExpCityID").val(CityId);
+                  $("#txtJobTitle").val(JobTitle);
+                  $("#txtCompanyName").val(CompanyName);
+                  $("#txtExpStartDate").val(StartDate);
+                  $("#txtExpEndDate").val(EndDate);
+                  $("#checkboxExpIsCurrent"). prop("checked", IsCurrent);
+                  $("#txtExpNotes").val(Notes);
+                if (ExperienceId != undefined && ExperienceId != "") {
+                    $("#hiddenExperienceId").val(ExperienceId);
+                     rowIdExpPublicEdit = trID;
+                }
+                else {
+                    var row = $(".clsCurrentExperienceRowID").val();
+                   row = row - 1;
+                   $(".clsCurrentExperienceRowID").val(row);
+                }
+                $(this).closest('tr').remove();
+
+            });
+            $("#tblBodyExperience").on('click', '.clsbtnDelete', function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                var ExperienceId = $("#tdhiddenExperienceId_" + trID).val();
+                if (ExperienceId != undefined && ExperienceId != "" && ExperienceId != "0") {
+                     var Url = "/EmployeePersonalDetails/DeleteExperienceDetailSingle";
+                    swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                    },
+                    function () {
+                         $.ajax({
+                        type: "POST",
+                        url: Url,
+                        data: JSON.stringify({ ID: ExperienceId }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        cache: false,
+                        async: false,
+                             success: function (successData) {
+                                 getExperienceDetails();
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+
+                        },
+                        error: function () {
+                        }
+                    });
+
+                    });
+
+                }
+                else {
+                    var row = $(".clsCurrentExperienceRowID").val();
+                row = row - 1;
+                $(".clsCurrentExperienceRowID").val(row);
+                $(this).closest('tr').remove();
+                }
+            });
+        });//End Of Ready functions
+        function submitSaveAndUpdate() {
+            debugger
+            fullAppLoaderFadeIn();
+            var Id = $("#hiddenEmployeeIdForAllTabs").val();
+            var officialId = $("#hiddenOfficialId").val();
+            var ActiveTab = $('.clsnav  li.active a').attr("href");
+            ActiveTab = removeHash(ActiveTab);
+            //--- For Personal Details
+            if (ActiveTab == "personalDetails" && Id == "") {
+                savePersonalDetails();
+            } else if (ActiveTab == "personalDetails" && Id != "") {
+                updatePersonalDetails();
+            }
+            //--- For official Details
+            //--- For official Details
+            if (ActiveTab == "officialDetails" && officialId != "") {
+                if (Id !="") {
+                    saveOrupdateOfficalDetails();
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please add employee first then add official details.", "Required Field");
+                    return false;
+                }
+            }
+            //--- For Educations Details
+            if (ActiveTab == "educationsDetails") {
+                if (Id != "") {
+                    saveandUpdateEducationsDetails();
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please add employee first then add official details.", "Required Field");
+                    return false;
+                }
+
+            }
+             //--- For Experience Details
+            if (ActiveTab == "experienceDetails") {
+                if (Id != "") {
+                    saveandUpdateExperienceDetails();
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please add employee first then add official details.", "Required Field");
+                    return false;
+                }
+
+            }
+        }
+        function savePersonalDetails() {
+                var formData = new FormData();
+                var EmployeeDetailsItems = {};
+                 var EmpImages = document.getElementById("fileEmployeePicture").files.length;
+                for (var i = 0; i < EmpImages; i++) {
+                    var image = document.getElementById("fileEmployeePicture").files[i];
+                    formData.append("EmpImages", image);
+                }
+                //----------------------------
+                var cnicfront = document.getElementById("fileCNICFront").files.length;
+                for (var i = 0; i < cnicfront; i++) {
+                    var cnicF = document.getElementById("fileCNICFront").files[i];
+                    formData.append("CNICFront", cnicF);
+                }
+                 //----------------------------
+                var cnicback = document.getElementById("fileCNICBack").files.length;
+                for (var i = 0; i < cnicback; i++) {
+                    var cnicB = document.getElementById("fileCNICBack").files[i];
+                    formData.append("CNICBack", cnicB);
+                }
+
+
+                EmployeeDetailsItems = {
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),  
+                    EmployeeCode:$("#txtEmployeeCode").val(),
+                     Title:$("#hiddenTitle").val(),
+                     FirstName:$("#txtFirstName").val(),
+                     LastName:$("#txtLastName").val(),
+                     FatherName:$("#txtFatherName").val(),
+                     DateofBirth:$("#txtDateofBirth").val(),
+                     CNICNo:$("#txtCNICNo").val(),
+                     Gender:$("#hiddenGender").val(),
+                     MobileNo:$("#txtMobileNo").val(),
+                     PhoneNo:$("#txtPhoneNo").val(),
+                    Email:$("#txtEmail").val(),
+                    MaritalStatus:$("#hiddenMaritalStatus").val(),
+                     CityID:$("#hiddenCityID").val(),
+                     PermanentAddress:$("#txtPermanentAddress").val(),
+                     TemporaryAddress:$("#txtTemporaryAddress").val(),
+                      IsActive:$("input[name='IsActive']:checked").val(),
+                     IsUser:$("input[name='IsUser']:checked").val(),
+                }
+
+                var EmpMaster = JSON.stringify(EmployeeDetailsItems);
+                formData.append("EmployeeDetails", EmpMaster);
+                 if (EmployeeDetailsItems !="") {
+                    $.ajax({
+                        type: "POST",
+                        url: "/EmployeePersonalDetails/CreatePersonalDetails",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (successData) {
+                            fullAppLoaderFadeOut();
+                            $("#hiddenEmployeeIdForAllTabs").val(successData);
+                            toastr.success("Employee has been saved successfully", "Success");
+                            getPersonalDetails();
+                        },
+                        error: function () {
+                              fullAppLoaderFadeOut();
+                             toastr.error("Something wrong in this request:Internal Server Error", "Error");
+                        }
+                    });
+
+                }
+                else {
+
+                     toastr.error("Something wrong in this request.", "Error");
+                }
+        }
+        function updatePersonalDetails() {
+                var formData = new FormData();
+                var EmployeeDetailsObj = new Array();
+                var EmployeeDetailsItems = {};
+                 var EmpImages = document.getElementById("fileEmployeePicture").files.length;
+                for (var i = 0; i < EmpImages; i++) {
+                    var image = document.getElementById("fileEmployeePicture").files[i];
+                    formData.append("EmpImages", image);
+                }
+                //----------------------------
+                var cnicfront = document.getElementById("fileCNICFront").files.length;
+                for (var i = 0; i < cnicfront; i++) {
+                    var cnicF = document.getElementById("fileCNICFront").files[i];
+                    formData.append("CNICFront", cnicF);
+                }
+                 //----------------------------
+                var cnicback = document.getElementById("fileCNICBack").files.length;
+                for (var i = 0; i < cnicback; i++) {
+                    var cnicB = document.getElementById("fileCNICBack").files[i];
+                    formData.append("CNICBack", cnicB);
+                }
+
+
+            EmployeeDetailsItems = {
+                    EmployeeId:$("#hiddenEmployeeIdForAllTabs").val(),
+                    OrganizationID:$("#hiddenOrganizationID").val(),
+                    EmployeeCode:$("#txtEmployeeCode").val(),
+                     Title:$("#hiddenTitle").val(),
+                     FirstName:$("#txtFirstName").val(),
+                     LastName:$("#txtLastName").val(),
+                     FatherName:$("#txtFatherName").val(),
+                     DateofBirth:$("#txtDateofBirth").val(),
+                     CNICNo:$("#txtCNICNo").val(),
+                     Gender:$("#hiddenGender").val(),
+                     MobileNo:$("#txtMobileNo").val(),
+                     PhoneNo:$("#txtPhoneNo").val(),
+                    Email:$("#txtEmail").val(),
+                    MaritalStatus:$("#hiddenMaritalStatus").val(),
+                     CityID:$("#hiddenCityID").val(),
+                     PermanentAddress:$("#txtPermanentAddress").val(),
+                     TemporaryAddress:$("#txtTemporaryAddress").val(),
+                     IsActive:$("input[name='IsActive']:checked").val(),
+                     IsUser:$("input[name='IsUser']:checked").val(),
+                }
+
+                var EmpMaster = JSON.stringify(EmployeeDetailsItems);
+                formData.append("EmployeeDetails", EmpMaster);
+
+
+                 if (EmployeeDetailsItems !="") {
+                    $.ajax({
+                        type: "POST",
+                        url: "/EmployeePersonalDetails/EditPersonalDetails",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (successData) {
+                            fullAppLoaderFadeOut();
+                            $("#hiddenEmployeeIdForAllTabs").val(successData);
+                            getPersonalDetails();
+                            toastr.success("Employee has been updated successfully", "Success");
+                        },
+                        error: function () {
+                              fullAppLoaderFadeOut();
+                             toastr.error("Something wrong in this request:Internal Server Error", "Error");
+                        }
+                    });
+
+                }
+                else {
+
+                     toastr.error("Something wrong in this request.", "Error");
+                }
+        }
+        function getPersonalDetails() {
+            var Id = $("#hiddenEmployeeIdForAllTabs").val();
+                var url =  "@Url.Action("GetPersonalDetails")";
+                    $.get(url, { ID: Id, },
+                        function (Data) {
+                            debugger
+                            console.log(Data);
+                            if (Data != "") {
+                                $("#hiddenOrganizationID").val(Data.OrganizationID),
+                                $("#txtEmployeeCode").val(Data.EmployeeCode);
+                                $("#hiddenTitle").val(Data.Title);
+                                $("#txtFirstName").val(Data.FirstName);
+                                $("#txtLastName").val(Data.LastName);
+                                $("#txtFatherName").val(Data.FatherName);
+                                $("#txtDateofBirth").val(Data.DateofBirth);
+                                if (Data.DateofBirth != undefined && Data.DateofBirth != null) {
+                                    $("#txtDateofBirth").val(new Date(parseInt(Data.DateofBirth.substr(6))).toLocaleDateString());
+                                }
+                                else {
+                                     $("#txtDateofBirth").val('');
+                                }
+
+                                $("#txtCNICNo").val(Data.CNICNo);
+                                $("#hiddenGender").val(Data.Gender);
+                                $("#txtMobileNo").val(Data.MobileNo);
+                                $("#txtPhoneNo").val(Data.PhoneNo);
+                                $("#txtEmail").val(Data.Email);
+                                $("#hiddenMaritalStatus").val(Data.MaritalStatus);
+                                $("#hiddenCityID").val(Data.CityID);
+                                $("#txtPermanentAddress").val(Data.PermanentAddress);
+                                $("#txtTemporaryAddress").val(Data.TemporaryAddress);
+                                $("input[name=IsActive][value=" + Data.IsActive + "]").prop('checked', true);
+                                $("input[name=IsUser][value=" + Data.IsUser + "]").prop('checked', true);
+                            }
+                            else {
+
+                            }
+                        });
+        }
+
+        function saveOrupdateOfficalDetails() {
+               var formData = new FormData();
+                var EmployeeOfficalItems = {};
+             EmployeeOfficalItems = {
+                    Id:$("#hiddenOfficialId").val(),
+                    OrganizationID:$("#hiddenOrganizationID").val(),
+                    EmployeeId: $("#hiddenEmployeeIdForAllTabs").val(),
+                    DepartmentId: $("#hiddenDepartmentId").val(),
+                    DesignationId: $("#hiddenDesignationId").val(),
+                    JoiningDate:$("#txtJoiningDate").val(),
+                }
+
+                var EmpOffical = JSON.stringify(EmployeeOfficalItems);
+                formData.append("EmployeeOffical", EmpOffical);
+
+
+                 if (EmployeeOfficalItems !="") {
+                    $.ajax({
+                        type: "POST",
+                        url: "/EmployeePersonalDetails/CreateorEditOfficalDetails",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (successData) {
+                            fullAppLoaderFadeOut();
+                            if (successData != "") {
+                                $("#hiddenOfficialId").val(successData);
+                                toastr.success("Employee offical details has been updated successfully", "Success");
+                            } else {
+
+                                toastr.error("Something wrong in this request:Internal Server Error", "Error");
+                            }
+
+                            //getOfficalDetails();
+                        },
+                        error: function () {
+                              fullAppLoaderFadeOut();
+                             toastr.error("Something wrong in this request:Internal Server Error", "Error");
+                        }
+                    });
+
+                }
+                 else {
+                      fullAppLoaderFadeOut();
+                     toastr.error("Something wrong in this request.", "Error");
+
+                }
+        }
+        function saveandUpdateEducationsDetails() {
+            debugger
+            var formData = new FormData();
+            var EmployeeEducationarray = new Array();
+            var EmployeeEducationItems = {};
+            var counter = $(".clsCurrentEducationRowID").val();
+
+            for (var i = 1; i <= counter; i++) {
+
+                var iscurrent = $("#tdhiddenIsCurrent_" + i).val();
+                if (iscurrent == "1") {
+                    iscurrent = true;
+                }
+                else if (iscurrent == "0") {
+                    iscurrent = false;
+                }
+                EmployeeEducationItems = {
+                    OrganizationID:$("#hiddenOrganizationID").val(),
+                    EmployeeId: $("#hiddenEmployeeIdForAllTabs").val(),
+                    Id:$("#tdhiddenEducationId_" + i).val(),
+                    InstituteId:$("#tdhiddenInstituteId_" + i).val(),
+                    DegreeId: $("#tdhiddenDegreeId_" + i).val(),
+                    GPAMarks:$("#tdhiddenGPAMarks_" + i).val(),
+                    StartDate: $("#tdhiddenStartDate_" + i).val(),
+                     EndDate:$("#tdhiddenEndDate_" + i).val(),
+                    IsCurrent: iscurrent,
+                    Notes: $("#tdhiddenNotes_" + i).val(),
+
+                }
+                EmployeeEducationarray.push(EmployeeEducationItems);
+            }
+
+            var EmpMaster = JSON.stringify(EmployeeEducationarray);
+            formData.append("EmployeeEducation", EmpMaster);
+            if (EmployeeEducationarray.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/EmployeePersonalDetails/CreateEducationDetails",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (successData) {
+                            fullAppLoaderFadeOut();
+                            //$("#hiddenEmployeeIdForAllTabs").val(successData);
+                            toastr.success("Employee Education details has been saved successfully", "Success");
+                            getEducationDetails();
+                        },
+                        error: function () {
+                              fullAppLoaderFadeOut();
+                             toastr.error("Something wrong in this request:Internal Server Error", "Error");
+                        }
+                    });
+
+                }
+                else {
+                 fullAppLoaderFadeOut();
+                     toastr.error("Something wrong in this request.", "Error");
+                }
+        }
+        function getEducationDetails() {
+            EmployeeId = $("#hiddenEmployeeIdForAllTabs").val();
+             var url = "/EmployeePersonalDetails/GetEducationDetailsByEmployeeId";
+
+                $.get(url, { ID: EmployeeId, },
+            function (Data) {
+                if (Data != "") {
+                    $("#tblBodyEducation").html(Data);
+
+                }
+                else {
+                    $("#tblBodyEducation").html('');
+
+                }
+
+
+            });
+        }
+        function AddMoreEducation() {
+            debugger
+            var eduCounter = 0;
+            if ( rowIdEduPublicEdit == 0) {
+                eduCounter = $(".clsCurrentEducationRowID").val();
+                eduCounter = parseInt(eduCounter);
+                eduCounter = eduCounter + 1;
+                $(".clsCurrentExperienceRowID").val(eduCounter);
+            }
+            else {
+                 rowIdEduPublicEdit = parseInt(rowIdEduPublicEdit);
+                eduCounter =  rowIdEduPublicEdit;
+                 rowIdEduPublicEdit = 0;
+            }
+            var checkValue = "";
+
+            var EducationlId = $("#hiddenEducationlId").val();
+            var labelInstitute = $("#hiddenInstituteName").val();
+            var valueInstitute = $("#hiddenInstituteId").val();
+            var labelDegree = $("#hiddenDegreeName").val();
+            var valueDegree = $("#hiddenDegreeId").val();
+            var GPAMarks = $("#txtGPAMarks").val();
+            var StartDate = $("#txtEduStartDate").val();
+            var EndDate = $("#txtEduEndDate").val();
+            var IsCurrent= $("#checkboxIsCurrent").is(":checked");
+            var Notes = $("#txtNotes").val();
+            if (IsCurrent == true) {
+                checkValue = "Checked";
+            }
+            else {
+                checkValue = "Un-Checked";
+            }
+            //----------- table Html------- Code
+            var trHtml = "<tr id=" + eduCounter + ">";
+            var tdInstitute = "<td id='tdInstituteName_" + eduCounter + "'>" + labelInstitute + "</td>";
+            trHtml += tdInstitute;
+            var tdDegree = "<td id='tdDegreeName_" + eduCounter + "'>" + labelDegree + "</td>";
+            trHtml += tdDegree;
+            var tdGPAMarks = "<td id='tdGPAMarks_" + eduCounter + "'>" + GPAMarks + "</td>";
+            trHtml += tdGPAMarks;
+            var tdStartDate = "<td id='tdStartDate_" + eduCounter + "'>" + StartDate + "</td>";
+            trHtml += tdStartDate;
+            var tdEndDate = "<td id='tdEndDate_" + eduCounter + "'>" + EndDate + "</td>";
+            trHtml += tdEndDate;
+             var tdEndDate = "<td id='tdIsCurrent_" + eduCounter + "'>" + checkValue + "</td>";
+            trHtml += tdEndDate;
+            var tdNotes = "<td id='tdNotes_" + eduCounter + "'>" + Notes + "</td>";
+            trHtml += tdNotes;
+            var tdAction = "<td><input type='hidden' id='tdhiddenRowStatus_" + eduCounter + "' value='1'>";
+            tdAction += "<input type='hidden' id='tdhiddenInstituteId_" + eduCounter + "' value='" + valueInstitute + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenDegreeId_" + eduCounter + "' value='" + valueDegree + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenGPAMarks_" + eduCounter + "' value='" + GPAMarks + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenStartDate_" + eduCounter + "' value='" + StartDate + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenEndDate_" + eduCounter + "' value='" + EndDate + "'>";
+             tdAction += "<input type='hidden' id='tdhiddenIsCurrent_" + eduCounter + "' value='"+IsCurrent+"'>";
+            tdAction += "<input type='hidden' id='tdhiddenNotes_" + eduCounter + "' value='" + Notes + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenEducationId_" + eduCounter + "' value='" + EducationlId + "'>";
+            tdAction += "<span title='Edit' class='btn btn-primary btn-sm clsbtnEdit'><emc class='fa fa-edit'></emc> </span>";
+            tdAction+="<span title='Delete' class='btn btn-danger btn-sm clsbtnDelete'><emc class='fa fa-remove'></emc></span></td >";
+            trHtml += tdAction;
+            trHtml += "</tr>";
+            $("#tblBodyEducation").append(trHtml);
+
+             $(".clsCurrentEducationRowID").val(eduCounter);
+            RestEducationsFields();
+        }
+        function RestEducationsFields() {
+            $("#hiddenEducationlId").val('0')
+          $("#txtInstituteNameSelect").val('').trigger('change');
+          $("#txtDegreeNameSelect").val('').trigger('change');
+          $("#hiddenInstituteName").val('');
+          $("#hiddenInstituteId").val('');
+          $("#hiddenDegreeName").val('');
+          $("#hiddenDegreeId").val('');
+          $("#txtGPAMarks").val('');
+          $("#txtEduStartDate").val('');
+          $("#txtEduEndDate").val('');
+          $("#checkboxIsCurrent"). prop("checked", false);
+          $("#txtNotes").val('');
+        }
+         function saveandUpdateExperienceDetails() {
+            debugger
+            var formData = new FormData();
+            var EmployeeExperiencearray = new Array();
+            var EmployeeExperienceItems = {};
+            var counter = $(".clsCurrentExperienceRowID").val();
+            counter = parseInt(counter);
+
+            for (var i = 1; i <= counter; i++) {
+
+                var iscurrent = $("#tdhiddenExpIsCurrent_" + i).val();
+                if (iscurrent == "1") {
+                    iscurrent = true;
+                }
+                else if (iscurrent == "0") {
+                    iscurrent = false;
+                }
+                EmployeeExperienceItems = {
+                    OrganizationID:$("#hiddenOrganizationID").val(),
+                    EmployeeId: $("#hiddenEmployeeIdForAllTabs").val(),
+                    Id:$("#tdhiddenExperienceId_" + i).val(),
+                     CityId:$("#tdhiddenExpCityId_" + i).val(),
+                   JobTitle:$("#tdhiddenExpJobTitle_" + i).val(),
+                     CompanyName:$("#tdhiddenExpCompanyName_" + i).val(),
+                    StartDate: $("#tdhiddenExpStartDate_" + i).val(),
+                     EndDate:$("#tdhiddenExpEndDate_" + i).val(),
+                    IsCurrent: iscurrent,
+                    Notes: $("#tdhiddenExpNotes_" + i).val(),
+
+                }
+                EmployeeExperiencearray.push(EmployeeExperienceItems);
+            }
+            var EmpMaster = JSON.stringify(EmployeeExperiencearray);
+            formData.append("EmployeeExperience", EmpMaster);
+            if (EmployeeExperiencearray.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/EmployeePersonalDetails/CreateExperienceDetails",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (successData) {
+                            fullAppLoaderFadeOut();
+                            toastr.success("Employee Experience details has been saved successfully", "Success");
+                            getExperienceDetails();
+                        },
+                        error: function () {
+                             fullAppLoaderFadeOut();
+                             toastr.error("Something wrong in this request:Internal Server Error", "Error");
+                        }
+                    });
+
+                }
+                else {
+                 fullAppLoaderFadeOut();
+                     toastr.error("Something wrong in this request.", "Error");
+                }
+        }
+        function getExperienceDetails() {
+            EmployeeId = $("#hiddenEmployeeIdForAllTabs").val();
+             var url = "/EmployeePersonalDetails/GetExperienceDetailsByEmployeeId";
+
+                $.get(url, { ID: EmployeeId, },
+            function (Data) {
+                if (Data != "") {
+                    $("#tblBodyExperience").html(Data);
+
+                }
+                else {
+                    $("#tblBodyExperience").html('');
+
+                }
+
+
+            });
+        }
+        function AddMoreExperience() {
+            debugger
+            var expCounter = 0;
+            if ( rowIdExpPublicEdit == 0) {
+                expCounter = $(".clsCurrentExperienceRowID").val();
+                expCounter = parseInt(expCounter);
+                expCounter = expCounter + 1;
+                $(".clsCurrentExperienceRowID").val(expCounter);
+            }
+            else {
+                 rowIdExpPublicEdit = parseInt(rowIdExpPublicEdit);
+                expCounter =  rowIdExpPublicEdit;
+                 rowIdExpPublicEdit = 0;
+            }
+
+            var checkValue = "";
+            var ExperienceId = $("#hiddenExperienceId").val();
+            var CityName = $("#hiddenExpCityName").val();
+            var CityId = $("#hiddenExpCityID").val();
+            var JobTitle = $("#txtJobTitle").val();
+            var CompanyName = $("#txtCompanyName").val();
+            var StartDate = $("#txtExpStartDate").val();
+            var EndDate = $("#txtExpEndDate").val();
+            var IsCurrent= $("#checkboxExpIsCurrent").is(":checked");
+            var Notes = $("#txtExpNotes").val();
+            if (IsCurrent == true) {
+                checkValue = "Checked";
+            }
+            else {
+                checkValue = "Un-Checked";
+            }
+            //----------- table Html------- Code
+            var trHtml = "<tr id=" + expCounter + " class='clsExpRow_"+expCounter+"'>";
+            var tdJobTitle = "<td id='tdExpJobTitle_" + expCounter + "'>" + JobTitle + "</td>";
+            trHtml += tdJobTitle;
+            var tdCompanyName = "<td id='tdExpCompanyName_" + expCounter + "'>" + CompanyName + "</td>";
+            trHtml += tdCompanyName;
+            var tdStartDate = "<td id='tdExpStartDate_" + expCounter + "'>" + StartDate + "</td>";
+            trHtml += tdStartDate;
+            var tdEndDate = "<td id='tdExpEndDate_" + expCounter + "'>" + EndDate + "</td>";
+            trHtml += tdEndDate;
+              var tdCityName = "<td id='tdExpCityName_" + expCounter + "'>" + CityName + "</td>";
+            trHtml += tdCityName;
+             var tdIsCurrent = "<td id='tdExpIsCurrent_" + expCounter + "'>" + checkValue + "</td>";
+            trHtml += tdIsCurrent;
+            var tdNotes = "<td id='tdExpNotes_" + expCounter + "'>" + Notes + "</td>";
+            trHtml += tdNotes;
+            var tdAction = "<td><input type='hidden' id='tdExphiddenRowStatus_" + expCounter + "' value='1'>";
+            tdAction += "<input type='hidden' id='tdhiddenExpJobTitle_" + expCounter + "' value='" + JobTitle + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenExpCompanyName_" + expCounter + "' value='" + CompanyName + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenExpCityId_" + expCounter + "' value='" + CityId + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenExpStartDate_" + expCounter + "' value='" + StartDate + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenExpEndDate_" + expCounter + "' value='" + EndDate + "'>";
+             tdAction += "<input type='hidden' id='tdhiddenExpIsCurrent_" + expCounter + "' value='"+IsCurrent+"'>";
+            tdAction += "<input type='hidden' id='tdhiddenExpNotes_" + expCounter + "' value='" + Notes + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenExperienceId_" + expCounter + "' value='" + ExperienceId + "'>";
+            tdAction += "<span title='Edit' class='btn btn-primary btn-sm clsbtnEdit'><emc class='fa fa-edit'></emc> </span>";
+            tdAction+="<span title='Delete' class='btn btn-danger btn-sm clsbtnDelete'><emc class='fa fa-remove'></emc></span></td >";
+            trHtml += tdAction;
+            trHtml += "</tr>";
+            $("#tblBodyExperience").append(trHtml);
+
+            RestExperienceFields();
+        }
+        function RestExperienceFields() {
+            $("#txtExpCityNameSelect").val('').trigger('change');
+            $("#hiddenExperienceId").val('0');
+            $("#hiddenExpCityName").val('');
+            $("#hiddenExpCityID").val('');
+            $("#txtJobTitle").val('');
+            $("#txtCompanyName").val('');
+            $("#txtExpStartDate").val('');
+            $("#txtExpEndDate").val('');
+            $("#txtExpNotes").val('')
+            $("#checkboxExpIsCurrent"). prop("checked", false);
+        }
+    </script>
+}

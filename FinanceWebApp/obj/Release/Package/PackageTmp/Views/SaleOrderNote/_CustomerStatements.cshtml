@@ -1,0 +1,202 @@
+﻿@model MudasirRehmanAlp.Models.CustomerStatement
+@using (Html.BeginForm("Create", "CustomerStatements", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-1">
+                <div class="form-group">
+                    <label>Code</label>
+                    <input type="text" value="@(ViewBag.CustomerStatementCode ?? String.Empty)" name="Code" class="form-control form-control-rounded" id="txtCode" readonly="readonly" />
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>Organization Name</label>
+                    <div class="input-group">
+                        <input type="text" value="@(ViewBag.OrganizationUnitName ?? String.Empty)" class="form-control form-control-rounded" id="hiddenOrganizationNameCustomerStatement" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationIDCustomerStatement" })
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Account Name</label>
+                    <input type="text" value="" class="form-control form-control-rounded" id="hiddenAccountNameCustomerStatement" readonly="readonly" />
+                    @Html.HiddenFor(model => model.AccountID, new { @id = "hiddenAccountIDCustomerStatement" })
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <label> Name</label>
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtName" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="MobileNo" id="txtMobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Phone No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="PhoneNo" id="txtPhoneNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Phone no" class="form-control" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Fax No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="FaxNo" id="txtFaxNo" data-masked="" data-inputmask="'mask': '(999) 999-9999'" placeholder="Fax no" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>NTN No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                        @Html.EditorFor(model => model.NTN, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtNTN" } })
+                        @Html.ValidationMessageFor(model => model.NTN, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>GST No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                        @Html.EditorFor(model => model.GSTNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtGSTNo" } })
+                        @Html.ValidationMessageFor(model => model.GSTNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtEmail" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Website</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
+                        @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtWebsite" } })
+                        @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Contact Person Name</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user-plus"></i></span>
+                        @Html.EditorFor(model => model.ContactPersonName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtContactPersonName" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Contact Person Mobile No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="ContactPersonMobileNo" id="txtContactPersonMobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Contact person mobile no" class="form-control" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>City Name</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                        <select id="txtCityNameSelect" class="select2Cls form-control CitySelect">
+                        </select>
+                        @Html.HiddenFor(model => model.CityId, new { @id = "hiddenCityID" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Area Name</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                        <select id="txtAreaNameSelect" class="select2Cls form-control AreaSelect">
+                            <option selected="selected">Select Area</option>
+                        </select>
+                        @Html.HiddenFor(model => model.AreaId, new { @id = "hiddenAreaID" })
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Address</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon-home"></i></span>
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAddress" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label> Remarks</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="icon-notebook"></i></span>
+                        @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtRemarks" } })
+                        @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> Image</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="CustomerImage" onchange="encodeImagetoBase64(this,'imgCustomerImage')" id="CustomerImage" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <img id="imgCustomerImage" style="display:none;width: 100%;height:250px" class="img-thumbnail img-responsive" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

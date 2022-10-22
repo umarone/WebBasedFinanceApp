@@ -1,0 +1,1088 @@
+﻿@model MudasirRehmanAlp.Models.SaleOrder
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var counter = 0;
+    MudasirRehmanAlp.AppDAL.CommonFunctionsDAL functionsDAL = new MudasirRehmanAlp.AppDAL.CommonFunctionsDAL();
+    int valCutomerType = 0;
+    int valTraType = 0;
+}
+
+
+<div class="content-heading">Sale Order # @Model.SaleOrderNo</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Order Information</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead bb">Details</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+                    @Html.HiddenFor(model => model.SaleOrdeID, new { @id = "hiddenSaleOrdeID" })
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.SaleOrderNo</strong>
+                            @Html.HiddenFor(model => model.SaleOrderNo, new { @id = "txtSaleOrderNo" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.OrganizationDefinition.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.BranchDefinition.Name ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                @{
+                                    if (Model.SaleOrderDate != null)
+                                    {
+                                        @Html.EditorFor(model => model.SaleOrderDate, new { htmlAttributes = new { @class = "form-control date ", @id = "txtSaleOrderDate" } })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" name="SaleOrderDate" class="form-control date" id="txtSaleOrderDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                    }
+                                }
+
+
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Transaction Type:</div>
+                        <div class="col-sm-8">
+                            <select id="txtTransactionTypeSelect" class="select2Cls form-control TransactionTypeSelect">
+                                @{
+                                    if (Model.TransactionType != null)
+                                    {
+                                        <option selected="selected" value="@Model.TransactionType.Value">@Model.TransactionType.ToString()</option>
+                                        valTraType = functionsDAL.GetValueOfEnumByName("TransactionType", Model.TransactionType.ToString());
+
+                                    }
+                                    else
+                                    {
+                                        <option value="2" selected="selected">Credit</option>
+
+                                    }
+                                }
+                            </select>
+                            @{
+                                if (Model.TransactionType != null)
+                                {
+
+                                    <input type="hidden" id="hiddenTransactionType" name="TransactionType" value="@valTraType" />
+                                }
+                                else
+                                {
+
+                                    <input type="hidden" id="hiddenTransactionType" name="TransactionType" value="2" />
+                                }
+                            }
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Payment Terms:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.PaymentTerms, new { htmlAttributes = new { @class = "form-control", @id = "txtPaymentTerms", @Placeholder = "Please Enter Payment Term" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Image:</div>
+                        <div class="col-sm-8">
+                            <input type="file" onchange="encodeImagetoBase64(this,'imgSaleOrderImage')" name="fileSaleOrderImage" id="fileSaleOrderImage" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                            @if (Model.SaleOrderImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.SaleOrderImage);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img src='@imgSrc' id="imgSaleOrderImage" style="width: 100%;height:250px" class="img-thumbnail img-responsive" />
+                            }
+                            else
+                            {
+                                <img id="imgSaleOrderImage" style="width: 100%;height:250px" class="img-thumbnail img-responsive" />
+                            }
+
+                        </div>
+                    </div>
+
+                }
+            </div>
+            <div class="col-md-6">
+                <p class="lead bb">Client</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Customer Type</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.SaleOrderCustomerType != null)
+                                {
+                                    if (Model.SaleOrderCustomerType == MudasirRehmanAlp.ModelsView.CommonEnums.SaleOrderCustomerType.CustomerStatement)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="Customer Statement" readonly="readonly" />
+                                    }
+                                    else if (Model.SaleOrderCustomerType == MudasirRehmanAlp.ModelsView.CommonEnums.SaleOrderCustomerType.Distributor)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="Distributor" readonly="readonly" />
+                                    }
+
+                                    valCutomerType = functionsDAL.GetValueOfEnumByName("SaleOrderCustomerType", Model.SaleOrderCustomerType.ToString());
+                                    <input type="hidden" name="SaleOrderCustomerType" id="hiddenSaleOrderCustomerType" value="@valCutomerType" />
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control form-control-rounded" value="Customer Statement" readonly="readonly" />
+                                    <input type="hidden" name="SaleOrderCustomerType" id="hiddenSaleOrderCustomerType" value="1" />
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                    {
+                        if (Model.SaleOrderCustomerType == MudasirRehmanAlp.ModelsView.CommonEnums.SaleOrderCustomerType.CustomerStatement)
+                        {
+                            <div class="form-group clsColCustomerStatement">
+                                <div class="col-sm-4">Customer Statements:</div>
+                                <div class="col-sm-8">
+                                    <select id="txtCustomerStatementNameSelect" class="select2Cls form-control CustomerStatementSelect">
+                                        @{
+                                            if (Model.CustomerStatementID != null)
+                                            {
+                                                <option value="@Model.CustomerStatementID">@Model.CustomerStatement.Account.AccountNo - @Model.CustomerStatement.Name</option>
+                                            }
+
+                                        }
+                                    </select>
+                                    @Html.HiddenFor(model => model.CustomerStatementID, new { @id = "hiddenCustomerStatementID" })
+                                </div>
+                            </div>
+                        }
+                        else if (Model.SaleOrderCustomerType == MudasirRehmanAlp.ModelsView.CommonEnums.SaleOrderCustomerType.Distributor)
+                        {
+                            <div class="form-group clsColDistributor">
+                                <div class="col-sm-4">Distributor:</div>
+                                <div class="col-sm-8">
+                                    <select id="txtDistributorNameSelect" class="select2Cls form-control DistributorSelect">
+                                        @{
+                                            if (Model.DistributorID != null)
+                                            {
+                                                <option value="@Model.DistributorID">@Model.DistributorDefinition.DistributorName</option>
+                                            }
+
+                                        }
+                                    </select>
+                                    @Html.HiddenFor(model => model.DistributorID, new { @id = "hiddenDistributorID" })
+                                </div>
+                            </div>
+                        }
+                    }
+                    <div class="form-group">
+                        <div class="col-sm-4">Account No:</div>
+                        <div class="col-sm-8">
+                            @if (Model.AccountID != null)
+                            {
+                                <input type="text" class="form-control form-control-rounded" value="@Model.Account.AccountNo" id="hiddenAccountNo" readonly="readonly" />
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control form-control-rounded" id="hiddenAccountNo" readonly="readonly" />
+                            }
+                            @Html.HiddenFor(model => model.AccountID, new { @id = "hiddenAccountID" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Recovery Officer:</div>
+                        <div class="col-sm-8">
+                            <select id="txtEmployeeSalePersonNameSelect" class="select2Cls form-control EmployeeSalePersonSelect">
+                                @{
+                                    if (Model.EmployeeId != null)
+                                    {
+                                        <option value="@Model.EmployeeId">@Model.EmployeePersonalDetails.EmployeeCode - @Model.EmployeePersonalDetails.FirstName</option>
+                                    }
+                                }
+                            </select>
+                            @Html.HiddenFor(model => model.EmployeeId, new { @id = "hiddenEmployeeId" })
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"> Product Details</div>
+
+    <div class="panel-body">
+        <div class="row mb">
+
+            <div class="col-sm-4">
+                <label>Product Name </label>
+                <input type="text" id="txtProductName" class="form-control form-control-rounded" placeholder="Select Product" />
+                <input type="hidden" id="hiddenProductID" />
+                <input type="hidden" id="hiddenSaleOrderDetailID" />
+                <input type="hidden" id="hiddencurrentRowId" />
+            </div>
+            <div class="col-sm-4">
+                <label>Select Formula</label>
+                <div class="col-sm-10">
+                    <label class="radio-inline c-radio">
+                        <input type="radio" name="radioFormula" value="TotalAmount" checked="checked" onchange="chnageRadioFormula();" />
+                        <span class="fa fa-circle"></span>Total Amount
+                    </label>
+                    <label class="radio-inline c-radio">
+                        <input type="radio" name="radioFormula" value="RemainingAmount" onchange="chnageRadioFormula();" />
+                        <span class="fa fa-circle"></span>Remaining Amount
+                    </label>
+
+                </div>
+            </div>
+            <div class="col-md-3 pull-right">
+                <label title="Total">Remaining Balance Amount  </label>
+                <input type="text" id="txtRemainingBalanceAmount" class="form-control" readonly="readonly" title="Total" />
+            </div>
+        </div>
+        <div class="row mb">
+            <div class="col-md-12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>QTY</th>
+                            <th>Retail Price</th>
+                            <th>D Pay Amt</th>
+                            <th>Markup %</th>
+                            <th>Markup Amt</th>
+                            <th>Proce Fee</th>
+                            <th>No Of Mon</th>
+                            <th>Installment</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> <input type="text" id="txtQTY" class="form-control  clsCalCulation" title="Quantity" /></td>
+                            <td> <input type="text" id="txtUnitRate" class="form-control  clsCalCulation" title="Retail Price" /></td>
+                            <td> <input type="text" id="txtDownPaymentAmount" class="form-control  clsCalCulation" title="Down Payment Amount" /></td>
+                            <td> <input type="text" id="txtMarkupPercentage" class="form-control  clsCalCulationPercentage"  title="Discounted Percentage" /></td>
+                            <td><input type="text" id="txtMarkupAmount" class="form-control  " title="Markup Amount" /></td>
+                            <td> <input type="text" id="txtProcessingFee" class="form-control  clsCalCulation" title="Processing Fee" /></td>
+
+                            <td><input type="text" id="txtNoOfMonth" class="form-control " title="No Of Months" onkeyup="CalCulationInstallment();" /></td>
+                            <td> <input type="text" id="txtInstallmentPerMonth" class="form-control  clsCalCulation" title="Installment" readonly="readonly" /></td>
+                            <td> <input type="text" id="txtTotal" class="form-control " readonly="readonly" title="Total" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--<div class="row mb">
+            <div class="col-md-1">
+                <label title="Quantity">QTY</label>
+                <input type="text" id="txtQTY" class="form-control form-control-rounded clsCalCulation" title="Quantity" />
+            </div>
+            <div class="col-md-1">
+                <label title="Retail Price">Retail Price</label>
+                <input type="text" id="txtUnitRate" class="form-control form-control-rounded clsCalCulation" title="Retail Price" />
+            </div>-->
+        @*<div class="col-md-1">
+                <label title="Discounted Percentage">Markup %</label>
+                <input type="text" id="txtMarkupPercentage" class="form-control form-control-rounded clsCalCulation" title="Discounted Percentage" />
+            </div>*@
+        <!--<div class="col-md-2">
+                <label title="Discounted Amount">Markup Amt</label>
+                <input type="text" id="txtMarkupAmount" class="form-control form-control-rounded clsCalCulation" title="Markup Amount" />
+            </div>
+            <div class="col-md-1">
+                <label title="Processing Fee">Proce Fee</label>
+                <input type="text" id="txtProcessingFee" class="form-control form-control-rounded clsCalCulation" title="Processing Fee" />
+            </div>
+            <div class="col-md-1">
+                <label title="Down Payment Amount">D Pay Amt</label>
+                <input type="text" id="txtDownPaymentAmount" class="form-control form-control-rounded clsCalCulation" title="Down Payment Amount" />
+            </div>
+            <div class="col-md-1">
+                <label title="No Of Months">No Of Months</label>
+                <input type="text" id="txtNoOfMonth" class="form-control form-control-rounded" title="No Of Months" onkeyup="CalCulationInstallment();" />
+            </div>
+            <div class="col-md-1">
+                <label title="Installment">Installment</label>
+                <input type="text" id="txtInstallmentPerMonth" class="form-control form-control-rounded clsCalCulation" title="Installment" readonly="readonly" />
+            </div>
+            <div class="col-md-2">
+                <label title="Total">Total</label>
+                <input type="text" id="txtTotal" class="form-control form-control-rounded" readonly="readonly" title="Total" />
+            </div>
+        </div>-->
+        <br />
+        <div class="row">
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-labeled btn-info" id="btnAddProduct" onclick="AppendRow();">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span>Add More Product
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Order Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Retail Price</th>
+                        <th>D Pay Amt</th>
+                        <th>Rem Bal Amt</th>
+                        <th>Markup %</th>
+                        <th>Markup Amt</th>
+                        <th>Proce Fee</th>
+                        <th>No Of Mon</th>
+                        <th>Installment</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.ListSaleOrderDetails as List<MudasirRehmanAlp.Models.SaleOrderDetail>)
+                        {
+                            counter = counter + 1;
+                            <tr id="@counter">
+                                <td id="tdProductName_@counter">
+                                    @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                                    @{
+                                        if (item.ProductDefinition.ProductModel != null)
+                                        {
+                                            @item.ProductDefinition.ProductModel.Name
+                                        }
+                                        if (item.ProductDefinition.Colour != null)
+                                        {
+                                            @item.ProductDefinition.Colour.Name
+                                        }
+                                        if (item.ProductDefinition.SizeDefinition != null)
+                                        {
+                                            @item.ProductDefinition.SizeDefinition.Name;
+                                        }
+                                    }
+                                </td>
+                                <td id="tdQty_@counter">@item.Quantity</td>
+                                <td id="tdUnitRate_@counter">@item.UnitRate</td>
+                                <td id="tdDownPayAmt_@counter">@item.DownPayment</td>
+                                <td id="tdRemaingBalAmt_@counter">@item.RemainingBalanceAmount</td>
+                                <td id="tdMarkupPercentage_@counter">@item.MarkupPercentage</td>
+                                <td id="tdMarkupAmt_@counter">@item.MarkupAmount</td>
+                                <td id="tdProceFee_@counter">@item.ProcessingFee</td>
+
+                                <td id="tdNoOfMonths_@counter">@item.NoOfMonths</td>
+                                <td id="tdInstallmentPerMonth_@counter">@item.InstallmentPerMonth</td>
+                                <td id="tdTotalWOST_@counter">@item.Total</td>
+
+                                <td>
+                                    <input type="hidden" id="tdhiddenSaleOrderDetailID_@counter" value="@item.SaleOrderDetailID">
+                                    <input type="hidden" id="tdhiddenProductId_@counter" value="@item.ProductID">
+                                    <input type="hidden" id="tdhiddenFormula_@counter" value="@item.Formula">
+                                    <span title="Edit" class="btn btn-primary btn-sm clsbtnEdit"><emc class="fa fa-edit"></emc> </span>
+                                    <span title="Delete" class="btn btn-danger btn-sm clsbtnDelete"><emc class="fa fa-remove"></emc></span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" value="@counter" id="currentRowID" />
+<div class="panel m-b-xs p-a-0">
+    <div class="panel-body p-t-0 p-b-0">
+        <div class="row m-b-xs p-b-0">
+            <div class="col-md-12">
+                <label class="m-b-0 font-weight-bold" style="text-decoration:underline">General Terms & Condition</label>
+            </div>
+            <div class="col-md-8 p-b-sm">
+                <textarea name="TermAndCondition" class="form-control" placeholder="Please Enter Terms and Condition" style="resize:none; font-size:10px; line-height:2;" rows="5" id="TermAndCondition">
+                            @{ 
+                                if (Model.TermAndCondition !=null)
+                                {
+                            @Model.TermAndCondition
+                                }
+
+                            }</textarea>
+            </div>
+            <div class="col-md-4 p-r-0 p-l-0">
+
+
+
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Freight Charges
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtFreightCharges" class="form-control ClsFreightCharges allownumberonly2decimal" value="@Model.FreightCharges" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                </div>
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Net Total
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtNetTotal" class="form-control allownumberonly2decimal" value="@Model.NetTotal" readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                </div>
+                <div class="col-md-12 m-b-xs">
+                    @Html.EditorFor(model => model.AmountInWord, new { htmlAttributes = new { @tabindex = "34", @class = "form-control AmountInWord", @id = "txtAmountInWord", @readonly = "readonly", @placeholder = "Amount in word" } })
+                    @Html.ValidationMessageFor(model => model.AmountInWord, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-success" title="Update" id="btnSubmit"> Update &nbsp;<em class="fa fa-edit"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+    <style>
+        body .select2-container {
+            width: 100% !important;
+        }
+    </style>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+        $(document).ready(function () {
+          var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+                //---------- Permission Code
+              var rName = 'SaleOrders';
+              var id = '@Model.SaleOrdeID';
+              PagePermission(rName, id);
+            //-------------------------
+            //--------------- Load Functions
+
+            LoadTransactionType(@valTraType);
+
+            var CustomerStatementID = $("#hiddenCustomerStatementID").val();
+            var DistributorID = $("#hiddenDistributorID").val();
+            ProductLoadFromStock('');
+            LoadDistributorDefinitionsByOrgId(DistributorID);
+            LoadCustomerStatementsByOrgId(CustomerStatementID);
+
+            
+            LoadEmployeeSalePersonCode($("#hiddenEmployeeId").val());
+             //------------------- Scheduler Modal
+
+            $(".clsBtnScheduler").click(function () {
+                debugger
+                modalLoaderFadeIn();
+                var Date = $("#txtSaleOrderDate").val();
+                var NetTotal =removeCommas($("#txtNetTotal").val());
+                if (Date == "") {
+                    modalLoaderFadeOut();
+                    toastr.error("Please select sale order date.", "Required Field");
+                    return false;
+                }
+              else if (NetTotal == "") {
+                      modalLoaderFadeOut();
+                    toastr.error("Please enter products details.", "Required Field");
+                     return false;
+                }
+                 else {
+                  $("#modelNetTotalAmount").val(NetTotal);
+                    $("#modelPaymentStartDate").val(Date);
+                    modalLoaderFadeOut();
+                }
+            });
+            //-----------------------
+
+
+              $(".DistributorSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenDistributorID").val(ID);
+                  LoadAccountDetailsForDistributor(ID);
+              });
+            $(".CustomerStatementSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCustomerStatementID").val(ID);
+                LoadAccountDetailsForCustomerStatement(ID);
+              });
+             $(".SaleOrderTypeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenSaleOrderType").val(ID);
+
+             });
+             $(".TransactionTypeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenTransactionType").val(ID);
+             });
+             $(".CurrencySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCurrencyID").val(ID);
+             });
+             $(".EmployeeSalePersonSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenEmployeeId").val(ID);
+              });
+            $("#tblBody").on('click', '.clsbtnEdit', function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                $("#hiddencurrentRowId").val(trID);
+                var SaleOrderDetailID = $("#tdhiddenSaleOrderDetailID_" + trID).val();
+                var ProductId = $("#tdhiddenProductId_" + trID).val();
+                var ProductName = $("#tdProductName_" + trID).html();
+                var Qty = $("#tdQty_" + trID).html();
+                var UnitRate = $("#tdUnitRate_" + trID).html();
+                var TotalWOST = $("#tdTotalWOST_" + trID).html();
+                var RemaingBalAmt = $("#tdRemaingBalAmt_" + trID).html();
+                var MarkupPercenatge = $("#tdMarkupPercentage_" + trID).html();
+
+                var MarkupAmt = $("#tdMarkupAmt_" + trID).html();
+                var ProceFee = $("#tdProceFee_" + trID).html();
+                var DownPayAmt = $("#tdDownPayAmt_" + trID).html();
+                var NoOfMonths = $("#tdNoOfMonths_" + trID).html();
+                var InstallmentPerMonth = $("#tdInstallmentPerMonth_" + trID).html();
+                var radioFormulaval = $("#tdhiddenFormula_" + trID).val();
+
+                $("input[name='radioFormula'][value='" + radioFormulaval + "']").prop('checked', true);
+
+                $("#hiddenSaleOrderDetailID").val(SaleOrderDetailID);
+                $("#hiddenProductID").val(ProductId);
+                $("#txtProductName").val(ProductName);
+                $("#txtQTY").val(Qty);
+                $("#txtUnitRate").val(UnitRate);
+                $("#txtTotal").val(TotalWOST);
+                $("#txtRemainingBalanceAmount").val(RemaingBalAmt);
+                $("#txtMarkupPercentage").val(MarkupPercenatge);
+                $("#txtMarkupAmount").val(MarkupAmt);
+                $("#txtProcessingFee").val(ProceFee);
+                $("#txtDownPaymentAmount").val(DownPayAmt);
+                $("#txtNoOfMonth").val(NoOfMonths);
+                $("#txtInstallmentPerMonth").val(InstallmentPerMonth);
+
+
+
+                $(this).closest('tr').remove();
+
+                CalculateNetTotal();
+
+            });
+            $("#tblBody").on('click', '.clsbtnDelete', function () {
+              var trID = $(this).closest('tr').attr('id');
+                  var SaleOrderDetailID = $("#tdhiddenSaleOrderDetailID_" + trID).val();
+                if (SaleOrderDetailID != "" && SaleOrderDetailID != undefined) {
+              var row = $("#currentRowID").val();
+                row = row - 1;
+                $("#currentRowID").val(row);
+                var Result = confirm('Are you sure you want to delete this item?');
+                if (Result == true) {
+                    var resourceUrl = "/SaleOrders/DeleteSaleOrderDetailSingle";
+                    $.ajax({
+                        type: "POST",
+                        url: resourceUrl,
+                        data: JSON.stringify({ ID: SaleOrderDetailID }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        cache: false,
+                        async: false,
+                        success: function (success) {
+                            Validation = "True";
+
+                            location.reload();
+                            CalculateNetTotal();
+                        },
+                        error: function () {
+                        }
+                    });
+                }
+
+
+
+            }
+            else {
+                 var row = $("#currentRowID").val();
+                row = row - 1;
+                $("#currentRowID").val(row);
+                $(this).closest('tr').remove();
+            }
+
+            });
+            $(".clsCalCulation").keyup(function () {
+                debugger
+                CalOnFocuOut();
+            });
+            $(".clsCalCulationPercentage").focusout(function () {
+                debugger
+                CalCulationOfMarkupAmount();
+            });
+            $(".ClsFreightCharges").keyup(function () {
+                  CalculateNetTotal();
+            });
+            //btn Save Sale Order
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+                var SOMaltipleChildItem = new Array();
+                var POMasterItem = {};
+                var SOChildItem = {};
+                var formData = new FormData();
+                var SODetailsID = "0";
+                var IdFiles = document.getElementById("fileSaleOrderImage").files.length;
+
+                for (var i = 0; i < IdFiles; i++) {
+                    var file_id = document.getElementById("fileSaleOrderImage").files[i];
+                    formData.append("uploadSaleOrderImage", file_id);
+                }
+                SOMasterItem = {
+                    SaleOrdeID: $("#hiddenSaleOrdeID").val(),
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    DistributorID: $("#hiddenDistributorID").val(),
+                    AccountID: $("#hiddenAccountID").val(),
+                    CurrencyID: $("#hiddenCurrencyID").val(),
+                     EmployeeId: $("#hiddenEmployeeId").val(),
+                    SaleOrderNo: $("#txtSaleOrderNo").val(),
+                    SaleOrderDate: $("#txtSaleOrderDate").val(),
+                    TransactionType: $("#hiddenTransactionType").val(),
+                    PaymentTerms: $("#txtPaymentTerms").val(),
+                    DeliveryDate: $("#txtDeliveryDate").val(),
+                    SubTotalWithOutSaleTax: $("#txtSubTotalWithOutSaleTax").val(),
+                    SubTotalWithSaleTax: $("#txtSubTotalWithSaleTax").val(),
+                    FreightCharges: $("#txtFreightCharges").val(),
+                    NetTotal: $("#txtNetTotal").val(),
+                    AmountInWord: $("#txtAmountInWord").val(),
+                    TermAndCondition: $("#TermAndCondition").val(),
+                }
+                for (var i = 1; i <= ItemCount; i++) {
+
+
+                         var Id = $("#tdhiddenSaleOrderDetailID_" + i).val();
+                        if (Id != "" && Id != undefined) {
+                            SODetailsID = Id;
+                        }
+                        else {
+                            SODetailsID = "0";
+                        }
+                        SOChildItem = {
+                        SaleOrderDetailID: SODetailsID,
+                        ProductID: $("#tdhiddenProductId_" + i).val(),
+                        Quantity: $("#tdQty_" + i).html(),
+                        UnitRate: $("#tdUnitRate_" + i).html(),
+                            RemainingBalanceAmount: $("#tdRemaingBalAmt_" + i).html(),
+                            Total: $("#tdTotalWOST_" + i).html(),
+                            MarkupPercentage: $("#tdMarkupPercentage_" + i).html(),
+                            MarkupAmount: $("#tdMarkupAmt_" + i).html(),
+                            ProcessingFee: $("#tdProceFee_" + i).html(),
+                            DownPayment: $("#tdDownPayAmt_" + i).html(),
+                            NoOfMonths: $("#tdNoOfMonths_" + i).html(),
+                            InstallmentPerMonth: $("#tdInstallmentPerMonth_" + i).html(),
+                            Formula: $("#tdhiddenFormula_" + i).val()
+                    }
+                    SOMaltipleChildItem.push(SOChildItem);
+
+
+                }
+
+
+                var master = JSON.stringify(SOMasterItem);
+                var child = JSON.stringify(SOMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (SOMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/SaleOrders/Edit",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                           if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                           else {
+                               fullAppLoaderFadeOut();
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function () {
+                             fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+
+                     fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+        function AppendRow() {
+            var row = $("#currentRowID").val();
+            var ProductId = $("#hiddenProductID").val();
+            var ProductName = $("#txtProductName").val();
+            var Qty = $("#txtQTY").val();
+            var UnitRate = $("#txtUnitRate").val();
+            var MarkupAmt = $("#txtMarkupAmount").val();
+            var ProceFee = $("#txtProcessingFee").val();
+            var DownPayAmt = $("#txtDownPaymentAmount").val();
+            var NoOfMonths = $("#txtNoOfMonth").val();
+            var InstallmentPerMonth = $("#txtInstallmentPerMonth").val();
+            var remainingBalAmt = $("#txtRemainingBalanceAmount").val();
+            var MarkupPercentage = $("#txtMarkupPercentage").val();
+            var SaleOrderDetailID= $("#hiddenSaleOrderDetailID").val();
+            var radioFormula = $('input[name="radioFormula"]:checked').val();
+
+            var TotalWOST = $("#txtTotal").val();
+
+            if (ProductId == "") {
+                toastr.error("Product name is required", "Required Field");
+                return false;
+            }
+            if (Qty == "" || Qty == 0) {
+                toastr.error("QTY name is required", "Required Field");
+                return false;
+            }
+            if (UnitRate == "" || UnitRate == 0) {
+                toastr.error("Retail Price name is required", "Required Field");
+                return false;
+            }
+            var currentRowId = $("#hiddencurrentRowId").val();
+            if (currentRowId != undefined && currentRowId != "") {
+                row = currentRowId;
+                $("#hiddencurrentRowId").val('');
+            }
+            else {
+                row = isNaN(parseInt(row)) ? 0 : parseInt(row)
+                row = row + 1;
+                $("#currentRowID").val(row);
+            }
+
+            var trHtml = "<tr id='" + row + "'>";
+            var tdProductName = "<td id='tdProductName_" + row + "'>" + ProductName + "</td>";
+            trHtml += tdProductName;
+
+            var tdQty = "<td id='tdQty_" + row + "'>" + Qty + "</td>";
+            trHtml += tdQty;
+
+            var tdUnitRate = "<td id='tdUnitRate_" + row + "'>" + UnitRate + "</td>";
+            trHtml += tdUnitRate;
+
+            var tdDownPayAmt = "<td id='tdDownPayAmt_" + row + "'>" + DownPayAmt + "</td>";
+            trHtml += tdDownPayAmt;
+
+            var tdRemaingBalAmount = "<td id='tdRemaingBalAmt_" + row + "'>" + remainingBalAmt + "</td>";
+            trHtml += tdRemaingBalAmount;
+
+            var tdMarkupPercenatge = "<td id='tdMarkupPercentage_" + row + "'>" + MarkupPercentage + "</td>";
+            trHtml += tdMarkupPercenatge;
+
+            var tdMarkupAmt = "<td id='tdMarkupAmt_" + row + "'>" + MarkupAmt + "</td>";
+            trHtml += tdMarkupAmt;
+
+            var tdProceFee = "<td id='tdProceFee_" + row + "'>" + ProceFee + "</td>";
+            trHtml += tdProceFee;
+
+
+
+            var tdNoOfMonths = "<td id='tdNoOfMonths_" + row + "'>" + NoOfMonths + "</td>";
+            trHtml += tdNoOfMonths;
+
+            var tdInstallmentPerMonth = "<td id='tdInstallmentPerMonth_" + row + "'>" + InstallmentPerMonth + "</td>";
+            trHtml += tdInstallmentPerMonth;
+
+
+
+            var tdTotal = "<td id='tdTotalWOST_" + row + "'>" + TotalWOST + "</td>";
+            trHtml += tdTotal;
+
+
+
+
+            var tdAction = "<td>";
+            tdAction += "<input type='hidden' id='tdhiddenSaleOrderDetailID_" + row + "' value='" + SaleOrderDetailID + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenProductId_" + row + "' value='" + ProductId + "'>";
+            tdAction += "<input type='hidden' id='tdhiddenFormula_" + row + "' value='" + radioFormula + "'>";
+            tdAction += "<span title='Edit' class='btn btn-primary btn-sm clsbtnEdit'><emc class='fa fa-edit'></emc> </span>";
+            tdAction += "<span title='Delete' class='btn btn-danger btn-sm clsbtnDelete'><emc class='fa fa-remove'></emc></span>";
+            tdAction += "</td>";
+
+
+            trHtml += tdAction;
+            trHtml += "</tr>"
+
+
+            $("#tblBody").append(trHtml);
+
+            $("#hiddenSaleOrderDetailID").val('');
+            $("#hiddenProductID").val('');
+            $("#txtProductName").val('');
+            $("#txtQTY").val('0');
+            $("#txtUnitRate").val('0.0');
+            $("#txtTotal").val('0.0');
+
+            $("#txtMarkupAmount").val('0.0');
+            $("#txtProcessingFee").val('0.0');
+            $("#txtDownPaymentAmount").val('0.0');
+            $("#txtNoOfMonth").val('0.0');
+            $("#txtInstallmentPerMonth").val('0.0');
+            $("#txtRemainingBalanceAmount").val('0.0');
+            $("#txtMarkupPercentage").val('0.0');
+
+            CalculateNetTotal();
+        }
+        function CalOnFocuOut() {
+            debugger
+            var radioFormula = $('input[name="radioFormula"]:checked').val();
+            var Qty = $("#txtQTY").val();
+            var URate = $("#txtUnitRate").val();
+            var markupAmount = $("#txtMarkupAmount").val();
+            var processingFee = $("#txtProcessingFee").val();
+            var downPayment = $("#txtDownPaymentAmount").val();
+            var Total = 0;
+            var remainTotal = 0;
+
+            Qty = isNaN(parseInt(Qty)) ? 0 : parseInt(Qty)
+            URate = isNaN(parseInt(URate)) ? 0 : parseInt(URate)
+            Total = Qty * URate;
+
+            markupAmount = isNaN(parseInt(markupAmount)) ? 0 : parseInt(markupAmount)
+            processingFee = isNaN(parseInt(processingFee)) ? 0 : parseInt(processingFee)
+            downPayment = isNaN(parseInt(downPayment)) ? 0 : parseInt(downPayment)
+
+            if (radioFormula == "TotalAmount") {
+                remainTotal = Total - downPayment;
+                Total = URate + markupAmount + processingFee;
+            }
+            else if (radioFormula == "RemainingAmount") {
+                remainTotal = Total - downPayment + processingFee + markupAmount;
+                Total = URate + markupAmount + processingFee;
+            }
+
+
+
+            $("#txtTotal").val(Total.toFixed(2));
+            $("#txtRemainingBalanceAmount").val(remainTotal.toFixed(2));
+
+        }
+        function CalCulationInstallment() {
+            debugger
+            var radioFormula = $('input[name="radioFormula"]:checked').val();
+            if (radioFormula == "TotalAmount") {
+                var perMonthIntall = 0;
+                var Total = $("#txtTotal").val();
+                var noMonth = $("#txtNoOfMonth").val();
+                noMonth = isNaN(parseFloat(noMonth)) ? 0 : parseFloat(noMonth)
+                Total = isNaN(parseFloat(Total)) ? 0 : parseFloat(Total)
+                if (noMonth != 0) {
+                    perMonthIntall = Total / noMonth;
+                    $("#txtInstallmentPerMonth").val(perMonthIntall.toFixed(2));
+                }
+            }
+            else if (radioFormula == "RemainingAmount") {
+                var perMonthIntall = 0;
+                var remainingBalanceAmount = $("#txtRemainingBalanceAmount").val();
+                var noMonth = $("#txtNoOfMonth").val();
+                noMonth = isNaN(parseFloat(noMonth)) ? 0 : parseFloat(noMonth)
+                remainingBalanceAmount = isNaN(parseFloat(remainingBalanceAmount)) ? 0 : parseFloat(remainingBalanceAmount)
+                if (noMonth != 0) {
+                    perMonthIntall = remainingBalanceAmount / noMonth;
+                    $("#txtInstallmentPerMonth").val(perMonthIntall.toFixed(2));
+                }
+            }
+
+
+        }
+        function CalCulationOfMarkupAmount() {
+            debugger
+            var radioFormula = $('input[name="radioFormula"]:checked').val();
+            if (radioFormula == "TotalAmount") {
+                var MarkupAmount = 0;
+                var percentage = $("#txtMarkupPercentage").val();
+                var UnitRate = $("#txtUnitRate").val();
+                UnitRate = isNaN(parseFloat(UnitRate)) ? 0 : parseFloat(UnitRate)
+                percentage = isNaN(parseFloat(percentage)) ? 0 : parseFloat(percentage)
+                if (percentage <= 99) {
+                    MarkupAmount = (UnitRate * percentage) / 100;
+                    $("#txtMarkupAmount").val(MarkupAmount.toFixed(2));
+                    CalOnFocuOut();
+                }
+                else {
+                    toastr.warning("Markup Percentage shloud be less then of 100%.", "Warning");
+
+                }
+            }
+            else if (radioFormula == "RemainingAmount") {
+                var MarkupAmount = 0;
+                var percentage = $("#txtMarkupPercentage").val();
+                var remainingBalanceAmount = $("#txtRemainingBalanceAmount").val();
+                remainingBalanceAmount = isNaN(parseFloat(remainingBalanceAmount)) ? 0 : parseFloat(remainingBalanceAmount)
+                percentage = isNaN(parseFloat(percentage)) ? 0 : parseFloat(percentage)
+                if (percentage <= 99) {
+                    MarkupAmount = (remainingBalanceAmount * percentage) / 100;
+                    $("#txtMarkupAmount").val(MarkupAmount.toFixed(2));
+                    CalOnFocuOut();
+                }
+                else {
+                    toastr.warning("Markup Percentage shloud be less then of 100%.", "Warning");
+
+                }
+            }
+
+        }
+        function chnageRadioFormula() {
+            debugger
+            CalCulationOfMarkupAmount();
+            CalCulationInstallment();
+        }
+
+        function CalculateNetTotal() {
+            debugger
+            var RowCount = $("#currentRowID").val();
+            var GridTotal = 0;
+            var NetTotal = 0;
+            var TotalofNetTotal = 0;
+
+            for (i = 1; i <= RowCount; i++) {
+
+                var ItemNetTotal = $("#tdTotalWOST_" + i).html();
+                ItemNetTotal = isNaN(parseFloat(ItemNetTotal)) ? 0 : parseFloat(ItemNetTotal);
+                GridTotal += ItemNetTotal;
+                NetTotal = GridTotal;
+
+
+            }
+            TotalofNetTotal = NetTotal;
+            var FreightCharges = $("#txtFreightCharges").val();
+            FreightCharges = removeCommas(FreightCharges);
+            FreightCharges = isNaN(parseFloat(FreightCharges)) ? 0 : parseFloat(FreightCharges);
+            TotalofNetTotal += FreightCharges;
+
+            $("#txtFreightCharges").val(FreightCharges.toFixed(2));
+            $("#txtNetTotal").val(TotalofNetTotal.toFixed(2));
+            $("#txtAmountInWord").val(null);
+            var url = "/Json/AmountInWord";
+            var amount = $("#txtNetTotal").val();
+            $.get(url, { label: amount, },
+                function (Data) {
+                    $("#txtAmountInWord").val(Data);
+                });
+        }
+        function LoadAccountDetailsForDistributor(Id) {
+            var url = "/SaleOrders/CheckAccountNoInDistributor";
+            var url2 = "/SaleOrders/LoadAccountNo";
+             $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    if (Data != "Yes") {
+                        var message = 'Account not define.Please define account of this distributor ';
+                        var Validation = 'False';
+                        showMessage(message, Validation);
+                         $("#hiddenAccountNo").val('');
+                        $("#hiddenAccountID").val('');
+                    }
+                    else {
+                        $.get(url2, { ID: Id, },
+                        function (Data) {
+                    debugger
+                    if (Data != "") {
+
+                        $("#hiddenAccountNo").val(Data.AccountNo);
+                        $("#hiddenAccountID").val(Data.AccountId);
+                    }
+
+                });
+                    }
+                });
+
+        }
+         function LoadAccountDetailsForCustomerStatement(Id) {
+            var url = "/SaleOrders/CheckAccountNoInCustomerStatement";
+            var url2 = "/SaleOrders/LoadAccountNoCustomerStatement";
+             $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    if (Data != "Yes") {
+                        var message = 'Account not define.Please define account of this customer statement ';
+                        var Validation = 'False';
+                        showMessage(message, Validation);
+                         $("#hiddenAccountNo").val('');
+                        $("#hiddenAccountID").val('');
+                    }
+                    else {
+                        $.get(url2, { ID: Id, },
+                        function (Data) {
+                    debugger
+                    if (Data != "") {
+
+                        $("#hiddenAccountNo").val(Data.AccountNo);
+                        $("#hiddenAccountID").val(Data.AccountId);
+                    }
+
+                });
+                    }
+                });
+
+        }
+    </script>
+}

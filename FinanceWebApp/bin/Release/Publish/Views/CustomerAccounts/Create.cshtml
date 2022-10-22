@@ -1,0 +1,171 @@
+﻿@model MudasirRehmanAlp.ModelsView.AccountsViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Customer Accounts</div>
+    @using (Html.BeginForm("Create", "CustomerAccounts"))
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row mb">
+                <div class="col-sm-2">
+                    <label>Organization Name</label>
+                    <input type="text" value="@(ViewBag.OrganizationUnitName ?? String.Empty)" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                    @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.BranchName )" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label>Account Level One</label>
+
+                    <input type="text" class="form-control form-control-rounded" value="@(Model.LevelOneName )" id="hiddenAccountLevelOne" readonly="readonly" />
+                    @Html.HiddenFor(model => model.HeadID, new { @id = "hiddenAccountLevelOneAccountNo" })
+                    @Html.HiddenFor(model => model.levelOneAccountID, new { @id = "hiddenAccountLevelOneID" })                   
+                    <input type="hidden" name="LevelID" id="hiddenLevelID" value="4" />
+
+                </div>
+                <div class="col-sm-3">
+                    <label>Account Level Two</label>
+                    <input type="text" class="form-control form-control-rounded" value="@(Model.LevelTwoName )" id="hiddenAccountLevelTwo" readonly="readonly" />
+
+                    @Html.HiddenFor(model => model.levelTwoNo, new { @id = "hiddenAccountLevelTwoAccountNo" })
+                    @Html.HiddenFor(model => model.levelTwoAccountID, new { @id = "hiddenAccountLevelTwoID" })
+                    
+                    
+                    
+                </div>
+                <div class="col-sm-3">
+                    <label>Account Level Three</label>
+                    <input type="text" class="form-control form-control-rounded" value="@(Model.LevelThreeName )" id="hiddenAccountLevelThree" readonly="readonly" />
+
+                    @Html.HiddenFor(model => model.levelThreeNo, new { @id = "hiddenAccountLevelThreeAccountNo" })
+                    @Html.HiddenFor(model => model.ParentID, new { @id = "hiddenAccountLevelThreeID" })
+                </div>
+            </div>
+
+            <div class="row mb">
+                <div class="col-sm-4">
+                    <label>Account Type</label>
+                    @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountType", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-4">
+                    <label>Account No</label>
+                    @Html.EditorFor(model => model.AccountNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountNo", @readonly = "readonly" } })
+
+                </div>
+                <div class="col-sm-4">
+                    <label>Account Name</label>
+                    @Html.EditorFor(model => model.AccountName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountName",@readonly="readonly" } })
+                </div>
+            </div>
+
+            <div class="row mb">
+                <div class="col-sm-3">
+                    <label>Customer Statements</label>
+                    <select id="txtCustomerStatementNameSelect" class="select2Cls form-control CustomerStatementSelect">
+                    </select>
+                    @Html.HiddenFor(model => model.CustomerStatementId, new { @id = "hiddenCustomerStatementID" })
+                </div>
+               
+                <div class="col-sm-3">
+                    <label>Opening Balance</label>
+                    @Html.EditorFor(model => model.OpeningBalance, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtOpeningBalance" } })
+                </div>
+                <div class="col-sm-6">
+                    <label>Description</label>
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+  
+    @Styles.Render("~/bundles/toastrCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/toastrJs")
+    <script>
+        $(document).ready(function () {
+              var message = '@(TempData["ErrorMessage"])';
+              var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'CustomerAccounts';
+              var id = '@Model.AccountId';
+              PagePermission(rName, id);
+            //---------------
+            LoadCustomerStatementsForAccounts("");
+            LoadMaxAccountNo();
+            $(".CustomerStatementSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCustomerStatementID").val(ID);
+                $("#txtAccountName").val(Name);
+                
+            });
+           
+        });//end of Ready Funtion
+     
+        function LoadMaxAccountNo() {
+            var IDParent = $("#hiddenAccountLevelThreeID").val();
+            var LevelOneId = $("#hiddenAccountLevelOneAccountNo").val();
+            var LevelTwoId = $("#hiddenAccountLevelTwoAccountNo").val();
+            var LevelThreeId = $("#hiddenAccountLevelThreeAccountNo").val();
+
+            var url = "/CustomerAccounts/LoadMaxAccountNo";
+            $.get(url, { LevelOneId: LevelOneId, LevelTwoId: LevelTwoId, LevelThreeId: LevelThreeId, IDParent: IDParent, },
+                function (Data) {
+                    debugger
+                    $("#txtAccountNo").val(Data.AccountNo);
+                });
+        }
+       
+
+    </script>
+}

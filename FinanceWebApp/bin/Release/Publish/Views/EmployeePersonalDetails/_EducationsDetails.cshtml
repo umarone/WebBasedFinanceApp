@@ -1,0 +1,169 @@
+﻿@model MudasirRehmanAlp.Models.EmployeeEducationDetails
+@{
+    int counterEdu = 0;
+    int IsCurrent = 0;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <input type="hidden" id= "hiddenEducationlId" value="0"/>
+    <div class="panel-body">
+        <div class="row mb">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Institute Name</label>
+                    <select id="txtInstituteNameSelect" class="select2Cls form-control InstituteSelect">
+                    </select>
+                    @Html.HiddenFor(model => model.InstituteId, new { @id = "hiddenInstituteId" })
+                    <input type="hidden" id="hiddenInstituteName" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Degree Name</label>
+                    <select id="txtDegreeNameSelect" class="select2Cls form-control DegreeSelect">
+                    </select>
+                    @Html.HiddenFor(model => model.DegreeId, new { @id = "hiddenDegreeId" })
+                    <input type="hidden" id="hiddenDegreeName" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>GPA Marks </label>
+                    @Html.EditorFor(model => model.GPAMarks, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtGPAMarks" } })
+                    @Html.ValidationMessageFor(model => model.GPAMarks, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label>Start Date </label>
+                <div class="input-group date datetimepicker">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtEduStartDate" } })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label>End Date </label>
+                <div class="input-group date datetimepicker">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtEduEndDate" } })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                    <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-1 form-group" style="padding-top:22px">
+                <div class="checkbox c-checkbox needsclick">
+                    <label class="needsclick">
+                        <input type="checkbox" id="checkboxIsCurrent" name="IsCurrent" class="needsclick" />
+                        <span class="fa fa-check"></span>Is Current
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Notes</label>
+                    @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", @id = "txtNotes" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-labeled btn-info" id="btnAddMore" onclick="AddMoreEducation();">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span>Add More
+                </button>
+
+            </div>
+        </div>
+    </div>
+}
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Institute Name</th>
+                    <th>Degree Name</th>
+                    <th>GPA Marks</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Is Current</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tblBodyEducation">
+                @{
+                    if (ViewBag.EmployeeEducationDetailsList != null)
+                    {
+                        foreach (var item in ViewBag.EmployeeEducationDetailsList as List<MudasirRehmanAlp.Models.EmployeeEducationDetails>)
+                        {
+                            counterEdu = counterEdu + 1;
+                            <tr id="@counterEdu">
+                                <td id="tdInstituteName_@counterEdu">@item.EducationInstitute.Code - @item.EducationInstitute.Name</td>
+                                <td id="tdDegreeName_@counterEdu">@item.EducationDegree.Code - @item.EducationDegree.Name</td>
+                                <td>@item.GPAMarks</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.EndDate</td>
+                                <td>
+                                    @{
+                                        if (item.IsCurrent == true)
+                                        {
+                                            IsCurrent = 1;
+                                            <span>Checked</span>
+                                        }
+                                        else
+                                        {
+                                            IsCurrent = 0;
+                                            <span>Un-Checked</span>
+                                        }
+                                    }
+
+                                </td>
+                                <td>@item.Notes</td>
+
+                                <td>
+                                    <input type="hidden" id="tdhiddenRowStatus_@counterEdu" value="1">
+                                    <input type="hidden" id="tdhiddenInstituteId_@counterEdu" value="@item.InstituteId">
+                                    <input type="hidden" id="tdhiddenDegreeId_@counterEdu" value="@item.DegreeId">
+                                    <input type="hidden" id="tdhiddenGPAMarks_@counterEdu" value="@item.GPAMarks">
+                                    <input type="hidden" id="tdhiddenStartDate_@counterEdu" value="@item.StartDate">
+                                    <input type="hidden" id="tdhiddenEndDate_@counterEdu" value="@item.EndDate">
+                                    <input type="hidden" id="tdhiddenIsCurrent_@counterEdu" value="@IsCurrent">
+                                    <input type="hidden" id="tdhiddenNotes_@counterEdu" value="@item.Notes">
+                                    <input type="hidden" id="tdhiddenEducationId_@counterEdu" value="@item.Id">
+                                    <span title="Edit" class="btn btn-primary btn-sm clsbtnEdit"><emc class="fa fa-edit"></emc> </span>
+                                    <span title="Delete" class="btn btn-danger btn-sm clsbtnDelete"><emc class="fa fa-remove"></emc></span>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Institute Name</th>
+                    <th>Degree Name</th>
+                    <th>GPA Marks</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Is Current</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<input type="hidden" value="@counterEdu" id="currentEducationRowID" class="clsCurrentEducationRowID" />
+

@@ -1,0 +1,32 @@
+﻿@model IList<MudasirRehmanAlp.Models.InstallmentsPaymentsScheduler>
+@using MudasirRehmanAlp.ModelsView;
+@using MudasirRehmanAlp.AppDAL;
+@{
+
+    var counter = 0;
+ 
+}
+<table class="table table-hover" data-page-length='50'>
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+              
+                counter = counter + 1;
+
+                <tr>
+                    <td>@counter</td>
+                    <td>@item.PaymentMasters.SaleOrder.CustomerStatement.Code</td>
+                    <td>@item.PaymentDueDate</td>
+                    <td>@item.PaymentMasters.SaleOrder.CustomerStatement.Name</td>
+                    <td>@item.PerMonthAmount</td>
+                    <td>@item.PerMonthAmount</td>
+                    <td>@item.PaymentMasters.RemainingBalanceAmount</td>
+                    <td>@item.PaymentMasters.SaleOrder.CustomerStatement.MobileNo</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />
+

@@ -1,0 +1,80 @@
+﻿@model MudasirRehmanAlp.Models.ProductDefinition
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+<div class="alert alert-warning">
+    <em class="fa fa-exclamation-circle fa-lg fa-fw"></em> This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Product Definition
+        <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+    </div>
+    <div class="panel-body">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                <label>Product Code: </label>
+                <span>@{ @Model.ProductCode} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Organization Name: </label>
+                <span>
+                    @{ if (Model.OrganizationID != null)
+                        {
+                            @Model.OrganizationDefinition.OrganizationUnitName
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Product Bar Code: </label>
+                <span> @{ @Model.ProductBarCode}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Unique Code: </label>
+                <span> @{ @Model.UniqueCode}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Product Name: </label>
+                <span> @{ @Model.ProductName}</span>
+            </div>
+           
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 ">
+                @if (ViewBag.QRCode != null)
+                {
+
+                    <img src='@ViewBag.QRCode' alt="Image" width="200" height="200"/>
+                }
+            </div>
+            <div class="col-sm-4 ">
+                @if (ViewBag.BarCode != null)
+                {
+
+                    <img src='@ViewBag.BarCode' alt="Image"  />
+                    <span style="padding-left:116px">@Model.ProductBarCode</span>
+                }
+            </div>
+
+
+        </div>
+
+        <div class="row no-print">
+            <div class="col-xs-12">
+                <a href="@Url.Action("Print", "ProductDefinitions",new {id=Model.ProductId })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+                <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                    <i class="fa fa-download"></i> Generate PDF
+                </button>
+                <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,289 @@
+﻿@model MudasirRehmanAlp.Models.GoodReceivedReturn
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var counter = 0;
+}
+
+@Styles.Render("~/Content/Select2/css")
+
+<div class="panel panel-default">
+    <div class="panel-heading">Goods Return Note</div>
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.GoodsReceivedReturnID, new { @id = "hiddenGoodsReceivedReturnID" })
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">GRTN NO:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.GRReturnNO</strong>
+                            @Html.HiddenFor(model => model.GRReturnNO, new { @id = "txtGRReturnNO" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.OrganizationDefinition.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.BranchDefinition.Name ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">GRTN Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                @{
+                                    if (Model.Date != null)
+                                    {
+                                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtDate" } })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" name="Date" class="form-control date" id="txtDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                    }
+                                }
+
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">GRN NO:</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.GoodsReceivedID != null)
+                                {
+                                    <input type="text" class="form-control form-control-rounded" value="@Model.GoodReceived.GRNNO" id="hiddenGoodsReceivedNo" readonly="readonly" />
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control form-control-rounded" id="hiddenGoodsReceivedNo" readonly="readonly" />
+                                }
+                            }
+
+                            @Html.HiddenFor(model => model.GoodsReceivedID, new { @id = "hiddenGoodsReceivedID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Main Reason:</div>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(model => model.MainReason, new { @class = "form-control", @id = "txtMainReason" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Goods Return Note Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Stock QTY</th>
+                        <th>GRN QTY</th>
+                        <th>Already Return QTY</th>
+                        <th>Return QTY</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.GoodsReturnDetailsList as List<MudasirRehmanAlp.Models.GoodReceivedReturnDetail>)
+                        {
+                            counter = counter + 1;
+
+                            <tr id="@counter">
+                                <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">
+                                    @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                                    @{
+                                        if (item.ProductDefinition.ProductModel != null)
+                                        {
+                                            @item.ProductDefinition.ProductModel.Name
+                                        }
+                                        if (item.ProductDefinition.Colour != null)
+                                        {
+                                            @item.ProductDefinition.Colour.Name
+                                        }
+                                        if (item.ProductDefinition.SizeDefinition != null)
+                                        {
+                                            @item.ProductDefinition.SizeDefinition.Name;
+                                        }
+                                    }
+
+                                </td>
+                                <td id="tdStockQty_@counter" title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                <td id="tdQty_@counter" title="@item.GoodReceivedDetail.BalanceQuantity">@item.GoodReceivedDetail.BalanceQuantity</td>
+                                <td id="tdAlreadyRetQty_@counter" title="@item.AlreadyReturnQuantity">@item.AlreadyReturnQuantity</td>
+                                <td>
+                                    <input type="text" id="tdtxtReturnQty_@counter" class="form-control form-control-rounded clsReturnQty" />
+                                    <input type="hidden" id="tdhiddenGoodReceivedNoteDetailID_@counter" value="@item.GoodsReceivedDetailID" />
+                                    <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                                    <input type="hidden" id="tdhiddenReceiveQuantity_@counter" value="@item.GoodReceivedDetail.ReceiveQuantity" />
+                                    <input type="hidden" id="tdhiddenUnitRate_@counter" value="@item.UnitPrice" />
+                                    <input type="hidden" id="tdhiddenStockID_@counter" value="@item.StockID" />
+                                    <input type="hidden" id="tdhiddenGoodsReceivedReturnDetailID_@counter" value="@item.GoodsReceivedReturnDetailID" />
+                                    <input type="hidden" id="tdhiddenBalanceQuantity_@counter" value="@item.GoodReceivedDetail.BalanceQuantity" />
+                                </td>
+                                <td>
+                                    <input type="text" id="tdtxtReason_@counter" value="@item.Reason" class="form-control form-control-rounded" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" value="@counter" id="currentRowID" />
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+<script>
+        $(document).ready(function () {
+              var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'GoodReceivedReturns';
+              var id = '@Model.GoodsReceivedReturnID';
+              PagePermission(rName, id);
+            //---------------
+
+           
+            $(document).on('focusout', "input.clsReturnQty", function () {
+                debugger
+                var RowID = $(this).closest('tr').attr('id');
+                var ReturnQty = $("#tdtxtReturnQty_" + RowID).val();
+                var ReceiveQuantity = $("#tdhiddenBalanceQuantity_" + RowID).val();
+                ReturnQty = isNaN(parseInt(ReturnQty)) ? 0 : parseInt(ReturnQty)
+                ReceiveQuantity = isNaN(parseInt(ReceiveQuantity)) ? 0 : parseInt(ReceiveQuantity)
+                if (ReturnQty > ReceiveQuantity) {
+                     alert("Return Quntity is not greater of GRN Quntity");
+                }
+            });
+
+            //btn Save Goods Received Note
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+
+                var GRTNMaltipleChildItem = new Array();
+                var GRTNMasterItem = {};
+                var GRTNChildItem = {};
+                var formData = new FormData();
+                GRTNMasterItem = {
+                     GoodsReceivedReturnID: $("#hiddenGoodsReceivedReturnID").val(),
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    GoodsReceivedID: $("#hiddenGoodsReceivedID").val(),
+                    Date: $("#txtDate").val(),
+                    GRReturnNO: $("#txtGRReturnNO").val(),
+                   MainReason: $("#txtMainReason").val(),
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+                    var ReturnQty = $("#tdtxtReturnQty_" + i).val();
+                    ReturnQty = isNaN(parseInt(ReturnQty)) ? 0 : parseInt(ReturnQty)
+                    if (ReturnQty != 0) {
+                        GRTNChildItem = {
+
+                           GoodsReceivedReturnDetailID: $("#tdhiddenGoodsReceivedReturnDetailID_" + i).val(),
+                           StockID: $("#tdhiddenStockID_" + i).val(),
+                           GoodsReceivedDetailID: $("#tdhiddenGoodReceivedNoteDetailID_" + i).val(),
+                           ProductID: $("#tdhiddenProductID_" + i).val(),
+                           ReceiveQuantity: $("#tdhiddenReceiveQuantity_" + i).val(),
+                           ReturnQuantity: ReturnQty,
+                          UnitPrice: $("#tdhiddenUnitRate_" + i).val(),
+                          Reason: $("#tdtxtReason_" + i).val(),
+                    }
+                    GRTNMaltipleChildItem.push(GRTNChildItem);
+                    }
+
+                }
+
+                var master = JSON.stringify(GRTNMasterItem);
+                var child = JSON.stringify(GRTNMaltipleChildItem);
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (GRTNMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/GoodReceivedReturns/Edit",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                            if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                            else {
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                            fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+
+                      fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+       
+</script>
+}

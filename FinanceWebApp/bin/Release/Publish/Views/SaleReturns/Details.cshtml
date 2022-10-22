@@ -1,0 +1,147 @@
+﻿@model MudasirRehmanAlp.Models.SaleReturnNote
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SaleReturnNote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.AccountNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.AccountNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationDefinition.OrganizationUnitName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationDefinition.OrganizationUnitName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleInvoice.SaleInvoiceNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleInvoice.SaleInvoiceNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleReturnCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleReturnCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleReturnType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleReturnType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SaleReturnId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,391 @@
+﻿@model List<MudasirRehmanAlp.Models.PaymentMaster>
+@using MudasirRehmanAlp.Models;
+@using MudasirRehmanAlp.ModelsView;
+@using MudasirRehmanAlp.AppDAL;
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    PaymentMasterDAL masterDAL = new PaymentMasterDAL();
+    SaleOrderDAL saleOrderDAL = new SaleOrderDAL();
+    var counter = 0;
+    long SaleOrderId = Convert.ToInt64(ViewBag.SaleOrderId);
+    var saleModal = saleOrderDAL.GetSaleOrderById(SaleOrderId);
+}
+
+<div class="content-heading">Sale Order # @saleModal.SaleOrderNo</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Order Information</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead bb">Details</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order No:</div>
+                        <div class="col-sm-8">
+                            <strong>@saleModal.SaleOrderNo</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(saleModal.OrganizationDefinition.OrganizationUnitName ?? String.Empty)</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(saleModal.BranchDefinition.Name ?? String.Empty)</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Date:</div>
+                        <div class="col-sm-8">
+                            <strong>@(saleModal.SaleOrderDate)</strong>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-md-6">
+                <p class="lead bb">Client</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+
+
+
+                    <div class="form-group clsColCustomerStatement">
+                        <div class="col-sm-4">Customer Statements:</div>
+                        <div class="col-sm-8">
+                            <strong>@(saleModal.CustomerStatement.Name)</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Account No:</div>
+                        <div class="col-sm-8">
+                            <strong>@(saleModal.Account.AccountNo)</strong>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Recovery Officer:</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (saleModal.EmployeeId != null)
+                                {
+                                    <strong>@saleModal.EmployeePersonalDetails.FirstName  @saleModal.EmployeePersonalDetails.LastName</strong>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    foreach (var item in Model)
+    {
+        decimal TotalPerMonthAmount = 0;
+        decimal TotalPaidAmount = 0;
+        decimal TotalExtraAmount = 0;
+        List<InstallmentsPaymentsScheduler> ListObj = masterDAL.GetInstallmentsPayments(item.Id);
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>
+                    @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                    @{
+                        if (item.ProductDefinition.ProductModel != null)
+                        {
+                            @item.ProductDefinition.ProductModel.Name
+                        }
+                        if (item.ProductDefinition.Colour != null)
+                        {
+                            @item.ProductDefinition.Colour.Name
+                        }
+                        if (item.ProductDefinition.SizeDefinition != null)
+                        {
+                            @item.ProductDefinition.SizeDefinition.Name;
+                        }
+                    }
+                </strong>
+                <strong class="ml-lg">
+                    Balance Amount:  @item.BalanceAmount
+                </strong>
+                <strong class="ml-lg">
+                    Remaining Balance:  @item.RemainingBalanceAmount
+                </strong>
+                <a href="#" data-tool="panel-collapse" data-toggle="tooltip" title="maximize / minimise " class="pull-right">
+                    <em class="fa fa-minus"></em>
+                </a>
+            </div>
+            <div class="panel-wrapper collapse in clsCustom">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="SearchDatatable" class="table table-striped table-hover">
+                            <thead>
+                                <tr class="info">
+                                    <th class="sort-numeric">Sr No</th>
+                                    <th class="sort-alpha">Due date</th>
+                                    <th class="sort-alpha">Installment Amount</th>
+                                    <th class="sort-alpha">Paid Amount</th>
+                                    @*<th class="sort-alpha">Extra Charges</th>*@
+                                    <th class="sort-alpha">Received Date</th>
+                                    <th class="sort-alpha">Payment Status</th>
+                                    <th class="sort-alpha">Notes</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var modelItem in ListObj)
+                                    {
+
+
+                                        TotalPerMonthAmount = TotalPerMonthAmount + Convert.ToDecimal(@modelItem.PerMonthAmount);
+                                        TotalPaidAmount = TotalPaidAmount + Convert.ToDecimal(@modelItem.PaidAmount);
+                                        TotalExtraAmount = TotalExtraAmount + Convert.ToDecimal(@modelItem.ExtraCharges);
+                                        counter = counter + 1;
+                                        if (modelItem.PaymentStatus == CommonEnums.PaymentStatus.Paid)
+                                        {
+                                            <tr class="datetimepickerForTable">
+                                                <td>
+                                                    @modelItem.SrNo
+                                                </td>
+                                                <td class="datetimepickerForTable">
+                                                    @modelItem.PaymentDueDate
+                                                </td>
+
+                                                <td>
+                                                    @modelItem.PerMonthAmount
+
+                                                </td>
+
+                                                <td>
+                                                    <span id="spanInstallmentPaid_@counter">@modelItem.PaidAmount </span>
+                                                    <input type="text" id="gridInstallmentPaid_@counter" value="@modelItem.PaidAmount" class="form-control allownumberonly2decimal " data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;display:none">
+
+                                                </td>
+
+                                                @*<td>
+                                                    <span id="spanExtraCharges_@counter">@modelItem.ExtraCharges</span>
+                                                    <input type="text" id="gridExtraCharges_@counter" value="@modelItem.ExtraCharges" class="form-control allownumberonly2decimal " data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;display:none">
+                                                </td>*@
+                                                <td class="datetimepickerForTable">
+                                                    <span id="spanDateReceived_@counter">@modelItem.ReceivedDate</span>
+                                                    <div class="input-group date datetimepicker" style="display:none" id="divOfgridDateReceived_@counter">
+                                                        <input type="text" id="gridDateReceived_@counter" class="form-control form-control-rounded date clsDate" value=" @modelItem.ReceivedDate" />
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @modelItem.PaymentStatus
+                                                </td>
+                                                <td>
+                                                    <span id="spanNotes_@counter">@modelItem.Notes</span>
+                                                    <textarea class="form-control" style="display:none" id="gridNotes_@counter">@modelItem.Notes</textarea>
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" id="hiddenIsCheckUpdate_@counter" value="false" />
+                                                    <input type="hidden" id="hiddenInstallmentsPaymentsId_@counter" value="@modelItem.Id" />
+                                                    <span title='Edit' class='btn btn-primary btn-sm clsbtnEdit' id="btnEdit_@counter" onclick="EditPayment(@counter);"><emc class='fa fa-edit'></emc></span>
+                                                    <span title='Add' style="display:none" id="btnAdd_@counter" class='btn btn-primary btn-sm clsbtnAdd' onclick="SaveInstallmentPayment(@counter);"><emc class='fa fa-plus'></emc></span>
+                                                    <span title='Refresh' class='btn btn-danger btn-sm clsbtnRefresh' onclick="WindowRefresh();"><emc class='fa fa-refresh'></emc></span>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            <tr class="datetimepickerForTable">
+                                                <td>
+                                                    @modelItem.SrNo
+                                                    <input type="hidden" id="gridSrNo_@counter" value=" @modelItem.SrNo" />
+                                                </td>
+                                                <td class="datetimepickerForTable">
+                                                    @modelItem.PaymentDueDate
+                                                </td>
+
+                                                <td>
+                                                    @modelItem.PerMonthAmount
+
+                                                </td>
+
+                                                <td>
+
+                                                    <input type="text" id="gridInstallmentPaid_@counter" value="@modelItem.PaidAmount" class="form-control allownumberonly2decimal " data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+                                                </td>
+
+                                                @*<td>
+                                                    <input type="text" id="gridExtraCharges_@counter" value="@modelItem.ExtraCharges" class="form-control allownumberonly2decimal " data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+                                                </td>*@
+                                                <td class="datetimepickerForTable">
+
+                                                    <div class="input-group date datetimepicker">
+                                                        <input type="text" id="gridDateReceived_@counter" class="form-control form-control-rounded date clsDate" value="@DateTime.Now" />
+                                                        <span class="input-group-addon">
+                                                            <span class="fa fa-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @modelItem.PaymentStatus
+                                                </td>
+                                                <td>
+                                                    <textarea class="form-control" id="gridNotes_@counter">@modelItem.Notes</textarea>
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" id="hiddenIsCheckUpdate_@counter" value="false" />
+                                                    <input type="hidden" id="hiddenInstallmentsPaymentsId_@counter" value="@modelItem.Id" />
+                                                    <span title='Add' class='btn btn-primary btn-sm clsbtnAdd' onclick="SaveInstallmentPayment(@counter);"><emc class='fa fa-plus'></emc></span>
+                                                    <span title='Refresh' class='btn btn-danger btn-sm clsbtnRefresh'><emc class='fa fa-refresh'></emc></span>
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    }
+
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>@TotalPerMonthAmount</td>
+                                    <td>@TotalPaidAmount</td>
+                                    <td>@TotalExtraAmount</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+<div class="panel">
+
+    <div class="panel-footer">
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/Common")
+    <script>
+        $(document).ready(function () {
+             var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+            //---------- Permission Code
+            var rName = 'PaymentMasters';
+            var id = '';
+            PagePermission(rName, id);
+            //-------------------------
+
+        });
+        function SaveInstallmentPayment(rowCount) {
+            var formData = new FormData();
+            var id = $("#hiddenInstallmentsPaymentsId_" + rowCount).val();
+            var installmentPaid = $("#gridInstallmentPaid_" + rowCount).val();
+            //var extraCharges = $("#gridExtraCharges_" + rowCount).val();
+            var dateReceived = $("#gridDateReceived_" + rowCount).val();
+            var notes = $("#gridNotes_" + rowCount).val();
+            var ischeckUpdate = $("#hiddenIsCheckUpdate_" + rowCount).val();
+            var postModel = {
+                Id: id,
+                PaidAmount: installmentPaid,
+                //ExtraCharges: extraCharges,
+                ReceivedDate: dateReceived,
+                Notes: notes,
+                IsUpdateCheck: ischeckUpdate
+            };
+            var postData = JSON.stringify(postModel);
+            formData.append("model", postData);
+
+            swal({
+                title: "Are you sure?",
+                text: "You want to add payment!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#50852d",
+                confirmButtonText: "Yes, save it!",
+                cancelButtonText: "No, cancel plx!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+                    if (isConfirm) {
+                    $(".confirm").attr('disabled', 'disabled'); 
+                    $.ajax({
+                        type: "POST",
+                        url: "/PaymentMasters/JsonCreate",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                            if (success === "OK") {
+                                WindowRefresh();
+                            }
+                        },
+                        error: function (error) {
+                            toastr.error("Internal server error.Something went wrong", "Server Error");
+                        }
+                    });
+                } else {
+                    WindowRefresh();
+                }
+            });
+
+
+
+
+        }
+    function EditPayment(rowCount) {
+        debugger
+
+            $("#spanInstallmentPaid_" + rowCount).hide();
+            $("#spanExtraCharges_" + rowCount).hide();
+            $("#spanDateReceived_" + rowCount).hide();
+            $("#spanNotes_" + rowCount).hide();
+
+            $("#gridInstallmentPaid_" + rowCount).show();
+            $("#gridExtraCharges_" + rowCount).show();
+            $("#divOfgridDateReceived_" + rowCount).show();
+            $("#gridNotes_" + rowCount).show();
+            $("#btnAdd_" + rowCount).show();
+            $("#btnEdit_" + rowCount).hide();
+
+             $("#hiddenIsCheckUpdate_" + rowCount).val('true');
+
+        }
+
+    </script>
+}
+

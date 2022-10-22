@@ -1,0 +1,48 @@
+﻿<!-- Modal--> 
+<div id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade clsModalForLoader">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 id="myModalLabel" class="modal-title">Category Definitions</h4>
+            </div>
+            <div class="modal-body">
+                @*---- Loader Div For Modal---- Start---*@
+                <div class="loaderModal clsModalLoader" style="display:none">
+                    <div class="ball-clip-rotate-multiple">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                @*---- Loader Div For Modal---- End---*@
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <label>Organization Name</label>
+                    <input type="text" value="@(ViewBag.OrganizationUnitName ?? String.Empty)" class="form-control form-control-rounded" readonly="readonly" />
+
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>Branch Name</label>
+                    <input type="text" class="form-control form-control-rounded" value="@(ViewBag.BranchName )" readonly="readonly" />
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>Name</label><span class="text-danger">*</span>
+                    <input type="text" id="model_Category_Name" class="form-control form-control-rounded">
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <label>Description</label>
+                    <input type="text" id="model_Category_Description" class="form-control form-control-rounded">
+                </div>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">Close <i class="fa fa-close"></i></button>
+                <button type="button" id="btnSubmitModal" class="btn btn-primary" onclick="SaveCategoryModel();">Save&nbsp; <em class="fa fa-save"></em></button>
+            </div>
+        </div>
+
+    </div>
+</div>

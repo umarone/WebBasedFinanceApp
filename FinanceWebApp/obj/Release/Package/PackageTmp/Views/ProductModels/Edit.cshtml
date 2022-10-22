@@ -1,0 +1,172 @@
+﻿@model MudasirRehmanAlp.Models.ProductModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Product Models</div>
+    @using (Html.BeginForm("Edit", "ProductModels", null, FormMethod.Post, new { enctype = "multipart/form-data", @id = "form_Create_Update" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-1">
+                    <div class="form-group">
+                        <label>Code</label>
+                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control form-control-rounded", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+
+                        @{
+                            if (Model.OrganizationId != null)
+                            {
+                                <input type="text" class="form-control form-control-rounded" value="@(Model.OrganizationDefinition.OrganizationUnitName )" id="hiddenOrganizationName" readonly="readonly" />
+
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                            }
+                        }
+                        @Html.HiddenFor(model => model.OrganizationId, new { @id = "hiddenOrganizationID" })
+
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        @{
+                            if (Model.BranchId != null)
+                            {
+                                <input type="text" class="form-control form-control-rounded" value="@(Model.BranchDefinition.Name )" id="hiddenBranchName" readonly="readonly" />
+
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control form-control-rounded" id="hiddenBranchName" readonly="readonly" />
+                            }
+                        }
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Category Name</label>
+                        <div class="input-group">
+                            <a class="input-group-addon clsCursor" data-toggle="modal" data-target="#categoryModal" onclick="ResetCategoryModel();"><i class="fa fa-plus"></i></a>
+                            <select id="txtCategoryNameSelect" class="select2Cls form-control CategorySelect">
+                                @{
+                                    if (Model.CategoryId != null)
+                                    {
+                                        <option value="@Model.CategoryId">@Model.CategoryDefinition.CategoryName</option>
+                                    }
+
+                                }
+                            </select>
+                            @Html.HiddenFor(model => model.CategoryId, new { @id = "hiddenCategoryID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Manufacture Name</label>
+                        <div class="input-group">
+                            <a class="input-group-addon clsCursor" data-toggle="modal" onclick="ResetManufactureModel();"><i class="fa fa-plus"></i></a>
+                            <select id="txManufactureNameSelect" class="select2Cls form-control ManufactureSelect">
+                                @{
+                                    if (Model.ManufactureId != null)
+                                    {
+                                        <option value="@Model.ManufactureId">@Model.ManufactureDefinition.ManufactureName</option>
+                                    }
+
+                                }
+                            </select>
+                            @Html.HiddenFor(model => model.ManufactureId, new { @id = "hiddenManufacturerID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Name</label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="btn btn-success" title="Update" onclick="SaveProductModelsCommon();"> Update &nbsp;<em class="fa fa-edit"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+@section BodyArea {
+    @{
+
+        Html.RenderPartial("_Category");
+        Html.RenderPartial("_Manufacture");
+    }
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/Common")
+    @Scripts.Render("~/bundles/ModalJs")
+    @Scripts.Render("~/bundles/ProductsJs")
+<script>
+        $(document).ready(function () {
+
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+
+            LoadCategoryDefinitionsCode(@Model.CategoryId);
+            LoadManufactureByCategory('@Model.CategoryId','@Model.ManufactureId');
+         //---------- Permission Code
+              var rName = 'ProductModels';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------
+            $(".CategorySelect").change(function () {                
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCategoryID").val(ID);
+                if (ID !="") {
+                    LoadManufactureByCategory(ID, '');
+                    $("#hiddenManufacturerID").val('');
+                }
+                else {
+                    $("#hiddenManufacturerID").val('');
+                }
+            });
+            $(".ManufactureSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenManufacturerID").val(ID);
+            });
+    });
+
+</script>
+}

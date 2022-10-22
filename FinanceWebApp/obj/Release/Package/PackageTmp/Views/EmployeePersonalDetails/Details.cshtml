@@ -1,0 +1,200 @@
+﻿@model MudasirRehmanAlp.Models.EmployeePersonalDetails
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+
+<div class="alert alert-warning">
+    <em class="fa fa-exclamation-circle fa-lg fa-fw"></em> This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Employees
+        <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+    </div>
+    <div class="panel-body">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                <label>Employee Code: </label>
+                <span>@{ @Model.EmployeeCode} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Organization Name: </label>
+                <span>
+                    @{ if (Model.OrganizationID != null)
+                        {
+                            @Model.OrganizationDefinition.OrganizationUnitName
+
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Title: </label>
+                <span> @{ @Model.Title}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>First Name: </label>
+                <span>@{ @Model.FirstName} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Last Name: </label>
+                <span>@{ @Model.LastName} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Last Name: </label>
+                <span> @{ @Model.LastName}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Father Name: </label>
+                <span>@{ @Model.FatherName} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Date of Birth: </label>
+                <span>@{ @Model.DateofBirth} </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>CNIC No:</label>
+                <span> @{ @Model.CNICNo}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Gender: </label>
+                <span> @{ @Model.Gender}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Marital Status :</label>
+                <span>
+                    @{
+                        @Model.MaritalStatus
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Mobile No:</label>
+                <span>
+                    @{ 
+                        @Model.MobileNo
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Phone No:</label>
+                <span>
+                    @{ 
+                        @Model.PhoneNo
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Email: </label>
+                <span>
+                    @{
+                        @Model.Email
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>City Name: </label>
+                <span>
+                    @{ if (Model.CityID != null)
+                        {
+                            @Model.CityDefinition.CityName
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Permanent Address: </label>
+                <span> @{ @Model.PermanentAddress}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Temporary Address: </label>
+                <span> @{ @Model.TemporaryAddress}</span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>
+                    CNIC Front
+                    :
+                </label>
+                <span>
+                    @{
+                        if (Model.CNICFront != null)
+                        {
+                            var base64 = Convert.ToBase64String(Model.CNICFront);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img src='@imgSrc' style="max-width:100px; max-height:100px;" />
+
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>CNIC Back:</label>
+                <span>
+                    @{
+                        if (Model.CNICBack != null)
+                        {
+                            var base64 = Convert.ToBase64String(Model.CNICBack);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img src='@imgSrc' style="max-width:100px; max-height:100px;" />
+
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Employee Picture:</label>
+                <span>
+                    @{
+                        if (Model.EmployeePicture != null)
+                        {
+                            var base64 = Convert.ToBase64String(Model.EmployeePicture);
+                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img src='@imgSrc' style="max-width:100px; max-height:100px;" />
+                        }
+                    }
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Is User Created</label>
+
+                <div class="form-group">
+                    <label class="radio-inline c-radio">
+                        @Html.RadioButton("IsUser", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                    </label>
+                    <label class="radio-inline c-radio">
+                        @Html.RadioButton("IsUser", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <label>Status</label>
+
+                <div class="form-group">
+                    <label class="radio-inline c-radio">
+                        @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                    </label>
+                    <label class="radio-inline c-radio">
+                        @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                    </label>
+                </div>
+            </div>
+
+        </div>
+        <div class="row no-print">
+            <div class="col-xs-12">
+                <a href="@Url.Action("Print", "EmployeePersonalDetails",new {id=Model.EmployeeId })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+                <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                    <i class="fa fa-download"></i> Generate PDF
+                </button>
+                <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

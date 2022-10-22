@@ -1,0 +1,337 @@
+﻿@model MudasirRehmanAlp.Models.PurchaseOrderReturn
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var counter = 0;
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Purchase Return</div>
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.PurchaseOrderReturnId, new { @id = "hiddenPurchaseOrderReturnId" })
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Purchase Return No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.PurchaseOrderReturnNO</strong>
+                            @Html.HiddenFor(model => model.PurchaseOrderReturnNO, new { @id = "txtPurchaseOrderReturnNO" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.OrganizationDefinition.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.BranchDefinition.Name ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Purchase Return Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                @{
+                                    if (Model.Date != null)
+                                    {
+                                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control date ", @id = "txtPurchaseReturnDate" } })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" name="Date" class="form-control date" id="txtPurchaseReturnDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                    }
+                                }
+
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Description:</div>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">GRTN NO:</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.GRNReturnID != null)
+                                {
+                                    <input type="text" class="form-control form-control-rounded" value="@Model.GoodReceivedReturn.GRReturnNO" id="hiddenGRTNNo" readonly="readonly" />
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control form-control-rounded" id="hiddenGRTNNo" readonly="readonly" />
+                                }
+                            }
+                            @Html.HiddenFor(model => model.GRNReturnID, new { @id = "hiddenGRNReturnID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Supplier Name:</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.SupplierID != null)
+                                {
+                                    <input type="text" class="form-control form-control-rounded" value="@Model.SupplierDefinition.SupplierName" id="hiddenSupplierName" readonly="readonly" />
+
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control form-control-rounded" id="hiddenSupplierName" readonly="readonly" />
+                                }
+                            }
+                            @Html.HiddenFor(model => model.SupplierID, new { @id = "hiddenSupplierID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Account No:</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.AccountID != null)
+                                {
+                                    <input type="text" class="form-control form-control-rounded" value="@Model.Account.AccountNo" id="hiddenAccountNo" readonly="readonly" />
+
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control form-control-rounded" id="hiddenAccountNo" readonly="readonly" />
+                                }
+                            }
+                            @Html.HiddenFor(model => model.AccountID, new { @id = "hiddenAccountID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">PONO:</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.PurchaseOrderID != null)
+                                {
+                                    <input type="text" class="form-control form-control-rounded" value="@Model.PurchaseOrder.PurchaseOrderNO" id="hiddenPONO" readonly="readonly" />
+                                }
+                                else
+
+                                {
+                                    <input type="text" class="form-control form-control-rounded" id="hiddenPONO" readonly="readonly" />
+                                }
+                            }
+                            @Html.HiddenFor(model => model.PurchaseOrderID, new { @id = "hiddenPurchaseOrderID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">PO Date:</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.PurchaseOrderID != null)
+                                {
+                                    <input type="text" class="form-control form-control-rounded" value="@Model.PurchaseOrder.PurchaseOrderDate" id="hiddenPODate" readonly="readonly" />
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control form-control-rounded" id="hiddenPODate" readonly="readonly" />
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Purchase Retrun Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.PurchaseReturnListDetails as List<MudasirRehmanAlp.Models.PurchaseOrderReturnDetail>)
+                        {
+                            counter = counter + 1;
+
+                            <tr id="@counter">
+                                <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">
+                                    @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                                    @{
+                                        if (item.ProductDefinition.ProductModel != null)
+                                        {
+                                            @item.ProductDefinition.ProductModel.Name
+                                        }
+                                        if (item.ProductDefinition.Colour != null)
+                                        {
+                                            @item.ProductDefinition.Colour.Name
+                                        }
+                                        if (item.ProductDefinition.SizeDefinition != null)
+                                        {
+                                            @item.ProductDefinition.SizeDefinition.Name;
+                                        }
+                                    }
+
+                                </td>
+                                <td id="tdReturnQuantity_@counter" title="@item.GoodReceivedReturnDetail.ReturnQuantity">@item.GoodReceivedReturnDetail.ReturnQuantity</td>
+                                <td id="tdUnitPrice_@counter" title="@item.UnitPrice">@item.UnitPrice</td>
+                                <td id="tdTotalPrice_@counter" title="@item.TotalPrice">@item.TotalPrice</td>
+                                <td hidden>
+                                    <input type="hidden" id="tdhiddenGoodsReceivedReturnDetailID_@counter" value="@item.GRNReturnDetailID" />
+                                    <input type="hidden" id="tdhiddenPurchaseOrderDetailID_@counter" value="@item.PurchaseOrderDetailID" />
+                                    <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                                    <input type="hidden" id="tdhiddenReturnQuantity_@counter" value="@item.GoodReceivedReturnDetail.ReturnQuantity" />
+                                    <input type="hidden" id="tdhiddenUnitPrice_@counter" value="@item.UnitPrice" />
+                                    <input type="hidden" id="tdhiddenTotalPrice_@counter" value="@item.TotalPrice" />
+                                    <input type="hidden" id="tdhiddenPurchaseOrderReturnDetailId_@counter" value="@item.PurchaseOrderReturnDetailId" />
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" value="@counter" id="currentRowID" />
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" class="btn btn-success" title="Update" id="btnSubmit"> Update &nbsp;<em class="fa fa-edit"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+        $(document).ready(function () {
+              $(document).ready(function () {
+             var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+           //---------- Permission Code
+              var rName = 'PurchaseOrderReturns';
+              var id = '@Model.PurchaseOrderReturnId';
+              PagePermission(rName, id);
+            //---------------
+      
+
+            //btn Save Purchase Return
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+
+                var PORMaltipleChildItem = new Array();
+                var PORMasterItem = {};
+                var PORChildItem = {};
+                var formData = new FormData();
+
+                PORMasterItem = {
+                     PurchaseOrderReturnId: $("#hiddenPurchaseOrderReturnId").val(),
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    PurchaseOrderReturnNO: $("#txtPurchaseOrderReturnNO").val(),
+                    GRNReturnID: $("#hiddenGRNReturnID").val(),
+                       SupplierID: $("#hiddenSupplierID").val(),
+                        AccountID: $("#hiddenAccountID").val(),
+                    PurchaseOrderID: $("#hiddenPurchaseOrderID").val(),
+                    Date: $("#txtPurchaseReturnDate").val(),
+                    Description: $("#txtDescription").val(),
+
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+
+                    PORChildItem = {
+                        PurchaseOrderReturnDetailId: $("#tdhiddenPurchaseOrderReturnDetailId_" + i).val(),
+                       ProductID: $("#tdhiddenProductID_" + i).val(),
+                        Quantity: $("#tdhiddenReturnQuantity_" + i).val(),
+                        GRNReturnDetailID: $("#tdhiddenGoodsReceivedReturnDetailID_" + i).val(),
+                        PurchaseOrderDetailID: $("#tdhiddenPurchaseOrderDetailID_" + i).val(),
+                        UnitPrice: $("#tdhiddenUnitPrice_" + i).val(),
+                        TotalPrice: $("#tdhiddenTotalPrice_" + i).val(),
+
+                    }
+                    PORMaltipleChildItem.push(PORChildItem);
+                    }
+
+
+                var master = JSON.stringify(PORMasterItem);
+                var child = JSON.stringify(PORMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (PORParentItem.length > 0 && PORMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/PurchaseOrderReturns/Edit",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                           if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                            else {
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                            fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+    </script>
+}

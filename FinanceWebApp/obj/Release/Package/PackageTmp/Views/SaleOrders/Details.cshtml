@@ -1,0 +1,204 @@
+﻿@model MudasirRehmanAlp.Models.SaleOrder
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Order #@Model.SaleOrderNo</div>
+
+    <div class="panel-body">
+        <form class="form-horizontal p-20">
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Customer No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.Code</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">CAF No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.CAFNo</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.OrganizationDefinition.OrganizationUnitName ?? String.Empty)</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.BranchDefinition.Name ?? String.Empty)</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.Name</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"> S/o , W/o:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.GuardianName</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">CNIC No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.CNICNo</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Cell No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.MobileNo</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Current Address:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.Address</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Current Ownership</div>
+                        <div class="col-sm-3">
+                            <strong>@Model.CustomerStatement.CurrentOwnership</strong>
+                        </div>
+                        <div class="col-sm-2">No Of Year</div>
+                        <div class="col-sm-3">
+                            <strong>@Model.CustomerStatement.CurrentNoOfYear</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Permanent Address:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.PermanentAddress</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Permanent Ownership</div>
+                        <div class="col-sm-3">
+                            <strong>@Model.CustomerStatement.PermanentOwnership</strong>
+
+                        </div>
+                        <div class="col-sm-2">No Of Year</div>
+                        <div class="col-sm-3">
+                            <strong>@Model.CustomerStatement.PermanentNoOfYear</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Department</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.DepartmentName</strong>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Designation</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.DesignationName</strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Business Address</div>
+                        <div class="col-sm-8">
+
+                            <strong>@Model.CustomerStatement.BusinessAddress</strong>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Date of Appointment</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.AppointmentDate</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Date of Retirement </div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.RetirementDate</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Gross Salary</div>
+                        <div class="col-sm-3">
+                            <strong>@Model.CustomerStatement.GrossSalary</strong>
+                        </div>
+                        <div class="col-sm-2">Age</div>
+                        <div class="col-sm-3">
+                            <strong>@Model.CustomerStatement.Age</strong>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Bank Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.BankName</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.BranchName</strong>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Account No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CustomerStatement.AccountNo</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="@Url.Action("Print", "SaleOrders",new {id=Model.SaleOrdeID })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+                <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                    <i class="fa fa-download"></i> Generate PDF
+                </button>
+                <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+
+
+}
+@section Scripts {
+
+
+
+    <script>
+        $(document).ready(function () {
+
+         var message = '@(TempData["ErrorMessage"])';
+         var Validation = '@(TempData["Validation"])';
+         showMessage(message, Validation);
+
+        });//end of Ready Funtion
+
+
+    </script>
+}

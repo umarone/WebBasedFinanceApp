@@ -1,0 +1,128 @@
+﻿@model PagedList.IPagedList<MudasirRehmanAlp.Models.Notification>
+@using PagedList.Mvc;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var counter = 0;
+}
+<div class="content-heading">
+    Notice Board
+    <small>Keeping track of tasks</small>
+</div>
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            counter = counter + 1;
+            string style = "";
+            string datetime = MudasirRehmanAlp.ModelsView.CommonFunctions.TimeAgo(Convert.ToDateTime(item.CreatedDate));
+            if (item.Priority == MudasirRehmanAlp.ModelsView.CommonEnums.NotificationPriority.Low)
+            {
+                style = "panel-success";
+            }
+            else if (item.Priority == MudasirRehmanAlp.ModelsView.CommonEnums.NotificationPriority.Medium)
+            {
+                style = "panel-info";
+            }
+            else if (item.Priority == MudasirRehmanAlp.ModelsView.CommonEnums.NotificationPriority.High)
+            {
+                style = "panel-danger";
+            }
+            <div class="col-lg-4">
+                <!-- START panel-->
+                    <div id="panelDemo10" class="panel @style">
+                        <div class="panel-heading">@item.Title</div>
+                        <div class="panel-body">
+                            <p>@item.Description</p>
+                        </div>
+                        <div class="panel-footer clsNotificationpanel-footer">
+                            <div class="clearfix">
+                                <div class="pull-left">
+                                    <div class="checkbox c-checkbox">
+                                        <label>
+                                            <input type="checkbox" name="IsRead" required="required" onclick="ReadNotifications(@counter)"/>
+                                            <span class="fa fa-check"></span>Read It
+                                        </label>
+                                    </div>
+                                    <input type="hidden" id="hiddenNotificationId_@counter" value="@item.Id" />
+                                </div>
+                                <div class="pull-right clsNotificationLastUpdate">
+                                    <span> Last updated @datetime</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- END panel-->
+            </div>
+
+        }
+    }
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="pagination pagination-sm m0">
+            <div class="pagination pagination-sm m0">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+            </div>
+            <div>
+                showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount Notice Board
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+        showMessage(message, Validation)
+            var rName = "NoticeBoard";
+            GridPermission(rName)
+
+        });
+        function ReadNotifications(rowCount) {
+            var formData = new FormData();
+            var id = $("#hiddenNotificationId_" + rowCount).val();
+            var postModel = {
+                Id: id
+            };
+            var postData = JSON.stringify(postModel);
+            formData.append("model", postData);
+            swal({
+                title: "Are you sure?",
+                text: "You want to read this notification!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#50852d",
+                confirmButtonText: "Yes, save it!",
+                cancelButtonText: "No, cancel plx!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            }, function (isConfirm) {
+                if (isConfirm) {
+                    $(".confirm").attr('disabled', 'disabled');
+                    $.ajax({
+                        type: "POST",
+                        url: "/NoticeBoard/JsonUpdate",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                            if (success === "OK") {
+                                WindowRefresh();
+                            }
+                        },
+                        error: function (error) {
+                            toastr.error("Internal server error.Something went wrong", "Server Error");
+                        }
+                    });
+                } else {
+                    WindowRefresh();
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,127 @@
+﻿@model MudasirRehmanAlp.Models.GoodReceivedReturn
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<div class="panel">
+    <div class="panel-body">
+
+        <h3 class="mt0">Goods Return Note Code #@Model.GRReturnNO</h3>
+        <hr />
+        <div class="row mb-lg">
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="pull-left">Organization Name: </p>
+                        @{
+                            if (Model.OrganizationID != null)
+                            {
+                                <p class="pull-right mr">
+                                    @Model.OrganizationDefinition.OrganizationUnitName
+                                </p>
+                            }
+                        }
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">Branch Name: </p>
+                        @{
+                            if (Model.BranchId != null)
+                            {
+                                <p class="pull-right mr">
+                                    @Model.BranchDefinition.Name
+                                </p>
+                            }
+                        }
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">GRTN Date: </p>
+                        <p class="pull-right mr">
+                            @Model.Date
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="pull-left">GRN No: </p>
+                        <p class="pull-right mr">
+                            @{
+                                if (Model.GoodsReceivedID != null)
+                                {
+                                    @Model.GoodReceived.GRNNO
+                                }
+                            }
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="clearfix hidden-md hidden-lg">
+                <hr />
+            </div>
+            <div class="col-lg-4 col-xs-12 pv">
+                <div class="clearfix">
+                    <p class="pull-left">Main Reason:</p>
+                    <p class="pull-right mr">
+                        @{
+
+                            @Model.MainReason
+
+                        }
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Stock QTY</th>
+                        <th>GRN QTY</th>
+                        <th>Return QTY</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.GoodsReturnDetailsList as List<MudasirRehmanAlp.Models.GoodReceivedReturnDetail>)
+                        {
+
+
+                            <tr>
+                                <td title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                <td title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                <td title="@item.ReceiveQuantity">@item.ReceiveQuantity</td>
+                                <td title="@item.ReturnQuantity">@item.ReturnQuantity</td>
+                                <td title="@item.Reason">@item.Reason</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="hidden-print" />
+        <div class="clearfix">
+            <a href="@Url.Action("Print", "GoodReceivedReturns",new {id=Model.GoodsReceivedReturnID })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+            <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                <i class="fa fa-download"></i> Generate PDF
+            </button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+
+
+        </div>
+    </div>
+</div>
+
+@section Styles {
+
+}
+@section Scripts {
+
+}

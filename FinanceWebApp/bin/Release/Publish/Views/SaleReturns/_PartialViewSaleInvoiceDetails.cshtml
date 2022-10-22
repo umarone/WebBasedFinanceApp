@@ -1,0 +1,33 @@
+﻿@model List<MudasirRehmanAlp.Models.SaleInvoiceDetail>
+@{
+    var counter = 0;
+
+}
+
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+                <tr id="@counter">
+                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                    <td id="tdQty_@counter" title="@item.Quantity">@item.Quantity</td>
+                    <td id="tdUnitRate_@counter" title="@item.UnitRate">@item.UnitRate</td>
+                    <td id="tdTotalWithOutSaleTax_@counter" title="@item.TotalWithOutSaleTax">@item.TotalWithOutSaleTax</td>
+                    <td>
+                        <input type="text" id="tdRetrunQty_@counter" class="form-control form-control-rounded clsReturnQty" />
+                        <input type="hidden" id="tdQuantity_@counter" value="@item.Quantity" />
+                        <input type="hidden" id="tdStockID_@counter" value="@item.StockID" />
+                        <input type="hidden" id="tdProductID_@counter" value="@item.ProductID" />
+                        <input type="hidden" id="tdSaleInvoiceDetailID_@counter" value="@item.SaleInvoiceDetailID" />
+                    </td>
+                    <td>
+                        <input type="text" id="tdtxtReason_@counter" class="form-control form-control-rounded" />
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

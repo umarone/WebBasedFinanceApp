@@ -1,0 +1,96 @@
+﻿@model MudasirRehmanAlp.ModelsView.UsersAccountViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="block-center mt-xl wd-xl">
+    <!-- START panel-->
+    <div class="panel panel-info panel-flat">
+        <div class="panel-heading text-center">
+            <a href="#">
+                <img src="~/Content/Images/Logos/Logo.png" alt="Image" class="block-center img-rounded"/>
+            </a>
+        </div>
+        <div class="panel-body">
+            <p class="text-center pv">SIGN IN TO CONTINUE.</p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group has-feedback">
+                    <input type="text" name="UserName" placeholder="Enter email or username" autocomplete="off" required="required" class="form-control" />
+                    <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input  name="Password" type="password" placeholder="Password" required="required" class="form-control" />
+                    <span class="fa fa-lock form-control-feedback text-muted"></span>
+                </div>
+                <div class="clearfix">
+                    <div class="checkbox c-checkbox pull-left mt0">
+                        <label>
+
+                            <input type="checkbox" class="clsRemorememberMe" />
+                            <span class="fa fa-check"></span>Remember Me
+                        </label>
+                        <input type="hidden" name="RemorememberMe" id="hiddenRemorememberMe" />
+                    </div>
+                    <div class="pull-right">
+                        <a href="@Url.Action("ForgotPassword", "Account")" class="text-muted">Forgot your password?</a>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 m-b">
+                    <h4 id="message" class="text-danger text-sm"></h4>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
+            }
+           
+        </div>
+    </div>
+    <!-- END panel-->
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+
+    <script>
+        $(document).ready(function () {
+            $(".clsRemorememberMe").change(function () {
+                if (this.checked) {
+                    $("#hiddenRemorememberMe").val('true');
+                }
+                else {
+                    $("#hiddenRemorememberMe").val('false');
+                }
+            });
+           var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+        //show error message and hide
+            function showMessage(message, Validation) {
+                if (message != "") {
+                    document.getElementById("message").innerHTML = message;
+                    $("#message").show();
+                    window.setTimeout(function () {
+                        $("#message").slideUp(500, function () {
+                            $("#message").hide();
+                        });
+                    }, 5000);
+                }
+                else {
+                    $("#message").hide();
+                    return false;
+                }
+
+            };
+
+        });//end of Ready Funtion
+
+    </script>
+}

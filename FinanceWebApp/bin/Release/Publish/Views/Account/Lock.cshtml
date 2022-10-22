@@ -1,0 +1,107 @@
+﻿@model MudasirRehmanAlp.ModelsView.UsersAccountViewModel
+@{
+    ViewBag.Title = "Lock";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    string UserName = Convert.ToString(Session["UserName"]);
+}
+
+<div class="block-center mt-xl wd-xl">
+    <!-- START panel-->
+    <div class="p">
+        @{
+
+            byte[] userPic = (byte[])Session["EmployeeProfilePic"];
+            if (userPic != null)
+            {
+                var base64 = Convert.ToBase64String(userPic);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                <img src="@imgSrc" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle center-block" />
+
+            }
+            else
+            {
+                <img src="~/Content/Images/user/no-user-01.png" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle center-block" />
+
+            }
+        }
+        @*<img src="~/Content/Images/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle center-block" />*@
+    </div>
+    <div class="panel widget b0">
+        <div class="panel-body">
+            <p class="text-center">Please login to unlock your screen.</p>
+            @using (Html.BeginForm("UnLock", "Account", null, FormMethod.Post))
+            {
+                <input type="hidden" name="UserName" value="@Model.UserName" />
+                <input type="hidden" name="RemorememberMe" value="@Model.RemorememberMe" />
+                <div class="form-group has-feedback">
+                    <input type="password" placeholder="Password" name="Password" class="form-control" />
+                    <span class="fa fa-lock form-control-feedback text-muted"></span>
+                </div>
+                <div class="col-xs-12 m-b">
+                    <h4 id="message" class="text-danger text-sm"></h4>
+                </div>
+                <div class="clearfix">
+                    <div class="pull-left mt-sm">
+                        <a href="@Url.Action("ForgotPassword", "Account")" class="text-muted">
+                            <small>Forgot your password?</small>
+                        </a>
+                    </div>
+
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-block btn-sm btn-primary">Unlock</button>
+                        @*<a href="@Url.Action("UnLock", "Account")" class="btn btn-sm btn-primary">Unlock</a>*@
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- END panel-->
+</div>
+
+
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+
+    <script>
+        $(document).ready(function () {
+            $(".clsRemorememberMe").change(function () {
+                if (this.checked) {
+                    $("#hiddenRemorememberMe").val('true');
+                }
+                else {
+                    $("#hiddenRemorememberMe").val('false');
+                }
+            });
+           var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+        //show error message and hide
+            function showMessage(message, Validation) {
+                if (message != "") {
+                    document.getElementById("message").innerHTML = message;
+                    $("#message").show();
+                    window.setTimeout(function () {
+                        $("#message").slideUp(500, function () {
+                            $("#message").hide();
+                        });
+                    }, 5000);
+                }
+                else {
+                    $("#message").hide();
+                    return false;
+                }
+
+            };
+
+        });//end of Ready Funtion
+
+    </script>
+}
+

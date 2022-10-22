@@ -1,0 +1,643 @@
+﻿@model MudasirRehmanAlp.Models.CustomerStatement
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var GtCounter = 1;
+}
+<div class="panel panel-default">
+    <div class="panel-heading">Customer Statements</div>
+
+    @using (Html.BeginForm("Create", "CustomerStatements", null, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal p-20" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Customer No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.Code</strong>
+                            @Html.HiddenFor(model => model.Code, new { @id = "txtCode" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">CAF No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CAFNo</strong>
+                            @Html.HiddenFor(model => model.CAFNo, new { @id = "txtCAFNo" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.BranchName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Name:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtName" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"> S/o , W/o:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.GuardianName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtGuardianName" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">CNIC No:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                                <input type="text" name="CNICNo" id="txtCNICNo" data-masked="" data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No" class="form-control form-control-rounded" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Cell No:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="text" name="MobileNo" id="txtMobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Cell no" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Current Address:</div>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="txtAddress"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Current Ownership</div>
+                        <div class="col-sm-3">
+                            <select id="txtCurrentOwnershipSelect" class="select2Cls form-control CurrentOwnershipSelect">
+                            </select>
+                            @Html.HiddenFor(model => model.CurrentOwnership, new { @id = "hiddenCurrentOwnership" })
+                        </div>
+                        <div class="col-sm-2">No Of Year</div>
+                        <div class="col-sm-3">
+                            @Html.EditorFor(model => model.CurrentNoOfYear, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtCurrentNoOfYear" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Status:</div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="radio-inline c-radio">
+                                    @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                                </label>
+                                <label class="radio-inline c-radio">
+                                    @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Image:</div>
+                        <div class="col-sm-8">
+                            <input type="file" name="CustomerImage" onchange="encodeImagetoBase64(this,'imgCustomerImage')" id="CustomerImage" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                            <img id="imgCustomerImage" style="display:none;width: 100%;height:250px" class="img-thumbnail img-responsive" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Permanent Address:</div>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="txtPermanentAddress"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Permanent Ownership</div>
+                        <div class="col-sm-3">
+                            <select id="txtPermanentOwnershipSelect" class="select2Cls form-control PermanentOwnershipSelect">
+                            </select>
+                            @Html.HiddenFor(model => model.PermanentOwnership, new { @id = "hiddenPermanentOwnership" })
+                        </div>
+                        <div class="col-sm-2">No Of Year</div>
+                        <div class="col-sm-3">
+                            @Html.EditorFor(model => model.PermanentNoOfYear, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtPermanentNoOfYear" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Department</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.DepartmentName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtDepartmentName" } })
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Designation</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.DesignationName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtDesignationName" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Business Address</div>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id ="txtBusinessAddress" ></textarea>
+                              
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Date of Appointment</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                <input type="text" name="AppointmentDate" class="form-control date" id="txtAppointmentDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Date of Retirement </div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                <input type="text" name="RetirementDate" class="form-control date" id="txtRetirementDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Gross Salary</div>
+                        <div class="col-sm-3">
+                            @Html.EditorFor(model => model.GrossSalary, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtGrossSalary" } })
+
+                        </div>
+                        <div class="col-sm-2">Age</div>
+                        <div class="col-sm-3">
+                            @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAge" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">Bank Name:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.BankName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtBankName" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.BranchName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtBranchName" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Account No:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.AccountNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountNo" } })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+<div class="panel panel-default clspanel" id="panelId_@GtCounter">
+    <div class="panel-heading">
+        Guarantor Details
+        <input type="hidden" id="hiddenDivStatus_@GtCounter" value="show" />
+        <div class="pull-right">
+            <!-- Success button with label -->
+            <button type="button" class="btn btn-labeled btn-info" id="btnAddMore" onclick="AppendGuarantorHtml();">
+                <span class="btn-label">
+                    <i class="fa fa-plus"></i>
+                </span>Add More
+            </button>
+        </div>
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Name </label>
+                    <input type="text" id="txtFirstName_@GtCounter" class="form-control form-control-rounded" />
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label> S/o , W/o </label>
+                    <input type="text" id="txtGuardianName_@GtCounter" class="form-control form-control-rounded" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>CNIC No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                        <input type="text" name="CNICNo" id="txtCNICNo_@GtCounter" data-masked="" data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No" class="form-control form-control-rounded" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Cell No</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="MobileNo" id="txtMobileNo_@GtCounter" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Cell No" class="form-control form-control-rounded clsMask" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Permanent Address</label>
+                    <input type="text" id="txtPermanentAddress_@GtCounter" class="form-control form-control-rounded" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>Permanent Ownership</label>
+                <select id="txtPermanentOwnership_Gur_Select_@GtCounter" class="select2Cls form-control PermanentOwnership_Gur_Select" onchange="onChangeOwenershipSelect(this,@GtCounter);">
+                </select>
+                <input type="hidden" id="hiddenPermanentOwnership_Gur_@GtCounter" />
+            </div>
+            <div class="col-md-3">
+                <label>No Of Year</label>
+                <input type="text" id="txtPermanentNoOfYear_@GtCounter" class="form-control form-control-rounded" />
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Institutes / Organization</label>
+                    <input type="text" id="txtOfficeName_@GtCounter" class="form-control form-control-rounded" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>Designation </label>
+                <input type="text" id="txtDesignationName_@GtCounter" class="form-control form-control-rounded" />
+            </div>
+            <div class="col-md-3">
+                <label>Gross Salary / Income </label>
+                <input type="text" id="txtGrossSalary_@GtCounter" class="form-control form-control-rounded" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Office Address</label>
+
+                    <textarea class="form-control " id="txtOfficeAddress_@GtCounter"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="DivhtmlPanelForAppend">
+
+</div>
+<input type="hidden" id="hiddenGTCounter" value="@GtCounter" />
+<input type="hidden" id="hiddenSettingNoOfGuarantor" value="@(ViewBag.GuarantorMaxNeed)" />
+<input type="hidden" id="hiddencounter" value="@GtCounter" />
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+        $(document).ready(function () {
+
+            var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+            //---------- Append Html
+            LoadCurrentOwnershipType('');
+            LoadPermanentOwnershipType('');
+            LoadPermanentOwnershipGur('',@GtCounter);
+          //---------- Permission Code
+              var rName = 'CustomerStatements';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------
+           
+
+
+
+            //-----btn Submit
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#hiddencounter").val();
+                 var ChildArray = new Array();
+                var MasterItem = {};
+                var ChildItem = {};
+                var formData = new FormData();
+
+                var IdFiles = document.getElementById("CustomerImage").files.length;
+
+                for (var i = 0; i < IdFiles; i++) {
+                    var file_id = document.getElementById("CustomerImage").files[i];
+                    formData.append("uploadCustomerImage", file_id);
+                }
+                MasterItem = {
+                    Code: $("#txtCode").val(),
+                    CAFNo: $("#txtCAFNo").val(),
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    Name: $("#txtName").val(),
+                    GuardianName: $("#txtGuardianName").val(),
+                    CNICNo: $("#txtCNICNo").val(),
+                    MobileNo: $("#txtMobileNo").val(),
+                    Address: $("#txtAddress").val(),
+                    CurrentOwnership: $("#hiddenCurrentOwnership").val(),
+                    CurrentNoOfYear: $("#txtCurrentNoOfYear").val(),
+                    PermanentAddress: $("#txtPermanentAddress").val(),
+                    PermanentOwnership: $("#hiddenPermanentOwnership").val(),
+                    PermanentNoOfYear: $("#txtPermanentNoOfYear").val(),
+                    DepartmentName: $("#txtDepartmentName").val(),
+                    DesignationName: $("#txtDesignationName").val(),
+                    BusinessAddress: $("#txtBusinessAddress").val(),
+                    AppointmentDate: $("#txtAppointmentDate").val(),
+                    RetirementDate: $("#txtRetirementDate").val(),
+                    GrossSalary: $("#txtGrossSalary").val(),
+                    Age: $("#txtAge").val(),
+                    BankName: $("#txtBankName").val(),
+                    BranchName: $("#txtBranchName").val(),
+                    AccountNo: $("#txtAccountNo").val(),
+                    IsActive: $("input[name='IsActive']:checked").val(),
+                };
+                for (var i = 1; i <= ItemCount; i++) {
+                    var RowStatus = $("#hiddenDivStatus_" + i).val();
+                    if (RowStatus=="show") {
+                        ChildItem = {
+                            FirstName: $("#txtFirstName_" + i).val(),
+                            GuardianName: $("#txtGuardianName_" + i).val(),
+                            CNICNo: $("#txtCNICNo_" + i).val(),
+                            MobileNo: $("#txtMobileNo_" + i).val(),
+                            PermanentAddress: $("#txtPermanentAddress_" + i).val(),
+                            PermanentOwnership: $("#hiddenPermanentOwnership_Gur_" + i).val(),
+                            PermanentNoOfYear: $("#txtPermanentNoOfYear_" + i).val(),
+                            OfficeName: $("#txtOfficeName_" + i).val(),
+                            DesignationName: $("#txtDesignationName_" + i).val(),
+                            GrossSalary: $("#txtGrossSalary_" + i).val(),
+                            OfficeAddress: $("#txtOfficeAddress_" + i).val(),
+                        }
+                        ChildArray.push(ChildItem);
+                    }
+                }
+                //--- Post data
+                 var master = JSON.stringify(MasterItem);
+                var child = JSON.stringify(ChildArray);
+                 formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+                if (ChildArray.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/CustomerStatements/Create",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                             if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                             else {
+                                 fullAppLoaderFadeOut();
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                           fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+
+                     fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");;
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+        function onChangeOwenershipSelect(e,counter) {
+            debugger
+            var ID = e.value;
+            $("#hiddenPermanentOwnership_Gur_"+counter).val(ID);
+        }
+        function AppendGuarantorHtml() {
+            debugger
+            var settingGCounter = $("#hiddenSettingNoOfGuarantor").val();
+            settingGCounter = parseInt(settingGCounter);
+            var gtCounter = $("#hiddenGTCounter").val();
+             gtCounter = parseInt(gtCounter);
+            gtCounter = gtCounter + 1;
+            //----- Counter for Ids
+            var counter = $("#hiddencounter").val();
+             counter = parseInt(counter);
+             counter = counter + 1;
+
+            if (gtCounter <= settingGCounter) {
+                $("#hiddenGTCounter").val(gtCounter);
+                $("#hiddencounter").val(counter);
+
+                //-----End
+                var htmlPanalDiv = "<div class='panel panel-default clspanel' id='panelId_"+counter+"'>";
+                htmlPanalDiv += "<div class='panel-heading'>Guarantor Details";
+                 htmlPanalDiv += "<input type='hidden' id='hiddenDivStatus_"+counter+"' value='show'/>";
+                htmlPanalDiv += "<div class='pull-right'>";
+                htmlPanalDiv += "<button type='button' class='btn btn-labeled btn-danger' onclick='RemoveGuarantorHtml("+counter+");'>";
+                htmlPanalDiv += " <span class='btn-label'>";
+                htmlPanalDiv += "<i class='fa fa-times'></i>";
+                htmlPanalDiv += "</span>Remove";
+                htmlPanalDiv += "</button>";
+                htmlPanalDiv += "</div>";
+                htmlPanalDiv += "</div>";
+                htmlPanalDiv += "<div class='panel-body'>";
+                //---- Row 1
+                var htmlRowDiv = "<div class='row'>";
+                //--- 1 Col
+
+                //--- 2 Col
+                var htmlColFirstName = " <div class='col-md-3'>";
+                htmlColFirstName += "<div class='form-group'>";
+                htmlColFirstName += "<label>Name </label>";
+                htmlColFirstName += "<input type='text' id='txtFirstName_" + counter + "' class='form-control form-control-rounded clsInputmask' />";
+                htmlColFirstName += "</div>";
+                htmlColFirstName += " </div>";
+                htmlRowDiv += htmlColFirstName;
+                //--- 3 Col
+                var htmlColLastName = " <div class='col-md-3'>";
+                htmlColLastName += "<div class='form-group'>";
+                htmlColLastName += "<label>S/o , W/o </label>";
+                htmlColLastName += "<input type='text' id='txtGuardianName_" + counter + "' class='form-control form-control-rounded clsInputmask' />";
+                htmlColLastName += "</div>";
+                htmlColLastName += " </div>";
+                htmlRowDiv += htmlColLastName;
+                //--- 4 Col
+                var htmlColCNICNo = " <div class='col-md-3'>";
+                htmlColCNICNo += "<div class='form-group'>";
+                htmlColCNICNo += "<label>CNIC No</label>";
+                htmlColCNICNo += "<div class='input-group'>";
+                htmlColCNICNo += " <span class='input-group-addon'><i class='fa fa-sort-numeric-asc'></i></span>";
+                htmlColCNICNo += " <input type='text' name='CNICNo' id='txtCNICNo_" + counter + "'  placeholder='CNIC No' class='form-control form-control-rounded clsInputmaskCNIC clsInputmask' />";
+                htmlColCNICNo += "</div>";
+                htmlColCNICNo += " </div>";
+                htmlColCNICNo += " </div>";
+                htmlRowDiv += htmlColCNICNo;
+                //--- 5 Col
+                var htmlColMobileNo = " <div class='col-md-3'>";
+                htmlColMobileNo += "<div class='form-group'>";
+                htmlColMobileNo += "<label>Cell No</label>";
+                htmlColMobileNo += "<div class='input-group'>";
+                htmlColMobileNo += "<span class='input-group-addon'><i class='fa fa-phone'></i></span>";
+                htmlColMobileNo += "<input type='text' name='MobileNo' id='txtMobileNo_" + counter + "'  placeholder='Cell No' class='form-control form-control-rounded clsInputmaskMobile clsInputmask' />";
+                htmlColMobileNo += "</div>";
+                htmlColMobileNo += " </div>";
+                htmlColMobileNo += " </div>";
+                htmlRowDiv += htmlColMobileNo;
+                htmlRowDiv += "</div>";
+                //---- Row 2
+
+                var htmlRow2Div = "<div class='row'>";
+                //--- 1 Col
+                var htmlColPermanentAddress = "<div class='col-md-6'>";
+                htmlColPermanentAddress += "<div class='form-group'>";
+                htmlColPermanentAddress += "<label>Permanent Address</label>";
+                htmlColPermanentAddress += "  <input type='text' id='txtPermanentAddress_" + counter + "' class='form-control form-control-rounded clsInputmask' />";
+                htmlColPermanentAddress += " </div>";
+                htmlColPermanentAddress += " </div>";
+                htmlRow2Div += htmlColPermanentAddress;
+                //--- 2 Col
+                var htmlColPermanentOwnership = "<div class='col-md-3'>";
+                htmlColPermanentOwnership += "<label>Permanent Ownership</label>";
+                htmlColPermanentOwnership += "   <select id='txtPermanentOwnership_Gur_Select_" + counter + "' class='select2Cls form-control PermanentOwnership_Gur_Select' style='width:100%'  onchange='onChangeOwenershipSelect(this," + counter + ");'>";
+                htmlColPermanentOwnership += "   <option value=''>Select</option> ";
+                htmlColPermanentOwnership += "   </select>";
+                htmlColPermanentOwnership += " <input type='hidden' id='hiddenPermanentOwnership_Gur_" + counter + "'/>";
+                htmlColPermanentOwnership += " </div>";
+                htmlRow2Div += htmlColPermanentOwnership;
+                //--- 3 Col
+                var htmlColNoOfYear = "<div class='col-md-3'>";
+                htmlColNoOfYear += "<div class='form-group'>";
+                htmlColNoOfYear += "<label>No Of Year</label>";
+                htmlColNoOfYear += "  <input type='text' id='txtPermanentNoOfYear_" + counter + "' class='form-control form-control-rounded clsInputmask' />";
+                htmlColNoOfYear += " </div>";
+                htmlColNoOfYear += " </div>";
+                htmlRow2Div += htmlColNoOfYear;
+
+                htmlRow2Div += "</div>";
+                //---- Row 3
+                var htmlRow3Div = "<div class='row'>";
+                //--- 1 Col
+                var htmlColOfficeName = " <div class='col-md-6'>";
+                htmlColOfficeName += "<div class='form-group'>";
+                htmlColOfficeName += "<label>Institutes / Organization</label>";
+                htmlColOfficeName += " <input type='text' id='txtOfficeName_" + counter+"' class='form-control form-control-rounded' />";
+                htmlColOfficeName += "</div>";
+                htmlColOfficeName += " </div>";
+                htmlRow3Div += htmlColOfficeName;
+                //--- 2 Col
+                var htmlColDesignation = " <div class='col-md-3'>";
+                htmlColDesignation += "<div class='form-group'>";
+                htmlColDesignation += "<label>Designation</label>";
+                htmlColDesignation += " <input type='text' id='txtDesignationName_" + counter + "' class='form-control form-control-rounded' />";
+                htmlColDesignation += "</div>";
+                htmlColDesignation += " </div>";
+                htmlRow3Div += htmlColDesignation;
+                 //--- 3 Col
+                var htmlColGrossSalary = " <div class='col-md-3'>";
+                htmlColGrossSalary += "<div class='form-group'>";
+                htmlColGrossSalary += "<label>Gross Salary / Income</label>";
+                htmlColGrossSalary += " <input type='text' id='txtGrossSalary_" + counter + "' class='form-control form-control-rounded' />";
+                htmlColGrossSalary += "</div>";
+                htmlColGrossSalary += " </div>";
+                htmlRow3Div += htmlColGrossSalary;
+      //--- 4 Col
+                var htmlColOfficeAddress = " <div class='col-md-6'>";
+                htmlColOfficeAddress += "<div class='form-group'>";
+                htmlColOfficeAddress += "<label>Office Address</label>";
+                htmlColOfficeAddress += "<textarea class='form-control' id='txtOfficeAddress_" + counter + "'></textarea>";
+
+                htmlColOfficeAddress += "</div>";
+                htmlColOfficeAddress += " </div>";
+                htmlRow3Div += htmlColOfficeAddress;
+
+                htmlRow3Div += "</div>";
+
+                htmlPanalDiv += htmlRowDiv;
+                htmlPanalDiv += htmlRow2Div;
+                htmlPanalDiv += htmlRow3Div;
+                htmlPanalDiv += "</div>";
+                htmlPanalDiv += "</div>";
+                htmlPanalDiv += "</div>";
+
+                $("#DivhtmlPanelForAppend").append(htmlPanalDiv);
+                LoadPermanentOwnershipGur('',counter);
+                maskImplementandSelect();
+            }
+            else {
+                toastr.warning("You can't add more Guarantors","Warning")
+            }
+        }
+        function RemoveGuarantorHtml(id) {
+            debugger
+            $("#panelId_" + id).hide();
+            $("#hiddenDivStatus_" + id).val('hide');
+             var gtCounter = $("#hiddenGTCounter").val();
+             gtCounter = parseInt(gtCounter);
+            gtCounter = gtCounter - 1;
+            $("#hiddenGTCounter").val(gtCounter);
+        }
+        function maskImplementandSelect() {
+             $(".clsInputmaskMobile").inputmask("(999) 999-9999");
+                $(".clsInputmaskCNIC").inputmask("99999-9999999-9");
+                  $('.select2Cls').select2({
+                    theme: 'bootstrap'
+                 });
+        }
+    </script>
+}
+

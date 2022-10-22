@@ -1,0 +1,74 @@
+﻿/* ========================================================================
+     This is a common Site for user define css
+ ========================================================================== */
+
+.clsDisable_click {
+    pointer-events: none;
+}
+
+.ui-autocomplete {
+    position: absolute;
+    cursor: default;
+    z-index: 1001 !important
+}
+
+.c-checkbox span, .c-radio span .clsMenuStyle {
+    position: absolute !important;
+    margin-left: -25px !important;
+}
+
+.loaderfullApp {
+    position: fixed !important;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    height: 31px;
+    width: 31px;
+    opacity: 2.0;
+}
+
+.wrapperForShow {
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.loaderModal {
+    position: fixed !important;
+    left: 50%;
+    top: 50%;
+    z-index: 1000;
+    height: 31px;
+    width: 31px;
+    opacity: 2.0;
+}
+
+.modalForShow {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.clstheadBgMenu {
+    background: #23b7e5;
+}
+
+.clsthMenu {
+    color: white !important;
+    
+}
+.clsCursor {
+    cursor:pointer;
+}
+.clsDisplayNone{
+    display:none;
+}
+.clsNotificationLastUpdate {
+    margin-top: 10px;
+}
+.clsNotificationLastUpdate {
+    margin-top: 10px;
+}
+.clsNotificationpanel-footer {
+    padding: 5px 15px !important;
+}

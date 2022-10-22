@@ -1,0 +1,56 @@
+﻿@model List<MudasirRehmanAlp.Models.SaleOrderDetail>
+
+@{
+    var counter = 0;
+    MudasirRehmanAlp.AppDAL.StockDAL stockDAL = new MudasirRehmanAlp.AppDAL.StockDAL();
+}
+
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+                string StockCode = stockDAL.AutoGenerateStockCode(Convert.ToInt64(@item.ProductID));
+                long StockQty = stockDAL.GetStockQuantity(StockCode);
+                long StockID = stockDAL.GetStockIDByStockCode(StockCode);
+                <tr id="@counter">
+                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                    <td id="tdStockQty_@counter" title="@StockQty">@StockQty</td>
+                    <td id="tdQty_@counter" title="@item.Quantity">@item.Quantity</td>
+                    <td id="tdUnitRate_@counter" title="@item.UnitRate">@item.UnitRate</td>
+                    <td id="tdTotalWithOutSaleTax_@counter" title="@item.UnitRate">@item.TotalWithOutSaleTax</td>
+
+                    <td id="tdDiscountPercentage_@counter" title="@item.DiscountPercentage">@item.DiscountPercentage</td>
+                    <td id="tdDiscountedUnitRate_@counter" title="@item.DiscountedUnitRate">@item.DiscountedUnitRate</td>
+                    <td id="tdTotalAfterDiscount_@counter" title="@item.TotalAfterDiscount">@item.TotalAfterDiscount</td>
+                    <td id="tdDiscountAmount_@counter" title="@item.DiscountAmount">@item.DiscountAmount</td>
+                    <td id="tdSaleTaxPercentage_@counter" title="@item.SaleTaxPercentage">@item.SaleTaxPercentage</td>
+                    <td id="tdSaleTaxAmount_@counter" title="@item.SaleTaxAmount">@item.SaleTaxAmount</td>
+                    <td id="tdTotalTaxInclusive_@counter" title="@item.TotalTaxInclusive">@item.TotalTaxInclusive</td>
+                    <td hidden>
+
+                        <input type="hidden" id="tdhiddenSaleOrderDetailID_@counter" value="@item.SaleOrderDetailID" />
+                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                        <input type="hidden" id="tdhiddenStockID_@counter" value="@StockID" />
+                        <input type="hidden" id="tdhiddenQuantity_@counter" value="@item.Quantity" />
+                        <input type="hidden" id="tdhiddenUnitRate_@counter" value="@item.UnitRate" />
+                        <input type="hidden" id="tdhiddenTotalWithOutSaleTax_@counter" value="@item.TotalWithOutSaleTax" />
+
+                        <input type="hidden" id="tdhiddenDiscountPercentage_@counter" value="@item.DiscountPercentage" />
+                        <input type="hidden" id="tdhiddenDiscountedUnitRate_@counter" value="@item.DiscountedUnitRate" />
+                        <input type="hidden" id="tdhiddenTotalAfterDiscount_@counter" value="@item.TotalAfterDiscount" />
+
+                        <input type="hidden" id="tdhiddenDiscountAmount_@counter" value="@item.DiscountAmount" />
+                        <input type="hidden" id="tdhiddenSaleTaxPercentage_@counter" value="@item.SaleTaxPercentage" />
+                        <input type="hidden" id="tdhiddenSaleTaxAmount_@counter" value="@item.SaleTaxAmount" />
+                        <input type="hidden" id="tdhiddenTotalTaxInclusive_@counter" value="@item.TotalTaxInclusive" />
+                      
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

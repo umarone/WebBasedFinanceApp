@@ -1,0 +1,433 @@
+﻿@model MudasirRehmanAlp.Models.GoodReceived
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-heading">Goods Received # @Model.GRNNO</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Goods Received Note Information</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead bb">Details</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+
+                    <div class="form-group">
+                        <div class="col-sm-4">GRN NO:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.GRNNO</strong>
+                            @Html.HiddenFor(model => model.GRNNO, new { @id = "txtGRNNO" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.BranchName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">GRN Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                <input type="text" name="GRNDate" class="form-control date" id="txtGRNDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+            </div>
+            <div class="col-md-6">
+                <p class="lead bb">PO / ADJ</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+                    <div class="form-group">
+                        <div class="col-sm-4">GRN Type</div>
+                        <div class="col-sm-8">
+                            <select id="txtGRNTypeSelect" class="select2Cls form-control GRNTypeSelect">
+                                <option value="">Select</option>
+                                <option value="PO">Purchase Order</option>
+                                <option value="ADJ">Adjustment Note</option>
+                                <option value="STN">Store Transfer Note</option>
+                            </select>
+                            @Html.HiddenFor(model => model.GRNType, new { @id = "hiddenGRNType" })
+                        </div>
+                    </div>
+                    <div class="form-group clsDivPO clsDisplayNone">
+                        <div class="col-sm-4">PO NO</div>
+                        <div class="col-sm-8">
+                            <select id="txtPurchaseOrderSelect" class="select2Cls form-control PurchaseOrderSelect">
+                                <option value="">Select</option>
+
+                            </select>
+                            @Html.HiddenFor(model => model.PurchaseOrderID, new { @id = "hiddenPurchaseOrderID" })
+                        </div>
+                    </div>
+                    <div class="form-group clsDivADJ clsDisplayNone">
+                        <div class="col-sm-4">ADJ NO</div>
+                        <div class="col-sm-8">
+                            <select id="txtAdjustmentNoteSelect" class="select2Cls form-control AdjustmentNoteSelect">
+                                <option value="">Select</option>
+                            </select>
+                            @Html.HiddenFor(model => model.AdjustmentNoteID, new { @id = "hiddenAdjustmentNoteID" })
+                        </div>
+                    </div>
+                    <div class="form-group clsDivSTN clsDisplayNone">
+                        <div class="col-sm-4">STN No</div>
+                        <div class="col-sm-8">
+                            <select id="txtSTNSelect" class="select2Cls form-control STNSelect">
+                                <option value="">Select</option>
+                            </select>
+                            @Html.HiddenFor(model => model.StoreTransferNoteId, new { @id = "hiddenStoreTransferNoteId" })
+                            @*@Html.HiddenFor(model => model.BranchIdForSTN, new { @id = "hiddenBranchIdForSTN" })*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"><span class="lblDate"></span> Date</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" readonly="readonly" id="hiddenDate" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Goods Received Note Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Available Stock</th>
+                        <th><span class="lblDate"></span> QTY</th>
+                        <th>Received QTY</th>
+                        <th>Ballance QTY</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+
+    <style>
+        body .select2-container {
+            width: 100% !important;
+        }
+    </style>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+        $(document).ready(function () {
+             var message = '@(TempData["ErrorMessage"])';
+             var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+            LoadPurchaseOrders('');
+            LoadAdjustmentNotes('');
+            LoadStoreTransferNotes('');
+              //---------- Permission Code
+              var rName = 'GoodReceiveds';
+              var id = '@Model.GoodReceivedNoteId';
+              PagePermission(rName, id);
+            //---------------
+          
+
+            $(".PurchaseOrderSelect").change(function () {
+                fullAppLoaderFadeIn();
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenPurchaseOrderID").val(ID);
+                loadPurchaseOrderDetails(ID);
+
+            });
+             $(".AdjustmentNoteSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAdjustmentNoteID").val(ID);
+                loadAdjustmentNoteDetails(ID);
+
+             });
+            $(".STNSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenStoreTransferNoteId").val(ID);
+                loadSTNDetails(ID);
+
+            });
+            
+             $(".GRNTypeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenGRNType").val(ID);
+                 if (ID == "PO") {
+                     $(".clsDivPO").show();
+                     $(".clsDivADJ").hide();
+                     $(".clsDivSTN").hide();
+                     $(".lblDate").html('PO');
+                 }
+                 else if (ID == "ADJ") {
+                     $(".clsDivPO").hide();
+                     $(".clsDivADJ").show();
+                     $(".clsDivSTN").hide();
+                     $(".lblDate").html('ADJ');
+                 }
+                 else if (ID == "STN") {
+                     $(".clsDivSTN").show();
+                     $(".clsDivPO").hide();
+                     $(".clsDivADJ").hide();
+                     $(".lblDate").html('STN');
+                 }
+                 else {
+                     $(".lblDate").html('');
+                 }
+
+            });
+
+            $(document).on('focusout', "input.clsReceivedQty", function () {
+                debugger
+                var RowID = $(this).closest('tr').attr('id');
+                var BallanceQty = 0;
+                var ReceivedQty = $("#tdtxtReceivedQty_" + RowID).val();
+                var OrderQty = $("#tdhiddenQuantity_" + RowID).val();
+                ReceivedQty = isNaN(parseInt(ReceivedQty)) ? 0 : parseInt(ReceivedQty)
+                OrderQty = isNaN(parseInt(OrderQty)) ? 0 : parseInt(OrderQty)
+
+                if (ReceivedQty > OrderQty) {
+                    toastr.warning("Received Quntity is not greater of Order Quntity", "Warning");
+                    return false;
+                }
+                BallanceQty = OrderQty - ReceivedQty;
+                BallanceQty = isNaN(parseInt(BallanceQty)) ? 0 : parseInt(BallanceQty)
+
+                $("#tdtxtBallanceQty_" + RowID).val(BallanceQty);
+            });
+
+            //btn Save Goods Received Note
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+
+                var GRNMaltipleChildItem = new Array();
+                var GRNMasterItem = {};
+                var GRNChildItem = {};
+                var formData = new FormData();
+                GRNMasterItem = {
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    PurchaseOrderID: $("#hiddenPurchaseOrderID").val(),
+                    AdjustmentNoteID: $("#hiddenAdjustmentNoteID").val(),
+                    StoreTransferNoteId: $("#hiddenStoreTransferNoteId").val(),                    
+                    GRNDate: $("#txtGRNDate").val(),
+                    GRNNO: $("#txtGRNNO").val(),
+                    GRNType: $("#hiddenGRNType").val(),
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+                    var ReceivedQty = $("#tdtxtReceivedQty_" + i).val();
+                    ReceivedQty = isNaN(parseInt(ReceivedQty)) ? 0 : parseInt(ReceivedQty)
+                    if (ReceivedQty != 0) {
+                       GRNChildItem = {
+                           PurchaseOrderDetailID: $("#tdhiddenPurchaseOrderDetailsID_" + i).val(),
+                           AdjustmentNoteDetailID: $("#tdhiddenAdjustmentNoteDetailId_" + i).val(),
+                           STNDetailsId: $("#tdhiddenStoreTransferNoteDetailId_" + i).val(),
+                           ProductID: $("#tdhiddenProductID_" + i).val(),
+                           OrderQuantity: $("#tdhiddenQuantity_" + i).val(),
+                           ReceiveQuantity: ReceivedQty,
+                           UnitPrice: $("#tdhiddenUnitRate_" + i).val(),
+                    }
+                    GRNMaltipleChildItem.push(GRNChildItem);
+                    }
+
+                }
+
+                var master = JSON.stringify(GRNMasterItem);
+                var child = JSON.stringify(GRNMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (GRNMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/GoodReceiveds/Create",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                            if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                            else {
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function () {
+                                fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong", "Server Error");
+                        }
+                    });
+
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+        function loadPurchaseOrderDetails(Id) {
+        var url = "/GoodReceiveds/LoadPurcahseOrderDetails";
+        var url2 = "/GoodReceiveds/LoadDetailsOfPurcahseOrderDetails";
+        $.get(url, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#hiddenOrganizationID").val(Data.OrganizationID);
+                    $("#hiddenOrganizationName").val(Data.OrganizationName);
+                    $("#hiddenDate").val(new Date(parseInt(Data.PurchaseOrderDate.substr(6))).toLocaleDateString());
+
+                }
+                else {
+                     $("#hiddenOrganizationID").val('');
+                $("#hiddenOrganizationName").val('');
+                 $("#hiddenDate").val('');
+
+                }
+
+
+            });
+           $.get(url2, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#tblBody").html(Data);
+                    fullAppLoaderFadeOut();
+                }
+                else {
+                    $("#tblBody").html('');
+                    fullAppLoaderFadeOut();
+
+                }
+
+
+            });
+        }
+
+         function loadAdjustmentNoteDetails(Id) {
+            var url = "/GoodReceiveds/LoadAdjustmentNoteDetails";
+            var url2 = "/GoodReceiveds/LoadDetailsOfAdjustmentNoteDetails";
+        $.get(url, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#hiddenOrganizationID").val(Data.OrganizationID);
+                    $("#hiddenOrganizationName").val(Data.OrganizationName);
+                    if (Data.Date != null) {
+                        $("#hiddenDate").val(new Date(parseInt(Data.Date.substr(6))).toLocaleDateString());
+                    }
+                  
+
+                }
+                else {
+                     $("#hiddenOrganizationID").val('');
+                     $("#hiddenOrganizationName").val('');
+                     $("#hiddenDate").val('');
+
+                }
+
+
+            });
+           $.get(url2, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#tblBody").html(Data);
+
+                }
+                else {
+                    $("#tblBody").html('');
+
+                }
+
+
+            });
+        }
+        function loadSTNDetails(Id) {
+            var url = "/GoodReceiveds/LoadSTNDetails";
+            var url2 = "/GoodReceiveds/LoadDetailsOfSTNDetails";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    if (Data != "") {
+                        //$("#hiddenBranchIdForSTN").val(Data.ToBranchId);
+                        //$("#hiddenOrganizationName").val(Data.OrganizationName);
+                        if (Data.Date != null) {
+                            $("#hiddenDate").val(new Date(parseInt(Data.Date.substr(6))).toLocaleDateString());
+                        }
+
+
+                    }
+                    else {
+                        //$("#hiddenBranchIdForSTN").val('');
+                        //$("#hiddenOrganizationName").val('');
+                        $("#hiddenDate").val('');
+
+                    }
+
+
+                });
+            $.get(url2, { ID: Id, },
+                function (Data) {
+                    if (Data != "") {
+                        $("#tblBody").html(Data);
+
+                    }
+                    else {
+                        $("#tblBody").html('');
+
+                    }
+
+
+                });
+        }
+    </script>
+}

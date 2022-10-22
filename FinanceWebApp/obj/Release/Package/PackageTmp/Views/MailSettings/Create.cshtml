@@ -1,0 +1,134 @@
+﻿@model MudasirRehmanAlp.Models.MailSetting
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Mail Settings</div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Mail Code</label>
+                        @Html.EditorFor(model => model.MailCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.MailCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.OrganizationUnitName )" id="hiddenOrganizationName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.BranchName )" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>From Email</label>
+                        @Html.EditorFor(model => model.FromEmail, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.FromEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Host Email</label>
+                        @Html.EditorFor(model => model.HostEmail, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.HostEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Port No</label>
+                        @Html.EditorFor(model => model.PortNo, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.PortNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>User Name Email</label>
+                        @Html.EditorFor(model => model.UserNameEmail, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.UserNameEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control form-control-rounded" name="Password" />
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label>Enable SSL</label>
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("EnableSSL", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("EnableSSL", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/datetimePickerCss")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/toastrJs")
+    <script>
+        $(document).ready(function () {
+         var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'MailSettings';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //-----------------------------
+           
+        });//end of Ready Funtion
+    </script>
+}

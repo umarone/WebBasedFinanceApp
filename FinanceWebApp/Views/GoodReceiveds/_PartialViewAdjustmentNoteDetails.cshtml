@@ -1,0 +1,34 @@
+﻿@model List<MudasirRehmanAlp.Models.AdjustmentNoteDetail>
+@{
+    var counter = 0;
+    MudasirRehmanAlp.AppDAL.StockDAL stockDAL = new MudasirRehmanAlp.AppDAL.StockDAL();
+}
+
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+                string StockCode = stockDAL.AutoGenerateStockCode(Convert.ToInt64(@item.ProductID), Convert.ToInt64(item.AdjustmentNote.BranchId));
+                long StockQty = stockDAL.GetStockQuantity(StockCode);
+                <tr id="@counter">
+                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                    <td id="tdStockQty_@counter" title="@StockQty">@StockQty</td>
+                    <td id="tdQty_@counter" title="@item.BalanceQuantity">@item.BalanceQuantity</td>
+                    <td>
+                        <input type="text" id="tdtxtReceivedQty_@counter" class="form-control form-control-rounded clsReceivedQty" />
+                        <input type="hidden" id="tdhiddenAdjustmentNoteDetailId_@counter" value="@item.AdjustmentNoteDetailId" />
+                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                        <input type="hidden" id="tdhiddenQuantity_@counter" value="@item.BalanceQuantity" />
+                        <input type="hidden" id="tdhiddenUnitRate_@counter" value="@item.UnitRate" />
+                    </td>
+                    <td>
+                        <input type="text" id="tdtxtBallanceQty_@counter" class="form-control form-control-rounded" readonly="readonly" />
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

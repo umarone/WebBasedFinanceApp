@@ -1,0 +1,185 @@
+﻿@model MudasirRehmanAlp.Models.PurchaseOrderReturn
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<div class="panel">
+    <div class="panel-body">
+
+        <h3 class="mt0">Purchase Return #@Model.PurchaseOrderReturnNO</h3>
+        <hr />
+        <div class="row mb-lg">
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="pull-left">Organization Name: </p>
+                        @{
+                            if (Model.OrganizationID != null)
+                            {
+                                <p class="pull-right mr">
+                                    @Model.OrganizationDefinition.OrganizationUnitName
+                                </p>
+                            }
+                        }
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">Branch Name: </p>
+                        @{
+                            if (Model.BranchId != null)
+                            {
+                                <p class="pull-right mr">
+                                    @Model.BranchDefinition.Name
+                                </p>
+                            }
+                        }
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">Supplier Name: </p>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+                                <p class="pull-right mr">
+                                    @Model.PurchaseOrder.SupplierDefinition.SupplierName
+                                </p>
+                            }
+                        }
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">Payment Terms: </p>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+                                <p class="pull-right mr">  @Model.PurchaseOrder.PaymentTerms</p>
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="pull-left">Puchase Order Type: </p>
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+                                <p class="pull-right mr">  @Model.PurchaseOrder.PuchaseOrderType</p>
+                            }
+
+                        }
+
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">Transaction Type: </p>
+
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+                                <p class="pull-right mr">  @Model.PurchaseOrder.TransactionType</p>
+                            }
+
+                        }
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">Description: </p>
+
+                        @{
+                            if (Model.PurchaseOrderID != null)
+                            {
+                                <p class="pull-right mr">  @Model.Description</p>
+                            }
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix hidden-md hidden-lg">
+                <hr />
+            </div>
+            <div class="col-lg-4 col-xs-12 pv">
+                <div class="clearfix">
+                    <p class="pull-left">PO NO.</p>
+
+                    @{
+                        if (Model.PurchaseOrderID != null)
+                        {
+                            <p class="pull-right mr">  @Model.PurchaseOrder.PurchaseOrderNO</p>
+                        }
+
+                    }
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left">PO Date</p>
+
+                    @{
+                        if (Model.PurchaseOrderID != null)
+                        {
+                            <p class="pull-right mr">  @Model.PurchaseOrder.PurchaseOrderDate</p>
+                        }
+
+                    }
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left">PO Retrun Date</p>
+
+                    @{
+                        if (Model.PurchaseOrderID != null)
+                        {
+                            <p class="pull-right mr">  @Model.Date</p>
+                        }
+
+                    }
+                </div>
+
+
+            </div>
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in ViewBag.PurchaseReturnListDetails as List<MudasirRehmanAlp.Models.PurchaseOrderReturnDetail>)
+                        {
+
+                            <tr>
+                                <td title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                <td title="@item.GoodReceivedReturnDetail.ReturnQuantity">@item.GoodReceivedReturnDetail.ReturnQuantity</td>
+                                <td title="@item.UnitPrice">@item.UnitPrice</td>
+                                <td title="@item.TotalPrice">@item.TotalPrice</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="hidden-print" />
+        <div class="clearfix">
+            <a href="@Url.Action("Print", "PurchaseOrderReturns",new {id=Model.PurchaseOrderReturnId })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+            <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                <i class="fa fa-download"></i> Generate PDF
+            </button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+
+
+        </div>
+    </div>
+</div>
+
+@section Styles {
+
+}
+@section Scripts {
+
+}

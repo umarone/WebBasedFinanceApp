@@ -1,0 +1,91 @@
+﻿@model MudasirRehmanAlp.Models.CityDefinition
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+
+
+
+</head>
+<body onload="window.print();">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            City Definition
+            <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4 ">
+                    <label>City Code: </label>
+                    <span>@{ @Model.CityCode} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>City Name: </label>
+                    <span> @{ @Model.CityName}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Region Name: </label>
+                    <span>
+                        @{ if (Model.RegionId != null)
+                            {
+                                @Model.RegionDefinition.RegionName
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Province Name: </label>
+                    <span>
+                        @{ if (Model.RegionId != null)
+                            {
+                                @Model.RegionDefinition.ProvinceDefinition.ProvinceName
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Country Name: </label>
+                    <span>
+                        @{ if (Model.RegionId != null)
+                            {
+                                @Model.RegionDefinition.CountryDefinition.CountryName
+                            }
+                        }
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+
+

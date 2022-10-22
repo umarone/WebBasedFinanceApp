@@ -1,0 +1,143 @@
+﻿@model MudasirRehmanAlp.ModelsView.EmployeeUsersViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/Select2/css")
+
+<div class="panel panel-default">
+    <div class="panel-heading">Users Definitions</div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Employee Name</label>
+                        <select id="txtEmployeeNameSelect" class="select2Cls form-control EmployeeSelect">
+                            <option selected="selected">Select Employee</option>
+                            @{
+                                foreach (var item in ViewBag.EmployeeList as List<MudasirRehmanAlp.Models.EmployeePersonalDetails>)
+                                {
+                                    <option value="@item.EmployeeId">@item.FirstName @item.LastName</option>
+                                }
+                            }
+                        </select>
+                        @Html.HiddenFor(model => model.EmployeeID, new { @id = "hiddenEmployeeID" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Role Name</label>
+                        <select id="txtRoleNameSelect" class="select2Cls form-control RoleSelect">
+                            <option selected="selected">Select Role</option>
+                            @{
+                                foreach (var item in ViewBag.RoleList as List<MudasirRehmanAlp.Models.Roles>)
+                                {
+                                    <option value="@item.RoleId">@item.RoleName</option>
+                                }
+                            }
+                        </select>
+                        @Html.HiddenFor(model => model.RoleID, new { @id = "hiddenRoleID" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Full Name </label>
+                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtFullName", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Organization Name </label>
+                        <input type="text" class="form-control form-control-rounded" id="txtOrganizationName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hidddenOrganizationID" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>User Name</label>
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtUserName", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control form-control-rounded" name="Password" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+                <a href="@Url.Action("IndexSuperAdmin")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+    }
+
+</div>
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/select2")
+    <script>
+        $(document).ready(function () {
+          var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'Users';
+              var id = '@Model.UserId';
+              PagePermission(rName, id);
+            //---------------
+
+            $(".EmployeeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenEmployeeID").val(ID);
+
+                var url1 = "/Users/EmployeeDetails";
+                var url2 = "/Users/GeneratorUserName";
+                $.get(url1, { ID: ID, },
+                    function (Data) {
+                        $("#hidddenOrganizationID").val(Data.OrganiztionID);
+                        $("#txtOrganizationName").val(Data.OrganiztionName);
+                        $("#txtFullName").val(Data.FullName);
+                    });
+
+                $.get(url2, { ID: ID, },
+                    function (Data) {
+                        $("#txtUserName").val(Data);
+                    });
+            });
+            $(".RoleSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenRoleID").val(ID);
+
+            });
+
+        });//end of Ready Funtion
+    </script>
+}

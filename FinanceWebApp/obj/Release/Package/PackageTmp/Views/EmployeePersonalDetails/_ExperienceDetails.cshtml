@@ -1,0 +1,167 @@
+﻿@model MudasirRehmanAlp.Models.EmployeeExperienceDetails
+@{
+    int counterExp = 0;
+    int IsCurrent = 0;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()    
+    <input type="hidden" id="hiddenExperienceId" value="0"/>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Job Title </label>
+                    @Html.EditorFor(model => model.JobTitle, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtJobTitle" } })
+                    @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Company Name </label>
+                    @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtCompanyName" } })
+                    @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label>Start Date </label>
+                <div class="input-group date datetimepicker">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtExpStartDate" } })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label>End Date </label>
+                <div class="input-group date datetimepicker">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtExpEndDate" } })
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                    <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>City Name</label>
+                    <select id="txtExpCityNameSelect" class="select2Cls form-control ExpCitySelect">
+                    </select>
+                    @Html.HiddenFor(model => model.CityId, new { @id = "hiddenExpCityID" })
+                    <input type="hidden" id="hiddenExpCityName" />
+                </div>
+            </div>
+            <div class="col-md-2 form-group" style="padding-top:22px">
+                <div class="checkbox c-checkbox needsclick">
+                    <label class="needsclick">
+                        <input type="checkbox" id="checkboxExpIsCurrent" name="IsCurrent" class="needsclick" />
+                        <span class="fa fa-check"></span>Is Current Working
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Notes</label>
+                    @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", @id = "txtExpNotes" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-labeled btn-info" id="btnAddMore" onclick="AddMoreExperience();">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span>Add More
+                </button>
+
+            </div>
+        </div>
+    </div>
+}
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Company Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>City Name</th>
+                    <th>Is Current</th>
+
+                    <th>Notes</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tblBodyExperience">
+                @{
+                    if (ViewBag.EmployeeExperienceDetailsList != null)
+                    {
+                        foreach (var item in ViewBag.EmployeeExperienceDetailsList as List<MudasirRehmanAlp.Models.EmployeeExperienceDetails>)
+                        {
+                            counterExp = counterExp + 1;
+                            <tr id="@counterExp">
+                                <td>@item.JobTitle</td>
+                                <td>@item.CompanyName</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.EndDate</td>
+                                <td id="tdExpCityName_@counterExp">@item.CityDefinition.CityName</td>
+                                <td>
+                                    @{
+                                        if (item.IsCurrent == true)
+                                        {
+                                            IsCurrent = 1;
+                                            <span>Checked</span>
+                                        }
+                                        else
+                                        {
+                                            IsCurrent = 0;
+                                            <span>Un-Checked</span>
+                                        }
+                                    }
+
+                                </td>
+                                <td>@item.Notes</td>
+
+                                <td>
+                                    <input type="hidden" id="tdhiddenExpRowStatus_@counterExp" value="1">
+                                    <input type="hidden" id="tdhiddenExpJobTitle_@counterExp" value="@item.JobTitle">
+                                    <input type="hidden" id="tdhiddenExpCompanyName_@counterExp" value="@item.CompanyName">
+                                    <input type="hidden" id="tdhiddenExpCityId_@counterExp" value="@item.CityId">
+                                    <input type="hidden" id="tdhiddenExpStartDate_@counterExp" value="@item.StartDate">
+                                    <input type="hidden" id="tdhiddenExpEndDate_@counterExp" value="@item.EndDate">
+                                    <input type="hidden" id="tdhiddenExpIsCurrent_@counterExp" value="@IsCurrent">
+                                    <input type="hidden" id="tdhiddenExpNotes_@counterExp" value="@item.Notes">
+                                    <input type="hidden" id="tdhiddenExperienceId_@counterExp" value="@item.Id">
+                                    <span title="Edit" class="btn btn-primary btn-sm clsbtnEdit"><emc class="fa fa-edit"></emc> </span>
+                                    <span title="Delete" class="btn btn-danger btn-sm clsbtnDelete"><emc class="fa fa-remove"></emc></span>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Company Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>City Name</th>
+                    <th>Is Current</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<input type="hidden" value="@counterExp" id="currentExperienceRowID" class="clsCurrentExperienceRowID" />
+

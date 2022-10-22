@@ -1,0 +1,148 @@
+﻿@model MudasirRehmanAlp.Models.SaleInvoice
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+</head>
+<body onload="window.print();">
+    <div class="panel">
+        <div class="panel-body">
+            <span class="pull-right">Date: @{@TodayDate} <em class="fa fa-globe"></em></span>
+            <h3 class="mt0">Sale Invoice #@Model.SaleInvoiceNo</h3>
+            <hr />
+            <div class="row mb-lg">
+                <div class="col-lg-4 col-xs-6 br pv">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <p class="pull-left">Organization: </p>
+                            @{
+                                if (Model.OrganizationID != null)
+                                {
+                                    <p class="pull-right mr">
+                                        @Model.OrganizationDefinition.OrganizationUnitName
+                                    </p>
+                                }
+                            }
+                        </div>
+                        <div class="col-md-10">
+                            <p class="pull-left">Distributor Name: </p>
+                            @{
+                                if (Model.SaleOrderID != null)
+                                {
+                                    <p class="pull-right mr">
+                                        @Model.SaleOrder.DistributorDefinition.DistributorName
+                                    </p>
+                                }
+                            }
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-6 br pv">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <p class="pull-left">Sale Order Type: </p>
+                            <p class="pull-right mr">  @Model.SaleInvoiceType</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p class="pull-left">Transaction Type: </p>
+                            <p class="pull-right mr"> @Model.TransactionType</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix hidden-md hidden-lg">
+                    <hr />
+                </div>
+                <div class="col-lg-4 col-xs-12 pv">
+                    <div class="clearfix">
+                        <p class="pull-left">Invoice NO.</p>
+                        <p class="pull-right mr">@Model.SaleInvoiceNo</p>
+                    </div>
+                    <div class="clearfix">
+                        <p class="pull-left">Date</p>
+                        <p class="pull-right mr">@Model.SaleInvoiceDate</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="table-responsive table-bordered mb-lg">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>QTY</th>
+                            <th>Unit Rate</th>
+                            <th>Total</th>
+                            <th>Dis %</th>
+                            <th>Dis UR</th>
+                            <th>TAD</th>
+                            <th>Dis Amt</th>
+                            <th>Sale Tax</th>
+                            <th>Sale Tax Amt</th>
+                            <th>Total Tax Inclusive</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var item in ViewBag.ListSaleInvoiceDetails as List<MudasirRehmanAlp.Models.SaleInvoiceDetail>)
+                            {
+
+                                <tr>
+                                    <td>@item.ProductDefinition.ProductName</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.UnitRate</td>
+                                    <td>@item.TotalWithOutSaleTax</td>
+                                    <td>@item.DiscountPercentage %</td>
+                                    <td>@item.DiscountedUnitRate</td>
+                                    <td>@item.TotalAfterDiscount</td>
+                                    <td>@item.DiscountAmount</td>
+                                    <td>@item.SaleTaxPercentage %</td>
+                                    <td>@item.SaleTaxAmount</td>
+                                    <td>@item.TotalTaxInclusive</td>
+
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-8 col-sm-4 pv">
+                    <div class="clearfix">
+                        <p class="pull-left">Subtotal WST</p>
+                        <p class="pull-right mr">$ @Model.SubTotalWithSaleTax</p>
+                    </div>
+                    <div class="clearfix">
+                        <p class="pull-left">Subtotal WOST</p>
+                        <p class="pull-right mr">$ @Model.SubTotalWithOutSaleTax</p>
+                    </div>
+                    <div class="clearfix">
+                        <p class="pull-left">Freight Charges </p>
+                        <p class="pull-right mr">$ @Model.FreightCharges</p>
+                    </div>
+                    <div class="clearfix">
+                        <p class="pull-left h3">Net TOTAL</p>
+                        <p class="pull-right mr h3">$ @Model.NetTotal</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="hidden-print" />
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+

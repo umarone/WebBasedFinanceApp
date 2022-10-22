@@ -1,0 +1,77 @@
+﻿@model MudasirRehmanAlp.Models.GeneralSetting
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Index", "GeneralSettings"))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">General Settings For Guarantor</div>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.OrganizationUnitName )" id="hiddenOrganizationName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.BranchName )" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <label>Guarantor Max Need</label>
+                        @Html.EditorFor(model => model.GuarantorMaxNeed, new { htmlAttributes = new { @class = "form-control form-control-rounded", } })
+                        @Html.ValidationMessageFor(model => model.GuarantorMaxNeed, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <label>Stock Minimum Quantity</label>
+                        @Html.EditorFor(model => model.StockMinimumQuantity, new { htmlAttributes = new { @class = "form-control form-control-rounded", } })
+                        @Html.ValidationMessageFor(model => model.StockMinimumQuantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    </div>
+}
+
+
+
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/select2")
+    <script>
+        $(document).ready(function () {
+         var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'GeneralSettings';
+              var id = '';
+              PagePermission(rName, id);
+            //---------------
+        });//end of Ready Funtion
+    </script>
+}

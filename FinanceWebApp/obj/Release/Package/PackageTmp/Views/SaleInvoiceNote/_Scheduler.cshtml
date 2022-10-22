@@ -1,0 +1,126 @@
+﻿@model IList<MudasirRehmanAlp.Models.InstallmentsPaymentsScheduler>
+
+@{
+    var counter = 0;
+}
+<table class="table table-hover">
+    <tbody id="tblBodyScheduler">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+                if (DateTime.Now.Month == Convert.ToDateTime(item.PaymentDueDate).Month)
+                {
+                    <tr id="@counter">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SrNo)
+                            <input type="hidden" id="gridSrNo_@counter" value="@item.SrNo" />
+                            <input type="hidden" id="gridPaymentStatus_@counter" value="@item.PaymentStatus" />
+                        </td>
+                        <td class="datetimepickerForTable">
+
+                            <div class="input-group date datetimepicker">
+                                <input type="text" id="gridPaymentDueDate_@counter" class="form-control form-control-rounded date" value="@item.PaymentDueDate" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MonthName)
+                            <input type="hidden" id="gridMonthName_@counter" value="@item.MonthName" />
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PerMonthAmount)
+                            <input type="hidden" id="gridPerMonthAmount_@counter" value="@item.PerMonthAmount" />
+                        </td>
+
+                        <td>
+
+                            <input type="text" id="gridPaidAmount_@counter" value="@item.PaidAmount" class="form-control allownumberonly2decimal " data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+                        </td>
+
+                        <td>
+
+                            <input type="text" id="gridExtraCharges_@counter" value="@item.ExtraCharges" class="form-control allownumberonly2decimal " data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+                        </td>
+                        <td class="datetimepickerForTable">
+
+                            <div class="input-group date datetimepicker">
+                                <input type="text" id="gridReceivedDate_@counter" class="form-control form-control-rounded date clsDate" value="@item.ReceivedDate" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </td>
+                        <td id="gridTdPaymentStatus_@counter">
+                            @Html.DisplayFor(modelItem => item.PaymentStatus)
+                            
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                            <textarea class="form-control" id="gridNotes_@counter">@item.Notes</textarea>
+                        </td>
+
+                        <td>
+                            <button class="btn btn-success btnAddPayment" onclick="PaymentAdd(@counter);">Add</button>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="datetimepickerForTable">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SrNo)
+
+                        </td>
+                        <td class="datetimepickerForTable">
+                            @Html.DisplayFor(modelItem => item.PaymentDueDate)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MonthName)
+
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PerMonthAmount)
+
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaidAmount)
+
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExtraCharges)
+
+                        </td>
+                        <td class="datetimepickerForTable">
+                            @Html.DisplayFor(modelItem => item.ReceivedDate)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PaymentStatus)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+
+                        </td>
+
+                        @*<td>
+
+
+                            </td>*@
+                    </tr>
+                }
+
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentSchedulerRowID" />
+

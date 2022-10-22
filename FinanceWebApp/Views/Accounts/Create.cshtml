@@ -1,0 +1,265 @@
+﻿@model MudasirRehmanAlp.ModelsView.AccountsViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Chart of Account</div>
+    @using (Html.BeginForm("Create", "Accounts"))
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row mb">
+                <div class="col-sm-2">
+                    <label>Organization Name</label>
+                    <input type="text" value="@(ViewBag.OrganizationUnitName ?? String.Empty)" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                    @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(ViewBag.BranchName )" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label>Account Level One</label>
+                    <select id="txtAccountLevelOneSelect" class="select2Cls form-control AccountLevelOneSelect">
+                        @{
+                            <option>Select</option>
+                            foreach (var item in ViewBag.AccountLevelOne as List<MudasirRehmanAlp.ModelsView.AccountsViewModel>)
+                            {
+                                <option value="@item.AccountId">@item.AccountName </option>
+                            }
+                        }
+                    </select>
+                    <input type="hidden" id="hiddenAccountLevelOneID" />
+                    @Html.HiddenFor(model => model.HeadID, new { @id = "hiddenAccountLevelOneAccountNo" })
+                    <input type="hidden" name="LevelID" id="hiddenLevelID" value="4" />
+                </div>
+                <div class="col-sm-3">
+                    <label>Account Level Two</label>
+                    <select id="txtAccountLevelTwoSelect" class="select2Cls form-control AccountLevelTwoSelect">
+                        <option>Select</option>
+                    </select>
+                    <input type="hidden" id="hiddenAccountLevelTwoID" />
+                    <input type="hidden" id="hiddenAccountLevelTwoAccountNo" />
+                </div>
+                <div class="col-sm-3">
+                    <label>Account Level Three</label>
+                    <select id="txtAccountLevelThreeSelect" class="select2Cls form-control AccountLevelThreeSelect">
+                        <option>Select</option>
+                    </select>
+
+                    <input type="hidden" id="hiddenAccountLevelThreeAccountNo" />
+                    @Html.HiddenFor(model => model.ParentID, new { @id = "hiddenAccountLevelThreeID" })
+                </div>
+            </div>
+
+            <div class="row mb">
+                <div class="col-sm-4">
+                    <label>Account Type</label>
+                    @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountType", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-4">
+                    <label>Account No</label>
+                    @Html.EditorFor(model => model.AccountNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountNo", @readonly = "readonly" } })
+
+                </div>
+                <div class="col-sm-4">
+                    <label>Account Name</label>
+                    @Html.EditorFor(model => model.AccountName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountName" } })
+                </div>
+            </div>
+
+            <div class="row mb">
+                <div class="col-sm-3">
+                    <label>Opening Balance</label>
+                    @Html.EditorFor(model => model.OpeningBalance, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtOpeningBalance" } })
+                </div>
+                <div class="col-sm-6">
+                    <label>Description</label>
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Account For Branch</label>
+                    <select id="txtBranchNameSelect" class="select2Cls form-control BranchSelect">
+                      
+                    </select>
+                    @Html.HiddenFor(model => model.MappingBranchId, new { @id = "hiddenMappingBranchId" })
+                   
+                </div>
+                <div class="col-sm-2">
+                    <label>Account Default As</label>
+                    <select id="txtAccountDefaultSelect" class="select2Cls form-control AccountDefaultSelect">
+                    </select>
+                    @Html.HiddenFor(model => model.AccountDefaultType, new { @id = "hiddenAccountDefaultId" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel-footer">
+              <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+    
+    @Styles.Render("~/bundles/toastrCss")
+  
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/toastrJs")
+    <script>
+        $(document).ready(function () {
+              var message = '@(TempData["ErrorMessage"])';
+              var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'Accounts';
+              var id = '@Model.AccountId';
+              PagePermission(rName, id);
+            //---------------							
+            LoadBranchsForAccounts('');	
+            LoadAccountDefault('');
+            $(".AccountLevelOneSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAccountLevelOneID").val(ID);
+                LoadLevelTwo(ID);
+                LoadLevelOneAccountNO(ID);
+            });
+            $(".AccountLevelTwoSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAccountLevelTwoID").val(ID);
+                LoadLevelThree(ID);
+                LoadLevelTwoAccountNO(ID);
+            });
+            $(".AccountLevelThreeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAccountLevelThreeID").val(ID);
+                $("#txtAccountType").val(Name);
+                var LevelOneId = $("#hiddenAccountLevelOneID").val();
+                var LevelTwoId = $("#hiddenAccountLevelTwoID").val();
+                var LevelThreeId = $("#hiddenAccountLevelThreeID").val();
+                LoadLevelThreeAccountNO(ID);
+            });
+
+            $(".BranchSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenMappingBranchId").val(ID);
+              
+            });
+            $(".AccountDefaultSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAccountDefaultId").val(ID);
+
+            });
+
+        });//end of Ready Funtion
+        function LoadLevelTwo(Id) {
+            $('#txtAccountLevelTwoSelect option').remove();
+            $('#txtAccountLevelTwoSelect').append('<option value="0">Select Account Level Two</option>');
+            var url = "/Accounts/LoadAccountLevelTwo";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    for (i = 0; i < Data.length; i++) {
+                        $('#txtAccountLevelTwoSelect').append('<option value="' + Data[i].value + '">' + Data[i].label + '</option>');
+                    }
+
+                });
+        }
+        function LoadLevelThree(Id) {
+            $('#txtAccountLevelThreeSelect option').remove();
+            $('#txtAccountLevelThreeSelect').append('<option value="0">Select Account Level Three</option>');
+            var url = "/Accounts/LoadAccountLevelThree";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    for (i = 0; i < Data.length; i++) {
+                        $('#txtAccountLevelThreeSelect').append('<option value="' + Data[i].value + '">' + Data[i].label + '</option>');
+                    }
+
+                });
+        }
+        function LoadMaxAccountNo() {
+            var IDParent = $("#hiddenAccountLevelThreeID").val();
+            var LevelOneId = $("#hiddenAccountLevelOneAccountNo").val();
+            var LevelTwoId = $("#hiddenAccountLevelTwoAccountNo").val();
+            var LevelThreeId = $("#hiddenAccountLevelThreeAccountNo").val();
+
+            var url = "/Accounts/LoadMaxAccountNo";
+            $.get(url, { LevelOneId: LevelOneId, LevelTwoId: LevelTwoId, LevelThreeId: LevelThreeId, IDParent: IDParent, },
+                function (Data) {
+                    debugger
+                    $("#txtAccountNo").val(Data.AccountNo);
+                });
+        }
+        function LoadLevelOneAccountNO(ID) {
+            var url = "/Accounts/LoadOneAccountNo";
+            $.get(url, { ID: ID, },
+                function (Data) {
+                    debugger
+                    $("#hiddenAccountLevelOneAccountNo").val(Data.AccountNo);
+                });
+        }
+        function LoadLevelTwoAccountNO(ID) {
+            var url = "/Accounts/LoadTwoAccountNo";
+            $.get(url, { ID: ID, },
+                function (Data) {
+                    debugger
+                    $("#hiddenAccountLevelTwoAccountNo").val(Data.AccountNo);
+                });
+        }
+        function LoadLevelThreeAccountNO(ID) {
+            var url = "/Accounts/LoadThreeAccountNo";
+            $.get(url, { ID: ID, },
+                function (Data) {
+                    debugger
+                    $("#hiddenAccountLevelThreeAccountNo").val(Data.AccountNo);
+                    LoadMaxAccountNo();
+                });
+        }
+
+    </script>
+}

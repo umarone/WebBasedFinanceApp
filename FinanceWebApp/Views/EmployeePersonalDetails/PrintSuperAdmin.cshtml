@@ -1,0 +1,204 @@
+﻿@model MudasirRehmanAlp.Models.EmployeePersonalDetails
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime TodayDate = DateTime.Now;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Angle - Bootstrap Admin Template</title>
+</head>
+<body onload="window.print();">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Employees
+            <small class="pull-right">  Date: @{@TodayDate}  <i class="fa fa-globe"></i></small>
+        </div>
+        <div class="panel-body">
+
+            <div class="row ">
+                <div class="col-sm-4 ">
+                    <label>Employee Code: </label>
+                    <span>@{ @Model.EmployeeCode} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Organization Name: </label>
+                    <span>
+                        @{ if (Model.OrganizationID != null)
+                            {
+                                @Model.OrganizationDefinition.OrganizationUnitName
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Title: </label>
+                    <span> @{ @Model.Title}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>First Name: </label>
+                    <span>@{ @Model.FirstName} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Last Name: </label>
+                    <span>@{ @Model.LastName} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Last Name: </label>
+                    <span> @{ @Model.LastName}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Father Name: </label>
+                    <span>@{ @Model.FatherName} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Date of Birth: </label>
+                    <span>@{ @Model.DateofBirth} </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>CNIC No:</label>
+                    <span> @{ @Model.CNICNo}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Gender: </label>
+                    <span> @{ @Model.Gender}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Marital Status :</label>
+                    <span>
+                        @{
+                            @Model.MaritalStatus
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Mobile No:</label>
+                    <span>
+                        @{
+                            @Model.MobileNo
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Phone No:</label>
+                    <span>
+                        @{
+                            @Model.PhoneNo
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Email: </label>
+                    <span>
+                        @{
+                            @Model.Email
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>City Name: </label>
+                    <span>
+                        @{ if (Model.CityID != null)
+                            {
+                                @Model.CityDefinition.CityName
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Permanent Address: </label>
+                    <span> @{ @Model.PermanentAddress}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Temporary Address: </label>
+                    <span> @{ @Model.TemporaryAddress}</span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>
+                        CNIC Front
+                        :
+                    </label>
+                    <span>
+                        @{
+                            if (Model.CNICFront != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.CNICFront);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img src='@imgSrc' style="max-width:100px; max-height:100px;" />
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>CNIC Back:</label>
+                    <span>
+                        @{
+                            if (Model.CNICBack != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.CNICBack);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img src='@imgSrc' style="max-width:100px; max-height:100px;" />
+
+                            }
+                        }
+                    </span>
+                </div>
+                <div class="col-sm-4 ">
+                    <label>Employee Picture:</label>
+                    <span>
+                        @{
+                            if (Model.EmployeePicture != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.EmployeePicture);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img src='@imgSrc' style="max-width:100px; max-height:100px;" />
+                            }
+                        }
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Is User Created</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsUser", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsUser", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,143 @@
+﻿@model MudasirRehmanAlp.ModelsView.AccountsViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/Select2/css")
+
+<div class="panel panel-default">
+    <div class="panel-heading">Customer Accounts</div>
+    @using (Html.BeginForm("Edit", "CustomerAccounts"))
+    {
+        @Html.HiddenFor(model => model.AccountId, new { @id = "hiddenAccountId" })
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row mb">
+                <div class="col-sm-2">
+                    <label>Organization Name</label>
+                    <input type="text" value="@(Model.OrganizationUnitName)" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                    @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+
+                        @{
+                            if (Model.BranchId != null)
+                            {
+                                <input type="text" class="form-control form-control-rounded" value="@(Model.BranchName )" id="hiddenBranchName" readonly="readonly" />
+
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control form-control-rounded" id="hiddenBranchName" readonly="readonly" />
+                            }
+                        }
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label>Account Level One</label>
+                    <input type="text" class="form-control form-control-rounded" readonly="readonly" value="@(Model.LevelOneName)" />
+
+                    <input type="hidden" id="hiddenAccountLevelOneID" value="@(Model.levelOneAccountID)" />
+                    @Html.HiddenFor(model => model.HeadID, new { @id = "hiddenAccountLevelOneAccountNo" })
+                    <input type="hidden" name="LevelID" id="hiddenLevelID" value="4" />
+                </div>
+                <div class="col-sm-3">
+                    <label>Account Level Two</label>
+                    <input type="text" class="form-control form-control-rounded" readonly="readonly" value="@(Model.LevelTwoName)" />
+
+                    <input type="hidden" id="hiddenAccountLevelTwoID" value="@(Model.levelTwoAccountID)" />
+                    <input type="hidden" id="hiddenAccountLevelTwoAccountNo" value="@(Model.levelTwoNo)" />
+                </div>
+                <div class="col-sm-3">
+                    <label>Account Level Three</label>
+                    <input type="text" class="form-control form-control-rounded" readonly="readonly" value="@(Model.LevelThreeName)" />
+                    <input type="hidden" id="hiddenAccountLevelThreeAccountNo" value="@(Model.levelThreeNo)" />
+                    @Html.HiddenFor(model => model.ParentID, new { @id = "hiddenAccountLevelThreeID" })
+                </div>
+            </div>
+
+            <div class="row mb">
+                <div class="col-sm-4">
+                    <label>Account Type</label>
+                    @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountType", @readonly = "readonly" } })
+                </div>
+                <div class="col-sm-4">
+                    <label>Account No</label>
+                    @Html.EditorFor(model => model.AccountNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountNo", @readonly = "readonly" } })
+
+                </div>
+                <div class="col-sm-4">
+                    <label>Account Name</label>
+                    @Html.EditorFor(model => model.AccountName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountName" } })
+                </div>
+            </div>
+            <div class="row mb">
+                <div class="col-sm-3">
+                    <label>Opening Balance</label>
+                    @Html.EditorFor(model => model.OpeningBalance, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtOpeningBalance" } })
+                </div>
+                <div class="col-sm-6">
+                    <label>Description</label>
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" title="Update" id="btnSubmit"> Update &nbsp;<em class="fa fa-edit"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+        $(document).ready(function () {
+              var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+            var rName = 'CustomerAccounts';
+              var id = '@Model.AccountId';
+              PagePermission(rName, id);
+            //---------------
+           
+        });//end of Ready Funtion
+       
+    </script>
+}

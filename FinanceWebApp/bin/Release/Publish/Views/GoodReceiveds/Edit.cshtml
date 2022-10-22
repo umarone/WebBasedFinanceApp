@@ -1,0 +1,405 @@
+﻿@model MudasirRehmanAlp.Models.GoodReceived
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var counter = 0;
+}
+
+<div class="content-heading">Goods Received # @Model.GRNNO</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Goods Received Note Information</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead bb">Details</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+                    @Html.HiddenFor(model => model.GoodReceivedNoteId, new { @id = "hiddenGoodReceivedNoteId" })
+                    <div class="form-group">
+                        <div class="col-sm-4">GRN NO:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.GRNNO</strong>
+                            @Html.HiddenFor(model => model.GRNNO, new { @id = "txtGRNNO" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.OrganizationDefinition.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.BranchDefinition.Name ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">GRN Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                @{
+                                    if (Model.GRNDate != null)
+                                    {
+                                        @Html.EditorFor(model => model.GRNDate, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtGRNDate" } })
+                                    }
+                                    else
+                                    {
+                                        <input type="text" name="GRNDate" class="form-control date" id="txtGRNDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                    }
+                                }
+
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+            </div>
+            <div class="col-md-6">
+                <p class="lead bb">PO / ADJ</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+                    <div class="form-group">
+                        <div class="col-sm-4">GRN Type</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" value="@Model.GRNType" readonly="readonly" />
+                            @Html.HiddenFor(model => model.GRNType, new { @id = "hiddenGRNType" })
+                        </div>
+                    </div>
+
+                    if (Model.GRNType == "PO")
+                    {
+                        <div class="form-group clsDivPO">
+                            <div class="col-sm-4">PO NO</div>
+                            <div class="col-sm-8">
+                                @{
+                                    if (Model.PurchaseOrderID != null)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="@Model.PurchaseOrder.PurchaseOrderNO" readonly="readonly" />
+
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" readonly="readonly" />
+
+                                    }
+                                }
+                                @Html.HiddenFor(model => model.PurchaseOrderID, new { @id = "hiddenPurchaseOrderID" })
+                            </div>
+                        </div>
+
+                    }
+                    else if (Model.GRNType == "ADJ")
+                    {
+
+                        <div class="form-group clsDivADJ">
+                            <div class="col-sm-4">ADJ NO</div>
+                            <div class="col-sm-8">
+                                @{
+                                    if (Model.AdjustmentNoteID != null)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="@Model.AdjustmentNote.AdjustmentNoteNO" readonly="readonly" />
+
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" readonly="readonly" />
+
+                                    }
+                                }
+                                @Html.HiddenFor(model => model.AdjustmentNoteID, new { @id = "hiddenAdjustmentNoteID" })
+                            </div>
+                        </div>
+
+                    }
+                    else if (Model.GRNType == "STN")
+                    {
+
+                        <div class="form-group clsDivSTN">
+                            <div class="col-sm-4">STN NO</div>
+                            <div class="col-sm-8">
+                                @{
+                                    if (Model.StoreTransferNoteId != null)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="@Model.StoreTransferNote.Code" readonly="readonly" />
+
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" readonly="readonly" />
+
+                                    }
+                                }
+                                @Html.HiddenFor(model => model.StoreTransferNoteId, new { @id = "hiddenStoreTransferNoteId" })
+                            </div>
+                        </div>
+
+                    }
+
+                    <div class="form-group">
+                        <div class="col-sm-4"><span class="lblDate"></span> Date</div>
+                        <div class="col-sm-8">
+                            @{
+                                if (Model.GRNType == "PO")
+                                {
+                                    if (Model.PurchaseOrderID != null)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="@Model.PurchaseOrder.PurchaseOrderDate" readonly="readonly"  />
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" readonly="readonly" />
+                                    }
+                                }
+                                else if (Model.GRNType == "ADJ")
+                                {
+                                    if (Model.AdjustmentNoteID != null)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="@Model.AdjustmentNote.Date" readonly="readonly"  />
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" readonly="readonly"  />
+                                    }
+                                }
+                                else if (Model.GRNType == "STN")
+                                {
+                                    if (Model.AdjustmentNoteID != null)
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" value="@Model.StoreTransferNote.STNDate" readonly="readonly"  />
+                                    }
+                                    else
+                                    {
+                                        <input type="text" class="form-control form-control-rounded" readonly="readonly"  />
+                                    }
+                                }
+                            }
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Goods Received Note Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Stock QTY</th>
+                        <th>Order QTY</th>
+                        <th>Already Received QTY</th>
+                        <th>Remaining QTY</th>
+                        <th>Received QTY</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.GoodsReceivedDetailsList as List<MudasirRehmanAlp.Models.GoodReceivedDetail>)
+                        {
+                            counter = counter + 1;
+                            if (item.GRNType == "PO")
+                            {
+                                <tr id="@counter">
+                                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                    <td id="tdStockQty_@counter" title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                    <td id="tdOrderQty_@counter" title="@item.PurchaseOrderDetail.Quantity">@item.PurchaseOrderDetail.Quantity</td>
+                                    <td id="tdAlreadyReceivedQty_@counter" title="@item.AlreadyReceivedQuantity">@item.AlreadyReceivedQuantity</td>
+                                    <td id="tdRemainingQty_@counter" title="@item.PurchaseOrderDetail.BalanceQuantity">@item.PurchaseOrderDetail.BalanceQuantity</td>
+                                    <td>
+                                        <input type="text" id="tdtxtReceivedQty_@counter" class="form-control form-control-rounded clsReceivedQty" />
+                                        <input type="hidden" id="tdhiddenPurchaseOrderDetailsID_@counter" value="@item.PurchaseOrderDetailID" />
+                                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                                        <input type="hidden" id="tdhiddenOrderQuantity_@counter" value="@item.PurchaseOrderDetail.Quantity" />
+                                        <input type="hidden" id="tdhiddenQuantity_@counter" value="@item.PurchaseOrderDetail.BalanceQuantity" />
+                                        <input type="hidden" id="tdhiddenUnitRate_@counter" value="@item.PurchaseOrderDetail.UnitRate" />
+                                        <input type="hidden" id="tdhiddenGoodReceivedNoteDetailID_@counter" value="@item.GoodReceivedNoteDetailID" />
+                                    </td>
+                                </tr>
+                            }
+                            else if (item.GRNType == "ADJ")
+                            {
+                                <tr id="@counter">
+                                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                    <td id="tdStockQty_@counter" title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                    <td id="tdOrderQty_@counter" title="@item.AdjustmentNoteDetail.Quantity">@item.AdjustmentNoteDetail.Quantity</td>
+                                    <td id="tdAlreadyReceivedQty_@counter" title="@item.AlreadyReceivedQuantity">@item.AlreadyReceivedQuantity</td>
+                                    <td id="tdRemainingQty_@counter" title="@item.AdjustmentNoteDetail.BalanceQuantity">@item.AdjustmentNoteDetail.BalanceQuantity</td>
+                                    <td>
+                                        <input type="text" id="tdtxtReceivedQty_@counter" class="form-control form-control-rounded clsReceivedQty" />
+                                        <input type="hidden" id="tdhiddenAdjustmentNoteDetailId_@counter" value="@item.AdjustmentNoteDetailID" />
+                                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                                        <input type="hidden" id="tdhiddenOrderQuantity_@counter" value="@item.AdjustmentNoteDetail.Quantity" />
+                                        <input type="hidden" id="tdhiddenQuantity_@counter" value="@item.AdjustmentNoteDetail.BalanceQuantity" />
+                                        <input type="hidden" id="tdhiddenUnitRate_@counter" value="@item.AdjustmentNoteDetail.UnitRate" />
+                                        <input type="hidden" id="tdhiddenGoodReceivedNoteDetailID_@counter" value="@item.GoodReceivedNoteDetailID" />
+                                    </td>
+                                </tr>
+                            }
+                            else if (item.GRNType == "STN")
+                            {
+                                <tr id="@counter">
+                                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                    <td id="tdStockQty_@counter" title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                    <td id="tdOrderQty_@counter" title="@item.StoreTransferNoteDetail.Quantity">@item.StoreTransferNoteDetail.Quantity</td>
+                                    <td id="tdAlreadyReceivedQty_@counter" title="@item.AlreadyReceivedQuantity">@item.AlreadyReceivedQuantity</td>
+                                    <td id="tdRemainingQty_@counter" title="@item.StoreTransferNoteDetail.BalanceQuantity">@item.StoreTransferNoteDetail.BalanceQuantity</td>
+                                    <td>
+                                        <input type="text" id="tdtxtReceivedQty_@counter" class="form-control form-control-rounded clsReceivedQty" />
+                                        <input type="hidden" id="tdhiddenStoreTransferNoteDetailId_@counter" value="@item.STNDetailsId" />
+                                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                                        <input type="hidden" id="tdhiddenOrderQuantity_@counter" value="@item.StoreTransferNoteDetail.Quantity" />
+                                        <input type="hidden" id="tdhiddenQuantity_@counter" value="@item.StoreTransferNoteDetail.BalanceQuantity" />
+                                        <input type="hidden" id="tdhiddenUnitRate_@counter" value="0" />
+                                        <input type="hidden" id="tdhiddenGoodReceivedNoteDetailID_@counter" value="@item.GoodReceivedNoteDetailID" />
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" value="@counter" id="currentRowID" />
+<div class="panel">
+
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-success" title="Update" id="btnSubmit"> Update &nbsp;<em class="fa fa-edit"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+        $(document).ready(function () {
+
+               var message = '@(TempData["ErrorMessage"])';
+             var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+             //---------- Permission Code
+              var rName = 'GoodReceiveds';
+              var id = '@Model.GoodReceivedNoteId';
+            PagePermission(rName);
+            $(document).on('focusout', "input.clsReceivedQty", function () {
+                debugger
+                var RowID = $(this).closest('tr').attr('id');
+                var ReceivedQty = $("#tdtxtReceivedQty_" + RowID).val();
+                var OrderQty = $("#tdhiddenQuantity_" + RowID).val();
+                ReceivedQty = isNaN(parseInt(ReceivedQty)) ? 0 : parseInt(ReceivedQty)
+                OrderQty = isNaN(parseInt(OrderQty)) ? 0 : parseInt(OrderQty)
+                if (ReceivedQty > OrderQty) {
+                    var message = 'Received Quntity is not greater of Order Quntity';
+                      var Validation = 'False';
+                       showMessage(message, Validation);
+                }
+            });
+
+            //btn Save Goods Received Note
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+
+                var GRNMaltipleChildItem = new Array();
+                var GRNMasterItem = {};
+                var GRNChildItem = {};
+                var formData = new FormData();
+                GRNMasterItem = {
+                    GoodReceivedNoteId: $("#hiddenGoodReceivedNoteId").val(),
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    PurchaseOrderID: $("#hiddenPurchaseOrderID").val(),
+                    GRNDate: $("#txtGRNDate").val(),
+                    GRNNO: $("#txtGRNNO").val(),
+                    AdjustmentNoteID: $("#hiddenAdjustmentNoteID").val(),
+                    GRNType: $("#hiddenGRNType").val(),
+                    StoreTransferNoteId: $("#hiddenStoreTransferNoteId").val(),
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+                    var ReceivedQty = $("#tdtxtReceivedQty_" + i).val();
+                    ReceivedQty = isNaN(parseInt(ReceivedQty)) ? 0 : parseInt(ReceivedQty)
+                        GRNChildItem = {
+
+                           GoodReceivedNoteDetailID: $("#tdhiddenGoodReceivedNoteDetailID_" + i).val(),
+                           PurchaseOrderDetailID: $("#tdhiddenPurchaseOrderDetailsID_" + i).val(),
+                            AdjustmentNoteDetailID: $("#tdhiddenAdjustmentNoteDetailId_" + i).val(),
+                            STNDetailsId: $("#tdhiddenStoreTransferNoteDetailId_" + i).val(),
+                           ProductID: $("#tdhiddenProductID_" + i).val(),
+                           OrderQuantity: $("#tdhiddenOrderQuantity_" + i).val(),
+                           ReceiveQuantity: ReceivedQty,
+                           UnitPrice: $("#tdhiddenUnitRate_" + i).val(),
+                    }
+                    GRNMaltipleChildItem.push(GRNChildItem);
+                }
+
+                var master = JSON.stringify(GRNMasterItem);
+                var child = JSON.stringify(GRNMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (GRNMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/GoodReceiveds/Edit",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                           if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                            else {
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                            fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+                     fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+
+
+    </script>
+}

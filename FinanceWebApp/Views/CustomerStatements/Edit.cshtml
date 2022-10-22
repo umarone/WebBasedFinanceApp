@@ -1,0 +1,569 @@
+﻿@model MudasirRehmanAlp.Models.CustomerStatement
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var GtCounter = 0;
+    MudasirRehmanAlp.AppDAL.CommonFunctionsDAL functionsDAL = new MudasirRehmanAlp.AppDAL.CommonFunctionsDAL();
+    int CurrentOwnershipType = functionsDAL.GetValueOfEnumByName("OwnershipType", Model.CurrentOwnership.ToString());
+    int PermanentOwnershipType = functionsDAL.GetValueOfEnumByName("OwnershipType", Model.PermanentOwnership.ToString());
+
+
+}
+<div class="panel panel-default">
+    <div class="panel-heading">Customer Statements</div>
+
+    @using (Html.BeginForm("Edit", "CustomerStatements", null, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal p-20" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id, new { @id = "hiddenId" })
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Customer No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.Code</strong>
+                            @Html.HiddenFor(model => model.Code, new { @id = "txtCode" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">CAF No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.CAFNo</strong>
+                            @Html.HiddenFor(model => model.CAFNo, new { @id = "txtCAFNo" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.OrganizationDefinition.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(Model.BranchDefinition.Name ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Name:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtName" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"> S/o , W/o:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.GuardianName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtGuardianName" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">CNIC No:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                                <input type="text" name="CNICNo" id="txtCNICNo" data-masked="" value="@Model.CNICNo" data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No" class="form-control form-control-rounded" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Cell No:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="text" name="MobileNo" id="txtMobileNo" data-masked="" value="@Model.MobileNo" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Cell no" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Current Address:</div>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="txtAddress">@Model.Address</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Current Ownership</div>
+                        <div class="col-sm-3">
+                            <select id="txtCurrentOwnershipSelect" class="select2Cls form-control CurrentOwnershipSelect">
+                                @{
+                                    if (Model.CurrentOwnership != null)
+                                    {
+                                        <option selected="selected" value="@Model.CurrentOwnership.Value">@Model.CurrentOwnership.ToString()</option>
+                                       
+                                    }
+                                }
+                            </select>
+                            <input type="hidden" value="@CurrentOwnershipType" name="CurrentOwnership" id="hiddenCurrentOwnership" />
+
+                        </div>
+                        <div class="col-sm-2">No Of Year</div>
+                        <div class="col-sm-3">
+                            @Html.EditorFor(model => model.CurrentNoOfYear, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtCurrentNoOfYear" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Status:</div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="radio-inline c-radio">
+                                    @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                                </label>
+                                <label class="radio-inline c-radio">
+                                    @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Image:</div>
+                        <div class="col-sm-8">
+                            <input type="file" name="CustomerImage" onchange="encodeImagetoBase64(this,'imgCustomerImage')" id="CustomerImage" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                            @if (Model.Image != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.Image);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img src="@imgSrc" id="imgCustomerImage" style="width: 100%;height:250px" class="img-thumbnail img-responsive" />
+                            }
+                            else
+                            {
+                                <img id="imgCustomerImage" style="display:none;width: 100%;height:250px" class="img-thumbnail img-responsive" />
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Permanent Address:</div>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="txtPermanentAddress">@Model.PermanentAddress</textarea>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Permanent Ownership</div>
+                            <div class="col-sm-3">
+                                <select id="txtPermanentOwnershipSelect" class="select2Cls form-control PermanentOwnershipSelect">
+                                    @{
+                                        if (Model.PermanentOwnership != null)
+                                        {
+                                            <option selected="selected" value="@Model.PermanentOwnership.Value">@Model.PermanentOwnership.ToString()</option>
+                                           
+                                        }
+                                    }
+                                </select>
+                                <input type="hidden" value="@PermanentOwnershipType" name="PermanentOwnership" id="hiddenPermanentOwnership" />
+
+                            </div>
+                            <div class="col-sm-2">No Of Year</div>
+                            <div class="col-sm-3">
+                                @Html.EditorFor(model => model.PermanentNoOfYear, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtPermanentNoOfYear" } })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Department</div>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.DepartmentName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtDepartmentName" } })
+
+                            </div>
+                           
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Designation</div>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.DesignationName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtDesignationName" } })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Business Address</div>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="txtBusinessAddress">@Model.BusinessAddress</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4">Date of Appointment</div>
+                            <div class="col-sm-8">
+                                <div class="input-group date datetimepicker">
+                                    @{
+                                        if (Model.AppointmentDate != null)
+                                        {
+                                            <input type="text" name="AppointmentDate" class="form-control date" id="txtAppointmentDate" value="@Model.AppointmentDate" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" name="AppointmentDate" class="form-control date" id="txtAppointmentDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                        }
+                                    }
+
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Date of Retirement </div>
+                            <div class="col-sm-8">
+                                <div class="input-group date datetimepicker">
+                                    @{
+                                        if (Model.RetirementDate != null)
+                                        {
+                                            <input type="text" name="RetirementDate" class="form-control date" id="txtRetirementDate" value="@Model.RetirementDate" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" name="RetirementDate" class="form-control date" id="txtRetirementDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                        }
+                                    }
+
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Gross Salary</div>
+                            <div class="col-sm-3">
+                                @Html.EditorFor(model => model.GrossSalary, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtGrossSalary" } })
+
+                            </div>
+                            <div class="col-sm-2">Age</div>
+                            <div class="col-sm-3">
+                                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAge" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4">Bank Name:</div>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.BankName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtBankName" } })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Branch Name:</div>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.BranchName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtBranchName" } })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4">Account No:</div>
+                            <div class="col-sm-8">
+                                @Html.EditorFor(model => model.AccountNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountNo" } })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+      
+    }
+</div>
+@{
+    foreach (var item in ViewBag.GuarantorDefinitionsList as List<MudasirRehmanAlp.Models.GuarantorDefinition>)
+    {
+        GtCounter = GtCounter + 1;
+        <div class="panel panel-default clspanel" id="panelId_@GtCounter">
+            <div class="panel-heading">
+                Guarantor Details
+                <input type="hidden" id="hiddenDivStatus_@GtCounter" value="show" />
+                <input type="hidden" id="hiddenGuarantorId_@GtCounter" value="@item.Id" />
+                <div class="pull-right">
+
+                </div>
+
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Name </label>
+                            <input type="text" id="txtFirstName_@GtCounter" value="@item.FirstName" class="form-control form-control-rounded" />
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label> S/o , W/o </label>
+                            <input type="text" id="txtGuardianName_@GtCounter" value="@item.GuardianName" class="form-control form-control-rounded" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>CNIC No</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-sort-numeric-asc"></i></span>
+                                <input type="text" name="CNICNo" id="txtCNICNo_@GtCounter" value="@item.CNICNo" data-masked="" data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No" class="form-control form-control-rounded" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Cell No</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="text" name="MobileNo" id="txtMobileNo_@GtCounter" value="@item.MobileNo" data-masked="" data-inputmask="'mask': '(9999) 999-9999'" placeholder="Cell No" class="form-control form-control-rounded clsMask" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Permanent Address</label>
+                            <input type="text" id="txtPermanentAddress_@GtCounter" value="@item.PermanentAddress" class="form-control form-control-rounded" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Permanent Ownership</label>
+                        <select id="txtPermanentOwnership_Gur_Select_@GtCounter" class="select2Cls form-control PermanentOwnership_Gur_Select" onchange="onChangeOwenershipSelect(this,@GtCounter);">
+                            @{
+                                int OwnershipType = 0;
+                                if (item.PermanentOwnership != null)
+                                {
+                                    <option selected="selected" value="@item.PermanentOwnership.Value">@item.PermanentOwnership.ToString()</option>
+                                    OwnershipType = functionsDAL.GetValueOfEnumByName("OwnershipType", item.PermanentOwnership.ToString());
+                                }
+                            }
+                        </select>
+                        <input type="hidden" id="hiddenPermanentOwnership_Gur_@GtCounter" value="@OwnershipType" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>No Of Year</label>
+                        <input type="text" id="txtPermanentNoOfYear_@GtCounter" value="@item.PermanentNoOfYear" class="form-control form-control-rounded" />
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Institutes / Organization</label>
+                            <input type="text" id="txtOfficeName_@GtCounter" value="@item.OfficeName" class="form-control form-control-rounded" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Designation </label>
+                        <input type="text" id="txtDesignationName_@GtCounter" value="@item.DesignationName" class="form-control form-control-rounded" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Gross Salary / Income </label>
+                        <input type="text" id="txtGrossSalary_@GtCounter" value="@item.GrossSalary" class="form-control form-control-rounded" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Office Address</label>
+                            <textarea id="txtOfficeAddress_@GtCounter"  class="form-control">@item.OfficeAddress</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<div id="DivhtmlPanelForAppend">
+
+</div>
+<input type="hidden" id="hiddenGTCounter" value="@GtCounter" />
+<input type="hidden" id="hiddenSettingNoOfGuarantor" value="3" />
+<input type="hidden" id="hiddencounter" value="@GtCounter" />
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Update &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+
+    <script>
+        $(document).ready(function () {
+
+            var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+            //---------- Append Html
+
+            LoadCurrentOwnershipType(@CurrentOwnershipType);
+            LoadPermanentOwnershipType(@PermanentOwnershipType);
+            onLoadDropdown();
+          //---------- Permission Code
+              var rName = 'CustomerStatements';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------
+            $(".ChartOfAccountSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAccountID").val(ID);
+                AccountCheckIn(ID);
+
+            });
+            $(".CurrentOwnershipSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCurrentOwnership").val(ID);
+            });
+            $(".PermanentOwnershipSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenPermanentOwnership").val(ID);
+
+            });
+
+            $(".CitySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCityID").val(ID);
+                LoadArea(ID);
+            });
+            $(".AreaSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenAreaID").val(ID);
+
+            });
+
+            $('#DivhtmlPanelForAppend').on('click', '.clsInputmask', function () {
+                $(".clsInputmaskMobile").inputmask("(999) 999-9999");
+                $(".clsInputmaskCNIC").inputmask("99999-9999999-9");
+            });
+            //-----btn Submit
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#hiddencounter").val();
+                 var ChildArray = new Array();
+                var MasterItem = {};
+                var ChildItem = {};
+                var formData = new FormData();
+
+                var IdFiles = document.getElementById("CustomerImage").files.length;
+
+                for (var i = 0; i < IdFiles; i++) {
+                    var file_id = document.getElementById("CustomerImage").files[i];
+                    formData.append("uploadCustomerImage", file_id);
+                }
+                MasterItem = {
+                     Id: $("#hiddenId").val(),
+                    Code: $("#txtCode").val(),
+                    CAFNo: $("#txtCAFNo").val(),
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    Name: $("#txtName").val(),
+                    GuardianName: $("#txtGuardianName").val(),
+                    CNICNo: $("#txtCNICNo").val(),
+                    MobileNo: $("#txtMobileNo").val(),
+                    Address: $("#txtAddress").val(),
+                    CurrentOwnership: $("#hiddenCurrentOwnership").val(),
+                    CurrentNoOfYear: $("#txtCurrentNoOfYear").val(),
+                    PermanentAddress: $("#txtPermanentAddress").val(),
+                    PermanentOwnership: $("#hiddenPermanentOwnership").val(),
+                    PermanentNoOfYear: $("#txtPermanentNoOfYear").val(),
+                    DepartmentName: $("#txtDepartmentName").val(),
+                    DesignationName: $("#txtDesignationName").val(),
+                    BusinessAddress: $("#txtBusinessAddress").val(),
+                    AppointmentDate: $("#txtAppointmentDate").val(),
+                    RetirementDate: $("#txtRetirementDate").val(),
+                    GrossSalary: $("#txtGrossSalary").val(),
+                    Age: $("#txtAge").val(),
+                    BankName: $("#txtBankName").val(),
+                    BranchName: $("#txtBranchName").val(),
+                    AccountNo: $("#txtAccountNo").val(),
+                    IsActive: $("input[name='IsActive']:checked").val(),
+                };
+                for (var i = 1; i <= ItemCount; i++) {
+                    var RowStatus = $("#hiddenDivStatus_" + i).val();
+                    if (RowStatus=="show") {
+                        ChildItem = {
+                            Id: $("#hiddenGuarantorId_" + i).val(),
+                            FirstName: $("#txtFirstName_" + i).val(),
+                            GuardianName: $("#txtGuardianName_" + i).val(),
+                            CNICNo: $("#txtCNICNo_" + i).val(),
+                            MobileNo: $("#txtMobileNo_" + i).val(),
+                            PermanentAddress: $("#txtPermanentAddress_" + i).val(),
+                            PermanentOwnership: $("#hiddenPermanentOwnership_Gur_" + i).val(),
+                            PermanentNoOfYear: $("#txtPermanentNoOfYear_" + i).val(),
+                            OfficeName: $("#txtOfficeName_" + i).val(),
+                            DesignationName: $("#txtDesignationName_" + i).val(),
+                            GrossSalary: $("#txtGrossSalary_" + i).val(),
+                            OfficeAddress: $("#txtOfficeAddress_" + i).val(),
+                        }
+                        ChildArray.push(ChildItem);
+                    }
+                }
+                //--- Post data
+                 var master = JSON.stringify(MasterItem);
+                var child = JSON.stringify(ChildArray);
+                 formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+                if (ChildArray.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/CustomerStatements/Edit",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                           if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                             else {
+                                 fullAppLoaderFadeOut();
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                           fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+
+                     fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");;
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+        function onChangeOwenershipSelect(e, counter) {
+            debugger
+            var ID = e.value;
+            $("#hiddenPermanentOwnership_Gur_" + counter).val(ID);
+        }
+        function onLoadDropdown() {
+            var count = @GtCounter;
+            for (var i = 0; i <= count; i++) {
+                var id = $("#hiddenPermanentOwnership_Gur_"+i).val();
+                LoadPermanentOwnershipGur(id,i);
+            }
+        }
+    </script>
+}
+

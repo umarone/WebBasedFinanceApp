@@ -1,0 +1,803 @@
+@using MudasirRehmanAlp.HTMLHelperExtensions;
+<!-- START Sidebar (left)-->
+@{
+
+
+    List<MudasirRehmanAlp.Models.Menu> loadUserBasedMenuListAtLoginTime = new List<MudasirRehmanAlp.Models.Menu>();
+    if (Session["loadUserBasedMenuListAtLoginTime"] != null)
+    {
+        loadUserBasedMenuListAtLoginTime = (List<MudasirRehmanAlp.Models.Menu>)Session["loadUserBasedMenuListAtLoginTime"];
+    }
+    var Result = loadUserBasedMenuListAtLoginTime;
+
+    var RoleName = Convert.ToString(Session["RoleName"]);
+
+}
+<div class="aside-inner">
+    <nav class="sidebar" data-sidebar-anyclick-close="">
+        <!-- START sidebar nav-->
+        <ul class="nav">
+            <!-- START user info-->
+            <li class="has-user-block">
+                <div id="user-block" class="collapse">
+                    <div class="item user-block">
+                        <!-- User picture-->
+                        <div class="user-block-picture">
+                            <div class="user-block-status">
+                                @{
+
+                                    byte[] userPic = (byte[])Session["EmployeeProfilePic"];
+                                    if (userPic != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(userPic);
+                                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                        <img src="@imgSrc" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle" />
+                                        <div class="circle circle-success circle-lg"></div>
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/user/no-user-01.png" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle" />
+                                        <div class="circle circle-success circle-lg"></div>
+                                    }
+
+                                }
+
+
+                            </div>
+                        </div>
+                        <!-- Name and Job-->
+                        <div class="user-block-info">
+                            @{
+                                var Fname = Convert.ToString(Session["UserFirstName"]);
+                               
+
+                                <span class="user-block-name">Hello, @Fname</span>
+                                <span class="user-block-role">@RoleName</span>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- END user info-->
+            <!-- Iterates over all sidebar items-->
+            <li class="nav-heading">
+                <span>Main Navigation</span>
+            </li>
+            <li>
+                <a href="#dashboard" title="Dashboard" data-toggle="collapse">
+                    <div class="label label-info pull-right">3</div>
+                    <em class="icon-speedometer"></em>
+                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+                </a>
+                <ul id="dashboard" class="nav sidebar-subnav collapse">
+                    <li class="sidebar-subnav-header">Dashboard</li>
+                    <li>
+                        <a href="@Url.Action("Dashboard_v1", "Dashboard")" title="Dashboard v1">
+                            <span>Dashboard v1</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Dashboard_v2", "Dashboard")" title="Dashboard v2">
+                            <span>Dashboard v2</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Dashboard_v3", "Dashboard")" title="Dashboard v3">
+                            <span>Dashboard v3</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#layout" title="Layouts" data-toggle="collapse">
+                    <em class="icon-layers"></em>
+                    <span>Layouts</span>
+                </a>
+                <ul id="layout" class="nav sidebar-subnav collapse">
+                    <li class="sidebar-subnav-header">Horizontal</li>
+                    <li>
+                        <a href="@Url.Action("Dashboard_h", "Dashboard")" title="Dashboard Horizontal">
+                            <span>Horizontal</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            @*<li>
+            <a href="@Url.Action("Index", "Widgets")" title="Widgets">
+                <div class="label label-success pull-right">30</div>
+                <em class="icon-grid"></em>
+                <span data-localize="sidebar.nav.WIDGETS">Widgets</span>
+            </a>
+        </li>
+        <li>
+            <a href="#layout" title="Layouts" data-toggle="collapse">
+                <em class="icon-layers"></em>
+                <span>Layouts</span>
+            </a>
+            <ul id="layout" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Horizontal</li>
+                <li>
+                    <a href="@Url.Action("Dashboard_h", "Dashboard")" title="Dashboard Horizontal">
+                        <span>Horizontal</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-heading">
+            <span>Components</span>
+        </li>
+        <li>
+            <a href="#elements" title="Elements" data-toggle="collapse">
+                <em class="icon-chemistry"></em>
+                <span data-localize="sidebar.nav.element.ELEMENTS">Elements</span>
+            </a>
+            <ul id="elements" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Elements</li>
+                <li>
+                    <a href="@Url.Action("Buttons", "Elements")" title="Buttons">
+                        <span data-localize="sidebar.nav.element.BUTTON">Buttons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Notifications", "Elements")" title="Notifications">
+                        <span data-localize="sidebar.nav.element.NOTIFICATION">Notifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SweetAlert", "Elements")" title="SweetAlert">
+                        <span>Sweet Alert</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Tour", "Elements")" title="Tour">
+                        <span>Tour</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Carousel", "Elements")" title="Carousel">
+                        <span data-localize="sidebar.nav.element.INTERACTION">Carousel</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Spinners", "Elements")" title="Spinners">
+                        <span data-localize="sidebar.nav.element.SPINNER">Spinners</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Animations", "Elements")" title="Animations">
+                        <span data-localize="sidebar.nav.element.ANIMATION">Animations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("DropdownAnimations", "Elements")" title="Dropdown">
+                        <span data-localize="sidebar.nav.element.DROPDOWN">Dropdown</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Nestable", "Elements")" title="Nestable">
+                        <span>Nestable</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Sortable", "Elements")" title="Sortable">
+                        <span>Sortable</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Panels", "Elements")" title="Panels">
+                        <span data-localize="sidebar.nav.element.PANEL">Panels</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Portlets", "Elements")" title="Portlets">
+                        <span data-localize="sidebar.nav.element.PORTLET">Portlets</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Grid", "Elements")" title="Grid">
+                        <span data-localize="sidebar.nav.element.GRID">Grid</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("GridMasonry", "Elements")" title="Grid Masonry">
+                        <span data-localize="sidebar.nav.element.GRID_MASONRY">Grid Masonry</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Typo", "Elements")" title="Typography">
+                        <span data-localize="sidebar.nav.element.TYPO">Typography</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("IconsFont", "Elements")" title="Font Icons">
+                        <div class="label label-success pull-right">+400</div>
+                        <span data-localize="sidebar.nav.element.FONT_ICON">Font Icons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("IconsWeather", "Elements")" title="Weather Icons">
+                        <div class="label label-success pull-right">+100</div>
+                        <span data-localize="sidebar.nav.element.WEATHER_ICON">Weather Icons</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Colors", "Elements")" title="Colors">
+                        <span data-localize="sidebar.nav.element.COLOR">Colors</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#forms" title="Forms" data-toggle="collapse">
+                <em class="icon-note"></em>
+                <span data-localize="sidebar.nav.form.FORM">Forms</span>
+            </a>
+            <ul id="forms" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Forms</li>
+                <li>
+                    <a href="@Url.Action("FormStandard", "Forms")" title="Standard">
+                        <span data-localize="sidebar.nav.form.STANDARD">Standard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("FormExtended", "Forms")" title="Extended">
+                        <span data-localize="sidebar.nav.form.EXTENDED">Extended</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("FormValidation", "Forms")" title="Validation">
+                        <span data-localize="sidebar.nav.form.VALIDATION">Validation</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("FormWizard", "Forms")" title="Wizard">
+                        <span>Wizard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("FormUpload", "Forms")" title="Upload">
+                        <span>Upload</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("FormXEditable", "Forms")" title="xEditable">
+                        <span>xEditable</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("FormImgCrop", "Forms")" title=" cropper">
+                        <span>Cropper</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#charts" title="Charts" data-toggle="collapse">
+                <em class="icon-graph"></em>
+                <span data-localize="sidebar.nav.chart.CHART">Charts</span>
+            </a>
+            <ul id="charts" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Charts</li>
+                <li>
+                    <a href="@Url.Action("ChartFlot", "Charts")" title="Flot">
+                        <span data-localize="sidebar.nav.chart.FLOT">Flot</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ChartRadial", "Charts")" title="Radial">
+                        <span data-localize="sidebar.nav.chart.RADIAL">Radial</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ChartJS", "Charts")" title="Chart JS">
+                        <span>Chart JS</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ChartRickshaw", "Charts")" title="Rickshaw">
+                        <span>Rickshaw</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ChartMorris", "Charts")" title="Morris JS">
+                        <span>Morris</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ChartChartist", "Charts")" title="Chartist">
+                        <span>Chartist</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#tables" title="Tables" data-toggle="collapse">
+                <em class="icon-grid"></em>
+                <span data-localize="sidebar.nav.table.TABLE">Tables</span>
+            </a>
+            <ul id="tables" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Tables</li>
+                <li>
+                    <a href="@Url.Action("TableStandard", "Tables")" title="Standard">
+                        <span data-localize="sidebar.nav.table.STANDARD">Standard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("TableExtended", "Tables")" title="Extended">
+                        <span data-localize="sidebar.nav.table.EXTENDED">Extended</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("TableDatatable", "Tables")" title="DataTables">
+                        <span data-localize="sidebar.nav.table.DATATABLE">DataTables</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("TableJQGrid", "Tables")" title="TableJQGrid">
+                        <span>TableJQGrid</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#maps" title="Maps" data-toggle="collapse">
+                <em class="icon-map"></em>
+                <span data-localize="sidebar.nav.map.MAP">Maps</span>
+            </a>
+            <ul id="maps" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Maps</li>
+                <li>
+                    <a href="@Url.Action("MapsGoogle", "Maps")" title="Google Maps">
+                        <span data-localize="sidebar.nav.map.GOOGLE">Google Maps</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("MapsVector", "Maps")" title=" vector maps">
+                        <span data-localize="sidebar.nav.map.VECTOR">Vector Maps</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-heading">
+            <span>More</span>
+        </li>
+        <li>
+            <a href="#pages" title="Pages" data-toggle="collapse">
+                <em class="icon-doc"></em>
+                <span data-localize="sidebar.nav.pages.PAGES">Pages</span>
+            </a>
+            <ul id="pages" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Pages</li>
+                <li class=" ">
+                    <a href="@Url.Action("Login", "Pages")" title=" login">
+                        <span data-localize="sidebar.nav.pages.LOGIN">Login</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Register", "Pages")" title="Sign up">
+                        <span data-localize="sidebar.nav.pages.REGISTER">Sign up</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Recover", "Pages")" title="Recover Password">
+                        <span data-localize="sidebar.nav.pages.RECOVER">Recover Password</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Lock", "Pages")" title="Lock">
+                        <span data-localize="sidebar.nav.pages.LOCK">Lock</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Error_404", "Pages")" title="404">
+                        <span>404</span>
+                    </a>
+                </li>
+                <li class=" ">
+                    <a href="@Url.Action("Error_500", "Pages")" title="500">
+                        <span>500</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Maintenance", "Pages")" title="Maintenance">
+                        <span>Maintenance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Template", "Pages")" title="Template">
+                        <span>Template</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#extras" title="Extras" data-toggle="collapse">
+                <em class="icon-cup"></em>
+                <span data-localize="sidebar.nav.extra.EXTRA">Extras</span>
+            </a>
+            <ul id="extras" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Extras</li>
+                <li>
+                    <a href="@Url.Action("Contacts", "Extras")" title="Contacts">
+                        <span>Contacts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ContactDetails", "Extras")" title="ContactDetails">
+                        <span>ContactDetails</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Projects", "Extras")" title="Projects">
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ProjectDetails", "Extras")" title="ProjectDetails">
+                        <span>ProjectDetails</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("TeamViewer", "Extras")" title="TeamViewer">
+                        <span>TeamViewer</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("SocialBoard", "Extras")" title="SocialBoard">
+                        <span>SocialBoard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("VoteLinks", "Extras")" title="VoteLinks">
+                        <span>VoteLinks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("BugTracker", "Extras")" title="BugTracker">
+                        <span>BugTracker</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Faq", "Extras")" title="Faq">
+                        <span>Faq</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("HelpCenter", "Extras")" title="HelpCenter">
+                        <span>HelpCenter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Followers", "Extras")" title="Followers">
+                        <span>Followers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Settings", "Extras")" title="Settings">
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Plans", "Extras")" title="Plans">
+                        <span>Plans</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("FileManager", "Extras")" title="FileManager">
+                        <span>FileManager</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Mailbox", "Extras")" title="Mailbox">
+                        <span data-localize="sidebar.nav.extra.MAILBOX">Mailbox</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Timeline", "Extras")" title="Timeline">
+                        <span data-localize="sidebar.nav.extra.TIMELINE">Timeline</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Calendar", "Extras")" title="Calendar">
+                        <span data-localize="sidebar.nav.extra.CALENDAR">Calendar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Invoice", "Extras")" title="Invoice">
+                        <span data-localize="sidebar.nav.extra.INVOICE">Invoice</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Search", "Extras")" title="Search">
+                        <span data-localize="sidebar.nav.extra.SEARCH">Search</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Todo", "Extras")" title="Todo List">
+                        <span data-localize="sidebar.nav.extra.TODO">Todo List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("UserProfile", "Extras")" title="Profile">
+                        <span data-localize="sidebar.nav.extra.PROFILE">Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#blog" title="Blog" data-toggle="collapse">
+                <em class="icon-notebook"></em>
+                <span>Blog</span>
+            </a>
+            <ul id="blog" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Blog</li>
+                <li>
+                    <a href="@Url.Action("Blog", "Blog")" title="List">
+                        <span>List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("BlogPost", "Blog")" title=" post">
+                        <span>Post</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("BlogArticles", "Blog")" title="Articles">
+                        <span>Articles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("BlogArticleView", "Blog")" title="Article View">
+                        <span>Article View</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#ecommerce" title="eCommerce" data-toggle="collapse">
+                <em class="icon-basket-loaded"></em>
+                <span>eCommerce</span>
+            </a>
+            <ul id="ecommerce" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">eCommerce</li>
+                <li>
+                    <a href="@Url.Action("EcommerceOrders", "Ecommerce")" title="Orders">
+                        <div class="label label-info pull-right">10</div>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("EcommerceOrderView", "Ecommerce")" title="Order View">
+                        <span>Order View</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("EcommerceProducts", "Ecommerce")" title="Products">
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("EcommerceProductView", "Ecommerce")" title="Product View">
+                        <span>Product View</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("EcommerceCheckout", "Ecommerce")" title="Checkout">
+                        <span>Checkout</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#forum" title="Forum" data-toggle="collapse">
+                <em class="icon-speech"></em>
+                <span>Forum</span>
+            </a>
+            <ul id="forum" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Forum</li>
+                <li>
+                    <a href="@Url.Action("ForumCategories", "Forum")" title="Categories">
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ForumTopics", "Forum")" title="Topics">
+                        <span>Topics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ForumDiscussion", "Forum")" title="Discussion">
+                        <span>Discussion</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#multilevel" title="Multilevel" data-toggle="collapse">
+                <em class="fa fa-folder-open-o"></em>
+                <span>Multilevel</span>
+            </a>
+            <ul id="multilevel" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">Multilevel</li>
+                <li>
+                    <a href="#level1" title="Level 1" data-toggle="collapse">
+                        <span>Level 1</span>
+                    </a>
+                    <ul id="level1" class="nav sidebar-subnav collapse">
+                        <li class="sidebar-subnav-header">Level 1</li>
+                        <li>
+                            <a href="@Url.Action("Multilevel_1", "Multilevels")" title="Level1 Item">
+                                <span>Level1 Item</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#level2" title="Level 2" data-toggle="collapse">
+                                <span>Level 2</span>
+                            </a>
+                            <ul id="level2" class="nav sidebar-subnav collapse">
+                                <li class="sidebar-subnav-header">Level 2</li>
+                                <li>
+                                    <a href="#level3" title="Level 3" data-toggle="collapse">
+                                        <span>Level 3</span>
+                                    </a>
+                                    <ul id="level3" class="nav sidebar-subnav collapse">
+                                        <li class="sidebar-subnav-header">Level 3</li>
+                                        <li>
+                                            <a href="@Url.Action("Multilevel_3", "Multilevels")" title="Level3 Item">
+                                                <span>Level3 Item</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>*@
+
+            @{
+
+
+
+                var firstresult = Result.Where(x => x.ParentMenuID == null && x.IsMenu == true).OrderBy(x => x.MenuOrder).ToList();
+                foreach (var First in firstresult)
+                {
+                    <li class="@Html.IsActive(First.MenuName,"Index")">
+                        <a href="#Id_@First.MenuID" title="@First.Description" data-toggle="collapse">
+                            @{
+                                if (First.MenuICon == "Settings")
+                                {
+                                    <em class="icon-settings"></em>
+                                }
+                                else if (First.MenuICon == "Purchase")
+                                {
+                                    <em class="fa fa-shopping-cart"></em>
+                                }
+                                else if (First.MenuICon == "PayRoll")
+                                {
+                                    <em class="fa fa-users"></em>
+                                }
+                                else if (First.MenuICon == "Sale")
+                                {
+                                    <em class="fa fa-shopping-cart"></em>
+                                }
+                                else if (First.MenuICon == "Report")
+                                {
+                                    <em class="icon-chart"></em>
+                                }
+                                else if (First.MenuICon == "ChartofAccount")
+                                {
+                                    <em class="fa fa-bank"></em>
+
+                                }
+                                else if (First.MenuICon == "Finance")
+                                {
+                                    <em class="fa fa-money"></em>
+                                }
+                                else if (First.MenuICon == "Miscellaneous")
+                                {
+                                    <em class="fa fa-newspaper-o"></em>
+                                }
+                            }
+
+
+                            <span>@First.Description</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul id="Id_@First.MenuID" class="nav sidebar-subnav collapse">
+                            @{
+                                var Secondresult = Result.Where(x => x.ParentMenuID == First.MenuID && x.IsMenu == true).OrderBy(x => x.MenuOrder).ToList();
+                            }
+                            @foreach (var Second in Secondresult)
+                            {
+                                var thirdresult = Result.Where(x => x.ParentMenuID == Second.MenuID && x.IsMenu == true).OrderBy(x => x.MenuOrder).ToList();
+
+
+                                <li class="@Html.IsActive(Second.MenuName,"Index")">
+                                    @if (thirdresult.Count > 0)
+                                    {
+                                        <a href="#Id_@Second.MenuID" title=" @Second.Description" data-toggle="collapse">
+                                            <span> @Second.Description</span>
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </a>
+
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Index", Second.MenuName)"> @Second.Description</a>
+                                    }
+                                    <ul id="Id_@Second.MenuID" class="nav sidebar-subnav collapse">
+
+                                        @foreach (var third in thirdresult)
+                                        {
+                                            <li class="@Html.IsActive(third.MenuName,"Index")">
+                                                <a href="@Url.Action("Index", third.MenuName)" title="@third.Description"> @third.Description</a>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+
+                //------------- This is Code For Super Admin---------------
+                if (RoleName == "Super Admin")
+                {
+                    <li class="nav-heading">
+                        <span>Menus for super admin</span>
+                    </li>
+                    <li>
+                        <a href="#forum" title="Forum" data-toggle="collapse">
+                            <em class="icon-speech"></em>
+                            <span>Super Admin</span>
+                        </a>
+                        <ul id="forum" class="nav sidebar-subnav collapse">
+                            <li class="sidebar-subnav-header">Organization Definition</li>
+                            <li>
+                                <a href="@Url.Action("IndexSuperAdmin", "OrganizationDefinitions")" title="Organization Definition">
+                                    <span>Organization Definition</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("IndexSuperAdmin", "EmployeePersonalDetails")" title="Employees">
+                                    <span>Employees</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("IndexSuperAdmin", "Users")" title="Users">
+                                    <span>Users</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("IndexSuperAdmin", "MenuRights")" title="Users">
+                                    <span>Menu Rights</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                }
+
+
+            }
+
+            @*<li>
+            <a href="@Url.Action("Index", "Documentation")" title="Documentation">
+                <em class="icon-graduation"></em>
+                <span data-localize="sidebar.nav.DOCUMENTATION">Documentation</span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Movies")" title="Movie App">
+                <em class="icon-trophy"></em>
+                <span>Movie App</span>
+            </a>
+        </li>*@
+        </ul>
+        <!-- END sidebar nav-->
+    </nav>
+</div>
+<!-- END Sidebar (left)-->

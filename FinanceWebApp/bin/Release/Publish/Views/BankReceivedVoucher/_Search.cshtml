@@ -1,0 +1,71 @@
+﻿@model IList<MudasirRehmanAlp.Models.VouchersHead>
+
+@{
+    var counter = 0;
+
+}
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+
+                <tr>
+                    <td>
+                        @{
+                            if (item.OrganizationID != null)
+                            {
+                                @item.OrganizationDefinition.OrganizationUnitName
+                            }
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VoucherCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VoucherType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VoucherDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalAmount)
+                    </td>
+                    <td>
+                        @{
+                            if (item.IsActive == true)
+                            {
+                                <span class="label label-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="label label-danger">In-Active</span>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info btn-flat">Action</button>
+                            <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Action("Edit",new { id = item.VoucherID })" class="clsBtnAppUpdate" title="Edit">Edit</a></li>
+                                <li><a href="@Url.Action("Details",new { id = item.VoucherID })" class="clsBtnAppPrint" title="Details">Details</a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#" onclick="DeleteRecordSWL('/BankReceivedVoucher/Delete?id='+@item.VoucherID)" class="clsBtnAppDelete" title="Delete">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />
+

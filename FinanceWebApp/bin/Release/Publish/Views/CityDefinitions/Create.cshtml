@@ -1,0 +1,114 @@
+﻿@model MudasirRehmanAlp.Models.CityDefinition
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/Select2/css")
+
+<div class="panel panel-default">
+    <div class="panel-heading">City Definitions</div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>City Code</label>
+                        @Html.EditorFor(model => model.CityCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.CityCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>City Name</label>
+                        @Html.EditorFor(model => model.CityName, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.CityName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Region Name</label>
+                        <select id="txtRegionNameSelect" class="select2Cls form-control RegionSelect">
+                            <option selected="selected">Select Region</option>
+                            @{
+                                foreach (var item in ViewBag.RegionList as List<MudasirRehmanAlp.Models.RegionDefinition>)
+                                {
+                                    <option value="@item.Id">@item.RegionName</option>
+                                }
+                            }
+                        </select>
+
+
+                        @Html.HiddenFor(model => model.RegionId, new { @id = "hiddenRegionID" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Province Name</label>
+                        <input type="text" id="txtProvinceName" class="form-control form-control-rounded" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Country Name</label>
+                        <input type="text" id="txtCountryName" class="form-control form-control-rounded" readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+                <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+    }
+
+</div>
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/select2")
+    <script>
+        $(document).ready(function () {
+         var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+            //---------- Permission Code
+              var rName = 'CityDefinitions';
+              var id = '@Model.CityId';
+              PagePermission(rName, id);
+            //---------------							
+									
+            $(".RegionSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenRegionID").val(ID);
+
+                var url = "/CityDefinitions/GetRegionDetails";
+                $.get(url, { ID: ID, },
+                    function (Data) {
+                        $("#txtProvinceName").val(Data.ProvinceName);
+                        $("#txtCountryName").val(Data.CountryName);
+                    });
+
+            });
+        });//end of Ready Funtion
+    </script>
+}

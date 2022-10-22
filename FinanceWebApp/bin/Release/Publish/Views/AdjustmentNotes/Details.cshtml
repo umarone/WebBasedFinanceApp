@@ -1,0 +1,141 @@
+﻿@model MudasirRehmanAlp.Models.AdjustmentNote
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<div class="panel">
+    <div class="panel-body">
+
+        <h3 class="mt0">Adjustment Note #@Model.AdjustmentNoteNO</h3>
+        <hr />
+        <div class="row mb-lg">
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="pull-left">Organization: </p>
+                        @{
+                            if (Model.OrganizationID != null)
+                            {
+                                <p class="pull-right mr">
+                                    @Model.OrganizationDefinition.OrganizationUnitName
+                                </p>
+                            }
+                        }
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Branch Name: </label>
+                <span>
+                    @{ if (Model.BranchId != null)
+                        {
+                            @Model.BranchDefinition.Name
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+
+                    <div class="col-md-10">
+                        <p class="pull-left">Date: </p>
+                        <p class="pull-right mr"> @Model.Date</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix hidden-md hidden-lg">
+                <hr />
+            </div>
+            <div class="col-lg-4 col-xs-12 pv">
+                <div class="clearfix">
+                    <p class="pull-left">Desciption.</p>
+                    <p class="pull-right mr">@Model.Description</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Unit Rate</th>
+                        <th>Total</th>
+                        <th>Dis %</th>
+                        <th>Dis UR</th>
+                        <th>TAD</th>
+                        <th>Dis Amt</th>
+                        <th>Sale Tax</th>
+                        <th>Sale Tax Amt</th>
+                        <th>Total Tax Inclusive</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var item in ViewBag.ListAdjustmentNoteDetails as List<MudasirRehmanAlp.Models.AdjustmentNoteDetail>)
+                        {
+
+                            <tr>
+                                <td>@item.ProductDefinition.ProductName</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.UnitRate</td>
+                                <td>@item.TotalWithOutSaleTax</td>
+                                <td>@item.DiscountPercentage %</td>
+                                <td>@item.DiscountedUnitRate</td>
+                                <td>@item.TotalAfterDiscount</td>
+                                <td>@item.DiscountAmount</td>
+                                <td>@item.SaleTaxPercentage %</td>
+                                <td>@item.SaleTaxAmount</td>
+                                <td>@item.TotalTaxInclusive</td>
+
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-8 col-sm-4 pv">
+                <div class="clearfix">
+                    <p class="pull-left">Subtotal WST</p>
+                    <p class="pull-right mr">$ @Model.SubTotalWithSaleTax</p>
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left">Subtotal WOST</p>
+                    <p class="pull-right mr">$ @Model.SubTotalWithOutSaleTax</p>
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left">Freight Charges </p>
+                    <p class="pull-right mr">$ @Model.FreightCharges</p>
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left h3">Net TOTAL</p>
+                    <p class="pull-right mr h3">$ @Model.NetTotal</p>
+                </div>
+            </div>
+        </div>
+        <hr class="hidden-print" />
+        <div class="clearfix">
+            <a href="@Url.Action("Print", "AdjustmentNotes",new {id=Model.AdjustmentNoteId })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+            <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                <i class="fa fa-download"></i> Generate PDF
+            </button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+
+
+        </div>
+    </div>
+</div>
+
+@section Styles {
+
+}
+@section Scripts {
+
+}

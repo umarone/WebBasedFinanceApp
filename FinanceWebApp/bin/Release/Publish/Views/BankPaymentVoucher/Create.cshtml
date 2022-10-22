@@ -1,0 +1,465 @@
+﻿@model MudasirRehmanAlp.Models.VouchersHead
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Bank Payment Voucher</div>
+
+    @using (Html.BeginForm("Create", "BankPaymentVoucher", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-sm-1 form-group">
+                    <label>Code</label>
+                    @Html.EditorFor(model => model.VoucherCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtVoucherCode", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.VoucherCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Organization Name</label>
+                    <div class="input-group">
+                        <input type="text" value="@(ViewBag.OrganizationUnitName ?? String.Empty)" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                    </div>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Branch Name</label>
+                    <div class="input-group">
+                        <input type="text" value="@(ViewBag.BranchName ?? String.Empty)" class="form-control form-control-rounded" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Book Years No</label>
+                    <input type="text" value="@(ViewBag.FinancialBookYearsNo ?? String.Empty)" class="form-control form-control-rounded" readonly="readonly" />
+                    @Html.HiddenFor(model => model.FinancialBookYearId, new { @id = "hiddenFinancialBookYearId" })
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Total Amount</label>
+                    @Html.EditorFor(model => model.TotalAmount, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtTotalAmount", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Payment Type</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                        <select id="txtPaymentTypeSelect" class="select2Cls form-control PaymentTypeSelect">
+                            <option selected="selected">Select Payment Type</option>
+                            <option value="1">Purchase Order</option>
+                            <option value="3">Other</option>
+                        </select>
+                        <input type="hidden" id="hiddenPaymentType" />
+                    </div>
+                </div>
+                <div class="col-sm-1 form-group" style="padding-top:22px">
+                    <div class="checkbox c-checkbox needsclick">
+                        <label class="needsclick">
+                            <input type="checkbox" id="checkboxPosted" class="needsclick" />
+                            <span class="fa fa-check"></span>Posted
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Voucher Date </label>
+                    <div class="input-group date datetimepicker">
+                        @Html.EditorFor(model => model.VoucherDate, new { htmlAttributes = new { @class = "form-control date form-control-rounded", @id = "txtVoucherDate" } })
+                        @Html.ValidationMessageFor(model => model.VoucherDate, "", new { @class = "text-danger" })
+                        <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group clsPurshase" style="display:none">
+                    <label>Purchase Order</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                        <select id="txtPurchaseOrderSelect" class="select2Cls form-control PurchaseOrderSelect">
+                        </select>
+                        @Html.HiddenFor(model => model.PurchaseId, new { @id = "hiddenPurchaseOrderID" })
+                    </div>
+
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Sheet No</label>
+                    @Html.EditorFor(model => model.SheetNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtSheetNo" } })
+                    @Html.ValidationMessageFor(model => model.SheetNo, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Terminal No</label>
+                    @Html.EditorFor(model => model.TerminalNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtBookNo" } })
+                    @Html.ValidationMessageFor(model => model.TerminalNo, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Cheque No</label>
+                    @Html.EditorFor(model => model.ChequeNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtChequeNo" } })
+                    @Html.ValidationMessageFor(model => model.ChequeNo, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <label>Description</label>
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                </div>
+            </div>
+
+
+        </div>
+    }
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Bank Payment Voucher Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Closing Balance</th>
+                        <th>Narration</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Closing Balance</th>
+                        <th>Narration</th>
+                        <th><input type="text" class="form-control form-control-rounded" id="txtTotalDebitGrid" readonly="readonly" /></th>
+                        <th><input type="text" class="form-control form-control-rounded" id="txtTotalCreditGrid" readonly="readonly" /></th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" id="hiddenCounter" value="0" />
+<div class="panel">
+
+    <div class="panel-footer">
+
+          <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+    @Styles.Render("~/bundles/toastrCss")
+    @Styles.Render("~/Content/Select2/css")
+    <style>        
+        body .select2-container {
+            width: 100% !important;
+        }
+    </style>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/toastrJs")
+
+<script>
+         var Rowcounter = 0;
+        $(document).ready(function () {
+            debugger
+
+            var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'BankPaymentVoucher';
+              var id = '@Model.VoucherID';
+              PagePermission(rName, id);
+            //---------------
+            LoadPurchaseOrdersForVouchers('');
+
+            //Load Account No from Autocomplete
+            $(document).on('focus', "input.clsAccountNo", function () {
+                debugger
+                var trID = $(this).closest('tr').attr('id');
+                LoadAccountNo(trID);
+            });
+             $(document).on('focusout', "input.clsAccountNo", function () {
+                debugger
+                 var trID = $(this).closest('tr').attr('id');
+                 var accountId = $("#hiddenAccountId_" + trID).val();
+                 if (accountId !="") {
+                     loadClosingBalance(accountId,trID);
+                 }
+
+              });
+
+            $(".PaymentTypeSelect").change(function () {
+                debugger
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenPaymentType").val(ID);
+
+                if (ID == "1") {
+                    $(".clsPurshase").show();
+                    Rowcounter = 0;
+                    $("#tblBody").html('');
+                     $("#txtTotalDebitGrid").val('');
+                     $("#txtTotalCreditGrid").val('');
+                }
+                else {
+                    $(".clsPurshase").hide();
+                    Rowcounter = 0;
+                    $("#tblBody").html('');
+                    $("#txtTotalDebitGrid").val('');
+            $("#txtTotalCreditGrid").val('');
+                }
+                 AppendRows();
+            });
+            $(".PurchaseOrderSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenPurchaseOrderID").val(ID);
+                if (ID !="") {
+                     loadPurchaseOrderAccountsDetails(ID);
+                }
+
+
+            });
+
+
+            //btn Save Cash Payment Voucher
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount =Rowcounter ;
+                var ParentItem = new Array();
+                var MaltipleChildItem = new Array();
+                var MasterItem = {};
+                var ChildItem = {};
+                var formData = new FormData();
+
+                MasterItem = {
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    VoucherCode: $("#txtVoucherCode").val(),
+                    VoucherDate: $("#txtVoucherDate").val(),
+                    PaymentType: $("#hiddenPaymentType").val(),
+                    PurchaseId: $("#hiddenPurchaseOrderID").val(),
+                    SheetNo: $("#txtSheetNo").val(),
+                    FinancialBookYearId: $("#hiddenFinancialBookYearId").val(),
+                    TerminalNo: $("#txtTerminalNo").val(),
+                    ChequeNo: $("#txtChequeNo").val(),
+                    Description: $("#txtDescription").val(),
+                    TotalAmount: $("#txtTotalAmount").val(),
+                    Posted: $("#checkboxPosted").is(":checked"),
+
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+
+                       ChildItem = {
+                            AccountId: $("#hiddenAccountId_" + i).val(),
+                            ClosingBalance: $("#txtClosingBalance_" + i).val(),
+                            Narration: $("#txtNarration_" + i).val(),
+                           Debit: $("#txtDebit_" + i).val(),
+                           Credit: $("#txtCredit_" + i).val(),
+
+                    }
+                    var innerCount = parseInt(i + 1);
+                    var AccountIdcredit = $("#hiddenAccountId_" + i).val()
+                    var AccountIddebit = $("#hiddenAccountId_" + innerCount).val()
+
+                    if (AccountIdcredit =="" || AccountIddebit == "") {
+                        toastr.error("Please select Credit or Debit account in voucher details.", "Required Field");
+                        fullAppLoaderFadeOut();
+                        return false;
+
+                    }
+                    else {
+                         MaltipleChildItem.push(ChildItem);
+                    }
+
+                }
+
+                var master = JSON.stringify(MasterItem);
+                var child = JSON.stringify(MaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (MaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/BankPaymentVoucher/Create",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                            if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                           else {
+                               fullAppLoaderFadeOut();
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                             fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong" + error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+
+         function loadClosingBalance(Id,rowId) {
+
+            var url = "/Json/loadClosingBalanceByAccount";
+            $.get(url, { ID: Id, },
+                function (Data) {
+                    debugger
+                    $("#txtClosingBalance_" + rowId).val(Data.ClosingBalance);
+                });
+        }
+
+        function AppendRows() {
+            debugger
+
+                 Rowcounter++;
+                var trHtmlOne = "<tr id='"+Rowcounter+"'>";
+            trHtmlOne += "<td><input type='text' id='txtAccountNo_"+Rowcounter+"' class='form-control form-control-rounded clsAccountNo' /><input type='hidden' id='hiddenAccountId_"+Rowcounter+"'/></td>";
+            trHtmlOne += "<td><input type='text' id='txtClosingBalance_"+Rowcounter+"' class='form-control form-control-rounded clsClosingBalance' readonly='readonly'/></td>";
+            trHtmlOne += "<td><input type='text' id='txtNarration_"+Rowcounter+"' class='form-control form-control-rounded clsNarration'/></td>";
+            trHtmlOne += "<td>  <input type='text' id='txtDebit_"+Rowcounter+"' class='form-control form-control-rounded clsDebit' readonly='readonly'/></td>";
+            trHtmlOne += "<td>  <input type='text' id='txtCredit_" + Rowcounter + "' class='form-control form-control-rounded clsCredit' onkeyup='CalculationOfDebitAndCredit();'/></td>";
+            trHtmlOne += "<td><button class='btn btn-primary clsBtnAdd' onclick='AppendRows();'><i class='fa fa-plus'></i></button> </td>";
+            trHtmlOne += "</tr>"
+
+            Rowcounter++;
+            var trHtmlTwo = "<tr id='"+Rowcounter+"'>";
+             trHtmlTwo += "<td><input type='text' id='txtAccountNo_"+Rowcounter+"' class='form-control form-control-rounded clsAccountNo' /><input type='hidden' id='hiddenAccountId_"+Rowcounter+"'/></td>";
+            trHtmlTwo += "<td><input type='text' id='txtClosingBalance_"+Rowcounter+"' class='form-control form-control-rounded clsClosingBalance' readonly='readonly'/></td>";
+            trHtmlTwo += "<td><input type='text' id='txtNarration_"+Rowcounter+"' class='form-control form-control-rounded clsNarration'/></td>";
+            trHtmlTwo += "<td>  <input type='text' id='txtDebit_"+Rowcounter+"' class='form-control form-control-rounded clsDebit' onkeyup='CalculationOfDebitAndCredit();'/></td>";
+            trHtmlTwo += "<td>  <input type='text' id='txtCredit_" + Rowcounter + "' class='form-control form-control-rounded clsCredit' readonly='readonly'/></td>";
+            trHtmlTwo += "<td></td>";
+            trHtmlTwo += "</tr>"
+
+            $("#tblBody").append(trHtmlOne + trHtmlTwo);
+            $("#hiddenCounter").val(Rowcounter);
+
+        }
+    function AppendRowsWithValuesPurchase(JsonData) {
+
+            debugger
+            Rowcounter++;
+            var trHtmlOne = "<tr id='"+Rowcounter+"'>";
+            trHtmlOne += "<td><input type='text' id='txtAccountNo_"+Rowcounter+"' value='"+JsonData.AccountNoAndAccountName+"' title='"+JsonData.AccountNoAndAccountName+"' class='form-control form-control-rounded clsAccountNo' /><input type='hidden' id='hiddenAccountId_"+Rowcounter+"' value='"+JsonData.AccountId+"'/></td>";
+            trHtmlOne += "<td><input type='text' id='txtClosingBalance_"+Rowcounter+"' value='"+JsonData.ClosingBalance+"' title='"+JsonData.ClosingBalance+"' class='form-control form-control-rounded clsClosingBalance' readonly='readonly'/></td>";
+            trHtmlOne += "<td><input type='text' id='txtNarration_"+Rowcounter+"' class='form-control form-control-rounded clsNarration'/></td>";
+            trHtmlOne += "<td>  <input type='text' id='txtDebit_"+Rowcounter+"' class='form-control form-control-rounded clsDebit' readonly='readonly'/></td>";
+            trHtmlOne += "<td>  <input type='text' id='txtCredit_" + Rowcounter + "' value='"+JsonData.NetTotal+"' class='form-control form-control-rounded clsCredit' onkeyup='CalculationOfDebitAndCredit();'/></td>";
+            trHtmlOne += "<td><button class='btn btn-primary clsBtnAdd' onclick='AppendRows();'><i class='fa fa-plus'></i></button></td>";
+            trHtmlOne += "</tr>";
+            Rowcounter++;
+            var trHtmlTwo = "<tr id='"+Rowcounter+"'>";
+             trHtmlTwo += "<td><input type='text' id='txtAccountNo_"+Rowcounter+"' class='form-control form-control-rounded clsAccountNo' /><input type='hidden' id='hiddenAccountId_"+Rowcounter+"'/></td>";
+            trHtmlTwo += "<td><input type='text' id='txtClosingBalance_"+Rowcounter+"' class='form-control form-control-rounded clsClosingBalance' readonly='readonly'/></td>";
+            trHtmlTwo += "<td><input type='text' id='txtNarration_"+Rowcounter+"' class='form-control form-control-rounded clsNarration'/></td>";
+            trHtmlTwo += "<td>  <input type='text' id='txtDebit_"+Rowcounter+"' value='"+JsonData.NetTotal+"' class='form-control form-control-rounded clsDebit' onkeyup='CalculationOfDebitAndCredit();'/></td>";
+            trHtmlTwo += "<td>  <input type='text' id='txtCredit_" + Rowcounter + "' class='form-control form-control-rounded clsCredit' readonly='readonly' /></td>";
+            trHtmlTwo += "<td></td>";
+            trHtmlTwo += "</tr>";
+
+            $("#tblBody").append(trHtmlOne + trHtmlTwo);
+             $("#hiddenCounter").val(Rowcounter);
+
+        }
+        function LoadAccountNo(trID) {
+
+             $('#txtAccountNo_'+trID).autocomplete({
+                source: "/Json/LoadAccounts",
+                select: function (event, ui) {
+                    $('#txtAccountNo_' + trID).val(ui.item.label);
+                    $('#txtAccountNo_' + trID).prop('title', ui.item.label);
+                     $("#hiddenAccountId_" + trID).val(ui.item.value);
+                    return false;
+                     },
+                change: function (e, ui) {
+                  if (!(ui.item)) e.target.value = "";
+                },
+                minLength: 0,
+                scroll: true
+            }).focus(function () {
+                $(this).autocomplete("search", "");
+            });
+        }
+       
+        function CalculationOfDebitAndCredit() {
+            debugger
+            var SubTotalDebit = 0;
+            var SubTotalCredit = 0;
+           //Rowcounter = Rowcounter + 1;
+            for (var i = 0; i <= Rowcounter; i++) {
+                var debit = $("#txtDebit_" + i).val();
+                var credit = $("#txtCredit_" + i).val();
+                debit = isNaN(parseInt(debit)) ? 0 : parseInt(debit)
+                 credit = isNaN(parseInt(credit)) ? 0 : parseInt(credit)
+                SubTotalDebit += parseInt(debit);
+                SubTotalCredit +=parseInt(credit) ;
+            }
+            SubTotalDebit = parseInt(SubTotalDebit);
+            SubTotalCredit = parseInt(SubTotalCredit);
+            $("#txtTotalDebitGrid").val(SubTotalDebit);
+            $("#txtTotalCreditGrid").val(SubTotalCredit);
+            if (SubTotalDebit !=0  && SubTotalCredit !=0) {
+                if (SubTotalDebit != SubTotalCredit) {
+                    toastr.warning("Must be equal Debit and Credit..", "Warning");
+                }
+                else {
+                    $("#txtTotalAmount").val(SubTotalDebit);
+                }
+          }
+
+        }
+        function RemoveRows(trId) {
+            debugger
+            var trIdrow = trId + 1;
+            if (Rowcounter > 2) {
+                $("#tr_" + trIdrow).remove();
+                $("#tr_" + trId).remove();
+                Rowcounter = Rowcounter - 2;
+            }
+            else {
+                toastr.warning("Data Rows Cant be Deleted.", "Warning");
+            }
+
+
+        }
+
+</script>
+
+}

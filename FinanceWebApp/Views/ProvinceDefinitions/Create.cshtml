@@ -1,0 +1,96 @@
+﻿@model MudasirRehmanAlp.Models.ProvinceDefinition
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Province Definitions</div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Province Code</label>
+                        @Html.EditorFor(model => model.ProvinceCode, new { htmlAttributes = new { @class = "form-control form-control-rounded", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.ProvinceCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Country Name</label>
+                        <select id="txtCountryNameSelect" class="select2Cls form-control form-control-rounded CountrySelect">
+                            <option selected="selected">Select Country</option>
+                            @{
+                                foreach (var item in ViewBag.CountryList as List<MudasirRehmanAlp.Models.CountryDefinition>)
+                                {
+                                    <option value="@item.Id">@item.CountryName</option>
+                                }
+                            }
+                        </select>
+                        @Html.HiddenFor(model => model.CountryId, new { @id = "hiddenCountryID" })
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label>Province Name</label>
+                        @Html.EditorFor(model => model.ProvinceName, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+                        @Html.ValidationMessageFor(model => model.ProvinceName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Status</label>
+
+                    <div class="form-group">
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "true", new { @checked = "checked", @type = "radio" })  <span class="fa fa-check"></span> Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label class="radio-inline c-radio">
+                            @Html.RadioButton("IsActive", "false", new { @type = "radio" }) <span class="fa fa-remove"></span> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+                <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+            </div>
+        </div>
+    }
+</div>
+@section Styles {
+
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/toastrCss")
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/toastrJs")
+    <script>
+        $(document).ready(function () {
+           var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+              //---------- Permission Code
+              var rName = 'ProvinceDefinitions';
+              var id = '@Model.Id';
+              PagePermission(rName, id);
+            //---------------							
+									
+            $(".CountrySelect").change(function () {
+                debugger
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenCountryID").val(ID);
+
+
+            });
+        });//end of Ready Funtion
+    </script>
+}

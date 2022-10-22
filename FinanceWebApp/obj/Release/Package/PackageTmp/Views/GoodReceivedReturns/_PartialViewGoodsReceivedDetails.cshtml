@@ -1,0 +1,52 @@
+﻿@model List<MudasirRehmanAlp.Models.GoodReceivedDetail>
+@{
+    var counter = 0;
+    MudasirRehmanAlp.AppDAL.StockDAL stockDAL = new MudasirRehmanAlp.AppDAL.StockDAL();
+}
+
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+                string StockCode = stockDAL.AutoGenerateStockCode(Convert.ToInt64(@item.ProductID));
+                long StockQty = stockDAL.GetStockQuantity(StockCode);
+                <tr id="@counter">
+                    <td id="tdProductName_@counter" title="@item.ProductDefinition.ProductName">
+                        @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                        @{
+                            if (item.ProductDefinition.ProductModel != null)
+                            {
+                                @item.ProductDefinition.ProductModel.Name
+                            }
+                            if (item.ProductDefinition.Colour != null)
+                            {
+                                @item.ProductDefinition.Colour.Name
+                            }
+                            if (item.ProductDefinition.SizeDefinition != null)
+                            {
+                                @item.ProductDefinition.SizeDefinition.Name;
+                            }
+                        }
+                    </td>
+                    <td id="tdStockQty_@counter" title="@StockQty">@StockQty</td>
+                    <td id="tdQty_@counter" title="@item.BalanceQuantity">@item.BalanceQuantity</td>
+                    <td>
+                        <input type="text" id="tdtxtReturnQty_@counter" class="form-control form-control-rounded clsReturnQty" />
+                        <input type="hidden" id="tdhiddenGoodReceivedNoteDetailID_@counter" value="@item.GoodReceivedNoteDetailID" />
+                        <input type="hidden" id="tdhiddenProductID_@counter" value="@item.ProductID" />
+                        <input type="hidden" id="tdhiddenReceiveQuantity_@counter" value="@item.ReceiveQuantity" />
+                        <input type="hidden" id="tdhiddenBalanceQuantity_@counter" value="@item.BalanceQuantity" />
+                        <input type="hidden" id="tdhiddenUnitRate_@counter" value="@item.UnitPrice" />
+                        <input type="hidden" id="tdhiddenStockID_@counter" value="@item.StockID" />
+                    </td>
+                    <td>
+                        <input type="text" id="tdtxtReason_@counter" class="form-control form-control-rounded" />
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

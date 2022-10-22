@@ -1,0 +1,277 @@
+﻿@model MudasirRehmanAlp.ModelsView.SaleViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- START panel-->
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Order Note</div>
+    <div class="panel-body">
+        <div role="tabpanel">
+            <!-- Nav tabs-->
+            <ul role="tablist" class="nav nav-tabs clsnav">
+                <li role="presentation" class="active">
+                    <a href="#accountsDetails" aria-controls="home" role="tab" data-toggle="tab">Accounts Details</a>
+                </li>
+                <li role="presentation">
+                    <a href="#customerStatements" aria-controls="profile" role="tab" data-toggle="tab">Customer Statements</a>
+                </li>
+                <li role="presentation">
+                    <a href="#guarantorDetails" aria-controls="messages" role="tab" data-toggle="tab">Guarantor Details</a>
+                </li>
+                <li role="presentation">
+                    <a href="#saleOrderDetails" aria-controls="messages" role="tab" data-toggle="tab">Sale Order Details</a>
+                </li>
+            </ul>
+            <!-- Tab panes-->
+            <div class="tab-content">
+                <div id="accountsDetails" role="tabpanel" class="tab-pane active">
+                    @using (Html.BeginForm("", ""))
+                    {
+
+                        <div class="panel-body">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="row mb">
+                                <div class="col-sm-3">
+                                    <label>Organization</label>
+                                    <input type="text" value="@(ViewBag.OrganizationUnitName ?? String.Empty)" class="form-control form-control-rounded" id="hiddenOrganizationName" readonly="readonly" />
+                                    @Html.HiddenFor(model => model.AccountsViewModel.OrganizationID, new { @id = "hiddenOrganizationID" })
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Account Level One</label>
+                                    <select id="txtAccountLevelOneSelect" class="select2Cls form-control AccountLevelOneSelect">
+                                    </select>
+                                    <input type="hidden" id="hiddenAccountLevelOneID" />
+                                    @Html.HiddenFor(model => model.AccountsViewModel.HeadID, new { @id = "hiddenAccountLevelOneAccountNo" })
+                                    <input type="hidden" name="LevelID" id="hiddenLevelID" value="4" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Account Level Two</label>
+                                    <select id="txtAccountLevelTwoSelect" class="select2Cls form-control AccountLevelTwoSelect">
+                                        <option>Select</option>
+                                    </select>
+                                    <input type="hidden" id="hiddenAccountLevelTwoID" />
+                                    <input type="hidden" id="hiddenAccountLevelTwoAccountNo" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Account Level Three</label>
+                                    <select id="txtAccountLevelThreeSelect" class="select2Cls form-control AccountLevelThreeSelect">
+                                        <option>Select</option>
+                                    </select>
+
+                                    <input type="hidden" id="hiddenAccountLevelThreeAccountNo" />
+                                    @Html.HiddenFor(model => model.AccountsViewModel.ParentID, new { @id = "hiddenAccountLevelThreeID" })
+                                </div>
+                            </div>
+
+                            <div class="row mb">
+                                <div class="col-sm-4">
+                                    <label>Account Type</label>
+                                    @Html.EditorFor(model => model.AccountsViewModel.AccountType, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountType", @readonly = "readonly" } })
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Account No</label>
+                                    @Html.EditorFor(model => model.AccountsViewModel.AccountNo, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountNo", @readonly = "readonly" } })
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Account Name</label>
+                                    @Html.EditorFor(model => model.AccountsViewModel.AccountName, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtAccountName" } })
+                                </div>
+                            </div>
+
+                            <div class="row mb">
+                                <div class="col-sm-3">
+                                    <label>Opening Balance</label>
+                                    @Html.EditorFor(model => model.AccountsViewModel.OpeningBalance, new { htmlAttributes = new { @class = "form-control form-control-rounded", @id = "txtOpeningBalance" } })
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Description</label>
+                                    @Html.TextAreaFor(model => model.AccountsViewModel.Description, new { @class = "form-control", @id = "txtDescription" })
+                                </div>
+                            </div>
+                            
+                        </div>
+                    }
+                </div>
+                <div id="customerStatements" role="tabpanel" class="tab-pane">
+                    <div class="panel-body">
+                        @Html.Partial("_CustomerStatements", new MudasirRehmanAlp.Models.CustomerStatement())
+                    </div>
+
+                </div>
+                <div id="guarantorDetails" role="tabpanel" class="tab-pane">
+                    @Html.Partial("_GuarantorDefinition", new MudasirRehmanAlp.Models.GuarantorDefinition())
+                </div>
+                <div id="saleOrderDetails" role="tabpanel" class="tab-pane">
+                    @Html.Partial("_SaleOrder", new MudasirRehmanAlp.Models.SaleOrder())
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section BodyArea {
+    <!-- Modal-->
+    <div id="schedulerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade clsModalForLoader">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 id="myModalLabel" class="modal-title">  Installments Scheduler</h4>
+                </div>
+                <div class="modal-body">
+                    @*---- Loader Div For Modal---- Start---*@
+                    <div class="loaderModal clsModalLoader" style="display:none">
+                        <div class="ball-clip-rotate-multiple">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    @*---- Loader Div For Modal---- End---*@
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Payment Start Date</label><span class="text-danger">*</span>
+                            <div class="input-group date datetimepicker">
+                                <input type="text" id="modelPaymentStartDate" class="form-control form-control-rounded date" required />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Total Amount</label><span class="text-danger">*</span>
+                            <input type="text" id="modelNetTotalAmount" class="form-control allownumberonly2decimal " readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Profit %</label><span class="text-danger">*</span>
+                            <input type="text" id="modelProfitPercentage" class="form-control form-control-rounded allownumberonly2decimal " required onkeyup="ProfitCalculation();" />
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Total Amount To Paid</label><span class="text-danger">*</span>
+                            <input type="text" id="modelTotalAmountToPaid" class="form-control allownumberonly2decimal " readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Installments (Month)</label><span class="text-danger">*</span>
+                            <select id="modelInstallmentsMonthSelect" class="select2Cls form-control InstallmentsMonthSelect" onchange="InstallmentsPaymentsProfitCalculation(this);">
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <label>Per Month Installment</label><span class="text-danger">*</span>
+                            <input type="text" id="modelPerMonthInstallment" class="form-control allownumberonly2decimal " readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">Close <i class="fa fa-close"></i></button>
+                    <button type="button" id="btnSubmitModal" class="btn btn-primary" onclick="LoadInstallmentScheduler();">Load Scheduler  <i class="fa-1x icon-reload mr-1"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+<!-- END panel-->
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" onclick="submitSaveAndUpdate();" class="btn btn-success" title="Save" @*id="btnSubmit"*@>Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+@section Styles {
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/autocompleteCss")
+    <style>
+        body .select2-container {
+            width: 100% !important;
+        }
+    </style>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/SaleOrderNote")
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/filestyle")
+    @Scripts.Render("~/bundles/demoPanels")
+    @Scripts.Render("~/bundles/autocomplete")
+    <script>
+        var rowIdExpPublicEdit = 0;
+        var rowIdEduPublicEdit = 0;
+        $(document).ready(function () {
+
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+            //---------- Permission Code
+              var rName = 'SaleOrderNote';
+              var id = '';
+              PagePermission(rName, id);
+            //-------------------
+
+        });//End Of Ready functions
+        function submitSaveAndUpdate() {
+            debugger
+            fullAppLoaderFadeIn();
+            var Id = $("#hiddenEmployeeIdForAllTabs").val();
+            var officialId = $("#hiddenOfficialId").val();
+            var ActiveTab = $('.clsnav  li.active a').attr("href");
+            ActiveTab = removeHash(ActiveTab);
+            //--- For Personal Details
+            if (ActiveTab == "personalDetails" && Id == "") {
+                savePersonalDetails();
+            } else if (ActiveTab == "personalDetails" && Id != "") {
+                updatePersonalDetails();
+            }
+            //--- For official Details
+            if (ActiveTab == "officialDetails" && officialId != "") {
+                if (Id !="") {
+                    saveOrupdateOfficalDetails();
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please add employee first then add official details.", "Required Field");
+                    return false;
+                }
+            }
+            //--- For Educations Details
+            if (ActiveTab == "educationsDetails") {
+                if (Id != "") {
+                    saveandUpdateEducationsDetails();
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please add employee first then add official details.", "Required Field");
+                    return false;
+                }
+
+            }
+             //--- For Experience Details
+            if (ActiveTab == "experienceDetails") {
+                if (Id != "") {
+                    saveandUpdateExperienceDetails();
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please add employee first then add official details.", "Required Field");
+                    return false;
+                }
+
+            }
+        }
+
+    </script>
+}

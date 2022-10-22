@@ -1,0 +1,323 @@
+﻿@model MudasirRehmanAlp.Models.SaleOrder
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Order Information</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead bb">Details</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order No:</div>
+                        <div class="col-sm-8">
+                            <strong>@ViewBag.SaleOrderNo</strong>
+                            <input type="hidden" name="SaleOrderNo" value="@ViewBag.SaleOrderNo"/>                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationIDSaleOrder" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                @Html.EditorFor(model => model.SaleOrderDate, new { htmlAttributes = new { @class = "form-control date ", @id = "txtSaleOrderDate" } })
+                                @Html.ValidationMessageFor(model => model.SaleOrderDate, "", new { @class = "text-danger" })
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Type:</div>
+                        <div class="col-sm-8">
+                            <select id="txtSaleOrderTypeSelect" class="select2Cls form-control SaleOrderTypeSelect">
+                                <option selected="selected">Select</option>
+                                <option value="Local">Local</option>
+                                <option value="Import">Import</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            @Html.HiddenFor(model => model.SaleOrderType, new { @id = "hiddenSaleOrderType" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Transaction Type:</div>
+                        <div class="col-sm-8">
+                            <select id="txtTransactionTypeSelect" class="select2Cls form-control TransactionTypeSelect">
+                                <option>Select</option>
+                                <option value="Cash">Cash</option>
+                                <option value="Credit" selected="selected">Credit</option>
+                            </select>
+                            <input type="hidden" name="TransactionType" id="hiddenTransactionType" value="Credit" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Payment Terms:</div>
+                        <div class="col-sm-8">
+                            @Html.EditorFor(model => model.PaymentTerms, new { htmlAttributes = new { @class = "form-control", @id = "txtPaymentTerms", @Placeholder = "Please Enter Payment Term" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Image:</div>
+                        <div class="col-sm-8">
+                            <input type="file" onchange="encodeImagetoBase64(this,'imgSaleOrderImage')" name="fileSaleOrderImage" id="fileSaleOrderImage" data-classbutton="btn btn-default" data-classinput="form-control inline" class="form-control filestyle" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                            <img id="imgSaleOrderImage" style="display:none;width: 100%;height:250px" class="img-thumbnail img-responsive" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+            <div class="col-md-6">
+                <p class="lead bb">Client</p>
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+                {
+                    <div class="form-group">
+                        <div class="col-sm-4">Sale Order Customer Type:</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" value="Customer Statement" readonly="readonly" />
+                            <input type="hidden" name="SaleOrderCustomerType" id="hiddenSaleOrderCustomerType" value="1" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Customer Statements:</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" id="hiddenCustomerStatementName" value="" readonly="readonly" />
+                            @Html.HiddenFor(model => model.CustomerStatementID, new { @id = "hiddenCustomerStatementID" })
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <div class="col-sm-4">Account No:</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" id="hiddenAccountNo" readonly="readonly" />
+                            @Html.HiddenFor(model => model.AccountID, new { @id = "hiddenAccountID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Currency:</div>
+                        <div class="col-sm-8">
+                            <select id="txtCurrencyNameSelect" class="select2Cls form-control CurrencySelect">
+                            </select>
+                            @Html.HiddenFor(model => model.CurrencyID, new { @id = "hiddenCurrencyID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Employee Name:</div>
+                        <div class="col-sm-8">
+                            <select id="txtEmployeeSalePersonNameSelect" class="select2Cls form-control EmployeeSalePersonSelect">
+                            </select>
+                            @Html.HiddenFor(model => model.EmployeeId, new { @id = "hiddenEmployeeId" })
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"> Product Details</div>
+
+    <div class="panel-body">
+        <div class="row mb">
+
+            <div class="col-sm-4">
+                <label>Product Name </label>
+                <input type="text" id="txtProductName" class="form-control form-control-rounded" placeholder="Select Product" />
+                <input type="hidden" id="hiddenProductID" />
+                <input type="hidden" value="0" id="currentRowID" />
+            </div>
+        </div>
+        <div class="row mb">
+            <div class="col-md-2">
+                <label title="Quantity">QTY</label>
+                <input type="text" id="txtQTY" class="form-control form-control-rounded clsCalCulation allownumericwithoutdecimal" title="Quantity" />
+            </div>
+            <div class="col-md-2">
+                <label title="Unit Rate">Unit Rate</label>
+                <input type="text" id="txtUnitRate" class="form-control form-control-rounded clsCalCulation allownumericwithdecimal allownumberonly2decimal" title="Unit Rate" />
+            </div>
+            <div class="col-md-2">
+                <label title="Total With Sale Tax">Total</label>
+                <input type="text" id="txtTotalWOST" class="form-control form-control-rounded" readonly="readonly" title="Total With Sale Tax" />
+            </div>
+
+            <div class="col-md-1">
+                <label title="Discounted Percentage">Dis %</label>
+                <input type="text" id="txtDiscountPercentage" class="form-control form-control-rounded clsCalCulation allownumericwithdecimal allownumberonly2decimal" title="Discounted Percentage" />
+            </div>
+            <div class="col-md-1">
+                <label title="Discounted UnitRate">Dis UR</label>
+                <input type="text" id="txtDiscountUnitRate" class="form-control form-control-rounded" readonly="readonly" title="Discounted UnitRate" />
+            </div>
+            <div class="col-md-1">
+                <label title="Discounted Amount">Dis Amount</label>
+                <input type="text" id="txtTotalAfterDiscount" class="form-control form-control-rounded" readonly="readonly" title="Discounted Amount" />
+                <input type="hidden" id="hiddenDiscountedAmount" />
+            </div>
+            <div class="col-md-1">
+                <label title="Sale Tax Percentage">Sale Tax %</label>
+                <input type="text" id="txtSaleTaxPercentage" class="form-control form-control-rounded clsCalCulation allownumericwithdecimal allownumberonly2decimal" title="Sale Tax Percentage" />
+                <input type="hidden" id="hiddenSaleTaxAmount" />
+            </div>
+
+            <div class="col-md-2">
+                <label title="Total Tax Inclusive">Total Tax-Inclusive</label>
+                <input type="text" id="txtTotalTaxInclusive" class="form-control form-control-rounded" readonly="readonly" title="Total Tax Inclusive" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-labeled btn-info" id="btnAddProduct" onclick="AppendProductHtml();">
+                    <span class="btn-label">
+                        <i class="fa fa-plus"></i>
+                    </span>Add More Product
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Sale Order Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Unit Rate</th>
+                        <th>Total</th>
+                        <th>Dis %</th>
+                        <th>Dis UR</th>
+                        <th>TAD</th>
+                        <th>Dis Amt</th>
+                        <th>Sale Tax</th>
+                        <th>Sale Tax Amt</th>
+                        <th>T Tax Inclusive</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Product</th>
+                        <th>QTY</th>
+                        <th>Unit Rate</th>
+                        <th>Total</th>
+                        <th>Dis %</th>
+                        <th>Dis UR</th>
+                        <th>TAD</th>
+                        <th>Dis Amt</th>
+                        <th>Sale Tax</th>
+                        <th>Sale Tax Amt</th>
+                        <th>T Tax Inclusive</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="panel m-b-xs p-a-0">
+    <div class="panel-body p-t-0 p-b-0">
+        <div class="row m-b-xs p-b-0">
+            <div class="col-md-12">
+                <label class="m-b-0 font-weight-bold" style="text-decoration:underline">General Terms & Condition</label>
+            </div>
+            <div class="col-md-8 p-b-sm">
+                <textarea name="TermAndCondition" class="form-control" placeholder="Please Enter Terms and Condition" style="resize:none; font-size:10px; line-height:2;" rows="5" id="TermAndCondition">@ViewBag.TermsAndCondition</textarea>
+            </div>
+            <div class="col-md-4 p-r-0 p-l-0">
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Sub Total WST
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtSubTotalWithSaleTax" class="form-control allownumberonly2decimal " readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                </div>
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Sub Total WOST
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtSubTotalWithOutSaleTax" class="form-control allownumberonly2decimal " readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                </div>
+
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Freight Charges
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtFreightCharges" class="form-control ClsFreightCharges allownumberonly2decimal " data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                </div>
+                <div class="col-md-4">
+                    <label class="m-b-0 small font-weight-bold">
+                        Net Total
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="txtNetTotal" class="form-control allownumberonly2decimal" readonly="readonly" data-inputmask="'alias': 'decimal', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" style="text-align: right;">
+
+                </div>
+                <div class="col-md-12 m-b-xs">
+                    @Html.EditorFor(model => model.AmountInWord, new { htmlAttributes = new { @tabindex = "34", @class = "form-control AmountInWord", @id = "txtAmountInWord", @readonly = "readonly", @placeholder = "Amount in word" } })
+                    @Html.ValidationMessageFor(model => model.AmountInWord, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Installments Payments Scheduler
+        <div class="pull-right">
+            <button type="button" data-toggle="modal" data-target="#schedulerModal" class="btn btn-labeled btn-info clsBtnScheduler">
+                <span class="btn-label">
+                    <i class="fa fa-calendar-check-o"></i>
+                </span> Open Scheduler
+            </button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="info">
+                        <th>Sr No</th>
+                        <th>Payment Date</th>
+                        <th>Month Name</th>
+                        <th>Per Month Installment</th>
+                        <th>Installment Paid</th>
+                        <th>Extra Charges</th>
+                        <th>Date Received</th>
+                        <th>Payment Status</th>
+                        <th>Notes</th>
+                        @*<th>Action</th>*@
+                    </tr>
+                </thead>
+                <tbody id="tblBodyScheduler" style="max-height:75vh;">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,293 @@
+﻿@model MudasirRehmanAlp.Models.PurchaseOrderReturn
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Purchase Return</div>
+    @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-horizontal p-20" }))
+    {
+
+        <div class="panel-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">Purchase Return No:</div>
+                        <div class="col-sm-8">
+                            <strong>@Model.PurchaseOrderReturnNO</strong>
+                            @Html.HiddenFor(model => model.PurchaseOrderReturnNO, new { @id = "txtPurchaseOrderReturnNO" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Organization Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.OrganizationUnitName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.OrganizationID, new { @id = "hiddenOrganizationID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Branch Name:</div>
+                        <div class="col-sm-8">
+                            <strong>@(ViewBag.BranchName ?? String.Empty)</strong>
+                            @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Purchase Return Date:</div>
+                        <div class="col-sm-8">
+                            <div class="input-group date datetimepicker">
+                                <input type="text" name="Date" class="form-control date" id="txtPurchaseReturnDate" value="@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Description:</div>
+                        <div class="col-sm-8">
+                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @id = "txtDescription" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-sm-4">GRTN NO:</div>
+                        <div class="col-sm-8">
+                            <select id="txtGoodsReturnSelect" class="select2Cls form-control GoodsReturnSelect">
+                            </select>
+                            @Html.HiddenFor(model => model.GRNReturnID, new { @id = "hiddenGRNReturnID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Supplier Name:</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" id="hiddenSupplierName" readonly="readonly" />
+                            @Html.HiddenFor(model => model.SupplierID, new { @id = "hiddenSupplierID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">Account No:</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" id="hiddenAccountNo" readonly="readonly" />
+                            @Html.HiddenFor(model => model.AccountID, new { @id = "hiddenAccountID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">PONO:</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" id="hiddenPONO" readonly="readonly" />
+                            @Html.HiddenFor(model => model.PurchaseOrderID, new { @id = "hiddenPurchaseOrderID" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">PO Date:</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control form-control-rounded" id="hiddenPODate" readonly="readonly" />
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+          
+
+        </div>
+
+
+    }
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Purchase Retrun Details</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="panel">
+
+    <div class="panel-footer">
+
+        <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+<script>
+        $(document).ready(function () {
+             var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation);
+          //---------- Permission Code
+              var rName = 'PurchaseOrderReturns';
+              var id = '@Model.PurchaseOrderReturnId';
+            PagePermission(rName, id);
+            LoadGoodReceivedReturns('');
+            //---------------
+
+            $(".GoodsReturnSelect").change(function () {
+                fullAppLoaderFadeIn();
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenGRNReturnID").val(ID);
+                loadGoodsReturnDetails(ID);
+
+            });
+
+            //btn Save Purchase Return
+            $("#btnSubmit").click(function () {
+                debugger
+                var ItemCount = $("#currentRowID").val();
+
+                var PORMaltipleChildItem = new Array();
+                var PORMasterItem = {};
+                var PORChildItem = {};
+                var formData = new FormData();
+
+                PORMasterItem = {
+                    OrganizationID: $("#hiddenOrganizationID").val(),
+                    BranchId: $("#hiddenBranchId").val(),
+                    PurchaseOrderReturnNO: $("#txtPurchaseOrderReturnNO").val(),
+                     GRNReturnID: $("#hiddenGRNReturnID").val(),
+                    SupplierID: $("#hiddenSupplierID").val(),
+                    AccountID: $("#hiddenAccountID").val(),
+                    PurchaseOrderID: $("#hiddenPurchaseOrderID").val(),
+                    Date: $("#txtPurchaseReturnDate").val(),
+                    Description: $("#txtDescription").val(),
+
+                }
+
+                for (var i = 1; i <= ItemCount; i++) {
+
+                    PORChildItem = {
+                        ProductID: $("#tdhiddenProductID_" + i).val(),
+                        Quantity: $("#tdhiddenReturnQuantity_" + i).val(),
+                        GRNReturnDetailID: $("#tdhiddenGoodsReceivedReturnDetailID_" + i).val(),
+                        PurchaseOrderDetailID: $("#tdhiddenPurchaseOrderDetailID_" + i).val(),
+                        UnitPrice: $("#tdhiddenUnitPrice_" + i).val(),
+                        TotalPrice: $("#tdhiddenTotalPrice_" + i).val(),
+                    }
+
+                    PORMaltipleChildItem.push(PORChildItem);
+                    }
+
+
+
+                var master = JSON.stringify(PORMasterItem);
+                var child = JSON.stringify(PORMaltipleChildItem);
+
+
+                formData.append("ObjMasterItem", master);
+                formData.append("ObjChilds", child);
+
+                if (PORMaltipleChildItem.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/PurchaseOrderReturns/Create",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (success) {
+                           if (success == 'OK') {
+                                window.location.href = "@Url.Action("Index")";
+                            }
+                            else {
+                                toastr.error("Internal server error." + success, "Server Error");
+                            }
+                        },
+                        error: function (error) {
+                            fullAppLoaderFadeOut();
+                            toastr.error("Internal server error.Something went wrong"+error, "Server Error");
+                        }
+                    });
+
+                }
+                else {
+                    fullAppLoaderFadeOut();
+                    toastr.error("Please enter correct data.Something went wrong", "Error");
+                }
+            });//End oF btn Submit
+
+        });//end of Ready Funtion
+
+            function loadGoodsReturnDetails(Id) {
+        var url = "/PurchaseOrderReturns/LoadGoodReturnDetails";
+        var url2 = "/PurchaseOrderReturns/LoadDetailsOfGoodReturnDetails";
+        $.get(url, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#hiddenPurchaseOrderID").val(Data.PurchaseOrderId);
+                    $("#hiddenPONO").val(Data.PurchaseOrderNO);
+                    $("#hiddenSupplierName").val(Data.SupplierName);
+                    $("#hiddenSupplierID").val(Data.SupplierID);
+                    $("#hiddenPODate").val(new Date(parseInt(Data.PurchaseOrderDate.substr(6))).toLocaleDateString());
+
+                     $("#hiddenAccountNo").val(Data.AccountNo);
+                    $("#hiddenAccountID").val(Data.AccountID);
+                }
+                else {
+              $("#hiddenPurchaseOrderID").val('');
+                    $("#hiddenPONO").val('');
+                    $("#hiddenSupplierName").val('');
+                    $("#hiddenSupplierID").val('');
+                    $("#hiddenPODate").val('');
+
+                    $("#hiddenAccountNo").val('');
+                    $("#hiddenAccountID").val('');
+                }
+
+
+            });
+           $.get(url2, { ID: Id, },
+            function (Data) {
+                if (Data != "") {
+                    $("#tblBody").html(Data);
+
+                }
+                else {
+                    $("#tblBody").html('');
+
+                }
+                fullAppLoaderFadeOut();
+
+            });
+        }
+
+
+</script>
+}

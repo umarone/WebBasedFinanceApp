@@ -1,0 +1,1713 @@
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\csc.exe
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\csc.rsp
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\csi.exe
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\csi.rsp
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.AppContext.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Console.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.IO.Compression.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Security.AccessControl.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Security.Claims.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.ValueTuple.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\vbc.exe
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\EntityFramework.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\PagedList.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Razor.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\WebGrease.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\EntityFramework.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\PagedList.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.Razor.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+D:\Alp_Mudasir Rehman\Minhaji Office\AlpSoftware\MudasirRehmanAlp\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\csc.exe
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\csc.rsp
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\csi.exe
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\csi.rsp
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.AppContext.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Console.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.IO.Compression.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Security.AccessControl.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Security.Claims.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Security.Principal.Windows.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.ValueTuple.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Xml.XmlDocument.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\vbc.exe
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\EntityFramework.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\PagedList.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Razor.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\WebGrease.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\EntityFramework.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\PagedList.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.Razor.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\itextsharp.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\zxing.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\zxing.presentation.dll
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\itextsharp.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\zxing.pdb
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\zxing.xml
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\zxing.presentation.pdb
+D:\SourceTreeProject\SelectoMobile\MudasirRehmanAlp\bin\zxing.presentation.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csc.exe
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csc.rsp
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csi.exe
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csi.rsp
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.AppContext.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Console.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.Compression.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.AccessControl.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Claims.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Principal.Windows.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.ValueTuple.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.XmlDocument.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\vbc.exe
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\itextsharp.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Razor.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\WebGrease.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\zxing.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\zxing.presentation.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\itextsharp.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Razor.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\zxing.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\zxing.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\zxing.presentation.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\zxing.presentation.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csc.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csc.rsp
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csi.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\csi.rsp
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.AppContext.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Console.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.Compression.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.AccessControl.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Claims.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Security.Principal.Windows.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.ValueTuple.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.XmlDocument.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\vbc.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\itextsharp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MailKit.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MimeKit.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Buffers.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Memory.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Razor.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Container.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\WebGrease.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\zxing.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\zxing.presentation.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\itextsharp.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MailKit.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MailKit.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MimeKit.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\MimeKit.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Buffers.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Memory.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.Razor.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Container.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\zxing.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\zxing.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\zxing.presentation.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\zxing.presentation.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MailKit.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MimeKit.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Buffers.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Memory.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Container.dll
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MailKit.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MailKit.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MimeKit.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\MimeKit.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Buffers.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Memory.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\bin\Unity.Container.pdb
+E:\SourceTreeProject\SelectToMoblie\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.rsp
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.rsp
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.AppContext.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Console.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Compression.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.AccessControl.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Claims.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Principal.Windows.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.ValueTuple.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XmlDocument.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\itextsharp.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MailKit.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MimeKit.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\PagedList.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Memory.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\WebGrease.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\zxing.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\itextsharp.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MailKit.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MailKit.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MimeKit.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\MimeKit.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\PagedList.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Memory.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\zxing.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\zxing.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.pdb
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+E:\SourceTreeProject\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.rsp
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.rsp
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.AppContext.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Console.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Compression.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.AccessControl.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Claims.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Principal.Windows.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.ValueTuple.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XmlDocument.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\itextsharp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Memory.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\WebGrease.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\itextsharp.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Memory.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+G:\ALP\Alp-Projects\Alp_Mudasir\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.rsp
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.rsp
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.AppContext.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Console.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Compression.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.IO.Pipes.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.AccessControl.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Claims.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Security.Principal.Windows.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.ValueTuple.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XmlDocument.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\itextsharp.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MailKit.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MimeKit.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\PagedList.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Memory.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\WebGrease.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\zxing.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\itextsharp.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MailKit.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MailKit.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MimeKit.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\MimeKit.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\PagedList.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Memory.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\zxing.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\zxing.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.pdb
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+F:\SourceTree\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.rsp
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.rsp
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Buffers.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Memory.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Numerics.Vectors.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\itextsharp.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MailKit.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MimeKit.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\PagedList.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Memory.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\WebGrease.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\zxing.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\itextsharp.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MailKit.pdb
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MailKit.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MimeKit.pdb
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\MimeKit.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\PagedList.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Memory.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.pdb
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\zxing.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.xml
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+G:\Alp_MudasirRehman\A\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.rsp
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.rsp
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Buffers.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Memory.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Numerics.Vectors.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EPPlus.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\itextsharp.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\log4net.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Security.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Owin.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Memory.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\WebGrease.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EPPlus.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\itextsharp.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\log4net.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Security.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Memory.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.xml
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+G:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.rsp
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.rsp
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Buffers.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Memory.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Numerics.Vectors.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EPPlus.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\itextsharp.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\log4net.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Security.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Owin.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Memory.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\WebGrease.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\EPPlus.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\itextsharp.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\log4net.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MailKit.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Security.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\MimeKit.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Memory.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.xml
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+E:\Alp_MudasirRehman\Projects\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\csc.rsp
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\csi.rsp
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Buffers.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Memory.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Numerics.Vectors.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\EPPlus.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\itextsharp.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\log4net.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MailKit.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Security.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MimeKit.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Owin.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\PagedList.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Memory.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\WebGrease.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\zxing.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\EPPlus.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\itextsharp.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\log4net.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MailKit.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MailKit.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Microsoft.Owin.Security.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MimeKit.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\MimeKit.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\PagedList.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Buffers.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Memory.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.ValueTuple.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.Razor.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Unity.Container.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\zxing.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\bin\zxing.presentation.xml
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+E:\Alp_MudasirRehman\Azure\ALPTraders\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csc.exe
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csc.rsp
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csi.exe
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csi.rsp
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Buffers.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Memory.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Numerics.Vectors.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\vbc.exe
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EPPlus.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\itextsharp.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\log4net.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MailKit.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Security.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MimeKit.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Owin.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Buffers.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Memory.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.ValueTuple.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Razor.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Container.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\WebGrease.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.presentation.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EPPlus.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\itextsharp.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\log4net.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MailKit.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MailKit.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Security.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MimeKit.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MimeKit.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Buffers.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Memory.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.ValueTuple.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Razor.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Container.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.presentation.xml
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+E:\Azure_Mudasir Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll.config
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MudasirRehmanAlp.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MudasirRehmanAlp.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csc.exe
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csc.exe.config
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csc.rsp
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csi.exe
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csi.exe.config
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\csi.rsp
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Buffers.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Collections.Immutable.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Memory.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Numerics.Vectors.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Reflection.Metadata.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\vbc.exe
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\vbc.exe.config
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\vbc.rsp
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\roslyn\VBCSCompiler.exe.config
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Antlr3.Runtime.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\BouncyCastle.Crypto.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.SqlServer.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EPPlus.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\itextsharp.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\log4net.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MailKit.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Security.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Web.Infrastructure.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MimeKit.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Newtonsoft.Json.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Owin.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.Mvc.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Buffers.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.ComponentModel.Annotations.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Memory.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Numerics.Vectors.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.ValueTuple.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Helpers.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Mvc.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Optimization.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Razor.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Abstractions.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Container.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\WebGrease.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.presentation.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\BouncyCastle.Crypto.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EntityFramework.SqlServer.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\EPPlus.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\itextsharp.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\log4net.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MailKit.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MailKit.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Hosting.Abstractions.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Options.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Extensions.Primitives.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Microsoft.Owin.Security.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MimeKit.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\MimeKit.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Newtonsoft.Json.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\PagedList.Mvc.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Buffers.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Diagnostics.DiagnosticSource.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Memory.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Numerics.Vectors.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Threading.Tasks.Extensions.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.ValueTuple.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Helpers.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Mvc.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Optimization.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.Razor.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Deployment.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\System.Web.WebPages.Razor.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Abstractions.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Unity.Container.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\Antlr3.Runtime.pdb
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\bin\zxing.presentation.xml
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csprojAssemblyReference.cache
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CoreCompileInputs.cache
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.csproj.CopyComplete
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.dll
+E:\Azure_Mudasir_Rehman\AzureProjects\Traders_Software\MudasirRehmanAlp\obj\Debug\MudasirRehmanAlp.pdb

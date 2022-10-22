@@ -1,0 +1,187 @@
+﻿@model MudasirRehmanAlp.Models.GoodReceived
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<div class="panel">
+    <div class="panel-body">
+
+        <h3 class="mt0">Goods Received Note Code #@Model.GRNNO</h3>
+        <hr />
+        <div class="row mb-lg">
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="pull-left">Organization: </p>
+                        @{
+                            if (Model.OrganizationID != null)
+                            {
+                                <p class="pull-right mr">
+                                    @Model.OrganizationDefinition.OrganizationUnitName
+                                </p>
+                            }
+                        }
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-sm-4 ">
+                <label>Branch Name: </label>
+                <span>
+                    @{ if (Model.BranchId != null)
+                        {
+                            @Model.BranchDefinition.Name
+                        }
+                    }
+                </span>
+            </div>
+            <div class="col-lg-4 col-xs-6 br pv">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="pull-left">GRN Date: </p>
+                        <p class="pull-right mr">
+                            @Model.GRNDate
+                        </p>
+                    </div>
+                    <div class="col-md-10">
+                        <p class="pull-left">GRN Type: </p>
+                        <p class="pull-right mr">
+                            @Model.GRNType
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix hidden-md hidden-lg">
+                <hr />
+            </div>
+            <div class="col-lg-4 col-xs-12 pv">
+                <div class="clearfix">
+                    @{
+                        if (Model.GRNType == "PO")
+                        {
+                            <p class="pull-left">PO NO.</p>
+                            <p class="pull-right mr">
+                                @{
+                                    if (Model.PurchaseOrderID != null)
+                                    {
+                                        @Model.PurchaseOrder.PurchaseOrderNO
+                                    }
+                                }
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="pull-left">Adjustment Note NO.</p>
+                            <p class="pull-right mr">
+                                @{
+                                    if (Model.AdjustmentNoteID != null)
+                                    {
+                                        @Model.AdjustmentNote.AdjustmentNoteNO
+                                    }
+                                }
+                            </p>
+                        }
+                    }
+
+                </div>
+                <div class="clearfix">
+                    <p class="pull-left">Date</p>
+                    @{
+                        if (Model.GRNType == "PO")
+                        {
+                            <p class="pull-right mr">
+                                @{
+                                    if (Model.PurchaseOrderID != null)
+                                    {
+                                        @Model.PurchaseOrder.PurchaseOrderDate
+                                    }
+                                }
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="pull-right mr">
+                                @{
+                                    if (Model.AdjustmentNoteID != null)
+                                    {
+                                        @Model.AdjustmentNote.Date
+                                    }
+                                }
+                            </p>
+                        }
+
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="table-responsive table-bordered mb-lg">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Stock QTY</th>
+                        <th>Order QTY</th>
+                        <th>Already Received QTY</th>
+                        <th>Remaining QTY</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tblBody">
+                    @{
+                        foreach (var item in ViewBag.GoodsReceivedDetailsList as List<MudasirRehmanAlp.Models.GoodReceivedDetail>)
+                        {
+
+                            if (item.GRNType == "PO")
+                            {
+                                <tr>
+                                    <td title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                    <td title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                    <td title="@item.PurchaseOrderDetail.Quantity">@item.PurchaseOrderDetail.Quantity</td>
+                                    <td title="@item.AlreadyReceivedQuantity">@item.AlreadyReceivedQuantity</td>
+                                    <td title="@item.PurchaseOrderDetail.BalanceQuantity">@item.PurchaseOrderDetail.BalanceQuantity</td>
+
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td title="@item.ProductDefinition.ProductName">@item.ProductDefinition.ProductName</td>
+                                    <td title="@item.StockofGoods.Quantity">@item.StockofGoods.Quantity</td>
+                                    <td title="@item.AdjustmentNoteDetail.Quantity">@item.AdjustmentNoteDetail.Quantity</td>
+                                    <td title="@item.AlreadyReceivedQuantity">@item.AlreadyReceivedQuantity</td>
+                                    <td title="@item.AdjustmentNoteDetail.BalanceQuantity">@item.AdjustmentNoteDetail.BalanceQuantity</td>
+
+                                </tr>
+                            }
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="hidden-print" />
+        <div class="clearfix">
+            <a href="@Url.Action("Print", "GoodReceiveds",new {id=Model.GoodReceivedNoteId })" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Print</a>
+
+            <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                <i class="fa fa-download"></i> Generate PDF
+            </button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+
+
+        </div>
+    </div>
+</div>
+
+@section Styles {
+
+}
+@section Scripts {
+
+}

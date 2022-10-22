@@ -1,0 +1,118 @@
+﻿@model MudasirRehmanAlp.Models.Notification
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    MudasirRehmanAlp.AppDAL.CommonFunctionsDAL functionsDAL = new MudasirRehmanAlp.AppDAL.CommonFunctionsDAL();
+    int type = functionsDAL.GetValueOfEnumByName("NotificationType", Model.Type.ToString());
+    int priority = functionsDAL.GetValueOfEnumByName("NotificationPriority", Model.Priority.ToString());
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Notifications</div>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(a => a.Id)
+        @Html.HiddenFor(a => a.GeneralCode)
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Organization Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(Model.OrganizationDefinition.OrganizationUnitName )" id="hiddenOrganizationName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.OrganizationId, new { @id = "hiddenOrganizationID" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Branch Name</label>
+                        <input type="text" class="form-control form-control-rounded" value="@(Model.BranchDefinition.Name )" id="hiddenBranchName" readonly="readonly" />
+                        @Html.HiddenFor(model => model.BranchId, new { @id = "hiddenBranchId" })
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select id="txtNotificationTypeSelect" class="select2Cls form-control NotificationTypeSelect">
+                            @{
+                                if (Model.Type != null)
+                                {
+                                    <option selected="selected" value="@Model.Type.Value">@Model.Type.ToString()</option>
+
+                                }
+                            }
+                        </select>
+                        <input type="hidden" value="@type" name="Type" id="hiddenNotificationType" />
+
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select id="txtNotificationPrioritySelect" class="select2Cls form-control NotificationPrioritySelect">
+                            @{
+                                if (Model.Priority != null)
+                                {
+                                    <option selected="selected" value="@Model.Priority.Value">@Model.Priority.ToString()</option>
+
+                                }
+                            }
+                        </select>
+                        <input type="hidden" value="@priority" name="Priority" id="hiddenNotificationPriority" />
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Title</label>
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control form-control-rounded" } })
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Description</label>
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Update &nbsp;<em class="fa fa-save"></em></button>
+            <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+        showMessage(message, Validation)
+          //---------- Permission Code
+              var rName = 'Notifications';
+              var id = '@Model.Id';
+            PagePermission(rName, id);
+
+            LoadNotificationType(@type);
+            LoadNotificationPriority(@priority);
+            //---------------
+            $(".NotificationTypeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenNotificationType").val(ID);
+            });
+            $(".NotificationPrioritySelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenNotificationPriority").val(ID);
+            });
+    });
+
+    </script>
+}

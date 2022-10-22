@@ -1,0 +1,130 @@
+﻿@model List<MudasirRehmanAlp.Models.StoredPocedureModel.ProcGetUsersBaseMenusRight>
+@{
+    var counter = 0;
+
+}
+
+
+<table class="table table-hover">
+
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+                <tr>
+                    <td>
+                        @item.Description
+                        <input type="hidden" value="@item.MenuID" id="HiddenMenuID_@counter" />
+                    </td>
+                    <td>
+                        @{
+                            if (item.OPCreate == true)
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxCreate_@counter" name="CheckBox" checked="checked" class="clsGridCreate" />
+                                </label>
+                            }
+                            else
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxCreate_@counter" name="CheckBox" class="clsGridCreate" />
+                                </label>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            if (item.OPUpdate == true)
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxEdit_@counter" name="CheckBox" checked="checked" class="clsGridEdit" />
+                                </label>
+                            }
+                            else
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxEdit_@counter" name="CheckBox" class="clsGridEdit" />
+                                </label>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            if (item.OPView == true)
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxView_@counter" name="CheckBox" checked="checked" class="clsGridView" />
+                                </label>
+                            }
+                            else
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxView_@counter" name="CheckBox" class="clsGridView" />
+                                </label>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            if (item.OPDelete == true)
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxDelete_@counter" name="CheckBox" checked class="clsGridDelete" />
+                                </label>
+
+                            }
+                            else
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxDelete_@counter" name="CheckBox" class="clsGridDelete" />
+                                </label>
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            if (item.OPPrint == true)
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxPrint_@counter" name="CheckBox" checked="checked" class="clsGridPrint" />
+                                </label>
+                            }
+                            else
+                            { <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxPrint_@counter" name="CheckBox" class="clsGridPrint" />
+                                </label>
+
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            if (item.OPApproval == true)
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxApproval_@counter" name="CheckBox" checked="checked" class="clsGridApproval" />
+                                </label>
+                            }
+                            else
+                            {
+                                <label class="checkbox checkbox-inline clstdlabelMenu">
+                                    <input type="checkbox" id="chkBoxApproval_@counter" name="CheckBox" class="clsGridApproval" />
+                                </label>
+                            }
+                        }
+
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

@@ -1,0 +1,68 @@
+﻿@model IList<MudasirRehmanAlp.Models.StockofGoods>
+
+@{
+    var counter = 0;
+
+}
+<table class="table table-hover">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StockCode</td>
+                <td>
+                    @{
+                        if (item.OrganizationID != null)
+                        {
+                            @item.OrganizationDefinition.OrganizationUnitName
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.BranchId != null)
+                        {
+                            @item.BranchDefinition.Name
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.ProductID != null && item.ProductDefinition.ManufacturerID != null)
+                        {
+                            @item.ProductDefinition.ManufactureDefinition.ManufactureName
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.ProductID != null && item.ProductDefinition.CategoryID != null)
+                        {
+                            @item.ProductDefinition.CategoryDefinition.CategoryName
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.ProductID != null && item.ProductDefinition.ModelId != null)
+                        {
+                            @item.ProductDefinition.ProductModel.Name
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.ProductID != null)
+                        {
+                            @item.ProductDefinition.ProductBarCode @item.ProductDefinition.ProductName
+                        }
+                    }
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentRowID" />

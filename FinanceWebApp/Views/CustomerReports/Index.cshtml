@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="unwrap">
+    <div class="bg-cover">
+        <div class="container container-md pv-lg">
+            <div class="text-center mb-lg pb-lg">
+                <div class="h1 text-bold">Reports of Customers</div>
+                <p>All Report Comming Soon...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container container-md">
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel b">
+                <div class="panel-body text-center">
+                    <a href="@Url.Action("CustomerLedger","CustomerReports")" class="link-unstyled text-dark">
+                        <em class="fa fa-5x fa-street-view mb-lg"></em>
+                        <br />
+                        <span class="h4">Customer Ledger</span>
+                        <br />
+                        <small class="text-muted">View all &rarr;</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel b">
+                <div class="panel-body text-center">
+                    <a href="@Url.Action("CashReceiptRecovery","CustomerReports")" class="link-unstyled text-primary">
+                        <em class="fa fa-5x fa-credit-card mb-lg"></em>
+                        <br />
+                        <span class="h4">Cash Receipts Recovery</span>
+                        <br />
+                        <small class="text-muted">View all &rarr;</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel b">
+                <div class="panel-body text-center">
+                    <a href="@Url.Action("CustomerPaymentRecovery","CustomerReports")" class="link-unstyled text-success">
+                        <em class="fa fa-5x fa-calendar-check-o mb-lg"></em>
+                        <br />
+                        <span class="h4">Customer Payment Recovery</span>
+                        <br />
+                        <small class="text-muted">View all &rarr;</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel b">
+                <div class="panel-body text-center">
+                    <a href="#" class="link-unstyled text-info">
+                        <em class="fa fa-5x fa-object-group mb-lg"></em>
+                        <br />
+                        <span class="h4">Comming Soon</span>
+                        <br />
+                        <small class="text-muted">View all &rarr;</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel b">
+                <div class="panel-body text-center">
+                    <a href="#" class="link-unstyled text-purple">
+                        <em class="fa fa-5x fa-cubes mb-lg"></em>
+                        <br />
+                        <span class="h4">Comming Soon</span>
+                        <br />
+                        <small class="text-muted">View all &rarr;</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel b">
+                <div class="panel-body text-center">
+                    <a href="#" class="link-unstyled text-warning">
+                        <em class="fa fa-5x fa-diamond mb-lg"></em>
+                        <br />
+                        <span class="h4">Comming Soon</span>
+                        <br />
+                        <small class="text-muted">View all &rarr;</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel b">
+                <div class="panel-body text-center">
+                    <a href="#" class="link-unstyled text-danger">
+                        <em class="fa fa-5x fa-building-o mb-lg"></em>
+                        <br />
+                        <span class="h4">Comming Soon</span>
+                        <br />
+                        <small class="text-muted">View all &rarr;</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/Common")
+    <script>
+        $(document).ready(function () {
+
+        var message = '@(TempData["ErrorMessage"])';
+        var Validation = '@(TempData["Validation"])';
+        showMessage(message, Validation)
+            var rName = "CustomerReports";
+            GridPermission(rName)
+
+
+        });
+
+    </script>
+}
+

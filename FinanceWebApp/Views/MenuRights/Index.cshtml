@@ -1,0 +1,314 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Menu Rights</div>
+    <div class="panel-body">
+        <div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Employee Name</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                        <select id="txtChartOfAccountSelect" class="select2Cls form-control ChartOfEmployeeSelect">
+                            <option selected="selected">Select Employee Name</option>
+                            @{
+                                foreach (var item in ViewBag.ObjectList as List<MudasirRehmanAlp.ModelsView.EmployeeViewModel>)
+                                {
+                                    <option value="@item.UserID">@item.FullName</option>
+                                }
+                            }
+                        </select>
+                        <input type="hidden" id="hiddenUserID" />
+                        <input type="hidden" id="hiddenOrganizationID" value="@(ViewBag.OrganizationID ?? String.Empty)" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label>Role Name</label>
+                <input type="text" class="form-control form-control-rounded" id="txtRoleName" readonly="readonly" />
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Menus Levels</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                        <select id="txtMenusLevelSelect" class="select2Cls form-control MenusLevels">
+                            <option selected="selected">Select Menu Level</option>
+                            <option value="1">Level 1</option>
+                            <option value="2">Level 2</option>
+                            <option value="3">Level 3</option>
+                        </select>
+                        <input type="hidden" id="hiddenlevelvalue" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label>Menu Name</label>
+                <input type="text" class="form-control form-control-rounded" id="txtMenuName" />
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="checkbox c-checkbox">
+            <label>
+                <input type="checkbox" id="selectall" onClick="check_uncheck_checkbox(this.checked);" />
+                <span class="fa fa-check"></span> Select All
+            </label>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="clstheadBgMenu">
+                    <tr>
+                        <th class="clsthMenu">
+                            Menu Name
+                        </th>
+                        <th class="clsthMenu">
+
+
+                            <div class="checkbox c-checkbox ">
+                                <label>
+                                    <input type="checkbox" name="CheckBox" class="clsThCreate" />
+                                    <span class="fa fa-check clsMenuStyle "></span>Create
+                                </label>
+                            </div>
+                        </th>
+                        <th class="clsthMenu">
+
+                            <div class="checkbox c-checkbox">
+                                <label>
+                                    <input type="checkbox" name="CheckBox" class="clsThEdit" />
+                                    <span class="fa fa-check clsMenuStyle"></span>Update
+                                </label>
+                            </div>
+                        </th>
+                        <th class="clsthMenu">
+
+                            <div class="checkbox c-checkbox">
+                                <label>
+                                    <input type="checkbox" name="CheckBox" class="clsThView" />
+                                    <span class="fa fa-check clsMenuStyle"></span>View
+                                </label>
+                            </div>
+                        </th>
+
+                        <th class="clsthMenu">
+
+                            <div class="checkbox c-checkbox">
+                                <label>
+                                    <input type="checkbox" name="CheckBox" class="clsThDelete" />
+                                    <span class="fa fa-check clsMenuStyle"></span>Delete
+                                </label>
+                            </div>
+                        </th>
+                        <th class="clsthMenu">
+
+                            <div class="checkbox c-checkbox">
+                                <label>
+                                    <input type="checkbox" name="CheckBox" class="clsThPrint" />
+                                    <span class="fa fa-check clsMenuStyle"></span>Print
+                                </label>
+                            </div>
+                        </th>
+                        <th class="clsthMenu">
+
+                            <div class="checkbox c-checkbox">
+                                <label>
+                                    <input type="checkbox" name="CheckBox" class="clsThApproval" />
+                                    <span class="fa fa-check clsMenuStyle"></span>Approval
+                                </label>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody" >
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+        <button type="submit" class="btn btn-success" title="Save" id="btnSubmit">Save &nbsp;<em class="fa fa-save"></em></button>
+        <a href="@Url.Action("Index")" title="Back to List" class="btn btn-default">Back to List &nbsp;<em class="fa fa-backward"></em></a>
+    </div>
+</div>
+@section Styles {
+
+    @Styles.Render("~/bundles/datetimePickerCss")
+    @Styles.Render("~/bundles/select2Css")
+    @Styles.Render("~/bundles/autocompleteCss")
+    <style>
+        .table .checkbox {
+            margin-left: 0px !important;
+        }
+    </style>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/moment")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimePicker")
+    @Scripts.Render("~/bundles/demoForms")
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/bundles/autocomplete")
+    @Scripts.Render("~/bundles/filestyle")
+
+    <script>
+
+        $(document).ready(function () {
+            var message = '@(TempData["ErrorMessage"])';
+            var Validation = '@(TempData["Validation"])';
+            showMessage(message, Validation)
+             var rName = "MenuRights";
+            GridPermission(rName)
+
+            //btn save
+            $("#btnSubmit").click(function () {
+                debugger
+                 var formData = new FormData();
+                var ItemCount = $("#currentRowID").val();
+                var MenusArray = new Array();
+                var MenusItem = {};
+                for (var i = 1; i <= ItemCount; i++) {
+
+                    MenusItem = {
+                        OrganizationID: $("#hiddenOrganizationID").val(),
+                        UserId: $("#hiddenUserID").val(),
+                        MenuID: $("#HiddenMenuID_" + i).val(),
+                        OPCreate: $("#chkBoxCreate_" + i).is(':checked'),
+                        OPUpdate: $("#chkBoxEdit_"+ i).is(':checked'),
+                        OPView: $("#chkBoxView_" + i).is(':checked'),
+                        OPDelete: $("#chkBoxDelete_"+ i).is(':checked'),
+                        OPPrint: $("#chkBoxPrint_" + i).is(':checked'),
+                        OPApproval: $("#chkBoxApproval_" + i).is(':checked'),
+                    }
+                    MenusArray.push(MenusItem);
+                }
+                var MenusObj = JSON.stringify(MenusArray);
+                 formData.append("MenuJsonObj", MenusObj);
+                if (MenusArray.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/MenuRights/Create",
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function (url) {
+                            window.location.href = "@Url.Action("Index")";
+                        },
+                        error: function () {
+                             var message = 'Something wrong in this request:Internal Server Error';
+                             var Validation = 'False';
+                             showMessage(message, Validation);
+                        }
+                    });
+
+                }
+                else {
+
+                     var message = 'Something wrong in this request';
+                     var Validation = 'False';
+                     showMessage(message, Validation);
+                }
+            });
+            //check box code
+
+                 $(".clsThCreate").change(function () {
+                $(".clsGridCreate").prop('checked', $(this).prop("checked"));
+                 });
+                $(".clsThView").change(function () {
+                    $(".clsGridView").prop('checked', $(this).prop("checked"));
+                });
+        $(".clsThEdit").change(function () {
+            $(".clsGridEdit").prop('checked', $(this).prop("checked"));
+        });
+        $(".clsThDelete").change(function () {
+            $(".clsGridDelete").prop('checked', $(this).prop("checked"));
+        });
+        $(".clsThPrint").change(function () {
+            $(".clsGridPrint").prop('checked', $(this).prop("checked"));
+        });
+         $(".clsThApproval").change(function () {
+            $(".clsGridApproval").prop('checked', $(this).prop("checked"));
+        });
+
+            //end of check box code
+            $(".ChartOfEmployeeSelect").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenUserID").val(ID);
+                 var menuName = $("#txtMenuName").val();
+                var userId = $("#hiddenUserID").val();
+                var levelId = $("#hiddenlevelvalue").val();
+                 LoadMenus(userId,levelId,menuName);
+                loadUserRoleName(ID);
+            });
+            $(".MenusLevels").change(function () {
+                var Name = $(this).children("option:selected").text();
+                var ID = $(this).children("option:selected").val();
+                $("#hiddenlevelvalue").val(ID);
+
+                 var menuName = $("#txtMenuName").val();
+                var userId = $("#hiddenUserID").val();
+                var levelId = $("#hiddenlevelvalue").val();
+                 LoadMenus(userId,levelId,menuName);
+            });
+            $("#txtMenuName").keyup(function () {
+                var menuName = $("#txtMenuName").val();
+                var userId = $("#hiddenUserID").val();
+                var levelId = $("#hiddenlevelvalue").val();
+                 LoadMenus(userId,levelId,menuName);
+            })
+
+        });
+         function LoadMenus(userId,levelId,menuName) {
+            var url = "/MenuRights/LoadMenuRightsByUserId";
+             $.get(url, { userID: userId,levelID: levelId,menuName: menuName, },
+                function (Data) {
+                    debugger
+                     if (Data != "") {
+                    $("#tblBody").html(Data);
+
+                }
+                else {
+                    $("#tblBody").html('');
+                }
+
+                });
+        }
+        function loadUserRoleName(userId) {
+              var url = "/MenuRights/GetUserRolesByUserID";
+            $.get(url, { ID: userId, },
+                function (Data) {
+                    debugger
+                        $("#txtRoleName").val(Data);
+                });
+        }
+        function check_uncheck_checkbox(isChecked) {
+	            if(isChecked) {
+		            $('input[name="CheckBox"]').each(function() {
+			            this.checked = true;
+		            });
+	            } else {
+		            $('input[name="CheckBox"]').each(function() {
+			            this.checked = false;
+		            });
+	            }
+        }
+
+    </script>
+}

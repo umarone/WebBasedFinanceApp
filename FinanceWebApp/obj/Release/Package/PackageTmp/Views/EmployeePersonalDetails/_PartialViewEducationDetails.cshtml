@@ -1,0 +1,54 @@
+﻿@model List<MudasirRehmanAlp.Models.EmployeeEducationDetails>
+@{
+    var counter = 0;
+    int IsCurrent = 0;
+}
+
+<table class="table table-hover">
+    <tbody id="tblBody">
+        @{
+            foreach (var item in Model)
+            {
+                counter = counter + 1;
+                <tr id="@counter">
+                    <td id="tdInstituteName_@counter">@item.EducationInstitute.Code - @item.EducationInstitute.Name</td>
+                    <td id="tdDegreeName_@counter">@item.EducationDegree.Code - @item.EducationDegree.Name</td>
+                    <td>@item.GPAMarks</td>
+                    <td>@item.StartDate</td>
+                    <td>@item.EndDate</td>
+                    <td>
+                        @{
+                            if (item.IsCurrent == true)
+                            {
+                                IsCurrent = 1;
+                                <span>Checked</span>
+                            }
+                            else
+                            {
+                                IsCurrent = 0;
+                                <span>Un-Checked</span>
+                            }
+                        }
+
+                    </td>
+                    <td>@item.Notes</td>
+
+                    <td>
+                        <input type="hidden" id="tdhiddenRowStatus_@counter" value="1">
+                        <input type="hidden" id="tdhiddenInstituteId_@counter" value="@item.InstituteId">
+                        <input type="hidden" id="tdhiddenDegreeId_@counter" value="@item.DegreeId">
+                        <input type="hidden" id="tdhiddenGPAMarks_@counter" value="@item.GPAMarks">
+                        <input type="hidden" id="tdhiddenStartDate_@counter" value="@item.StartDate">
+                        <input type="hidden" id="tdhiddenEndDate_@counter" value="@item.EndDate">
+                        <input type="hidden" id="tdhiddenIsCurrent_@counter" value="@IsCurrent">
+                        <input type="hidden" id="tdhiddenNotes_@counter" value="@item.Notes">
+                        <input type="hidden" id="tdhiddenEducationId_@counter" value="@item.Id">
+                        <span title="Edit" class="btn btn-primary btn-sm clsbtnEdit"><emc class="fa fa-edit"></emc> </span>
+                        <span title="Delete" class="btn btn-danger btn-sm clsbtnDelete"><emc class="fa fa-remove"></emc></span>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<input type="hidden" value="@counter" id="currentEducationRowID" class="clsCurrentEducationRowID" />
